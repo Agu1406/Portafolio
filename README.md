@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h1>Repositorio de Tercera Evaluación en DAW - Programación en Java</h1>
+    <h1>Repositorio de la Tercera Evaluación en DAW - Programación en Java</h1>
     <h2>Introducción</h2>
     <p>Este repositorio alberga los proyectos y ejercicios correspondientes a la tercera evaluación de mi primer año en el Ciclo Formativo de Grado Superior de Desarrollo de Aplicaciones Web, con un enfoque intensivo en la Programación Orientada a Objetos en Java, el uso de interfaces y la implementación de modificadores de acceso. Este contenido construye sobre una base sólida establecida en los trimestres anteriores, destacando una evolución continua en el aprendizaje de la programación.</p>
     
