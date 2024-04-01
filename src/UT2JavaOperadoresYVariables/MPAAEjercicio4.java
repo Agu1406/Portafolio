@@ -3,6 +3,9 @@ package UT2JavaOperadoresYVariables;
 /**
  * Ejercício N.º4 - Operadores aritméticos. Escribe un programa que genere dos variables
  * numéricas y las sume, reste, multiplique y divida; mostrando los valores por consola.
+ *
+ * @author Agu1406 (Agustín)
+ * @since 06/10/2023
  */
 public class MPAAEjercicio4 {
     public static void main(String[] args) {
