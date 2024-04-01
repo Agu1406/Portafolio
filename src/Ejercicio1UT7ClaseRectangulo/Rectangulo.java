@@ -1,4 +1,4 @@
-package Ejercicio1ClaseRectangulo;
+package Ejercicio1UT7ClaseRectangulo;
 
 class Rectangulo {
 /*
