@@ -105,7 +105,7 @@ public class MPAAEjercicio1 {
          * comillas simples son caracteres y las comillas dobles cadenas de texto, solo pueden contener
          * uno y un solo carácter, no admite desbordamientos. */
         char miCaracter = 'A'; // Ejemplo de un carácter normal, utilizando la letra 'A'.
-        char caracterUniCode = '\u00E9'; // Un carácter escrito directo del código UniCode, es la letra "é".
+        char caracterUniCode = 'é'; // Un carácter escrito directo del código UniCode, es la letra "é".
         char caracterDirecto = 'é';
         System.out.println("Carácter normal: " + miCaracter);
         System.out.println("Carácter unicode: " + caracterUniCode);
