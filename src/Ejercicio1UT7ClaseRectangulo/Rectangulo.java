@@ -1,5 +1,14 @@
 package Ejercicio1UT7ClaseRectangulo;
 
+/**
+ * Ejercício N.º1 del UT7 - Creación de una clase Rectángulo, con su Main, introducción
+ * al mundo del polimorfismo, herencia, abstracción, en este ejercício particularmente
+ * aprendimos bastante sobre los modificadores de acceso y los atributos de las
+ * variables en nuestros programas/clases Java.
+ *
+ * @author Agu1406 (Agustín)
+ * @since 07/03/2024
+ */
 class Rectangulo {
 /*
 * Crear una clase Rectángulo, con:
