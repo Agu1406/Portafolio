@@ -129,13 +129,9 @@ class MPAAEjercicio2UT7 { // Sin modificador "public" para que solo sea accesibl
      * calcular correctamente la superficie del rectángulo independientemente de
      * las posiciones relativas de sus coordenadas.
      *
-     * @param x1 La coordenada X del vértice inferior izquierdo del rectángulo.
-     * @param x2 La coordenada X del vértice superior derecho del rectángulo.
-     * @param y1 La coordenada Y del vértice inferior izquierdo del rectángulo.
-     * @param y2 La coordenada Y del vértice superior derecho del rectángulo.
      * @return La superficie (área) del rectángulo, que es el producto de su altura y anchura.
      */
-    protected int calcularSuperficie(int x1, int x2, int y1, int y2) {
+    protected int calcularSuperficie() {
         int altura, anchura, superficie; // Variables usadas internamente en el método.
         /*
          * Un escenário que se me vino a la mente creando este método es, ¿Qué pasaría
@@ -143,8 +139,8 @@ class MPAAEjercicio2UT7 { // Sin modificador "public" para que solo sea accesibl
          * calcúlar correctamente el ancho y alto del rectángulo? Fue entonces cuando
          * se me enseño la existencia de Math.abs que permite el calcúlo de valores
          * absolutos y me ahorra algunas líneas de código, por lo tanto: */
-        altura = Math.abs(y1 - y2);
-        anchura = Math.abs(x1 - x2);
+        altura = Math.abs(this.y1 - this.y2);
+        anchura = Math.abs(this.x1 - this.x2);
 
         // Luego, la superficie de un rectángulo es su anchura multiplicada por su altúra, por lo tanto:
         superficie = altura * anchura;
@@ -161,13 +157,9 @@ class MPAAEjercicio2UT7 { // Sin modificador "public" para que solo sea accesibl
      * calcular correctamente el perímetro del rectángulo independientemente de
      * las posiciones relativas de sus coordenadas.
      *
-     * @param x1 La coordenada X del vértice inferior izquierdo del rectángulo.
-     * @param x2 La coordenada X del vértice superior derecho del rectángulo.
-     * @param y1 La coordenada Y del vértice inferior izquierdo del rectángulo.
-     * @param y2 La coordenada Y del vértice superior derecho del rectángulo.
      * @return La superficie (área) del rectángulo, que es el producto de su altura y anchura.
      */
-    protected int calcularPerimetro(int x1, int x2, int y1, int y2) {
+    protected int calcularPerimetro() {
         int altura, anchura, perimetro; // Variables usadas internamente en el método.
         /*
          * Para calcular el perímetro de un rectángulo, sabiendo que todos los rectángulos
@@ -177,8 +169,8 @@ class MPAAEjercicio2UT7 { // Sin modificador "public" para que solo sea accesibl
          * un rectángulo con la fórmula: Perimetro = 2 * (altura + anchura) y si
          * reciclamos el método anterior, podemos copiar-pegar la forma de
          * calcúlar la anchura y a altura: */
-        altura = Math.abs(y1 - y2);
-        anchura = Math.abs(x1 - x2);
+        altura = Math.abs(this.y1 - this.y2);
+        anchura = Math.abs(this.x1 - this.x2);
 
         // Ya con los datos internos necesarios, calcúlamos el perímetro ( P = 2 * [A + L] )
         perimetro = 2 * (anchura + altura);
