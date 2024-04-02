@@ -1,4 +1,4 @@
-package Ejercicio2UT7ClaseRectanguloAvanzada;
+package Ejercicio2UT7ClaseRectangulo2Avance;
 
 import java.util.Scanner;
 
