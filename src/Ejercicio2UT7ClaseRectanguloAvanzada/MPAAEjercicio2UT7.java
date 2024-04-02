@@ -3,21 +3,20 @@ package Ejercicio2UT7ClaseRectanguloAvanzada;
 import java.util.Scanner;
 
 /**
- * Ejercício N.º2 del UT7 - Nos adentramos aúm más en la clase "Rectángulo" que para llevar
- * un mejor control de la serie de ejercícios realizados se llama "MPAAEjercicio2UT7", en
- * este ejercício se hace uso de una copia exacta de la anterior Clase "Rectángulo del
- * ejercício N.º1 del UT7 con el añadido de nuevos pasos e implementaciones a realizar
- * en el código, tales como:
- * -
- * ⚫ Método getNombre - permite el acceso al nombre de un rectángulo.
- * ⚫ Método setNombre - permite la modificación del nombre de un rectángulo.
- * ⚫ Método calcularSuperficie - calcula el área encerrada por el rectángulo.
- * ⚫ Método calcularPerímetro - calcula la longitud del perímetro del rectángulo.
- * ⚫ Método desplazar - Mueve la ubicación del rectángulo en el plano en una cantidad
- * X (para el eje X) y otra cantidad Y (para el eje Y). Se sumará X a las coordenadas x1
- * y x2, e Y a las coordenadas y1 e y2. Los parámetros de entrada de este método serán, por
- * lo tanto, "X" e "Y", de tipo double solicitados al usuario por pantalla para que sean utilizados.
- * ⚫ Método obtenerNumRectángulos - Devuelve el número exacto de rectángulos creados hasta el momento.
+ * <h1>Ejercicio N.º2 del UT7 - Clase Rectángulo Avanzada</h1>
+ * Esta clase extiende la funcionalidad de la Clase Rectángulo del Ejercicio N.º1 del UT7,
+ * introduciendo nuevos métodos y capacidades, incluyendo:
+ * <ul>
+ *     <li>Método getNombre - permite el acceso al nombre de un rectángulo.</li>
+ *     <li>Método setNombre - permite la modificación del nombre de un rectángulo.</li>
+ *     <li>Método calcularSuperficie - calcula el área encerrada por el rectángulo.</li>
+ *     <li>Método calcularPerímetro - calcula la longitud del perímetro del rectángulo.</li>
+ *     <li>Método desplazar - Mueve la ubicación del rectángulo en el plano en una cantidad
+ *     X (para el eje X) y otra cantidad Y (para el eje Y). Se sumará X a las coordenadas x1
+ *     y x2, e Y a las coordenadas y1 e y2. Los parámetros de entrada de este método serán, por
+ *     lo tanto, "X" e "Y", de tipo double solicitados al usuario por pantalla para que sean utilizados.</li>
+ *     <li>Método obtenerNumRectángulos - Devuelve el número exacto de rectángulos creados hasta el momento.</li>
+ * </ul>
  *
  * @author Agu1406 (Agustín)
  * @since 08/03/2024
@@ -69,7 +68,7 @@ class MPAAEjercicio2UT7 { // Sin modificador "public" para que solo sea accesibl
      * @param y1     (Int que indica la posición vertical superior izquierda de la figura)
      * @param y2     (Int que indica la posición vertical superior derecha de la figura)
      */
-     MPAAEjercicio2UT7 (String nombre, int x1, int x2, int y1, int y2) {
+    MPAAEjercicio2UT7(String nombre, int x1, int x2, int y1, int y2) {
         this.numeroEstanciaCreada = numRectangulo; // Asigna a la estancia el número que le corresponde por creación.
         double PI = valorDePI; // Asigna a la estancia el valor de PI.
 
@@ -193,15 +192,16 @@ class MPAAEjercicio2UT7 { // Sin modificador "public" para que solo sea accesibl
      * -
      * Este método utiliza una cantidad "x" e "y" deseada de desplazamiento proporcionada por el usuario
      * mediante pantalla y teclado y modifica los atributos de una estancia permitiendo que este
-     * desplazamiento deseado sea añadido a sus coordenadas originales. */
-    protected void desplazarRectangulo () {
+     * desplazamiento deseado sea añadido a sus coordenadas originales.
+     */
+    protected void desplazarRectangulo() {
         Scanner teclado = new Scanner(System.in); // Scanner para la solicitud de datos por teclado.
         double desplazamientoX, desplazamientoY; // Variables usadas a nivel interno en el método.
-     /*
-     * Desplazar una estancia es bastante sencillo, para realizar semejante acción solo necesitamos
-     * preguntar al usuario cuanto desea desplazar dicho rectángulo y sumar a sus coordenadas
-     * actuales dicha cifra, sea positiva o negativa, no afectara las dimensiones y permite
-     * desplazarlo sin mayor complicación, por lo tanto, solicitamos estos datos: */
+        /*
+         * Desplazar una estancia es bastante sencillo, para realizar semejante acción solo necesitamos
+         * preguntar al usuario cuanto desea desplazar dicho rectángulo y sumar a sus coordenadas
+         * actuales dicha cifra, sea positiva o negativa, no afectara las dimensiones y permite
+         * desplazarlo sin mayor complicación, por lo tanto, solicitamos estos datos: */
 
         // Solicito por pantalla y teclado el desplazamiento del eje "x" deseado.
         System.out.println("Introduce el desplazamiento del eje \"x\" deseado: ");
@@ -223,7 +223,7 @@ class MPAAEjercicio2UT7 { // Sin modificador "public" para que solo sea accesibl
      *
      * @return numRectángulo (Int con la cantidad exactas de rectángulos creados hasta el momento)
      */
-    protected int numeroDeRectangulosCreados () {
+    protected int numeroDeRectangulosCreados() {
         return numRectangulo;
     }
 }
