@@ -1,4 +1,4 @@
-package TresEnRaya;
+package Ejercicio6UT7JuegoTresEnRayaGrupal;
 
 public class Turno {
     private int turno;

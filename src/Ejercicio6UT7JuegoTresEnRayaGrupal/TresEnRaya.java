@@ -1,4 +1,4 @@
-package TresEnRaya;
+package Ejercicio6UT7JuegoTresEnRayaGrupal;
 
 public class TresEnRaya {
     private Tablero tablero;

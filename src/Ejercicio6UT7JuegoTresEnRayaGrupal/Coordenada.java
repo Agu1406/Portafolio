@@ -1,4 +1,4 @@
-package TresEnRaya;
+package Ejercicio6UT7JuegoTresEnRayaGrupal;
 
 import java.util.Objects;
 import java.util.Scanner;
