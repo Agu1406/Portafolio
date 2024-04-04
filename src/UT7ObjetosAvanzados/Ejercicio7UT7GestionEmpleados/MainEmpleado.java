@@ -235,4 +235,26 @@ public class MainEmpleado {
             orden++;
         }
     }
+    public static void altaNuevoEmpleado (ArrayList<Empleado> empleados) {
+
+    }
+    public static int deseaContinuar () {
+        int continuar = 0;
+        return continuar;
+    }
+    public static void buscarPorDNI (ArrayList<Empleado> empleados) {
+
+    }
+    public static void buscarPorDepartamento (ArrayList<Empleado> empleados) {
+
+    }
+    public static void buscarPorSueldo (ArrayList<Empleado> empleados) {
+
+    }
+    public static void borrarEmpleado (ArrayList<Empleado> empleados) {
+
+    }
+    public static void subirSueldo (ArrayList<Empleado> empleados) {
+
+    }
 }
