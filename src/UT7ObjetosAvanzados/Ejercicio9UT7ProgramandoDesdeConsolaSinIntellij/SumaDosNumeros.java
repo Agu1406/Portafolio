@@ -1,4 +1,4 @@
-package Ejercicio9UT7ProgramandoDesdeConsolaSinIntellij;
+package UT7ObjetosAvanzados.Ejercicio9UT7ProgramandoDesdeConsolaSinIntellij;
 
 public class SumaDosNumeros {
 public static void main (String[] args) {

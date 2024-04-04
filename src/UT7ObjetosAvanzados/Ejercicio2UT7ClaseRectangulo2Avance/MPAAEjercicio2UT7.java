@@ -1,27 +1,55 @@
-package Ejercicio3UT7ClaseRectangulo3Avance;
+package UT7ObjetosAvanzados.Ejercicio2UT7ClaseRectangulo2Avance;
 
 import java.util.Scanner;
 
 /**
- * <h1>Ejercicio N.º3 del UT7 - Clase Rectángulo Avanzada - Parte 2</h1>
- * Esta clase extiende la funcionalidad de la Clase Rectángulo de los ejercicios N.º1 y
- * N.º2 del UT7, en este ejercício se buscan los siguientes objetivos:
+ * <h1>Ejercicio N.º2 del UT7 - Clase Rectángulo Avanzada</h1>
+ * Esta clase extiende la funcionalidad de la Clase Rectángulo del Ejercicio N.º1 del UT7,
+ * introduciendo nuevos métodos y capacidades, incluyendo:
  * <ul>
- *     <li>Un constructor sin parámetros, que haga que los valores
- * iniciales de las esquinas del rectángulo sean (0,0) y (1,1);</li>
- *     <li>Un constructor con cuatro parámetros: x1, y1, x2, y2, que
- * rellene los valores iniciales de los atributos del rectángulo con
- * los valores proporcionados a través de los parámetros.</li>
- *     <li>Un constructor con dos parámetros, base y altura, que cree
- * un rectángulo donde el vértice inferior derecho esté ubicado
- * en la posición (0,0) y que tenga una base y una altura tal y
- * como indican los dos parámetros proporcionados.</li>
+ *     <li>Método getNombre - permite el acceso al nombre de un rectángulo.</li>
+ *     <li>Método setNombre - permite la modificación del nombre de un rectángulo.</li>
+ *     <li>Método calcularSuperficie - calcula el área encerrada por el rectángulo.</li>
+ *     <li>Método calcularPerímetro - calcula la longitud del perímetro del rectángulo.</li>
+ *     <li>Método desplazar - Mueve la ubicación del rectángulo en el plano en una cantidad
+ *     X (para el eje X) y otra cantidad Y (para el eje Y). Se sumará X a las coordenadas x1
+ *     y x2, e Y a las coordenadas y1 e y2. Los parámetros de entrada de este método serán, por
+ *     lo tanto, "X" e "Y", de tipo double solicitados al usuario por pantalla para que sean utilizados.</li>
+ *     <li>Método obtenerNumRectángulos - Devuelve el número exacto de rectángulos creados hasta el momento.</li>
  * </ul>
  *
  * @author Agu1406 (Agustín)
- * @since 09/03/2024
+ * @since 08/03/2024
  */
-class MPAAEjercicio3UT7 { // Sin modificador "public" para que solo sea accesible desde el paquete
+class MPAAEjercicio2UT7 { // Sin modificador "public" para que solo sea accesible desde el paquete
+    /*
+     * En el primer ejercicio creamos los siguientes atributos utilizando y siguiendo las pautas
+     * expuestas por el profesor es nuestra introducción a la Unidad Teórica 7 de programación en Java:
+     *
+     * ⚫ Atributos x1, y1 que almacenan el vértice inferior izdo.
+     * ⚫ Atributos x2, y2 que almacenan el vértice superior dcho.
+     * ⚫ Atributo nombre - Almacena el nombre que se le quiera dar a cada rectángulo.
+     * ⚫ Atributo nombreFigura - Almacena el nombre de la clase, es decir, "Rectángulo".
+     * ⚫ Atributo numRectángulos - Almacena el número de objetos de tipo rectángulo creados.
+     * ⚫ Atributo PI - Contiene el valor de PI con una precisión de cuatro cifras decimales.
+     *
+     * Especificaciones: No se desea que los atributos nombre y numRectángulos puedan ser visibles desde
+     * fuera de la clase. Y además se desea que la clase sea accesible solamente desde su propio paquete.
+     * -------------------------------------------------------------------------------------------------
+     * En la segunda parte del ejercício, se nos asignó la misión de añadir los siguientes metodos a la
+     * clase "rectángulo" previamente creada siguiendo el mismo tipo de pauta y especificaciones:
+     *
+     * ⚫ Método getNombre - permite el acceso al nombre de un rectángulo.
+     * ⚫ Método setNombre - permite la modificación del nombre de un rectángulo.
+     * ⚫ Método calcularSuperficie - calcula el área encerrada por el rectángulo.
+     * ⚫ Método calcularPerímetro - calcula la longitud del perímetro del rectángulo.
+     * ⚫ Método desplazar - Mueve la ubicación del rectángulo en el plano en una cantidad
+     * X (para el eje X) y otra cantidad Y (para el eje Y). Se sumará X a las coordenadas x1
+     * y x2, e Y a las coordenadas y1 e y2. Los parámetros de entrada de este método serán, por
+     * lo tanto, "X" e "Y", de tipo double solicitados al usuario por pantalla para que sean utilizados.
+     * ⚫ Método obtenerNumRectángulos - Devuelve el número exacto de rectángulos creados hasta el momento.
+     *
+     * */
     private static final String nombreFigura = "Rectángulo"; // Nombre genérico que tienen todos los rectángulos.
     private static final double valorDePI = 3.1416; // Valor final, estático y real del número PI.
     private static int numRectangulo = 0; // Cantidad de rectángulos creados hasta el momento.
@@ -30,19 +58,17 @@ class MPAAEjercicio3UT7 { // Sin modificador "public" para que solo sea accesibl
     private int numeroEstanciaCreada; // Número de creación único de cada estancia.
 
     /**
-     * <h2>Este constructor corresponde al apartado N.º2 del tercer ejercicio.</h2>
-     * <p>
      * Constructor de la clase "Rectángulo" que permite estanciar /crear rectángulos con valores
      * personalizados al mismo tiempo que comparten valores estáticos tales como el nombre
      * genérico "Rectángulo" o el valor con los primeros cuatro decimales del número PI.
-     *</p>
+     *
      * @param nombre (String que recibe el constructor y es el nombre personalizado de la figura)
      * @param x1     (Int que indica la posición horizontal inferior izquierda de la figura)
      * @param x2     (Int que indica la posición horizontal inferior derecha de la figura)
      * @param y1     (Int que indica la posición vertical superior izquierda de la figura)
      * @param y2     (Int que indica la posición vertical superior derecha de la figura)
      */
-    MPAAEjercicio3UT7(String nombre, int x1, int x2, int y1, int y2) {
+    MPAAEjercicio2UT7(String nombre, int x1, int x2, int y1, int y2) {
         this.numeroEstanciaCreada = numRectangulo; // Asigna a la estancia el número que le corresponde por creación.
         double PI = valorDePI; // Asigna a la estancia el valor de PI.
 
@@ -56,43 +82,6 @@ class MPAAEjercicio3UT7 { // Sin modificador "public" para que solo sea accesibl
         numRectangulo++;
     }
 
-    /**
-     * <h2>Este constructor corresponde al apartado N.º1 del tercer ejercicio.</h2>
-     * <p>Constructor sin parametros que estable por defecto los valores del
-     * rectángulo en (0,0) y (1,1), también el nombre por defecto del
-     * rectángulo y le asgina su número de estancia creada y el valor
-     * de PI.</p>
-     */
-    MPAAEjercicio3UT7 () {
-        this.x1 = 0; // Valores por defecto del constructor.
-        this.x2 = 1; // Valores por defecto del constructor.
-        this.y1 = 0; // Valores por defecto del constructor.
-        this.y2 = 1; // Valores por defecto del constructor.
-
-        double PI = valorDePI; // Valor final a cuatro decimales del número PI.
-        numeroEstanciaCreada = numRectangulo; // Número de creación de la estancia.
-        this.nombre = "Rectángulo N.º" + numRectangulo; // Nombre "default" del rectángulo.
-        numRectangulo++; // Incrementa la variable para llevar registro de las estancias creadas.
-    }
-    /**
-     * <h2>Este constructor corresponde al apartado N.º3 del tercer ejercicio.</h2>
-     * <p>Constructor cuyos parámetros son "altura" y "base", crea una nueva
-     * estancia, donde dibuja desde 0 hasta el valor ingresad al constructor
-     * , el resto de valores como el nombre del rectángulo, su número de
-     * estancia creada y el valor de PI son asignados automáticamente.</p>
-     */
-    MPAAEjercicio3UT7(int base, int altura) {
-        this.x1 = 0; // Establece su primera "X" coordenada en 0;
-        this.x2 = base; // partiendo desde 0, "dibuja" el rectángulo.
-        this.y1 = 0; // Establece su primera "Y" coordenada en 0;
-        this.y2 = altura; // partiendo desde 0, "dibuja" el rectángulo.
-
-
-        double PI = valorDePI; // Valor final a cuatro decimales del número PI.
-        numeroEstanciaCreada = numRectangulo; // Número de creación de la estancia.
-        this.nombre = "Rectángulo N.º" + numRectangulo; // Nombre "default" del rectángulo.
-        numRectangulo++; // Incrementa la variable para llevar registro de las estancias creadas.
-    }
     /**
      * Método toString personalizado que me permite visualizar la información de una estancia
      * Rectángulo en un formato de fácil comprensión.

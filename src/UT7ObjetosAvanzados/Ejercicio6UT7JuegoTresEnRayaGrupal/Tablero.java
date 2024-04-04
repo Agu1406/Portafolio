@@ -1,4 +1,4 @@
-package Ejercicio6UT7JuegoTresEnRayaGrupal;
+package UT7ObjetosAvanzados.Ejercicio6UT7JuegoTresEnRayaGrupal;
 
 public class Tablero {
     private char[][] tablero;

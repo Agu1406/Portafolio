@@ -1,4 +1,4 @@
-package Ejercicio1UT7ClaseRectangulo;
+package UT7ObjetosAvanzados.Ejercicio1UT7ClaseRectangulo;
 
 /**
  * Ejercício N.º1 del UT7 - Creación de una clase Rectángulo, con su Main, introducción

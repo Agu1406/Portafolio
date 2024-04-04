@@ -1,4 +1,4 @@
-package Ejercicio6UT7JuegoTresEnRayaGrupal;
+package UT7ObjetosAvanzados.Ejercicio6UT7JuegoTresEnRayaGrupal;
 
 import java.util.Objects;
 import java.util.Scanner;
