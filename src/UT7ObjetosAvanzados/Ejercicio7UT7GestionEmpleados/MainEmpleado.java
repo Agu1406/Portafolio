@@ -498,8 +498,23 @@ public class MainEmpleado {
                     "que no se puede borrar ese empleado.");
         }
     }
-
-
+    /**
+     * <h2 style="text-align: center">Método N.º10 - Subir Sueldo de un Empleado</h2>
+     * <br>
+     * <p style="text-align: justify">Este método permite aumentar el sueldo de un empleado específico, identificado por su DNI, en un porcentaje indicado por el usuario. Si el empleado con el DNI proporcionado existe en la lista, su sueldo se actualizará según el porcentaje de aumento. El método muestra el sueldo del empleado antes y después del aumento para proporcionar un feedback claro al usuario. Si no se encuentra un empleado con el DNI especificado, se notificará al usuario.</p>
+     * <br>
+     * @param empleados La lista de empleados donde se realizará la búsqueda y actualización del sueldo.
+     * <br>
+     * <h3 style="text-align: center">Ejemplo de uso:</h3>
+     * <br>
+     * <code>subirSueldo(listaEmpleados);</code>
+     * <p style="text-align: justify">Este método interactúa directamente con el usuario pidiendo el DNI del empleado a modificar y el porcentaje de aumento. Luego procede a buscar el empleado en la lista y, si lo encuentra, aplica el aumento de sueldo indicado.</p>
+     * <br>
+     * <p style="text-align: justify"><b>Nota:</b> Es fundamental que el DNI proporcionado por el usuario exista en la lista de empleados para que el método funcione correctamente. De lo contrario, el sistema informará que no se ha encontrado ningún empleado con dicho DNI.</p>
+     *
+     * @author Agu1406 (Agustín)
+     * @since 04/04/2024
+     */
     public static void subirSueldo(ArrayList<Empleado> empleados) {
         Scanner teclado = new Scanner(System.in); // instancia "Scanner" para recoger datos.
         boolean encontrado = false; // Booleano que dice si encontró alguien con ese DNI.
