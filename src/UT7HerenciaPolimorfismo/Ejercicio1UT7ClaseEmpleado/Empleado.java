@@ -23,6 +23,9 @@ public class Empleado {
     private final String nombre;
     private int sueldo;
 
+    private static int empleadosCreados = 0;
+    private int numeroEmpleado;
+
     /**
      * <h2 style="text-align: center">Constructor de Empleado</h2>
      * <br>
@@ -38,6 +41,8 @@ public class Empleado {
     public Empleado(String nombre, int sueldo) {
         this.nombre = nombre;
         this.sueldo = sueldo;
+        this.numeroEmpleado = empleadosCreados;
+        empleadosCreados++;
     }
 
     /**
