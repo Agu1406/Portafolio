@@ -30,6 +30,7 @@ import java.util.Scanner;
  *      <li>borrarEmpleado - Permite borrar un empleado del ArrayList y por lo tanto "darlo de baja".</li>
  *      <li>subirSueldo - Permite aumentar el sueldo de un empleado un "x" porcentaje deseado por el usuario.</li>
  * </ul>
+ *
  * @author Agu1406 (Agustín)
  * @version 1.0
  * @since 31/01/2024
@@ -78,16 +79,22 @@ public class MainEmpleado {
                     mostrarEmpleados(empleados);
                     break;
                 case 2:
+                    altaNuevoEmpleado(empleados);
                     break;
                 case 3:
+                    buscarPorDNI(empleados);
                     break;
                 case 4:
+                    buscarPorDepartamento(empleados);
                     break;
                 case 5:
+                    borrarEmpleado(empleados);
                     break;
                 case 6:
+                    buscarPorSueldo(empleados);
                     break;
                 case 7:
+                    subirSueldo(empleados);
                     break;
                 case 8:
                     System.out.println("¡Hasta luego! Gracias por usar nuestro programa.");
@@ -98,6 +105,7 @@ public class MainEmpleado {
             }
         } while (opcionMenu != 8);
     }
+
     /**
      * <h2 style="text-align: center">Método N.º1 - Separa, ordena y carga los datos iniciales del
      * programa.</h2>
@@ -140,6 +148,7 @@ public class MainEmpleado {
             empleados.add(nuevoEmpleado);
         }
     }
+
     /**
      * <h2 style="text-align: center">Método N.º2 - Sin información.</h2>
      * <br>
@@ -152,7 +161,7 @@ public class MainEmpleado {
      * @since 31/01/2024
      */
     @Deprecated
-    public static void inicialMayuscula () {
+    public static void inicialMayuscula() {
 
     }
 
@@ -176,6 +185,7 @@ public class MainEmpleado {
         System.out.println("7- Subir el sueldo del empleado");
         System.out.println("8- Salir del programa.");
     }
+
     /**
      * <h2 style="text-align: center">Método N.º4 - Permite introducir por teclado la opción del menu
      * que deseamos ejecutar.</h2>
@@ -187,7 +197,7 @@ public class MainEmpleado {
      * @author Agu1406 (Agustín)
      * @since 31/01/2024
      */
-    public static int pedirOperacionMenu () {
+    public static int pedirOperacionMenu() {
         Scanner teclado = new Scanner(System.in); // Escáner para introducir la opción por teclado.
         int opcionMenu = 0; // Variable que determina que método/opción ejecutamos.
 
@@ -197,7 +207,7 @@ public class MainEmpleado {
                 // Permite introducir la opción por teclado.
                 opcionMenu = teclado.nextInt();
                 if (opcionMenu < 1 || opcionMenu > 8) {
-                    System.out.println("¡Lo siento! Has introducido: "+opcionMenu+" y las opciones" +
+                    System.out.println("¡Lo siento! Has introducido: " + opcionMenu + " y las opciones" +
                             "validas van del 1 al 8, ni más, ni menos, intentalo de nuevo.");
                 }
             } catch (InputMismatchException e) {
@@ -209,6 +219,7 @@ public class MainEmpleado {
         // Devuelve una opción de menu valida.
         return opcionMenu;
     }
+
     /**
      * <h2 style="text-align: center">Método N.º5 - imprime la información reducida de todos
      * los empleados.</h2>
@@ -235,26 +246,294 @@ public class MainEmpleado {
             orden++;
         }
     }
-    public static void altaNuevoEmpleado (ArrayList<Empleado> empleados) {
 
-    }
-    public static int deseaContinuar () {
-        int continuar = 0;
-        return continuar;
-    }
-    public static void buscarPorDNI (ArrayList<Empleado> empleados) {
+    /**
+     * <h2 style="text-align: center">Método N.º6 - Dar de alta a un nuevo empleado.</h2>
+     * <br>
+     * <p style="text-align: justify">Este método permite añadir un nuevo empleado al
+     * ArrayList de empleados. Antes de añadir a un nuevo empleado, verifica que el DNI
+     * proporcionado no exista ya entre los empleados registrados. En caso de que el DNI
+     * ya esté asociado a un empleado existente, se notifica al usuario y se le pide que
+     * introduzca un DNI diferente. Este proceso se repite hasta que se ingrese un DNI único.
+     * Una vez validado el DNI, se solicita al usuario que ingrese el resto de la información
+     * necesaria para crear el nuevo empleado (nombre, apellido, departamento, sueldo), la cual
+     * se utiliza para instanciar un nuevo objeto {@link Empleado} y añadirlo al ArrayList.</p>
+     *
+     * @param empleados ArrayList que contiene todos los empleados actuales. Este parámetro es
+     *                  modificado por el método al añadir el nuevo empleado.
+     */
+    public static void altaNuevoEmpleado(ArrayList<Empleado> empleados) {
+        // Creamos una instancia de Scanner para introducción de datos.
+        Scanner teclado = new Scanner(System.in);
+        // Creamos todas las variables que requieren nuestro constructor.
+        String DNI, nombre, apellido, departamento;
+        // El sueldo es el único de los atributos que no es un String.
+        float sueldo = 0f;
+        // Booleano que verifica si el DNI ya existe o no en el ArrayList
+        boolean existeDNI = true, sueldoValido = false;
 
-    }
-    public static void buscarPorDepartamento (ArrayList<Empleado> empleados) {
+        /* Algo que debo tomar en cuenta es que podrían intentar dar de alta a
+         * un empleado ya existente en el programa / aplicación, para controlar
+         * esto puedo crear una instancia temporal falsa que revise una por una
+         * todas las instancias del ArrayList y copie sus atributos, lo que me
+         * permite usar el getDNI de la clase empleado para comparar el DNI en
+         * el empleado temporal con el que ingresa el usuario, esto mediante
+         * el equals, si ocurre que encuentra alguna concordancia es que ese
+         * empleado ya existe y avisa del error y no continúa solicitando los
+         * datos, pero si no existe ningún empleado con ese DNI entonces el
+         * método sigue adelante y solicita el resto de los datos/atributos.*/
+        System.out.println("¡Vamos a dar de alta al empleado!");
 
-    }
-    public static void buscarPorSueldo (ArrayList<Empleado> empleados) {
+        // Bucle do-while que pide un DNI hasta que se verifique que no existe dentro del ArrayList.
+        do {
+            // Solicitamos el DNI por pantalla y teclado.
+            System.out.print("Introduce el DNI: ");
+            DNI = teclado.nextLine();
+            System.out.println(" ");
+            /* Bucle for que revisa una por una todas las instancias del ArrayList de
+             * empleados, en cada vuelta hace un espejo de la instancia a la que está
+             * apuntando, perfecto para poder compararlo por ejemplo con el método
+             * "equals" con un DNI proporcionado por el usuario y así verificar si
+             * ya existe una instancia de "Empleado" con el mismo DNI o no.*/
+            for (Empleado empleadoEspejo : empleados) {
+                // Si consigue el DNI en cualquier instancia del ArrayList, avisa de que ya existe.
+                if (empleadoEspejo.getDNI().equals(DNI)) {
+                    System.out.println("¡Lo siento! Ese DNI ya existe, no" +
+                            "es posible darle de alta, intentalo de nuevo" +
+                            "con un DNI no existente en el programa.");
+                } else {
+                    // Si no encuentra el DNI en el Array, para el bucle y continua el proceso de alta.
+                    existeDNI = false;
+                }
+            } // Al llegar aquí ya ha recorrido el ArrayList en su totalidad.
+        } while (existeDNI); // Al llegar aquí, dependiendo del booleano, repite o finaliza.
 
-    }
-    public static void borrarEmpleado (ArrayList<Empleado> empleados) {
+        // Solicitamos el Nombre por pantalla y teclado.
+        System.out.print("Introduce el Nombre: ");
+        nombre = teclado.nextLine();
+        System.out.println(" ");
 
-    }
-    public static void subirSueldo (ArrayList<Empleado> empleados) {
+        // Solicitamos el Apellido por pantalla y teclado.
+        System.out.print("Introduce el Apellido: ");
+        apellido = teclado.nextLine();
+        System.out.println(" ");
 
+        // Solicitamos el Departamento por pantalla y teclado.
+        System.out.print("Introduce el Departamento: ");
+        departamento = teclado.nextLine();
+        System.out.println(" ");
+
+        /* Como el sueldo es un número y puede dar lugar a errores, hacemos un bucle do-while
+        con try-catch para solicitar sueldo. */
+        do {
+            try {
+                // Solicitamos el Sueldo por pantalla y teclado.
+                System.out.print("Introduce el Sueldo: ");
+                sueldo = teclado.nextFloat();
+                System.out.println(" "); // Espacio adicional para la legibilidad.
+                sueldoValido = true; // Si se llega a este punto, el sueldo es válido.
+            } catch (InputMismatchException e) {
+                System.out.println("¡Error! Debes introducir un número válido para el sueldo.");
+                teclado.next(); // Limpiamos el buffer del scanner.
+            }
+        } while (!sueldoValido);
+
+        // Con todos los datos válidos y correctos, creo una nueva instancia de "Empleado".
+        Empleado nuevoEmpleado = new Empleado(DNI, nombre, apellido, departamento, sueldo);
+        // Creada la instancia la agrego al ArrayList / lista de empleados existentes.
+        empleados.add(nuevoEmpleado);
+    }
+
+    @Deprecated
+    public static void deseaContinuar() {
+    // En teoría debería ser del tipo "int" con un return.
+    }
+
+    /**
+     * <h2 style="text-align: center">Método N.º6 - Buscar empleado por DNI.</h2>
+     * <br>
+     * <p style="text-align: justify">
+     * Este método busca en la lista de empleados a aquel que tenga el DNI especificado
+     * por el usuario. Si el empleado existe, muestra su información; de lo contrario,
+     * notifica que no se encontró ningún empleado con ese DNI.
+     * </p>
+     *
+     * @param empleados La lista de empleados donde se realizará la búsqueda.
+     * @author Agu1406 (Agustín)
+     * @since 04/04/2024
+     */
+    public static void buscarPorDNI(ArrayList<Empleado> empleados) {
+        Scanner teclado = new Scanner(System.in); // instancia de "Scanner" para introducir el DNI.
+        boolean encontrado = false; // Boolean para indicar si se ha encontrado el empleado o no (no existe).
+
+        // Solicita por pantalla y por teclado el DNI del empleado que desean buscar.
+        System.out.println("Introduce el DNI del empleado que deseas buscar: ");
+        String DNI = teclado.nextLine(); //
+
+        for (Empleado empleado : empleados) {
+            if (empleado.getDNI().equals(DNI)) {
+                System.out.println("Empleado encontrado: " + empleado);
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("No se encontró un empleado con el DNI proporcionado.");
+        }
+    }
+
+    /**
+     * <h2 style="text-align: center">Método N.º7 - Buscar empleados por departamento.</h2>
+     * <br>
+     * <p style="text-align: justify">
+     * Este método busca y muestra todos los empleados pertenecientes a un departamento específico.
+     * Solicita al usuario el nombre del departamento y luego recorre la lista de empleados,
+     * mostrando aquellos cuyo departamento coincide con el ingresado. Si no encuentra empleados
+     * en ese departamento, notifica que no hay empleados en el departamento especificado.
+     * </p>
+     *
+     * @param empleados La lista de empleados donde se realizará la búsqueda.
+     * @author Agu1406 (Agustín)
+     * @since 04/04/2024
+     */
+    public static void buscarPorDepartamento(ArrayList<Empleado> empleados) {
+        Scanner teclado = new Scanner(System.in); // Crear instancia de Scanner para entrada de datos.
+        boolean encontrado = false; // Booleano para verificar si se encontraron empleados en el departamento.
+
+        // Solicita por pantalla el nombre del departamento y se introduce por teclado.
+        System.out.print("Por favor, introduce el nombre del departamento a buscar: ");
+        String departamentoBuscado = teclado.nextLine();
+
+        // Bucle for que recorre el ArrayList por completo buscando todos los empleados en ese departamento.
+        for (Empleado empleado : empleados) {
+            // Si existe un empleado cuyo atributo departamento concuerde con el de búsqueda, lo imprime.
+            if (empleado.getDepartamento().equals(departamentoBuscado)) {
+                System.out.println(empleado); // Muestra información del empleado encontrado.
+                encontrado = true; // Marca que se ha encontrado al menos un empleado en el departamento.
+            }
+        }
+        // Vale con que encuentre 1 solo empleado en el departamento que se busca para que este if no ocurra.
+        if (!encontrado) {
+            // Notifica al usuario si no se encontraron empleados en el departamento especificado.
+            System.out.println("No se encontraron empleados en el departamento " + departamentoBuscado + ".");
+        }
+    }
+
+    /**
+     * <h2 style="text-align: center">Método N.º8 - Buscar empleados por rango de sueldo.</h2>
+     * <br>
+     * <p style="text-align: justify">
+     * Este método permite al usuario buscar empleados cuyo sueldo esté dentro de un rango específico,
+     * introducido por el mismo usuario. Solicita al usuario que ingrese el sueldo mínimo y máximo
+     * del rango de búsqueda y muestra la información de los empleados cuyo sueldo se encuentre
+     * dentro de dicho rango. Si no se encuentran empleados dentro del rango, informa al usuario.
+     * </p>
+     *
+     * @param empleados La lista de empleados donde se realizará la búsqueda.
+     * @author Agu1406 (Agustín)
+     * @since 04/04/2024
+     */
+    public static void buscarPorSueldo(ArrayList<Empleado> empleados) {
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("Introduce el sueldo mínimo a buscar: ");
+        float sueldoMin = teclado.nextFloat(); // Lee el sueldo mínimo del rango.
+        System.out.print("Introduce el sueldo máximo a buscar: ");
+        float sueldoMax = teclado.nextFloat(); // Lee el sueldo máximo del rango.
+        boolean encontrado = false; // Para verificar si se encuentran empleados dentro del rango.
+
+        for (Empleado empleado : empleados) {
+            // Verifica si existe algún empleado dentro del sueldo definido por el usuario.
+            if (empleado.getSueldo() >= sueldoMin && empleado.getSueldo() <= sueldoMax) {
+                System.out.println(empleado); // Muestra información del empleado que cumple con el rango.
+                encontrado = true;
+            }
+        }
+        // Vale con que encuentre 1 solo empleado en el rango de sueldo que se busca para que este if no ocurra.
+        if (!encontrado) {
+            // Notifica al usuario si no se encontraron empleados dentro del rango especificado.
+            System.out.println("No se encontraron empleados con sueldos entre " + sueldoMin + " y " + sueldoMax + ".");
+        }
+    }
+
+    /**
+     * <h2 style="text-align: center">Método N.º9 - Borrar empleado por DNI.</h2>
+     * <br>
+     * <p style="text-align: justify">
+     * Este método permite al usuario eliminar un empleado específico del sistema utilizando su DNI
+     * como identificador único. Solicita al usuario que ingrese el DNI del empleado a eliminar y,
+     * si se encuentra en la lista de empleados, lo elimina. Si no se encuentra el empleado con el
+     * DNI especificado, notifica al usuario que no se puede realizar la eliminación.
+     * </p>
+     *
+     * @param empleados La lista de empleados de donde se eliminará el empleado especificado.
+     * @author Agu1406 (Agustín)
+     * @since 04/04/2024
+     */
+    public static void borrarEmpleado(ArrayList<Empleado> empleados) {
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("Introduce el DNI del empleado a eliminar: ");
+        String dniABorrar = teclado.nextLine();
+        boolean encontrado = false;
+
+        /* Tuve que cambiar a un for-i para poder abordar mejor el problema, recorre el
+         * ArrayList "empleado" por completo, va revisando cada instancia dentro del mismo
+         * una por una, extrayendo de cada una el DNI y comparándolo con el DNI que ha
+         * introducido el usuario, si concuerdan, procede a borrar la instancia en la
+         * posición de "i" del ArrayList y avisa por pantalla / mensaje que ha sido
+         * eliminado. */
+        for (int i = 0; i < empleados.size(); i++) {
+            if (empleados.get(i).getDNI().equals(dniABorrar)) {
+                empleados.remove(i); // Elimina el empleado que coincide con el DNI.
+                i--; /* Si elimina un objeto ArrayList, vuelve a la posición anterior para manejar
+                la reducción en el tamaño del ArrayList y que no se salte posiciones, en este
+                ejercicio no parece afectar en nada, pero es buena práctica dejarlo.*/
+                System.out.println("Empleado con DNI " + dniABorrar + " ha sido eliminado.");
+                encontrado = true;
+            }
+        }
+        // Solo llegará a ejecutar este "if" si el booleano no cambia de valor porque no encuentra ese "empleado".
+        if (!encontrado) {
+            // Si después de buscar en toda la lista no se encuentra el DNI, notifica al usuario.
+            System.out.println("No se encontró un empleado con el DNI " + dniABorrar + ", por lo" +
+                    "que no se puede borrar ese empleado.");
+        }
+    }
+
+
+    public static void subirSueldo(ArrayList<Empleado> empleados) {
+        Scanner teclado = new Scanner(System.in); // instancia "Scanner" para recoger datos.
+        boolean encontrado = false; // Booleano que dice si encontró alguien con ese DNI.
+
+        // Solicita por pantalla y por teclado el DNI del empleado al que desea subir el sueldo.
+        System.out.print("Introduce el DNI del empleado al que desea subir el sueldo: ");
+        String dniEmpleado = teclado.nextLine();
+
+        // Solicita por pantalla y por teclado el porcentaje de aumento de sueldo que desea.
+        System.out.print("Introduce el porcentaje de aumento: ");
+        float porcentajeAumento = teclado.nextFloat();
+
+        /* El bucle recorre toda la lista de empleados, si encuentra alguno cuyo DNI
+         * concuerde, sube su sueldo.*/
+        for (Empleado empleado : empleados) {
+            // Si encuentra el empleado con ese DNI, llama al método subirSalario de la clase "Empleado".
+            if (empleado.getDNI().equals(dniEmpleado)) {
+                // Imprime por pantalla el sueldo del empleado antes del incremento.
+                System.out.println("El sueldo del empleado con DNI " + dniEmpleado + " antes era: " + empleado.getSueldo());
+                empleado.subirSalario(porcentajeAumento);
+
+                // Avisa por pantalla que el sueldo de ese empleado ha sido incrementado.
+                System.out.println("El sueldo del empleado con DNI " + dniEmpleado + " ha sido actualizado.");
+
+                // Imprime por pantalla el sueldo del empleado después del incremento.
+                System.out.println("El sueldo del empleado con DNI " + dniEmpleado + " ahora es: " + empleado.getSueldo());
+
+                // Booleano que indica que ese empleado si existe y fue encontrado.
+                encontrado = true;
+            }
+        }
+        // Solo llegará a ejecutar este "if" si el booleano no cambia de valor porque no encuentra ese "empleado".
+        if (!encontrado) {
+            System.out.println("No se encontró un empleado con el DNI " + dniEmpleado + ".");
+        }
     }
 }

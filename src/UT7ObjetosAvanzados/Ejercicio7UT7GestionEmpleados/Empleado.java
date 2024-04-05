@@ -83,6 +83,43 @@ public class Empleado {
     }
 
     /**
+     * <h2 style="text-align: center">Getter del String DNI</h2>
+     * <br>
+     * <p style="text-align: justify">Permite visualizar / ver
+     * el atributo DNI (de tipo String) de la instancias desde
+     * la que se invoca, para, por ejemplo, con fines de comparación</p>
+     *
+     * @return String con el DNI de la instancia desde la que se invoca.
+     */
+    public String getDNI() {
+        return DNI;
+    }
+    /**
+     * <h2 style="text-align: center">Getter del String Departamento</h2>
+     * <br>
+     * <p style="text-align: justify">Permite visualizar / ver
+     * el atributo Departamento (de tipo String) de la instancias desde
+     * la que se invoca, para, por ejemplo, con fines de comparación</p>
+     *
+     * @return String con el Departamento de la instancia desde la que se invoca.
+     */
+    public String getDepartamento() {
+        return departamento;
+    }
+    /**
+     * <h2 style="text-align: center">Getter del float sueldo</h2>
+     * <br>
+     * <p style="text-align: justify">Permite visualizar / ver
+     * el atributo sueldo (de tipo String) de la instancias desde
+     * la que se invoca, para, por ejemplo, con fines de comparación</p>
+     *
+     * @return float con el sueldo de la instancia desde la que se invoca.
+     */
+    public Float getSueldo() {
+        return sueldo;
+    }
+
+    /**
      * <h2 style="text-align: center">Método toString personalizado de la clase Empleado</h2>
      * <br>
      * <p style="text-align: justify">Devuelve la información de una estancia del tipo
