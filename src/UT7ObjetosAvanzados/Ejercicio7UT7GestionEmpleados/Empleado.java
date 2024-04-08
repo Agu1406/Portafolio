@@ -45,14 +45,14 @@ import java.util.Objects;
  */
 public class Empleado {
     /*
-    * Primera parte - creación de los atributos, se desea que los atributos de la clase "Empleado"
-    * contenga los siguientes atributos:
-    * - DNI (String Único, no se puede repetir)
-    * - Nombre (String que contiene el primer nombre del empleado)
-    * - Apellido (String que contiene el primer apellido del empleado)
-    * - Departamento (String, contiene el departamento donde trabaja el empleado)
-    * - Sueldo (Double, ya que permite en los incrementos de sueldo, trabajar con decimales)
-    * */
+     * Primera parte - creación de los atributos, se desea que los atributos de la clase "Empleado"
+     * contenga los siguientes atributos:
+     * - DNI (String Único, no se puede repetir)
+     * - Nombre (String que contiene el primer nombre del empleado)
+     * - Apellido (String que contiene el primer apellido del empleado)
+     * - Departamento (String, contiene el departamento donde trabaja el empleado)
+     * - Sueldo (Double, ya que permite en los incrementos de sueldo, trabajar con decimales)
+     * */
     protected String DNI;
     protected String nombre;
     protected String apellido;
@@ -65,14 +65,13 @@ public class Empleado {
      * <p style="text-align: justify">Permite la creación de una estancia del tipo "empleado" atráves de la introducción
      * de todos los parámetros deseados en el formato establecido, los cuales son: </p>
      *
+     * @param DNI          (String único irrepetible que posee cada empleado)
+     * @param nombre       (String que contiene el primer nombre de un empleado)
+     * @param apellido     (String que contiene el primer apellido de un empleado)
+     * @param departamento (String que contiene el departamento en el que trabaja el empleado)
+     * @param sueldo       (Double que contiene el sueldo exacto con decimales de un empleado cualquiera)
      * @author Agu1406 (Agustín)
      * @since 31/01/2024
-     *
-     * @param DNI (String único irrepetible que posee cada empleado)
-     * @param nombre (String que contiene el primer nombre de un empleado)
-     * @param apellido (String que contiene el primer apellido de un empleado)
-     * @param departamento (String que contiene el departamento en el que trabaja el empleado)
-     * @param sueldo (Double que contiene el sueldo exacto con decimales de un empleado cualquiera)
      */
     public Empleado(String DNI, String nombre, String apellido, String departamento, Float sueldo) {
         this.DNI = DNI;
@@ -94,6 +93,7 @@ public class Empleado {
     public String getDNI() {
         return DNI;
     }
+
     /**
      * <h2 style="text-align: center">Getter del String Departamento</h2>
      * <br>
@@ -106,6 +106,7 @@ public class Empleado {
     public String getDepartamento() {
         return departamento;
     }
+
     /**
      * <h2 style="text-align: center">Getter del float sueldo</h2>
      * <br>
@@ -145,22 +146,23 @@ public class Empleado {
      * <p style="text-align: justify">Recibe el porcentaje que el usuario desea subir el
      * sueldo y aumenta el sueldo desde la estancia de la clase "empleado" desde la que
      * se invoca.</p>
+     *
      * @param porcentajeDeseado (float que el usuario entrega como el porcentaje de aumento deseado)
      * @author Agu1406 (Agustín)
      * @since 31/01/2024
      */
-    public void subirSalario (float porcentajeDeseado) {
+    public void subirSalario(float porcentajeDeseado) {
         /*
-        * Para subir el sueldo de un empleado un porcentaje deseado debo entender
-        * como el usuario me proporciona ese porcentaje, imaginemos que desea
-        * subir el sueldo de "Agustín" un 13,44%, ese número que recibo debo
-        * de convertirlo a un factor de incremento, para ello primero debo de
-        * dividirlo entre 100 (ejemplo: 13,44 / 100 = 0,1344 y por último el
-        * "0" se debe convertir en un "1", por lo que guardo el 0,1344 en
-        * una variable temporal y sumarle "1", por último, el sueldo he
-        * de multiplicarlo por ese número, ejemplo: 3000 * 1,1344 y ya
-        * estaría el sueldo incrementado ese porcentaje deseado, por
-        * lo tanto, procedemos: */
+         * Para subir el sueldo de un empleado un porcentaje deseado debo entender
+         * como el usuario me proporciona ese porcentaje, imaginemos que desea
+         * subir el sueldo de "Agustín" un 13,44%, ese número que recibo debo
+         * de convertirlo a un factor de incremento, para ello primero debo de
+         * dividirlo entre 100 (ejemplo: 13,44 / 100 = 0,1344 y por último el
+         * "0" se debe convertir en un "1", por lo que guardo el 0,1344 en
+         * una variable temporal y sumarle "1", por último, el sueldo he
+         * de multiplicarlo por ese número, ejemplo: 3000 * 1,1344 y ya
+         * estaría el sueldo incrementado ese porcentaje deseado, por
+         * lo tanto, procedemos: */
 
         // Convierto el número del usuario en un factor de incremento válido.
         float factorDeIncremento = (porcentajeDeseado / 100) + 1;
@@ -168,6 +170,7 @@ public class Empleado {
         // Actualiza el sueldo actual incrementad su respectivo porcentaje.
         this.sueldo = this.sueldo * factorDeIncremento;
     }
+
     /**
      * <h2 style="text-align: center">Método "equals" de la clase empleado, compara si dos objetos
      * / estancias son iguales</h2>
@@ -176,6 +179,7 @@ public class Empleado {
      * o si el objeto que se está comparando es igual / idéntico a otro, se utiliza la clave
      * principal de las estancias que en esté caso es el DNI que debería ser único e
      * irrepetible en cada estancia. </p>
+     *
      * @param estancia (se refiere al objeto al que estás intentando comparar)
      * @return "true" o "false", si coinciden "true, si no, lo contrario.
      * @author Agu1406 (Agustín)
@@ -188,6 +192,7 @@ public class Empleado {
         Empleado empleado = (Empleado) estancia;
         return Objects.equals(DNI, empleado.DNI);
     }
+
     /**
      * <h2 style="text-align: center">Método toString reducido y personalizado de la clase Empleado</h2>
      * <br>
@@ -198,7 +203,7 @@ public class Empleado {
      * @author Agu1406 (Agustín)
      * @since 31/01/2024
      */
-    public String toStringReducido () {
+    public String toStringReducido() {
         return "DNI: " + DNI + ", Nombre: " + nombre + ", Sueldo: " + sueldo;
 
     }
