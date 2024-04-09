@@ -13,24 +13,44 @@ import java.util.Scanner;
  * empleados actuales, en forma de array de String (todos los datos de un
  * empleado vienen en un solo String).</p>
  * <br>
- * <p style="text-align: justify">El primer paso, será grabar los datos iniciales en objetos de
- * tipo Empleado y almacenarlos en el ArrayList, está clase cuenta con los siguiente métodos:
- * </p>
+ * <h2 style="text-align: center;">Métodos del Main 1.0</h2>
  * <ul>
- *      <li>cargarDatosIniciales - Carga todos los empleados del String Array en el ArrayList del Main</li>
- *      <li>inicialMayúscula - Desconocido, no está hecho a causa de no saber para que debía hacerlo</li>
- *      <li>mostrarMenu - Imprime en pantalla todas las opciones del programa ejecutables.</li>
- *      <li>pedirOperaciónMenu - Solicita que opción del menu desea ejecutar.</li>
- *      <li>mostrarEmpleados - Imprime una lista númerada de todos los empleados existentes.</li>
- *      <li>altaNuevoEmpleado - Permite crear un nuevo objeto / estancia empleado ("darle de alta")</li>
- *      <li>deseaContinuar - Permite controlar cuando el usuario desea o no seguir utilizando el programa.</li>
- *      <li>buscarPorDNI - Permite buscar un empleado en especifico atráves se su clave primaria (el DNI).</li>
- *      <li>buscarPorDepartamento - Permite buscar empleados que pertenezcan a un departamento específico.</li>
- *      <li>buscarPorSalario - Permite localizar uno o varios empleados que tengan el mismo sueldo.</li>
- *      <li>borrarEmpleado - Permite borrar un empleado del ArrayList y por lo tanto "darlo de baja".</li>
- *      <li>subirSueldo - Permite aumentar el sueldo de un empleado un "x" porcentaje deseado por el usuario.</li>
+ *      <li><b>cargarDatosIniciales: </b>Carga todos los empleados del String Array en el ArrayList del Main</li>
+ *      <li><b>inicialMayúscula: </b>Desconocido, no está hecho a causa de no saber para que debía hacerlo</li>
+ *      <li><b>mostrarMenu: </b>Imprime en pantalla todas las opciones del programa ejecutables.</li>
+ *      <li><b>pedirOperaciónMenu: </b>Solicita que opción del menu desea ejecutar.</li>
+ *      <li><b>mostrarEmpleados: </b>Imprime una lista númerada de todos los empleados existentes.</li>
+ *      <li><b>altaNuevoEmpleado: </b>Permite crear un nuevo objeto / estancia empleado ("darle de alta")</li>
+ *      <li><b>deseaContinuar: </b>Permite controlar cuando el usuario desea o no seguir utilizando el programa.</li>
+ *      <li><b>buscarPorDNI: </b>Permite buscar un empleado en especifico atráves se su clave primaria (el DNI).</li>
+ *      <li><b>buscarPorDepartamento: </b>Permite buscar empleados que pertenezcan a un departamento específico.</li>
+ *      <li><b>buscarPorSalario: </b>Permite localizar uno o varios empleados que tengan el mismo sueldo.</li>
+ *      <li><b>borrarEmpleado: </b>Permite borrar un empleado del ArrayList y por lo tanto "darlo de baja".</li>
+ *      <li><b>subirSueldo: </b>Permite aumentar el sueldo de un empleado un "x" porcentaje deseado por el usuario.</li>
  * </ul>
- *
+ * <h2 style="text-align: center;">Métodos del Main 2.0</h2>
+ * <br>
+ * <ul style="text-align: justify">
+ *     <li><b>Mostrar aniversario:</b> Muestra cuando será el próximo aniversario del empleado en la
+ * empresa y cuantos años completos, cumplirá en esa fecha. La fecha del aniversario se
+ * mostrará en formato largo (ej: miércoles, 24 de marzo de 2021).</li>
+ *     <li><b>Mostrar datos del empleado: </b>Mostrar DNI (añadiendo ceros para tener 8 dígitos),
+ * nombre, apellido, departamento, edad actual y fecha de contrato en formato largo (ej:
+ * miércoles, 24 de marzo de 2021). Si el DNI tiene menos de 8 dígitos, se deberán mostrar
+ * ceros por delante, hasta completar 8 dígitos.</li>
+ *     <li><b>altaNuevoEmpleado: </b>Se solicitarán los datos de un nuevo empleado, cumpliendo
+ * todas las indicaciones anteriores. Además:
+ * <ol><b>A) </b>Cuando la fecha de contrato, sea mayor al día de hoy, debe volver a solicitar esta fecha.</ol>
+ * <ol><b>B) </b>En la fecha de contrato, el empleado debe tener al menos 18 años. En caso contrario, se
+ * mostrará este error.</ol></li>
+ *      <li><b>calcularSueldoMensual: </b>Para esta operación, deberá crearse un numero
+ * método en la clase de los empleados. Para calcular el sueldo mensual de un empleado, se
+ * deberán sumar los siguientes conceptos:
+ * <ol><b>A) </b>Sueldo del empleado / 12 </ol>
+ * <ol><b>B) </b>Antigüedad *30 (por cada año de antigüedad en la empresa, se añaden 30€)</ol>
+ * <ol><b>C) </b>Además, si el mes actual coincide con el mes del cumpleaños del empleado, se
+ * añadirán 50€ extras.</ol></li>
+ * </ul>
  * @author Agu1406 (Agustín)
  * @version 1.0
  * @since 31/01/2024

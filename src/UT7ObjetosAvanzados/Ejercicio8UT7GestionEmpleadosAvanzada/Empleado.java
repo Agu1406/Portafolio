@@ -3,61 +3,74 @@ package UT7ObjetosAvanzados.Ejercicio8UT7GestionEmpleadosAvanzada;
 import java.util.Objects;
 
 /**
- * <h1 style="text-align: center;">Clase Empleado para la gestión de empleados en una empresa de productos químicos</h1>
+ * <h1 style="text-align: center;">Clase Empleado para la gestión de empleados en una empresa de productos químicos - Versión 2.0</h1>
  * <br>
- * <p style="text-align: justify;">Fase N.º1 del ejercicio - Esta fase representa la información y operaciones
- * asociadas a un empleado dentro de la empresa, incluyendo el manejo de su DNI,
- * nombre, apellido, departamento y sueldo.</p>
- * <br>
- * <p style="text-align: justify;">El DNI actúa como una clave única para cada empleado, asegurando que no
- * existan duplicados. Esta clase provee funcionalidades como:</p>
- * <br>
- * <ul style="text-align: justify;">
- *   <li>Representación textual del empleado.</li>
- *   <li>Incremento del sueldo basado en un porcentaje.</li>
- *   <li>Comparación de igualdad entre empleados.</li>
- *   <li>Visualización reducida de la información del empleado.</li>
+ * <p style="text-align: justify;">Versión 2.0 - Fase N.º1 - Partimos de la versión anterior donde
+ * teníamos la gestión de nuestros empleados, almacenando Dni, Nombre, Apellido, Departamento y
+ * Sueldo. Ahora se quiere añadir más información a nuestros empleados. En concreto:
+ * </p>
+ * <ul style="text-align: justify">
+ * <li><b>DNI:</b> El DNI seguirá siendo nuestra clave. La letra debe cumplir la normativa actual. Ahora se
+ * permiten DNIs que tengan entre 1 y 8 dígitos.</li>
+ * <li><b>FechaContrato:</b> Se refiere a la fecha en la que se contrata a un empleado.</li>
+ * <li><b>FechaNacimiento:</b> Se refiere a la fecha de nacimiento del empleado.</li>
  * </ul>
+ * <br>
+ * <p style="text-align: center"><b>Además, se espera que se cumplan las siguientes normas y/o requisitos
+ * en el programa, los cuales son:</b></p>
+ * <br>
+ * <ul style="text-align: justify">
+ *      <li><b>DNI: </b>El DNI debe cumplir la normativa actual y pueden introducirse entre 1 y 8 dígitos. En
+ * caso contrario, se volverá a pedir el DNI indicando un mensaje de error</li>
+ *      <li><b>Fechas: </b>Si una fecha introducida es incorrecta, se volverá a pedir la fecha indicando un
+ * mensaje de error.</li>
+ *      <li><b>Atributos: </b>Los campos nombre, apellido y departamento; solo pueden contener letras o
+ * guiones. Si estos campos contienen otros caracteres, se volverá a pedir el dato
+ * indicando un mensaje de error. La inicial debe estar en mayúscula, en caso de que el
+ * usuario se equivoque, el programa escribirá esa inicial en mayúscula.</li>
  *
  * <p style="text-align: justify;">Es importante garantizar que el DNI de cada empleado sea único para evitar inconsistencias
  * en la gestión de los empleados.</p>
  * <br>
- * <h2 style="text-align: center;">Constructor(es)</h2>
- * <br>
- * <p style="text-align: justify;">La clase debe contar con los constructores necesarios para inicializar los objetos de tipo Empleado
- * con los datos proporcionados.</p>
- * <br>
- * <h2 style="text-align: center;">Métodos</h2>
+ * <h2 style="text-align: center;">Métodos y Constructores</h2>
  * <br>
  * <ul style="text-align: justify;">
+ *   <li><b>Empleado: </b>Constructor que permite crear instancias de la clase.</li>
  *   <li><b>toString:</b> Devuelve toda la información del empleado en forma de String.</li>
  *   <li><b>subirSalario(float porcentaje):</b> Sube el salario del empleado en el porcentaje indicado.</li>
  *   <li><b>equals(Object object):</b> Define cuándo dos objetos Empleado son iguales basándose en su DNI.</li>
  *   <li><b>mostrarReducido():</b> Muestra por pantalla el DNI, nombre y sueldo del empleado.</li>
  * </ul>
- * <br>
- * <p style="text-align: justify;">La implementación de estos métodos debe seguir las especificaciones proporcionadas para cada uno,
- * asegurando la correcta gestión de la información del empleado.</p>
  *
  * @author Agu1406 (Agustín)
- * @version 1.0
- * @since 31/01/2024
+ * @version 2.0
+ * @since 02/04/2024
  */
 public class Empleado {
     /*
-     * Primera parte - creación de los atributos, se desea que los atributos de la clase "Empleado"
-     * contenga los siguientes atributos:
+     * En la primera versión del programa se habían creado los siguientes atributos:
+     *
      * - DNI (String Único, no se puede repetir)
      * - Nombre (String que contiene el primer nombre del empleado)
      * - Apellido (String que contiene el primer apellido del empleado)
      * - Departamento (String, contiene el departamento donde trabaja el empleado)
      * - Sueldo (Double, ya que permite en los incrementos de sueldo, trabajar con decimales)
+     *
+     * En esta segunda versión del programa añadimos los siguientes atributos:
+     *
+     * - FechaContrato: La fecha en la que se ha dado de alta / contratado un empleado.
+     * - FechaNacimiento: La fecha de nacimiento de un empleado.
+     * - FechaEmpresa: La fecha de creación de la empresa.
      * */
-    protected String DNI;
-    protected String nombre;
-    protected String apellido;
-    protected String departamento;
-    protected Float sueldo;
+    private String DNI;
+    private String nombre;
+    private String apellido;
+    private String departamento;
+    private Float sueldo;
+    // Creación de los nuevos atributos de esta clase:
+    private String fechaContrato;
+    private String fechaNacimiento;
+    private String fechaEmpresa;
 
     /**
      * <h2 style="text-align: center">Constructor de la clase Empleado</h2>
@@ -73,12 +86,18 @@ public class Empleado {
      * @author Agu1406 (Agustín)
      * @since 31/01/2024
      */
-    public Empleado(String DNI, String nombre, String apellido, String departamento, Float sueldo) {
+    public Empleado(String DNI, String nombre, String apellido, String departamento, Float sueldo,
+                    // Añadidos en la segunda versión del programa
+                    String fechaContrato, String fechaNacimiento) {
+
         this.DNI = DNI;
         this.nombre = nombre;
         this.apellido = apellido;
         this.departamento = departamento;
         this.sueldo = sueldo;
+        // Añadidos en la segunda versión del programa.
+        this.fechaContrato = fechaContrato;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     /**
