@@ -1,4 +1,4 @@
-package UT7HerenciaPolimorfismo.Ejercicio2Ut7ClaseVehiculo;
+package UT7HerenciaPolimorfismo.Ejercicio2UT7ClaseVehiculo;
 
 /**
  * <h1 style="text-align: center">Clase Camión - Extiende a Vehiculo</h1>
