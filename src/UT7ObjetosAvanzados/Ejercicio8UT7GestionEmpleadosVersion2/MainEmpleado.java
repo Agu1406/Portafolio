@@ -1,4 +1,4 @@
-package UT7ObjetosAvanzados.Ejercicio8UT7GestionEmpleadosAvanzada;
+package UT7ObjetosAvanzados.Ejercicio8UT7GestionEmpleadosVersion2;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -71,15 +71,16 @@ public class MainEmpleado {
          * Por petición del jefe (profesor) todos los nombres, apellidos y nombres
          * de los departamentos deben empezar por mayúscula. */
         String[] primerosEmpleados = {
-                "11111111A Aitor Tilla Informática 60000",
-                "22222222B Ester Colero Logística 34000",
-                "33333333C Andrés Trozado Informática 56000",
-                "44444444D Armando Ruido Logística 39000",
-                "55555555E Dolores Fuertes Comercial 45000",
-                "66666666F Enrique Cide Comercial 48000",
-                "77777777F Estela Gartija Logística 52000",
-                "88888888G Josechu Leton Informática 49000",
-                "99999999H Lola Mento Informática 51000"};
+                "11111111A Aitor Tilla Informática 60000 01/03/2022 15/04/1985",
+                "22222222B Ester Colero Logística 34000 15/05/2021 22/08/1980",
+                "33333333C Andrés Trozado Informática 56000 10/06/2020 03/11/1982",
+                "44444444D Armando Ruido Logística 39000 20/07/2019 09/02/1979",
+                "55555555E Dolores Fuertes Comercial 45000 25/08/2018 17/05/1990",
+                "66666666F Enrique Cide Comercial 48000 30/09/2022 28/07/1988",
+                "77777777F Estela Gartija Logística 52000 05/10/2021 04/12/1984",
+                "88888888G Josechu Leton Informática 49000 11/11/2020 15/03/1987",
+                "99999999H Lola Mento Informática 51000 16/12/2019 06/01/1983"
+        };
 
         // Utilizamos el método de cargarEmpleados para cargar todos los empleados del String Array
         cargarDatosIniciales(empleados, primerosEmpleados);
@@ -155,14 +156,18 @@ public class MainEmpleado {
             String nombreExtraido = partes[1];
             String apellidoExtraido = partes[2];
             String departamentoExtraido = partes[3];
-            /* El último trozo es el sueldo, pero como es un "String", no solo debo extraerlo
-             * para poder manipularlo, sino convertirlo / parsearlo a un tipo de variable
-             * float para evitar problemas y hacerlo compatible con el constructor. */
+
+            /* Hay que tener cuidado con el trozo del sueldo porque el dato ha de ser válido
+            * y permitir que el "parseo" de String a Float no ocasione un error. */
             float sueldoExtraido = Float.parseFloat(partes[4]);
+
+            // Añadidos de la segunda versión del programa, son los últimos "trozos" de información.
+            String fechaContrato = partes[5];
+            String fechaNacimiento = partes[6];
 
             /* Ahora que tengo los datos de forma individual, estancio la clase "Empleado" con
              * estós, creando un nuevo objeto / estancia "empleado". */
-            Empleado nuevoEmpleado = new Empleado(DNIExtraido, nombreExtraido, apellidoExtraido, departamentoExtraido, sueldoExtraido);
+            Empleado nuevoEmpleado = new Empleado(DNIExtraido, nombreExtraido, apellidoExtraido, departamentoExtraido, sueldoExtraido, fechaContrato, fechaNacimiento);
 
             // Ya creado el empleado lo agrego al ArrayList de empleados.
             empleados.add(nuevoEmpleado);
@@ -286,7 +291,7 @@ public class MainEmpleado {
         // Creamos una instancia de Scanner para introducción de datos.
         Scanner teclado = new Scanner(System.in);
         // Creamos todas las variables que requieren nuestro constructor.
-        String DNI, nombre, apellido, departamento;
+        String DNI, nombre, apellido, departamento, fechaContrato = "0", fechaNacimiento = "0";
         // El sueldo es el único de los atributos que no es un String.
         float sueldo = 0f;
         // Booleano que verifica si el DNI ya existe o no en el ArrayList
@@ -358,8 +363,43 @@ public class MainEmpleado {
             }
         } while (!sueldoValido);
 
+        /* De aquí los añadidos de la segunda versión del programa, la solicitud de fechas con
+        * control de erróres / excepciones y expresiones regulares. */
+
+        /* Expresión regular que garantiza que la fecha proporcionada esté en el formato deseado,
+        * la expresión regular se compone de 3 paréntesis separados por los separados de
+        * fechas de mi elección que son "/", los paréntesis son:
+        *
+        * Primer paréntesis:
+        * A) 0[1-9]: números que empiezan por "0" y van del "1" al "9", ejemplo: "01, 02, 03, 04, etc.".
+        * B) [12][0-9]: números que empiezan por "1" o "2" y van del "0" al "9", ejemplo: "10, 11, 12, 20, 24, etc.".
+        * C) 3[01]: números que empiezan por "3" y acaban o bien en "0" o en "1", por lo tánto solo permite "30" y "31".
+        *
+        * Segundo paréntesis:
+        * A) 0[1-9]: números que empiezan por "0" y van del "1" al "9", ejemplo: "01, 02, 03, 04, etc.".
+        * B) 1[0-2]: números que empiezan por "1" y van del "0" al "2", por lo tanto "10", "11" y "12".
+        *
+        * Tercer paréntesis:
+        * A) (19|20): números "19" o "20", ningúna otra opción es válida.
+        * B) \\d{}: el "\\d" es que solo permite números y el "{2}" es que deben ser dos, ni uno más ni uno menos.
+        *
+        * */
+        String expRegFechaValida = "(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/((19|20)\\d{2})";
+        // Booleano que en equipo con la expresión regular controla que sea el formato válido y una fecha real y válida.
+        boolean fechaValida = false;
+        // Variables que almacenan el día, el mes y el año.
+        int dia, mes, ano;
+        // variable que controla el número maximo de días que tiene un "x" mes.
+        int diasMaximos;
+        // Booleano que verifica si un año es bisiesto o no (para los meses de febrero)
+        boolean anoBisiesto = false;
+
+        /* Podría haber optimizado todas las variables, por ejemplo: "int día, mes, año, diasMáximos"
+        * pero como mi código será estudiado por mis compañeros, las declaro de forma individual
+        * documentando para que es cada una para una mejor comprensión del código. */
+
         // Con todos los datos válidos y correctos, creo una nueva instancia de "Empleado".
-        Empleado nuevoEmpleado = new Empleado(DNI, nombre, apellido, departamento, sueldo);
+        Empleado nuevoEmpleado = new Empleado(DNI, nombre, apellido, departamento, sueldo, fechaContrato, fechaNacimiento);
         // Creada la instancia la agrego al ArrayList / lista de empleados existentes.
         empleados.add(nuevoEmpleado);
     }

@@ -1,4 +1,4 @@
-package UT7ObjetosAvanzados.Ejercicio8UT7GestionEmpleadosAvanzada;
+package UT7ObjetosAvanzados.Ejercicio8UT7GestionEmpleadosVersion2;
 
 import java.util.Objects;
 
