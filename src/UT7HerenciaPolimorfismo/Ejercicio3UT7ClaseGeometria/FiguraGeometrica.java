@@ -27,7 +27,7 @@ package UT7HerenciaPolimorfismo.Ejercicio3UT7ClaseGeometria;
  * heredan / se extiende de él a contener los métodos de la clase padre obligatoriamente,
  * controlando mejor como las clases que heredan manipulan y tratan los datos y las
  * instancias derivadas de sus atributos, constructores y métodos.*/
-public abstract interface FiguraGeometrica {
+public interface FiguraGeometrica {
 
     public abstract void mostrarArea();
     public abstract void mostrarPerimetro();
