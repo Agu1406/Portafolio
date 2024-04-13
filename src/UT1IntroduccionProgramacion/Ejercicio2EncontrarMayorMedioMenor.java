@@ -1,4 +1,4 @@
-package MisPrimerosProgramasJava;
+package UT1IntroduccionProgramacion;
 import java.util.Scanner;
 
 /**
