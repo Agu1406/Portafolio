@@ -1,4 +1,4 @@
-package UT2JavaOperadoresYVariables;
+package UT2EjerciciosIniciales;
 
 /**
  * Ejercicio N.º5 - Operadores aritméticos, usando println y printf. En el ejemplo vemos un

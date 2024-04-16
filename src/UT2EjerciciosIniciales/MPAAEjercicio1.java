@@ -1,4 +1,4 @@
-package UT2JavaOperadoresYVariables;
+package UT2EjerciciosIniciales;
 
 /**
  * Ejercicio N.º 1 - Crea un pequeño programa con distintos tipos de variables

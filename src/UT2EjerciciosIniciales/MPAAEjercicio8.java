@@ -1,4 +1,4 @@
-package UT2JavaOperadoresYVariables;
+package UT2EjerciciosIniciales;
 
 /**
  * Ejercicio N.º 8 - Uso de constantes.

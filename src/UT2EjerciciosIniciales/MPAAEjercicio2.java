@@ -1,4 +1,4 @@
-package UT2JavaOperadoresYVariables;
+package UT2EjerciciosIniciales;
 
 /**
  * Ejercicio N.º 2- Prueba la diferencia entre el operador ++, antes o después de una variable,

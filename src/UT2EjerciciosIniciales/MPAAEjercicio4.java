@@ -1,4 +1,4 @@
-package UT2JavaOperadoresYVariables;
+package UT2EjerciciosIniciales;
 
 /**
  * Ejercício N.º4 - Operadores aritméticos. Escribe un programa que genere dos variables

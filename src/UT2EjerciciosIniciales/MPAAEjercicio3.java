@@ -1,4 +1,4 @@
-package UT2JavaOperadoresYVariables;
+package UT2EjerciciosIniciales;
 
 /**
  * Ejercicio N.º 3 ¿Qué crees que mostrará por pantalla el siguiente código?.
