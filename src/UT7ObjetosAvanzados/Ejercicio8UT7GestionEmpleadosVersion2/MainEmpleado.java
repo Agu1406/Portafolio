@@ -1,5 +1,8 @@
 package UT7ObjetosAvanzados.Ejercicio8UT7GestionEmpleadosVersion2;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -51,21 +54,17 @@ import java.util.Scanner;
  * <ol><b>C) </b>Además, si el mes actual coincide con el mes del cumpleaños del empleado, se
  * añadirán 50€ extras.</ol></li>
  * </ul>
+ *
  * @author Agu1406 (Agustín)
  * @version 1.0
  * @since 31/01/2024
  */
 public class MainEmpleado {
+    final static String LETRAS_VALIDAS_DNI = "TRWAGMYFPDXBNJZSQVHLCKE"; // Juego de letras válidas de un DNI.
     public static void main(String[] args) {
         // Scanner teclado = new Scanner(System.in); // Permite introducir datos usando el teclado.
         int opcionMenu; // Variable que determina que método/opción ejecutamos.
-
-        /* Hace falta una mención especial a que se refiere el "Empleado" dentro de "< >" y
-         * es nuestra forma de indicarle a Java que aquello que este ArrayList va a almacenar
-         * son estancias la clase Empleado, no permitiendo guardar otro tipo de datos y/u
-         * objetos en él. */
         ArrayList<Empleado> empleados = new ArrayList<>(); // ArrayList que aloja los empleados.
-
 
         /* Un String del tipo Array que contiene los primeros empleados de la empresa.
          * Por petición del jefe (profesor) todos los nombres, apellidos y nombres
@@ -139,37 +138,34 @@ public class MainEmpleado {
      * @since 31/01/2024
      */
     public static void cargarDatosIniciales(ArrayList<Empleado> empleados, String[] primerosEmpleados) {
-        /* Bucle que recorre cada String en el array primerosEmpleados, cada "String" contiene del
-         * "String" Array primeros empleado contiene en una cadena completa los atributos y/o
-         * elementos de un empleado (DNI, nombre, apellido, departamento, sueldo), por lo que
-         * en él String "datosEmpleado" se guarda esa cadena completa con toda la información. */
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         for (String datosEmpleado : primerosEmpleados) {
-            /* en "datosEmpleado" tengo la cadena completa, la separo por sus espacios en blanco
-             * y guardo cada trozo / recorte en una posición diferente de un nuevo String Array
-             * que he llamado "partes".*/
             String[] partes = datosEmpleado.split(" ");
 
-            /* Ahora en "partes" tengo la información del empleado en diferentes posiciones, así
-             * guardo cada trozo de una variable del tipo String que permite manipular de forma
-             * individual cada uno de los datos del empleado. */
             String DNIExtraido = partes[0];
             String nombreExtraido = partes[1];
             String apellidoExtraido = partes[2];
             String departamentoExtraido = partes[3];
-
-            /* Hay que tener cuidado con el trozo del sueldo porque el dato ha de ser válido
-            * y permitir que el "parseo" de String a Float no ocasione un error. */
             float sueldoExtraido = Float.parseFloat(partes[4]);
 
-            // Añadidos de la segunda versión del programa, son los últimos "trozos" de información.
-            String fechaContrato = partes[5];
-            String fechaNacimiento = partes[6];
+            LocalDate fechaContrato, fechaNacimiento;
 
-            /* Ahora que tengo los datos de forma individual, estancio la clase "Empleado" con
-             * estós, creando un nuevo objeto / estancia "empleado". */
+            try {
+                fechaContrato = LocalDate.parse(partes[5], formatter);
+            } catch (DateTimeParseException e) {
+                System.out.println("Error al parsear la fecha de contrato para " + nombreExtraido + ". Usando fecha actual como predeterminada.");
+                fechaContrato = LocalDate.now();
+            }
+
+            try {
+                fechaNacimiento = LocalDate.parse(partes[6], formatter);
+            } catch (DateTimeParseException e) {
+                System.out.println("Error al parsear la fecha de nacimiento para " + nombreExtraido + ". Usando fecha actual como predeterminada.");
+                fechaNacimiento = LocalDate.now();
+            }
+
             Empleado nuevoEmpleado = new Empleado(DNIExtraido, nombreExtraido, apellidoExtraido, departamentoExtraido, sueldoExtraido, fechaContrato, fechaNacimiento);
-
-            // Ya creado el empleado lo agrego al ArrayList de empleados.
             empleados.add(nuevoEmpleado);
         }
     }
@@ -288,125 +284,100 @@ public class MainEmpleado {
      *                  modificado por el método al añadir el nuevo empleado.
      */
     public static void altaNuevoEmpleado(ArrayList<Empleado> empleados) {
-        // Creamos una instancia de Scanner para introducción de datos.
-        Scanner teclado = new Scanner(System.in);
-        // Creamos todas las variables que requieren nuestro constructor.
-        String DNI, nombre, apellido, departamento, fechaContrato = "0", fechaNacimiento = "0";
-        // El sueldo es el único de los atributos que no es un String.
-        float sueldo = 0f;
-        // Booleano que verifica si el DNI ya existe o no en el ArrayList
-        boolean existeDNI = true, sueldoValido = false;
+        Scanner teclado = new Scanner(System.in); // Teclado para introducir datos.
+        String DNI, nombre, apellido, departamento; // los atributos tipo "String" de un empleado.
+        LocalDate fechaContrato; // La fecha en la que he contratado al empleado.
+        LocalDate fechaNacimiento; // La fecha en la que ha nacido el empleado.
+        float sueldo = 0f; // El sueldo del empleado, inicializado en "0".
+        boolean sueldoValido = false; // Boolean que verifica que el sueldo ingresado sea válido.
+        boolean existeDNI; // Booleano que verifica si el DNI ya existe en la empresa.
 
-        /* Algo que debo tomar en cuenta es que podrían intentar dar de alta a
-         * un empleado ya existente en el programa / aplicación, para controlar
-         * esto puedo crear una instancia temporal falsa que revise una por una
-         * todas las instancias del ArrayList y copie sus atributos, lo que me
-         * permite usar el getDNI de la clase empleado para comparar el DNI en
-         * el empleado temporal con el que ingresa el usuario, esto mediante
-         * el equals, si ocurre que encuentra alguna concordancia es que ese
-         * empleado ya existe y avisa del error y no continúa solicitando los
-         * datos, pero si no existe ningún empleado con ese DNI entonces el
-         * método sigue adelante y solicita el resto de los datos/atributos.*/
         System.out.println("¡Vamos a dar de alta al empleado!");
-
-        // Bucle do-while que pide un DNI hasta que se verifique que no existe dentro del ArrayList.
         do {
-            // Solicitamos el DNI por pantalla y teclado.
             System.out.print("Introduce el DNI: ");
             DNI = teclado.nextLine();
-            System.out.println(" ");
-            /* Bucle for que revisa una por una todas las instancias del ArrayList de
-             * empleados, en cada vuelta hace un espejo de la instancia a la que está
-             * apuntando, perfecto para poder compararlo por ejemplo con el método
-             * "equals" con un DNI proporcionado por el usuario y así verificar si
-             * ya existe una instancia de "Empleado" con el mismo DNI o no.*/
-            for (Empleado empleadoEspejo : empleados) {
-                // Si consigue el DNI en cualquier instancia del ArrayList, avisa de que ya existe.
-                if (empleadoEspejo.getDNI().equals(DNI)) {
-                    System.out.println("¡Lo siento! Ese DNI ya existe, no" +
-                            "es posible darle de alta, intentalo de nuevo" +
-                            "con un DNI no existente en el programa.");
-                } else {
-                    // Si no encuentra el DNI en el Array, para el bucle y continua el proceso de alta.
-                    existeDNI = false;
-                }
-            } // Al llegar aquí ya ha recorrido el ArrayList en su totalidad.
-        } while (existeDNI); // Al llegar aquí, dependiendo del booleano, repite o finaliza.
+            // Damos por hecho de momento que no existe ya en la empresa, por eso, "false".
+            existeDNI = false;
 
-        // Solicitamos el Nombre por pantalla y teclado.
+            // Primera comprobación que revisa si el DNI ya existe en la empresa (Ya esta dado de alta)
+            for (Empleado empleado : empleados) {
+                // Si lo encuentra dado de alta, avisa del error.
+                if (empleado.getDNI().equals(DNI)) {
+                    existeDNI = true;
+                    System.out.println("¡Lo siento! Ese DNI ya existe, intenta con un DNI diferente.");
+                }
+            }
+
+            // Comprobado que no existe, separamos los números de la letra.
+            if (!existeDNI) {
+                try {
+                    // Guardamos todos los números de la posición "0" hasta la "-1" del tamaño.
+                    int numeroDNI = Integer.parseInt(DNI.substring(0, DNI.length() - 1));
+                    // Guardamos la letra, está en la posicion final de la longitud "-1".
+                    char letraDNI = DNI.charAt(DNI.length() - 1);
+                    // El número entero del DNI % 23 = a la posición de su letra válida.
+                    int indice = numeroDNI % 23;
+
+                    // Si la letra previamente extraida no concuerda con la letra válida calculada, da error.
+                    if (LETRAS_VALIDAS_DNI.charAt(indice) != letraDNI) {
+                        existeDNI = true;  // Usamos existeDNI para indicar un error de validación también
+                        System.out.println("DNI no válido. Introduce un DNI correcto.");
+                    }
+                // Si cualquiera de los parseos da error, el try-catch los atrapa.
+                } catch (NumberFormatException ex) {
+                    existeDNI = true;
+                    System.out.println("Formato de DNI incorrecto. Asegúrate de introducir bien el número y la letra.");
+                }
+            }
+        } while (existeDNI);
+
         System.out.print("Introduce el Nombre: ");
         nombre = teclado.nextLine();
-        System.out.println(" ");
 
-        // Solicitamos el Apellido por pantalla y teclado.
         System.out.print("Introduce el Apellido: ");
         apellido = teclado.nextLine();
-        System.out.println(" ");
 
-        // Solicitamos el Departamento por pantalla y teclado.
         System.out.print("Introduce el Departamento: ");
         departamento = teclado.nextLine();
-        System.out.println(" ");
 
-        /* Como el sueldo es un número y puede dar lugar a errores, hacemos un bucle do-while
-        con try-catch para solicitar sueldo. */
-        do {
+        while (!sueldoValido) {
             try {
-                // Solicitamos el Sueldo por pantalla y teclado.
                 System.out.print("Introduce el Sueldo: ");
                 sueldo = teclado.nextFloat();
-                System.out.println(" "); // Espacio adicional para la legibilidad.
-                sueldoValido = true; // Si se llega a este punto, el sueldo es válido.
+                sueldoValido = true;
             } catch (InputMismatchException e) {
                 System.out.println("¡Error! Debes introducir un número válido para el sueldo.");
-                teclado.next(); // Limpiamos el buffer del scanner.
+                teclado.next();  // Limpiar el buffer del scanner
             }
-        } while (!sueldoValido);
+        }
 
-        /* De aquí los añadidos de la segunda versión del programa, la solicitud de fechas con
-        * control de erróres / excepciones y expresiones regulares. */
+        fechaContrato = solicitarFecha("Fecha de contrato");
+        
+        fechaNacimiento = solicitarFecha("Fecha de nacimiento");
 
-        /* Expresión regular que garantiza que la fecha proporcionada esté en el formato deseado,
-        * la expresión regular se compone de 3 paréntesis separados por los separados de
-        * fechas de mi elección que son "/", los paréntesis son:
-        *
-        * Primer paréntesis:
-        * A) 0[1-9]: números que empiezan por "0" y van del "1" al "9", ejemplo: "01, 02, 03, 04, etc.".
-        * B) [12][0-9]: números que empiezan por "1" o "2" y van del "0" al "9", ejemplo: "10, 11, 12, 20, 24, etc.".
-        * C) 3[01]: números que empiezan por "3" y acaban o bien en "0" o en "1", por lo tánto solo permite "30" y "31".
-        *
-        * Segundo paréntesis:
-        * A) 0[1-9]: números que empiezan por "0" y van del "1" al "9", ejemplo: "01, 02, 03, 04, etc.".
-        * B) 1[0-2]: números que empiezan por "1" y van del "0" al "2", por lo tanto "10", "11" y "12".
-        *
-        * Tercer paréntesis:
-        * A) (19|20): números "19" o "20", ningúna otra opción es válida.
-        * B) \\d{}: el "\\d" es que solo permite números y el "{2}" es que deben ser dos, ni uno más ni uno menos.
-        *
-        * */
-        String expRegFechaValida = "(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/((19|20)\\d{2})";
-        // Booleano que en equipo con la expresión regular controla que sea el formato válido y una fecha real y válida.
-        boolean fechaValida = false;
-        // Variables que almacenan el día, el mes y el año.
-        int dia, mes, ano;
-        // variable que controla el número maximo de días que tiene un "x" mes.
-        int diasMaximos;
-        // Booleano que verifica si un año es bisiesto o no (para los meses de febrero)
-        boolean anoBisiesto = false;
-
-        /* Podría haber optimizado todas las variables, por ejemplo: "int día, mes, año, diasMáximos"
-        * pero como mi código será estudiado por mis compañeros, las declaro de forma individual
-        * documentando para que es cada una para una mejor comprensión del código. */
-
-        // Con todos los datos válidos y correctos, creo una nueva instancia de "Empleado".
         Empleado nuevoEmpleado = new Empleado(DNI, nombre, apellido, departamento, sueldo, fechaContrato, fechaNacimiento);
-        // Creada la instancia la agrego al ArrayList / lista de empleados existentes.
         empleados.add(nuevoEmpleado);
+    }
+
+    private static LocalDate solicitarFecha(String tipoFecha) {
+        Scanner teclado = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fecha;
+        while (true) {
+            System.out.print("Introduce la " + tipoFecha + " (dd/MM/yyyy): ");
+            String fechaStr = teclado.next();
+            try {
+                fecha = LocalDate.parse(fechaStr, formatter);
+                return fecha;  // Retornar la fecha si es válida
+            } catch (DateTimeParseException e) {
+                System.out.println("Fecha inválida, intenta nuevamente.");
+            }
+        }
     }
 
     @Deprecated
     public static void deseaContinuar() {
-    // En teoría debería ser del tipo "int" con un return.
+        // En teoría debería ser del tipo "int" con un return.
     }
 
     /**
@@ -558,20 +529,21 @@ public class MainEmpleado {
                     "que no se puede borrar ese empleado.");
         }
     }
+
     /**
      * <h2 style="text-align: center">Método N.º10 - Subir Sueldo de un Empleado</h2>
      * <br>
      * <p style="text-align: justify">Este método permite aumentar el sueldo de un empleado específico, identificado por su DNI, en un porcentaje indicado por el usuario. Si el empleado con el DNI proporcionado existe en la lista, su sueldo se actualizará según el porcentaje de aumento. El método muestra el sueldo del empleado antes y después del aumento para proporcionar un feedback claro al usuario. Si no se encuentra un empleado con el DNI especificado, se notificará al usuario.</p>
      * <br>
-     * @param empleados La lista de empleados donde se realizará la búsqueda y actualización del sueldo.
-     * <br>
-     * <h3 style="text-align: center">Ejemplo de uso:</h3>
-     * <br>
-     * <code>subirSueldo(listaEmpleados);</code>
-     * <p style="text-align: justify">Este método interactúa directamente con el usuario pidiendo el DNI del empleado a modificar y el porcentaje de aumento. Luego procede a buscar el empleado en la lista y, si lo encuentra, aplica el aumento de sueldo indicado.</p>
-     * <br>
-     * <p style="text-align: justify"><b>Nota:</b> Es fundamental que el DNI proporcionado por el usuario exista en la lista de empleados para que el método funcione correctamente. De lo contrario, el sistema informará que no se ha encontrado ningún empleado con dicho DNI.</p>
      *
+     * @param empleados La lista de empleados donde se realizará la búsqueda y actualización del sueldo.
+     *                  <br>
+     *                  <h3 style="text-align: center">Ejemplo de uso:</h3>
+     *                  <br>
+     *                  <code>subirSueldo(listaEmpleados);</code>
+     *                  <p style="text-align: justify">Este método interactúa directamente con el usuario pidiendo el DNI del empleado a modificar y el porcentaje de aumento. Luego procede a buscar el empleado en la lista y, si lo encuentra, aplica el aumento de sueldo indicado.</p>
+     *                  <br>
+     *                  <p style="text-align: justify"><b>Nota:</b> Es fundamental que el DNI proporcionado por el usuario exista en la lista de empleados para que el método funcione correctamente. De lo contrario, el sistema informará que no se ha encontrado ningún empleado con dicho DNI.</p>
      * @author Agu1406 (Agustín)
      * @since 04/04/2024
      */

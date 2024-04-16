@@ -1,5 +1,6 @@
 package UT7ObjetosAvanzados.Ejercicio8UT7GestionEmpleadosVersion2;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -62,15 +63,14 @@ public class Empleado {
      * - FechaNacimiento: La fecha de nacimiento de un empleado.
      * - FechaEmpresa: La fecha de creación de la empresa.
      * */
-    private String DNI;
-    private String nombre;
-    private String apellido;
-    private String departamento;
+    private final String DNI;
+    private final String nombre;
+    private final String apellido;
+    private final String departamento;
     private Float sueldo;
     // Creación de los nuevos atributos de esta clase:
-    private String fechaContrato;
-    private String fechaNacimiento;
-    private String fechaEmpresa;
+    private final LocalDate fechaContrato;
+    private final LocalDate fechaNacimiento;
 
     /**
      * <h2 style="text-align: center">Constructor de la clase Empleado</h2>
@@ -87,15 +87,18 @@ public class Empleado {
      * @since 31/01/2024
      */
     public Empleado(String DNI, String nombre, String apellido, String departamento, Float sueldo,
-                    // Añadidos en la segunda versión del programa
-                    String fechaContrato, String fechaNacimiento) {
+                    LocalDate fechaContrato, LocalDate fechaNacimiento) {
+        // Lógica del constructor que imposibilita instanciar si, por ejemplo, el DNI es nulo o el sueldo negativo.
+        if (DNI == null || DNI.isEmpty()) throw new IllegalArgumentException("El DNI no puede ser nulo o vacío.");
+        if (sueldo != null && sueldo < 0) throw new IllegalArgumentException("El sueldo no puede ser negativo.");
+        if (fechaNacimiento != null && fechaContrato != null && fechaNacimiento.isAfter(fechaContrato))
+            throw new IllegalArgumentException("La fecha de nacimiento no puede ser posterior a la fecha de contrato.");
 
         this.DNI = DNI;
         this.nombre = nombre;
         this.apellido = apellido;
         this.departamento = departamento;
         this.sueldo = sueldo;
-        // Añadidos en la segunda versión del programa.
         this.fechaContrato = fechaContrato;
         this.fechaNacimiento = fechaNacimiento;
     }
@@ -156,7 +159,9 @@ public class Empleado {
                 "Nombre: " + this.nombre + "\n" +
                 "Apellido: " + this.apellido + "\n" +
                 "Departamento: " + this.departamento + "\n" +
-                "Sueldo Actual: " + this.sueldo + "\n";
+                "Sueldo Actual: " + this.sueldo + "\n" +
+                "Fecha de Alta: " + this.fechaContrato + "\n" +
+                "Fecha de nacimiento: " + this.fechaNacimiento + "\n";
     }
 
     /**

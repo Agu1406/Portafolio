@@ -32,6 +32,5 @@ public class MainFiguraGeometrica {
         nuevoTriangulo.mostrarPerimetro();
         nuevoTriangulo.mostrarArea();
 
-
     }
 }
