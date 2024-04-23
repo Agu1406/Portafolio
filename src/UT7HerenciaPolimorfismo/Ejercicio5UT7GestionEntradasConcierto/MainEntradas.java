@@ -6,6 +6,7 @@ import UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConcierto.Entradas.Pi
 import UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConcierto.Entradas.VIP;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainEntradas {
@@ -24,59 +25,92 @@ public class MainEntradas {
         int maxEntradasPista = Pista.getLimitePista();
         int maxEntradasVIP = VIP.getLimiteVip();
 
-        while (maxEntradasGrada > 0) {
-            Grada entradaGrada = definirGrada(maxEntradasGrada);
-            todasLasEntradas.add(entradaGrada);
-            entradasGrada.add(entradaGrada);
-            maxEntradasGrada--;
-        }
+        generarEntradasGrada(maxEntradasGrada, todasLasEntradas, entradasGrada);
+        generarEntradasPista(maxEntradasPista, todasLasEntradas, entradasPista);
+        generarEntradasVip(maxEntradasVIP, todasLasEntradas, entradasVIP);
 
-        while (maxEntradasPista > 0) {
-            Pista entradaPista = new Pista();
-            todasLasEntradas.add(entradaPista);
-            entradasPista.add(entradaPista);
-            maxEntradasPista--;
-        }
+        comprarEntrada();
+    }
+
+    private static void generarEntradasVip(int maxEntradasVIP, ArrayList<Entrada> todasLasEntradas, ArrayList<VIP> entradasVIP) {
         while (maxEntradasVIP > 0) {
             VIP entradaVIP = new VIP();
             todasLasEntradas.add(entradaVIP);
             entradasVIP.add(entradaVIP);
             maxEntradasVIP--;
         }
+    }
 
-        comprarEntrada();
+    private static void generarEntradasPista(int maxEntradasPista, ArrayList<Entrada> todasLasEntradas, ArrayList<Pista> entradasPista) {
+        while (maxEntradasPista > 0) {
+            Pista entradaPista = new Pista();
+            todasLasEntradas.add(entradaPista);
+            entradasPista.add(entradaPista);
+            maxEntradasPista--;
+        }
+    }
+
+    private static void generarEntradasGrada(int maxEntradasGrada, ArrayList todasLasEntradas, ArrayList entradasGrada) {
+        while (maxEntradasGrada > 0) {
+            Grada entradaGrada = definirGrada(maxEntradasGrada);
+            todasLasEntradas.add(entradaGrada);
+            entradasGrada.add(entradaGrada);
+            maxEntradasGrada--;
+        }
     }
 
     private static void comprarEntrada() {
         Scanner teclado = new Scanner(System.in);
         String correoElectronico;
         String tipoEntrada;
-        boolean tipoValido;
-        int cantidadDeseada;
+        boolean tipoValido = false;
+        int cantidadDeseada = 0;
         int opcionEntrada;
         String expRegCorreo = ".+@.+\\..+";
         System.out.println("¡Hola! Bienvenido al Wiz-ink.");
+
+        introducirCorreo(teclado, expRegCorreo);
+        cuantasEntradasCompraras(cantidadDeseada, teclado);
+        queTipoDeEntradaComprar(teclado, tipoValido);
+    }
+
+    private static void queTipoDeEntradaComprar(Scanner teclado, boolean tipoValido) {
+        int opcionEntrada;
+        String tipoEntrada;
+        do {
+            try {
+                System.out.println("¿Que tipo de entrada quieres comprar?");
+                menuEntradasValidas(); // Muestra el menu de opciones para comprar.
+                opcionEntrada = teclado.nextInt();
+                tipoEntrada = definirTipoEntrada(opcionEntrada);
+                tipoValido = verificarTipoValido(tipoEntrada);
+            } catch (InputMismatchException e) {
+                System.out.println("¡Error! Solo se aceptan números enteros, intentalo de nuevo.");
+                teclado.next();
+            }
+        } while (!tipoValido);
+    }
+
+    private static void cuantasEntradasCompraras(int cantidadDeseada, Scanner teclado) {
+        do {
+            try {
+                System.out.println("¿Que cantidad de entradas quieres comprar? (Max. 20)");
+                System.out.print("Cantidad: ");
+                cantidadDeseada = teclado.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("¡Error! Solo se aceptan números enteros, intentalo de nuevo.");
+                teclado.next();
+            }
+        } while (cantidadDeseada > 20 || cantidadDeseada < 1);
+    }
+
+    private static void introducirCorreo(Scanner teclado, String expRegCorreo) {
+        String correoElectronico;
         do {
             System.out.println("Introduce tú correo electronico. ");
             System.out.print("Correo: ");
             correoElectronico = teclado.nextLine();
         } while (!correoElectronico.matches(expRegCorreo));
-        // Bucle do-while para solicitar la cantidad de entradas que desea comprar.
-        do {
-            System.out.println("¿Que cantidad de entradas quieres comprar? (Max. 20)");
-            System.out.print("Cantidad: ");
-            cantidadDeseada = teclado.nextInt();
-        } while (cantidadDeseada > 20 || cantidadDeseada < 1);
-
-        do {
-            System.out.println("¿Que tipo de entrada quieres comprar?");
-            menuEntradasValidas(); // Muestra el menu de opciones para comprar.
-            opcionEntrada = teclado.nextInt();
-            tipoEntrada = definirTipoEntrada(opcionEntrada);
-            tipoValido = verificarTipoValido(tipoEntrada);
-
-        } while (!tipoValido);
-        // Me falta pedir la cantidad de entradas que desea comprar, de que tipo, etc....
     }
 
     private static boolean verificarTipoValido(String tipoEntrada) {
