@@ -16,11 +16,8 @@ public class Main {
         ArrayList libros = new ArrayList<Libro>();
 
         int opcionMenu = 0;
-        do {
-            mostrarMenuOpciones();
-            System.out.println("Introduce una opcion del menu: ");
-            opcionMenu =
-        } while (opcionMenu != 9);
+        mostrarMenuOpciones();
+        System.out.println("Introduce una opcion del menu: ");
 
         darAltaNuevaPelicula(peliculas, ejemplaresExistentes);
         daraltaNuevaMusica(musicas, ejemplaresExistentes);
