@@ -1,4 +1,4 @@
-package Examen1TerceraEvaluacion;
+package Examen1TerceraEvaluacion.Version2;
 import java.time.LocalDate;
 
 public class Pelicula extends Ejemplar {

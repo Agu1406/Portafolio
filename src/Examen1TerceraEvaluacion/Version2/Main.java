@@ -1,15 +1,13 @@
-package Examen1TerceraEvaluacion;
+package Examen1TerceraEvaluacion.Version2;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         ArrayList ejemplaresExistentes = new ArrayList<Ejemplar>();
         ArrayList ejemplaresAlquilados = new ArrayList<Ejemplar>();
         ArrayList peliculas = new ArrayList<Pelicula>();
@@ -17,8 +15,9 @@ public class Main {
         ArrayList libros = new ArrayList<Libro>();
 
         int opcionMenu = 0;
-        // iba a hacer aqui el do-while
+
         mostrarMenuOpciones();
+
         System.out.println("Introduce una opcion del menu: ");
 
         darAltaNuevaPelicula(peliculas, ejemplaresExistentes);
