@@ -1,35 +1,55 @@
-package UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConcierto;
-
-import UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConcierto.Entradas.Entrada;
-import UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConcierto.Entradas.Grada;
-import UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConcierto.Entradas.Pista;
-import UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConcierto.Entradas.VIP;
+package UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConciertoV2;
+import UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConciertoV2.Entradas.Entrada;
+import UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConciertoV2.Entradas.Grada;
+import UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConciertoV2.Entradas.Pista;
+import UT7HerenciaPolimorfismo.Ejercicio5UT7GestionEntradasConciertoV2.Entradas.VIP;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 public class MainEntradas {
     public static void main(String[] args) {
-        /*
-         * ArrayList genérico donde alojo todas las entradas sin importar de que tipo son
+        /* ArrayList genérico donde alojo todas las entradas sin importar de que tipo son
          * y además 3 ArrayList donde guardo de forma clasificada las entradas según el
          * tipo de entrada que sean. */
         ArrayList<Entrada> todasLasEntradas = new ArrayList<>();
         ArrayList<Grada> entradasGrada = new ArrayList<>();
         ArrayList<Pista> entradasPista = new ArrayList<>();
         ArrayList<VIP> entradasVIP = new ArrayList<>();
+        Scanner teclado = new Scanner(System.in);
+        int opcionMenu;
 
-        // Bucles que genera todas las entradas
+        // Variables del main que limitan la cantidad de entradas que se han de crear.
         int maxEntradasGrada = Grada.getLimiteOeste() + Grada.getLimiteEste() + Grada.getLimiteSur();
         int maxEntradasPista = Pista.getLimitePista();
         int maxEntradasVIP = VIP.getLimiteVip();
-
+        // Métodos de la clase Main con bucles que crean y guardan todas las entradas.
         generarEntradasGrada(maxEntradasGrada, todasLasEntradas, entradasGrada);
         generarEntradasPista(maxEntradasPista, todasLasEntradas, entradasPista);
         generarEntradasVip(maxEntradasVIP, todasLasEntradas, entradasVIP);
 
+        do {
+            mostrarMenu();
+            System.out.println("¡Elige una opción del menú!");
+            opcionMenu = teclado.nextInt();
+
+        } while (opcionMenu != 9);
+
         comprarEntrada();
+    }
+
+    private static void mostrarMenu() {
+        System.out.printf(
+                "Opciones disponibles %n" +
+                "[1] %n" +
+                "[2] %n" +
+                "[3] %n" +
+                "[4] %n" +
+                "[5] %n" +
+                "[6] %n" +
+                "[7] %n" +
+                "[8] %n" +
+                "[9] %n");
     }
 
     private static void generarEntradasVip(int maxEntradasVIP, ArrayList<Entrada> todasLasEntradas, ArrayList<VIP> entradasVIP) {
@@ -40,7 +60,6 @@ public class MainEntradas {
             maxEntradasVIP--;
         }
     }
-
     private static void generarEntradasPista(int maxEntradasPista, ArrayList<Entrada> todasLasEntradas, ArrayList<Pista> entradasPista) {
         while (maxEntradasPista > 0) {
             Pista entradaPista = new Pista();
@@ -49,7 +68,6 @@ public class MainEntradas {
             maxEntradasPista--;
         }
     }
-
     private static void generarEntradasGrada(int maxEntradasGrada, ArrayList <Entrada> todasLasEntradas, ArrayList <Grada> entradasGrada) {
         while (maxEntradasGrada > 0) {
             Grada entradaGrada = definirGrada(maxEntradasGrada);
@@ -58,7 +76,6 @@ public class MainEntradas {
             maxEntradasGrada--;
         }
     }
-
     private static void comprarEntrada() {
         Scanner teclado = new Scanner(System.in);
         String correoElectronico;
@@ -72,7 +89,6 @@ public class MainEntradas {
 
         
     }
-
     private static String queTipoDeEntradaComprar() {
         Scanner teclado = new Scanner(System.in);
         boolean tipoValido = false;
@@ -97,7 +113,6 @@ public class MainEntradas {
 
         return tipoEntrada;
     }
-
     private static void cuantasEntradasCompraras(int cantidadDeseada) {
         Scanner teclado = new Scanner(System.in);
         do {
@@ -111,7 +126,6 @@ public class MainEntradas {
             }
         } while (cantidadDeseada > 20 || cantidadDeseada < 1);
     }
-
     private static String introducirCorreo() {
         Scanner teclado = new Scanner(System.in);
         String expRegCorreo = ".+@.+\\..+";
@@ -124,9 +138,6 @@ public class MainEntradas {
 
         return correoElectronico;
     }
-
-
-
     private static Grada definirGrada(int maxEntradasGrada) {
         String zonaActual; // Controla a que "zona" pertenece el examén.
 
@@ -141,7 +152,6 @@ public class MainEntradas {
         // Crea una nueva entrada del tipo "Grada" en su respectiva "zona".
         return new Grada(zonaActual);
     }
-
     public static String definirTipoEntrada(int opcionEntrada) {
         String tipoEntrada;
         switch (opcionEntrada) {
@@ -162,7 +172,6 @@ public class MainEntradas {
         }
         return tipoEntrada;
     }
-
     public static void menuEntradasValidas () {
         System.out.printf("Elige una entrada del siguiente menú. %n" +
                 "debes utilizar el número correspondiente a la " +
