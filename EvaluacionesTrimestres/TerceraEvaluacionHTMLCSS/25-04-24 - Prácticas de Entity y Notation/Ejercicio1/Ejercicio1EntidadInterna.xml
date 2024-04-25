@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE curso [
+    <!-- Definición de la estructura del documento XML -->
+    <!ELEMENT curso (asignaturas)> <!-- Elemento 'curso' que contiene un elemento 'asignaturas' -->
+    <!ELEMENT asignaturas (#PCDATA)> <!-- Elemento 'asignaturas' que contiene datos de caracteres (PCDATA) -->
+
+    <!-- Definición de una entidad -->
+    <!ENTITY nomclub "Curso 1.º de DAW"> <!-- La entidad 'nomclub' se define con el valor "Curso 1.º de DAW" -->
+]>
+<!-- Elemento raíz del documento XML -->
+<curso>
+    <!-- Elemento 'asignaturas' que utiliza la entidad 'nomclub' -->
+    <asignaturas>En el &nomclub; realizamos cursos sobre Internet.</asignaturas>
+</curso>
