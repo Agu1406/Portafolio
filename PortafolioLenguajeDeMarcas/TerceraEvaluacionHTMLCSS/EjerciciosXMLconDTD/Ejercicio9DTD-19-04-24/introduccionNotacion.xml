@@ -1,0 +1,37 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!-- Creación del DTD del XML. -->
+ <!DOCTYPE texto [
+ <!-- 
+
+- Sintaxis general de notación: 
+ <!NOTATION nombreNotación SYSTEM identificadorExterno>
+
+- Sintaxis general de un atributo que usa notación:
+ <!ATTLIST nombreElemento nombreAtributo NOTATION valorDefault>
+
+- Sintaxis general de entidades externas analizables:
+<!ENTITY nombreEntidad PRIVACIDAD valorEntidad>
+
+- Tipos de privacidad de entidades:
+SYSTEM: privada.
+PUBLIC: publica.
+
+- Sintaxis general de entidades externas no analizables:
+<!ENTITY nombreEntidad PRIVACIDAD valorEntidad NDATA tipo>
+
+ -->
+ <!ELEMENT texto (parrafo+)>
+ <!ELEMENT parrafo (#PCDATA)>
+
+ <!ENTITY autor "Miguel de Cervantes">
+ <!ENTITY libro "Don Quijote de la Mancha">
+ <!ENTITY fecha "1605">
+ ]>
+ <!-- Creación del XML definido por el DTD. -->
+ <texto>
+ <!-- 
+Las "entidades" son autor, libro y fecha que seran remplazadas por los
+valores que definamos en el DTD usando notaciones.
+-->
+    <parrafo>&autor; ha escrito el libro &libro; en la fecha &fecha;</parrafo>
+ </texto>

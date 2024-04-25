@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HECHOS_HISTORICOS>
+    <HECHO Descripcion="IBM da a conocer el PC.">
+        <DIA>12</DIA>
+        <MES>8</MES>
+        <ANO>1981</ANO>
+    </HECHO>
+    <HECHO Descripcion="Nace Alan Turing">
+        <DIA>23</DIA>
+        <MES>6</MES>
+        <ANO>1912</ANO>
+    </HECHO>
+    <HECHO Descripcion="Nace John von Neumann">
+        <DIA>28</DIA>
+        <MES>12</MES>
+        <ANO>1903</ANO>
+    </HECHO>
+    <HECHO Descripcion="Ada Lovelace creó el primer programa">
+        <DIA>7</DIA>
+        <MES>9</MES>
+        <ANO>1943</ANO>
+    </HECHO>
+</HECHOS_HISTORICOS>

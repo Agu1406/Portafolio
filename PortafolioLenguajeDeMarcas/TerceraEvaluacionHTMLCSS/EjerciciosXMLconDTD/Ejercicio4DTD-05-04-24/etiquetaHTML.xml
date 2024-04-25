@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE etiqueta_html [
+    <!-- Definición del elemento raíz "etiqueta_html" que contiene elementos "br" -->
+    <!ELEMENT etiqueta_html (br)>
+    
+    <!-- Definición del elemento "br" que es del tipo EMPTY, indicando que no 
+    puede tener contenido ni elementos hijos -->
+    <!ELEMENT br EMPTY>
+]>
+<!-- Contenido del documento XML -->
+<etiqueta_html>
+    <!-- Uso del elemento "br", siguiendo la definición de DTD que es EMPTY, 
+    por lo tanto, se usa sin contenido -->
+    <br/>
+</etiqueta_html>

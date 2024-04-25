@@ -1,0 +1,45 @@
+<!--
+
+    En estos primeros dos ejercicios exploraremos las formas de utilizar la
+propiedad "Background" y los elementos que poseen, para ello, recordemos su 
+sintaxis la cual es:
+
+background: [background-image] [background-repeat] [background-position] [background-size];
+
+Ejercicio: Realiza dos HTML en los cuales vas a insertar una imagen de una sandia
+
+- Al primer HTML le aplicarás un CSS con esta propiedad:
+background: url("sandia.jpg") no-repeat center center / cover;
+
+- Al segundo html le aplicarás un CSS con esta clase:
+
+    body { 
+        background-image: url("sandia.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover; 
+    }
+
+    
+¿Qué diferencias hay?
+
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body { 
+        background-image: url("imagenes/sandia.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover; 
+    }
+    </style>
+</head>
+<body>
+ <h1 style="color: white;">Aqui el background y sus propiedades estan en multilinea</h1>
+</body>
+</html>

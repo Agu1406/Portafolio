@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CIUDADES>
+<!-- CADA ETIQUETA CIUDADES ES COMO UNA "CARPETA" Y DENTRO SE ALOJAN NOMBRE DE LA CIUDAD Y SU PAIS -->
+    <CIUDAD>
+        <NOMBRE>Lisboa</NOMBRE>
+        <PAIS Continente="Europa">Portugal</PAIS>
+    </CIUDAD>
+    <CIUDAD>
+        <NOMBRE>El Cairo</NOMBRE>
+        <PAIS Continente="África">Egipto</PAIS>
+    </CIUDAD>
+    <CIUDAD>
+        <NOMBRE>Nairobi</NOMBRE>
+        <PAIS Continente="África">Kenia</PAIS>
+    </CIUDAD>
+    <CIUDAD>
+        <NOMBRE>Kuala Lumpur</NOMBRE>
+        <PAIS Continente="Asia">Malasia</PAIS>
+    </CIUDAD>
+    <CIUDAD>
+        <NOMBRE>Caracas</NOMBRE>
+        <PAIS Continente="Suramerica">Venezuela</PAIS>
+    </CIUDAD>
+</CIUDADES>
