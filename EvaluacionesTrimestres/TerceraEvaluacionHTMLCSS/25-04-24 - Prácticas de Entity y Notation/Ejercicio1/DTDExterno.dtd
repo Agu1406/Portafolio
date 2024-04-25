@@ -1,0 +1,3 @@
+<!ELEMENT pais (nombre)>
+<!ELEMENT nombre (#PCDATA)>
+<!ENTITY entidad SYSTEM "Republica Sudafricana">

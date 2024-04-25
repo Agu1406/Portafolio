@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE paginaWeb [
+    <!-- Definición de la estructura del documento XML -->
+    <!ELEMENT paginaWeb (noticia)> <!-- Elemento 'paginaWeb' que contiene un elemento 'noticia' -->
+    <!ELEMENT noticia (#PCDATA)> <!-- Elemento 'noticia' que contiene datos de caracteres (PCDATA) -->
+
+    <!-- Definición de una entidad externa -->
+    <!ENTITY disclaimer SYSTEM "disclaimer.txt"> <!-- La entidad 'disclaimer' se carga desde el archivo externo 'disclaimer.txt' -->
+]>
+<!-- Elemento raíz del documento XML -->
+<paginaWeb>
+    <!-- Elemento 'noticia' que hace referencia a la entidad externa 'disclaimer' -->
+    <noticia>Politica de uso de nuestra web: &disclaimer;</noticia>
+</paginaWeb>

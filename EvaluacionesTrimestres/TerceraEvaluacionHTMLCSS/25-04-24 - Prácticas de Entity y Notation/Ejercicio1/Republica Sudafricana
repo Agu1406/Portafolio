@@ -1,0 +1,2 @@
+<!ELEMENT pais (nombre)>
+<!ELEMENT nombre (#PCDATA)>
