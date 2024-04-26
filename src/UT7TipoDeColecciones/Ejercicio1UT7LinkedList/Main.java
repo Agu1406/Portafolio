@@ -129,6 +129,9 @@ public class Main {
      */
     private static void addPersonaCola(LinkedList<Persona> colaDeClientes) {
         Persona nuevoCliente = new Persona();
-        colaDeClientes.push(nuevoCliente);
+        // colaDeClientes.push(nuevoCliente);
+
+        // Anteriormente, use push, pero estaba mal, yo deseo añadirlo al final de la fila, no al inicio.
+        colaDeClientes.offer(nuevoCliente);
     }
 }
