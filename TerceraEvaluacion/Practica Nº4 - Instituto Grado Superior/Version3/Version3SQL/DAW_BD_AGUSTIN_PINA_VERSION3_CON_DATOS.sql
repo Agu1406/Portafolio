@@ -493,3 +493,205 @@ VALUES
   ('DAW2', 'PDAW'), -- Proyecto de Desarrollo de Aplicaciones Web
   ('DAW2', 'MFCT'); -- Formación en Centros de Trabajo
 
+-- Calificaciones de: Adrian Yin Brown (5 módulos, excluido de FOL)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '123456789A', 'PR001', 'MT001', 7, 5, 9, -1), -- Calificaciones de Bases de Datos
+  ('0487', '123456789A', 'PR002', 'MT002', 6, 4, 8, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0373', '123456789A', 'PR004', 'MT003', 8, 6, 10, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '123456789A', 'PR005', 'MT004', 9, 5, 7, -1), -- Calificaciones de Programación
+  ('0483', '123456789A', 'PR006', 'MT005', 4, 2, 6, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Adrian Yang Sugar (5 módulos, excluido de FOL)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '987654321B', 'PR001', 'MT006', 6, 7, 8, -1), -- Calificaciones de Bases de Datos
+  ('0487', '987654321B', 'PR002', 'MT007', 5, 5, 9, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0373', '987654321B', 'PR004', 'MT008', 2, 3, 4, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '987654321B', 'PR005', 'MT009', 7, 6, 8, -1), -- Calificaciones de Programación
+  ('0483', '987654321B', 'PR006', 'MT010', 9, 10, 10, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Agustín Papi Piña (6 módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '246813579C', 'PR001', 'MT011', 8, 7, 6, -1), -- Calificaciones de Bases de Datos
+  ('0487', '246813579C', 'PR002', 'MT012', 5, 4, 3, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '246813579C', 'PR007', 'MT016', 2, 3, 4, -1), -- Calificaciones de Formación Orientativa Laboral
+  ('0373', '246813579C', 'PR004', 'MT013', 6, 5, 4, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '246813579C', 'PR005', 'MT014', 7, 8, 9, -1), -- Calificaciones de Programación
+  ('0483', '246813579C', 'PR006', 'MT015', 10, 9, 8, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Aitor Tilla Consebolla (5 módulos, excluido de FOL)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '135792468D', 'PR001', 'MT021', 4, 6, 5, -1), -- Calificaciones de Bases de Datos
+  ('0487', '135792468D', 'PR002', 'MT022', 5, 8, 7, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0373', '135792468D', 'PR004', 'MT023', 6, 7, 8, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '135792468D', 'PR005', 'MT024', 3, 4, 5, -1), -- Calificaciones de Programación
+  ('0483', '135792468D', 'PR006', 'MT025', 9, 8, 7, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Alberto Paquetote Chulito (2 módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '864207913E', 'PR001', 'MT026', 8, 7, 6, -1), -- Calificaciones de Bases de Datos
+  ('0485', '864207913E', 'PR005', 'MT027', 5, 4, 3, -1); -- Calificaciones de Programación
+
+-- Calificaciones de: Andrew Bellaco Guiño (6 módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '579314682F', 'PR001', 'MT031', 6, 5, 4, -1), -- Calificaciones de Bases de Datos
+  ('0487', '579314682F', 'PR002', 'MT032', 7, 6, 5, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '579314682F', 'PR003', 'MT033', 8, 7, 6, -1), -- Calificaciones de Formación Orientativa Laboral
+  ('0373', '579314682F', 'PR004', 'MT034', 5, 4, 3, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '579314682F', 'PR005', 'MT035', 10, 9, 8, -1), -- Calificaciones de Programación
+  ('0483', '579314682F', 'PR006', 'MT036', 2, 3, 4, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Carlos Aesthetic Vintage (5 módulos, excluido de FOL)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '314682975G', 'PR001', 'MT031', 5, 7, 6, -1), -- Calificaciones de Bases de Datos
+  ('0487', '314682975G', 'PR002', 'MT032', 8, 9, 10, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0373', '314682975G', 'PR004', 'MT035', 4, 5, 3, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '314682975G', 'PR005', 'MT033', 6, 7, 5, -1), -- Calificaciones de Programación
+  ('0483', '314682975G', 'PR006', 'MT034', 9, 8, 10, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Carlos Codillo Tierno (5 módulos, excluido de FOL)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '753190246H', 'PR001', 'MT036', 7, 6, 5, -1), -- Calificaciones de Bases de Datos
+  ('0487', '753190246H', 'PR002', 'MT037', 6, 7, 8, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0373', '753190246H', 'PR004', 'MT040', 9, 8, 10, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '753190246H', 'PR005', 'MT038', 4, 5, 3, -1), -- Calificaciones de Programación
+  ('0483', '753190246H', 'PR006', 'MT039', 8, 9, 7, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Cristina Berijot Gerl (2 módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0485', '902468135I', 'PR005', 'MT041', 8, 7, 9, -1), -- Calificaciones de Programación
+  ('0483', '902468135I', 'PR006', 'MT042', 5, 4, 6, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Eduardo Dickson Mamasanga (6 módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0482', '468135792J', 'PR004', 'MT011', 3, 4, 5, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0483', '468135792J', 'PR006', 'MT012', 6, 7, 8, -1), -- Calificaciones de Sistemas Informáticos
+  ('0484', '468135792J', 'PR001', 'MT013', 9, 8, 10, -1), -- Calificaciones de Bases de Datos
+  ('0485', '468135792J', 'PR005', 'MT014', 2, 3, 4, -1), -- Calificaciones de Programación
+  ('0486', '468135792J', 'PR007', 'MT015', 5, 6, 7, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '468135792J', 'PR003', 'MT016', 8, 9, 7, -1); -- Calificaciones de Formación Orientativa Laboral
+
+-- Calificaciones de: Guido Asado Welldone (6 módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0481', '246897531K', 'PR008', 'MT017', 7, 6, 5, -1), -- Calificaciones de Sistemas Informáticos
+  ('0482', '246897531K', 'PR004', 'MT018', 8, 7, 6, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0483', '246897531K', 'PR006', 'MT019', 4, 5, 3, -1), -- Calificaciones de Bases de Datos
+  ('0484', '246897531K', 'PR001', 'MT020', 6, 7, 8, -1), -- Calificaciones de Programación
+  ('0485', '246897531K', 'PR005', 'MT021', 9, 8, 10, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '246897531K', 'PR003', 'MT022', 2, 3, 4, -1); -- Calificaciones de Formación Orientativa Laboral
+
+-- Calificaciones de: Ismael McFlurry Elado (6 módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0481', '975318624L', 'PR008', 'MT023', 5, 4, 6, -1), -- Calificaciones de Sistemas Informáticos
+  ('0482', '975318624L', 'PR004', 'MT024', 7, 8, 9, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0483', '975318624L', 'PR006', 'MT025', 3, 2, 4, -1), -- Calificaciones de Bases de Datos
+  ('0484', '975318624L', 'PR001', 'MT026', 6, 5, 7, -1), -- Calificaciones de Programación
+  ('0485', '975318624L', 'PR005', 'MT027', 8, 9, 10, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '975318624L', 'PR003', 'MT028', 4, 3, 5, -1); -- Calificaciones de Formación Orientativa Laboral
+
+-- Calificaciones de: Laura Jitana Malagueña (6 módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0481', '318624970M', 'PR008', 'MT029', 6, 5, 4, -1), -- Calificaciones de Sistemas Informáticos
+  ('0482', '318624970M', 'PR004', 'MT030', 8, 7, 9, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0483', '318624970M', 'PR006', 'MT031', 5, 6, 7, -1), -- Calificaciones de Bases de Datos
+  ('0484', '318624970M', 'PR001', 'MT032', 9, 8, 10, -1), -- Calificaciones de Programación
+  ('0485', '318624970M', 'PR005', 'MT033', 3, 4, 5, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '318624970M', 'PR003', 'MT034', 7, 6, 8, -1); -- Calificaciones de Formación Orientativa Laboral
+
+-- Calificaciones de: Marta Hairof Failla (6 módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0481', '624970318N', 'PR008', 'MT035', 4, 5, 3, -1), -- Calificaciones de Sistemas Informáticos
+  ('0482', '624970318N', 'PR004', 'MT036', 6, 5, 7, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0483', '624970318N', 'PR006', 'MT037', 8, 7, 9, -1), -- Calificaciones de Bases de Datos
+  ('0484', '624970318N', 'PR001', 'MT038', 5, 6, 4, -1), -- Calificaciones de Programación
+  ('0485', '624970318N', 'PR005', 'MT039', 7, 8, 6, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '624970318N', 'PR003', 'MT040', 9, 10, 8, -1); -- Calificaciones de Formación Orientativa Laboral
+
+-- Calificaciones de: Max Fornait Valorante (5 módulos, Excluido de FOL)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0481', '970318624O', 'PR008', 'MT041', 5, 6, 7, -1), -- Calificaciones de Sistemas Informáticos
+  ('0482', '970318624O', 'PR004', 'MT042', 8, 7, 9, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0483', '970318624O', 'PR006', 'MT043', 4, 5, 6, -1), -- Calificaciones de Bases de Datos
+  ('0484', '970318624O', 'PR001', 'MT044', 7, 8, 10, -1), -- Calificaciones de Programación
+  ('0485', '970318624O', 'PR005', 'MT045', 6, 5, 4, -1); -- Calificaciones de Entornos de Desarrollo
+
+-- Calificaciones de: Miguel Don Watch (5 módulos, Excluido de FOL)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0481', '318624970P', 'PR008', 'MT046', 7, 6, 8, -1), -- Calificaciones de Sistemas Informáticos
+  ('0482', '318624970P', 'PR004', 'MT047', 5, 4, 3, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0483', '318624970P', 'PR006', 'MT048', 9, 8, 10, -1), -- Calificaciones de Bases de Datos
+  ('0484', '318624970P', 'PR001', 'MT049', 2, 3, 4, -1), -- Calificaciones de Programación
+  ('0485', '318624970P', 'PR005', 'MT050', 6, 7, 5, -1); -- Calificaciones de Entornos de Desarrollo
+
+-- Calificaciones de: Paula Purple Nails (6 módulos, Cursa todos los Módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0481', '624970318Q', 'PR008', 'MT056', 8, 9, 10, -1), -- Calificaciones de Sistemas Informáticos
+  ('0482', '624970318Q', 'PR004', 'MT057', 3, 4, 5, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0483', '624970318Q', 'PR006', 'MT058', 7, 6, 8, -1), -- Calificaciones de Bases de Datos
+  ('0484', '624970318Q', 'PR001', 'MT059', 4, 5, 3, -1), -- Calificaciones de Programación
+  ('0485', '624970318Q', 'PR005', 'MT060', 6, 7, 9, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '624970318Q', 'PR003', 'MT061', 2, 3, 4, -1); -- Calificaciones de Formación Orientativa Laboral
+
+-- Calificaciones de: Quique Portuano Milano (5 módulos, Excluido de FOL)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0481', '970318624R', 'PR008', 'MT051', 6, 7, 5, -1), -- Calificaciones de Sistemas Informáticos
+  ('0482', '970318624R', 'PR004', 'MT052', 8, 9, 10, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0483', '970318624R', 'PR006', 'MT053', 4, 3, 2, -1), -- Calificaciones de Bases de Datos
+  ('0484', '970318624R', 'PR001', 'MT054', 7, 8, 6, -1), -- Calificaciones de Programación
+  ('0485', '970318624R', 'PR005', 'MT055', 5, 4, 3, -1); -- Calificaciones de Entornos de Desarrollo
+
+-- Calificaciones de: Roberto Stolisnaya (5 módulos, Excluido de FOL)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '87654321S', 'PR001', 'MT025', 6, 5, 4, -1), -- Calificaciones de Bases de Datos
+  ('0487', '87654321S', 'PR002', 'MT026', 7, 8, 9, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0373', '87654321S', 'PR004', 'MT027', 3, 2, 1, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '87654321S', 'PR005', 'MT028', 8, 9, 10, -1), -- Calificaciones de Programación
+  ('0483', '87654321S', 'PR006', 'MT029', 5, 4, 3, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Rodrigo Esquibidi (6 módulos, Cursa todos los Módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '98765432T', 'PR001', 'MT031', 5, 6, 7, -1), -- Calificaciones de Bases de Datos
+  ('0487', '98765432T', 'PR002', 'MT032', 8, 7, 6, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '98765432T', 'PR003', 'MT033', 4, 3, 2, -1), -- Calificaciones de Formación Orientativa Laboral
+  ('0373', '98765432T', 'PR004', 'MT034', 9, 8, 7, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '98765432T', 'PR005', 'MT035', 6, 5, 4, -1), -- Calificaciones de Programación
+  ('0483', '98765432T', 'PR006', 'MT036', 7, 8, 9, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Tati Mileidi (6 módulos, Cursa todos los Módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '09876543U', 'PR001', 'MT037', 8, 9, 10, -1), -- Calificaciones de Bases de Datos
+  ('0487', '09876543U', 'PR002', 'MT038', 4, 3, 2, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '09876543U', 'PR003', 'MT039', 6, 5, 4, -1), -- Calificaciones de Formación Orientativa Laboral
+  ('0373', '09876543U', 'PR004', 'MT040', 7, 8, 9, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '09876543U', 'PR005', 'MT041', 3, 2, 1, -1), -- Calificaciones de Programación
+  ('0483', '09876543U', 'PR006', 'MT042', 5, 6, 7, -1); -- Calificaciones de Sistemas Informáticos
+
+-- Calificaciones de: Victor Pelotade (6 módulos, Cursa todos los Módulos)
+INSERT INTO CALIFICACIONES (CODIGO_MODULO, NIA_ALUMNO, CODIGO_PROFESOR, CODIGO_MATRICULA, PRIMERA_EVALUACION, SEGUNDA_EVALUACION, ORDINARIA, EXTRAORDINARIA)
+VALUES 
+  ('0484', '10987654V', 'PR001', 'MT023', 5, 4, 3, -1), -- Calificaciones de Bases de Datos
+  ('0487', '10987654V', 'PR002', 'MT023', 6, 7, 8, -1), -- Calificaciones de Entornos de Desarrollo
+  ('0617', '10987654V', 'PR003', 'MT023', 9, 8, 7, -1), -- Calificaciones de Formación Orientativa Laboral
+  ('0373', '10987654V', 'PR004', 'MT023', 2, 3, 4, -1), -- Calificaciones de Lenguaje de Marcas
+  ('0485', '10987654V', 'PR005', 'MT023', 6, 5, 4, -1), -- Calificaciones de Programación
+  ('0483', '10987654V', 'PR006', 'MT023', 7, 8, 9, -1); -- Calificaciones de Sistemas Informáticos
