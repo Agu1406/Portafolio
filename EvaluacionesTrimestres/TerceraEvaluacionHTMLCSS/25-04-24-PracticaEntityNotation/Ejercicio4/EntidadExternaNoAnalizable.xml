@@ -6,9 +6,15 @@
     <!ELEMENT ISBN (#PCDATA)> <!-- Elemento 'ISBN' que contiene datos de caracteres (PCDATA) -->
     <!ELEMENT autor (#PCDATA)> <!-- Elemento 'autor' que contiene datos de caracteres (PCDATA) -->
     <!ELEMENT titulo (#PCDATA)> <!-- Elemento 'titulo' que contiene datos de caracteres (PCDATA) -->
-    <!ELEMENT portada EMPTY> <!-- Elemento 'portada' que no puede contener nada. -->
-    <!ATTLIST portada src CDATA #REQUIRED> <!-- Atributo 'src' de 'portada' de tipo CDATA y requerido -->
+    <!ELEMENT portada EMPTY> <!-- Elemento 'portada' que no puede contener nada -->
+    
+    <!ENTITY iesbilingue PUBLIC "https://iesventura.es//_ies_datos//bilingue_ok.jpg" "bilingue_ok.jpg" NDATA jpg>
 
+    <!-- Definición de la NOTATION para el tipo de datos de 'portada' -->
+    <!NOTATION jpg SYSTEM "image/jpg">
+    
+    <!-- Definición de atributos para el elemento 'portada' -->
+    <!ATTLIST portada src ENTITY #REQUIRED> <!-- Atributo 'src' de 'portada' de tipo ENTITY y requerido -->
 ]>
 <!-- Elemento raíz del documento XML -->
 <biblioteca>
@@ -19,7 +25,7 @@
         <autor></autor>
         <titulo></titulo>
         <!-- Elemento 'portada' con atributo 'src' -->
-        <portada src="https://iesventura.es//_ies_datos//bilingue_ok.jpg"></portada>
+        <portada src="iesbilingue"/>
     </libros>
     <libros>
         <!-- Elementos dentro de 'libros' -->
@@ -27,7 +33,7 @@
         <autor></autor>
         <titulo></titulo>
         <!-- Elemento 'portada' con atributo 'src' -->
-        <portada src="https://iesventura.es//_ies_datos//bilingue_ok.jpg"></portada>
+        <portada src="iesbilingue"/>
     </libros>
     <libros>
         <!-- Elementos dentro de 'libros' -->
@@ -35,6 +41,6 @@
         <autor></autor>
         <titulo></titulo>
         <!-- Elemento 'portada' con atributo 'src' -->
-        <portada src="https://iesventura.es//_ies_datos//bilingue_ok.jpg"></portada>
+        <portada src="iesbilingue"/>
     </libros>
 </biblioteca>

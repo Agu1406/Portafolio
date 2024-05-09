@@ -1,0 +1,37 @@
+<!ELEMENT BIBLIOTECA (LIBRO+)>
+<!-- Elemento 'BIBLIOTECA' que contiene uno o más elementos 'LIBRO'. 
+    Esto indica que una biblioteca puede contener varios libros. -->
+
+<!ELEMENT LIBRO (TITULO, AUTOR+, EDITORIAL?, ANO?)>
+<!-- Elemento 'LIBRO' que contiene 'TITULO', uno o más 'AUTOR', opcional 
+    'EDITORIAL' y opcional 'ANO'. Esto refleja la estructura típica de 
+    un libro que puede tener un título, uno o más autores, y 
+    opcionalmente una editorial y un año de publicación. -->
+
+<!ATTLIST LIBRO COD CDATA #REQUIRED>
+<!-- Atributo 'COD' de tipo CDATA para el elemento 'LIBRO', requerido. 
+    CDATA significa "Character Data" y se refiere a datos de caracteres 
+    no interpretados, lo que permite incluir cualquier carácter especial 
+    sin escapar. Este atributo COD podría ser un identificador único 
+    para cada libro. -->
+
+<!ELEMENT TITULO (#PCDATA)>
+<!-- Elemento 'TITULO' que contiene datos de caracteres (PCDATA). 
+    PCDATA significa "Parsed Character Data" y se refiere a datos de 
+    caracteres que son interpretados por el parser XML, lo que significa 
+    que ciertos caracteres especiales (como <, >, &) deben ser escapados. -->
+
+<!ELEMENT AUTOR (#PCDATA)>
+<!-- Elemento 'AUTOR' que contiene datos de caracteres (PCDATA). Al igual 
+    que 'TITULO', 'AUTOR' contiene datos de caracteres que son interpretados 
+    por el parser XML. -->
+
+<!ELEMENT EDITORIAL (#PCDATA)>
+<!-- Elemento 'EDITORIAL' que contiene datos de caracteres (PCDATA). Al 
+    ser opcional, 'EDITORIAL' también contiene datos de caracteres que 
+    son interpretados por el parser XML. -->
+
+<!ELEMENT ANO (#PCDATA)>
+<!-- Elemento 'ANO' que contiene datos de caracteres (PCDATA). Al ser 
+    opcional, 'ANO' también contiene datos de caracteres que son 
+    interpretados por el parser XML. -->

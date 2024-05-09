@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cine [
+    <!-- Definición del elemento raíz que contiene uno o más elementos 'directores' y 'pelicula'. -->
+    <!ELEMENT cine (elementosDelCine+)>
+
+    <!-- Definición de 'directores' y 'pelicula' que puede tener uno o más. -->
+    <!ELEMENT elementosDelCine (director+ | pelicula+)>
+
+
+    <!-- 'director' contiene datos textuales y un atributo 'codDirector'. -->
+    <!ELEMENT director (#PCDATA)>
+    <!ATTLIST director codDirector ID #REQUIRED>
+
+    <!-- Definición de 'pelicula' que puede tener uno o más elementos 'pelicula'. -->
+    <!ELEMENT pelicula (#PCDATA)>
+    <!ATTLIST pelicula direccion IDREF #REQUIRED>
+]>
+<cine>
+    <elementosDelCine>
+        <director codDirector="SP">Estiven Espilber</director>
+        <director codDirector="JC">Jose Camarón</director>
+        <director codDirector="BA">Bayeta</director>
+    </elementosDelCine>
+    <elementosDelCine>
+        <pelicula direccion="BA">Ruarrr, reptiles gigantes prehistoricos</pelicula>
+        <pelicula direccion="SP">Avatar: The Last Air Bender</pelicula>
+        <pelicula direccion="JC">Barco vs Iceberg (Vose) 3D</pelicula>
+        <pelicula direccion="JC">Lista de compra</pelicula>
+    </elementosDelCine>
+</cine>

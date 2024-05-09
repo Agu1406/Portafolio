@@ -1,0 +1,7 @@
+<!ELEMENT objetos (objeto+)>
+
+<!ENTITY % dimensiones "alto CDATA #IMPLIED ancho CDATA #IMPLIED profundo CDATA #IMPLIED">
+
+<!ELEMENT objeto (#PCDATA)>
+
+<!ATTLIST objeto %dimensiones;>
