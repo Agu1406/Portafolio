@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grupo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="grupo.xsd">
+    <persona>
+        <pais>España</pais>
+        <ciudad>Madrid</ciudad>
+        <nombre>Victor Velazquez</nombre>
+        <movil></movil>
+        <edad></edad>
+    </persona>
+    <persona>
+        <pais></pais>
+        <ciudad></ciudad>
+        <nombre></nombre>
+        <movil></movil>
+        <edad></edad>
+    </persona>
+    <persona>
+        <pais></pais>
+        <ciudad></ciudad>
+        <nombre></nombre>
+        <movil></movil>
+        <edad></edad>
+    </persona>
+</alumnos>
