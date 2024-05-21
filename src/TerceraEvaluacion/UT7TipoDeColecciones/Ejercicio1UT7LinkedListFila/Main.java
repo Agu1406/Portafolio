@@ -1,4 +1,4 @@
-package TerceraEvaluacion.UT7TipoDeColecciones.Ejercicio1UT7LinkedList;
+package TerceraEvaluacion.UT7TipoDeColecciones.Ejercicio1UT7LinkedListFila;
 
 import java.util.LinkedList;
 import java.util.Scanner;

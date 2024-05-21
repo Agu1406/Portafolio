@@ -1,4 +1,4 @@
-package TerceraEvaluacion.UT7TipoDeColecciones.Ejercicio1UT7LinkedList;
+package TerceraEvaluacion.UT7TipoDeColecciones.Ejercicio1UT7LinkedListFila;
 /**
  * <h1 style="text-align: center;">Persona</h1>
  * <br>
