@@ -3,17 +3,32 @@
     <!-- Definición del elemento raíz que contiene uno o más elementos 'directores' y 'pelicula'. -->
     <!ELEMENT cine (elementosDelCine+)>
 
-    <!-- Definición de 'directores' y 'pelicula' que puede tener uno o más. -->
+    <!-- Definición de 'directores' y 'pelicula' que puede tener uno o más,
+    al utilizar un "pipe" ("|") indicamos que pueden ser o un elemento o
+    el otro, por eso en el XML tenemos dos etiquetas con el mismo nombre
+    "elementosDelCine", una contiene "director" y la otra "pelicula"
+    además ambos con el "+", por lo que se espera minimo uno y máximo
+    varios. -->
     <!ELEMENT elementosDelCine (director+ | pelicula+)>
 
 
     <!-- 'director' contiene datos textuales y un atributo 'codDirector'. -->
     <!ELEMENT director (#PCDATA)>
+    <!-- Al utilizar ID conseguimos que todos los códigos de director sean unicos,
+    de está forma no podrá haber dos directores con el mismo código, garantizando
+    uniformidad en los datos del DTD. -->
     <!ATTLIST director codDirector ID #REQUIRED>
 
     <!-- Definición de 'pelicula' que puede tener uno o más elementos 'pelicula'. -->
     <!ELEMENT pelicula (#PCDATA)>
+    <!-- Al utilizar IDREF conseguimos que tpdas las peliculas se conecten con el
+    atributo dirección a los códigos de los directores, estableciendo así una
+    relación entre ellos. -->
     <!ATTLIST pelicula direccion IDREF #REQUIRED>
+
+    <!-- En ambos podemos ver la etiqueta "#REQUIRED", es decir, en Español, que se
+    requieren, por lo que es obligatorio que los elementos y atributos tengan los
+    dos, el codDirector y dirección, no es voluntario. -->
 ]>
 <cine>
     <elementosDelCine>

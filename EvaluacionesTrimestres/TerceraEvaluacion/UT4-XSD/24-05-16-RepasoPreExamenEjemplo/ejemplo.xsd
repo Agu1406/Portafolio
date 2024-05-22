@@ -1,0 +1,17 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="ejemplo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fran" type="franC"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="franC">
+        <xs:sequence>
+            <xs:element name="otro" type="xs:string"></xs:element>
+            <xs:element name="fin" type="xs:string"></xs:element>
+        </xs:sequence>
+        <xs:attribute name="cod" type="xs:string"></xs:attribute>
+    </xs:complexType>
+</xs:schema>
