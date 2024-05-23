@@ -1,4 +1,8 @@
-   <!-- Se definen entidades para los modos corto y largo -->
+   <!-- Se definen entidades para los modos corto y largo, esto funciona como un
+   interruptor, aquella que lleve "INCLUDE" sera la que el DTD utilice y aquella
+   que lleve "IGNORE" no sera utilizada, si intercambios los valores aquí lo que
+   ocurrira es que "Mensajes.xml" tendra un error porque habremos activado el
+   modo corto el cual no puede incluir la etiqueta "<palabras>" -->
 <!ENTITY % corto "IGNORE">
 <!ENTITY % largo "INCLUDE">
 
