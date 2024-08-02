@@ -1,0 +1,221 @@
+/*
+En este caso, se utiliza una fuente personalizada que hemos obtenido de Google,
+en CSS lo primero que debe hacerse siempre antes de todo son las importaciones,
+además de importar la fuente, agregamos a la URL un "&display=swap", esto hace
+que, mientras carga la fuente "Muli" se muestre la fuente "Swap" y una vez
+"Muli" haya cargado, "Swap" sea reamplzada por "Muli".
+*/
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/*
+el "*" selecciona a todo el HTML, el "boxsizing" define el tamaño de los elementos
+y como hemos elegido "border-box" ocurre que, si por ejemplo, fijamos el tamaño
+de "X" elemento en 100 pixeles e intentamos agregarle un borde o un padding de "X"
+tamaño, el tamaño total del elemento no cambiara, ejemplo, una foto de "100px" de
+ancho y de alto, si le intentamos poner un "padding" de "10px", restara "10px" a
+cada lado de la imagen, por lo que la imagen sera de "80px" de ancho y alto, ya
+que los "20px" de diferencia seran los quitados de cada lado de la imagén al
+inhabilitar que su tamaño aumente o disminuya.
+*/
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    /* Define a "Multi" como la fuente principal y "sans-serif la de remplazo si "Multi" no está disponible.*/
+    font-family: 'Muli', sans-serif; 
+
+    /* Define la estrucutra de organización de los elementos como "flexible".*/
+    display: flex; 
+
+    /* De forma vertical, alinea los elementos del body al centro. */
+    align-items: center; 
+
+    /* De forma horizontal, alinea los elementos del body al centro. */
+    justify-content: center;
+
+    /* Antes, al principio del HTML, siempre creamos el "viewport" y decimos que el tamaño
+    del contenido del HTML sera igual al de la ventana grafica que lo visualice, aquí "VH"
+    es la abreviatura de "Viewport height", si nos visualizan desde un movil, ordenador
+    o portatil, al usar "100vh" garantizamos que el contenido del sitio web se muestre y
+    adapte al 100% del alto  disponible de la pantalla.*/
+    height: 100vh;
+
+    /* En caso de que cualquier contenido del "body" se desborde de la pantalla, este se ocultara. */
+    overflow: hidden;
+
+    /* Estable el margen en "0" del body, para que no existe ninguna separación entre el contenido
+    del body y los border de la ventana de visualización. */
+    margin: 0;
+}
+
+
+.contenedor {
+    /* Establece que el "contenedor" y todos sus hijos usan las propiedades "flexibles"
+    para la organización de donde y como se visualizan.*/
+    display: flex;
+
+    /* Parecido al anterior, pero este garantiza usar el 90% del ancho total disponible
+    del dispotiivo / ventana de visualización que este viendo nuestro sitio web */
+    width: 90vw;
+}
+
+/*
+Estos son los atributos CSS que compartes todos los "div" cuya class es "panel"
+que hemos creado, en total son cuatro, uno por cada estación del año.
+*/
+.panel {
+    /* Extiende el tamaño de la imagén de fondo que le agregamos a cada "div"
+    para que la imagén lo cubra al 100% de ancho y alto.*/
+    background-size: cover;
+
+    /* Centra la imagén en el centro (valga la redundancia) del "div". */
+    background-position: center;
+
+    /* Evita que la imagén del fondo se repita para llenar huecos o espacios vacios. */
+    background-repeat: no-repeat;
+
+    /* Establece que los paneles ocupan el 80% del ancho total del dispositivo / ventana
+    que visualiza el sitio web. */
+    height: 80vh;
+
+    /* Redondea los paneles con 50px para hacer que sus esquinas estén redondeadas. */
+    border-radius: 50px;
+
+    /* Establece el color del texto dentro de los paneles en "blanco". */
+    color: #fff;
+
+    /* Cuando pasamos el ratón por encima de un elemento con esté atributo, el ratón cambia
+    a la forma de una "mano" indicandonos que es un elemento clickeable. */
+    cursor: pointer;
+
+    /* Establece que el elemento podra encogerse, agrandarse y ocupar hasta el 50% del espacio
+    disponible dentro del contenedor padre, dejando espacio siempre para otros elementos hijos
+    del padre que también sean flexibles. */
+    flex: 0.5;
+
+    /* Añade un margen de "10px" alrededor de cada panel. */
+    margin: 10px;
+
+    /* Una posición relativa permite cambiar un elemento desde su posición original sin afectar
+    el flujo y la estructura original del documento a nivel interno, en cambio "absolute" o
+    "fixed" no permiten realizar estós cambios y sus posiciones serían finales. */
+    position: relative;
+
+    /* Cuando los elementos en pantaña cambien de tamaño o se desplacen, nos interesa que lo hagan
+    con cierta "velocidad" para que no sean bruscos y se vean "bien", aquí agregamos una transición
+    de 700 milisegundos, la palabra "-webkit-" asegura que esto sea compatible con navegadores
+    desarrollados en webkit tales como "Safari". */
+    -webkit-transition: all 700ms ease-in;
+}
+
+/* Este CSS solo afectara a aquellos elementos "H3" que estén dentro, es decir, sean hijos, de un
+elemento de la clase "panel", cualquier otro H3 no se vería afectado. */
+.panel h3 {
+    /* Tamaño de la fuente en 24px. */
+    font-size: 24px;
+
+    /* Su posición es absoluta dentro del "panel" donde se visualice */
+    position: absolute;
+
+    /* Deja un espacio de "20px" con respecto al fondo / suelo del elemento panel.*/
+    bottom: 20px;
+
+    /* Deja un espacio de "20px" con respecto al margen izquierdo del elemento. */
+    left: 20px;
+
+    /* Su margen es cero entre todos los lados, eliminado espacios residuales. */
+    margin: 0;
+
+    /* Si la opacidad de un elemento es "0" hace que sea completamente transparente. */
+    opacity: 0;
+
+    text-shadow: 1px 1px 3px black;
+
+}
+
+/* Lo mismo de arriba pero con todos los parrafos. */
+.panel p {
+    /* Tamaño de la fuente en 24px. */
+    font-size: 12px;
+
+    /* Su posición es absoluta dentro del "panel" donde se visualice */
+    position: absolute;
+
+    /* Deja un espacio de "20px" con respecto al fondo / suelo del elemento panel.*/
+    bottom: 8px;
+
+    /* Deja un espacio de "20px" con respecto al margen izquierdo del elemento. */
+    left: 20px;
+
+    /* Su margen es cero entre todos los lados, eliminado espacios residuales. */
+    margin: 0;
+
+    /* Si la opacidad de un elemento es "0" hace que sea completamente transparente. */
+    opacity: 0;
+
+    text-shadow: 1px 1px 2px black;
+
+}
+
+/* Lo mismo de arriba pero con todos los enlaces en el parrafo. */
+.panel a {
+        /* Tamaño de la fuente en 24px. */
+        font-size: 12px;
+    
+        /* Si la opacidad de un elemento es "0" hace que sea completamente transparente. */
+        opacity: 0;
+    
+        text-shadow: 1px 1px 2px black;
+    
+}
+/* Cuando un panel sea "clickeado" hara que este panel ocupe 5 veces más el espacio que el resto
+de elementos flexibles dentro del contenedor padre. */
+.panel.activo {
+    flex: 5;
+}
+
+/* Cuando un panel sea "clickeado", es decir, sea activado, además del código anterior donde hara
+que ocupe 5 veces más el espacio del resto de elementos, la opacidad del H3 pasara de "0" a "1",
+es decir, de transparente a completamente visible, de la misma forma, para que el cambio no sea
+brusco, se agrega una transition donde la opacidad "lentamente" hasta 1.
+*/
+.panel.activo h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Lo mismo de arriba pero para los parrafos. */
+.panel.activo p {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Lo mismo de arriba pero para los parrafos. */
+.panel.activo a {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+    color: grey;
+
+    font-weight:bolder;
+}
+
+/* Si el dispositivo que visualiza nuestro sitio web es pequeño o es un movil
+cuya pantalla tiene un ancho maximo de 480px o menos, ocurrira este código
+que adaptara los elementos a dicha pantalla / dispositivo. */
+@media (max-width: 480px) {
+
+    /* El contenedor padre ocupara el 100% del ancho de la pantalla del dispositivo. */
+    .contenedor {
+        width: 100vw;
+    }
+
+    /* Para evitar mala visualización, el panel N.º4 se ocultara, desaparecera de la
+    pantalla y solo se mostaran los primeros paneles. */
+    .panel:nth-of-type(4) {
+        display: none;
+    }
+}

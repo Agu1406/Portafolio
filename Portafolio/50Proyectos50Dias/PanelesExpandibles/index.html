@@ -4,32 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Importamos la hoja de estilos externa que usara nuestro proyecto. -->
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <!-- Es el contenedor donde están todos los paneles, el "activo" en el momento
      y los inactivos hasta que son activados.-->
     <div class="contenedor">
 
-        <div class="panelActivo" style="background-image: url('imagenes/verano.jpg');">
-            <h3>Verano - Calor, playa y vacaciones</h3>
+        <!-- Cada panel es un "div" con una imagén de fondo puesta en todo el "div"
+         utilizando un "style" con la dirección / url de la imagén empleada. -->
+        <div class="panel activo" style="background-image: url('imagenes/invierno.jpg');">
+            <h3>Invierno - Frio, nieve y relajación.</h3>
+            <p>Imagen de <a href="https://pixabay.com/es/users/thomasvitali-13826503/">Thomas Vitali</a> en Pixabay</p>
         </div>
 
-        <div class="panel">
-
+        <div class="panel" style="background-image: url('imagenes/primavera.jpg');">
+            <h3>Primavera - Flores, pasión y paisajes.</h3>
+            <p>Imagen de <a href="https://pixabay.com/es/users/didgeman-153208/">Thomas</a> en Pixabay</p>
         </div>
 
-        <div class="panel">
-
+        <div class="panel" style="background-image: url('imagenes/verano.jpg');">
+            <h3>Verano - Calor, playa y vacaciones.</h3>
+            <p>Imagen de <a href="https://pixabay.com/es/users/anastasija_me-3703352/">Anastasiya Lysyuk</a> en Pixabay</p>
         </div>
 
-        <div class="panel">
-
-        </div>
-
-        <div class="panel">
-
+        <div class="panel" style="background-image: url('imagenes/otono.jpg');">
+            <h3>Otoño - Calma, tranquilidad y paseos.</h3>
+            <p>Imagen de <a href="https://pixabay.com/es/users/armennano-9097212/">Armennano</a> en Pixabay</p>
         </div>
 
     </div> <!-- Fin del contenedor principal. -->
+
+    <!-- Llamamos al Scrip creado para que el HTML (el visor web) lo procese y ejectue. -->
+    <script src="codigo.js"></script>
 </body>
 </html>
