@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Creamos todas las variables utilizadas al principio del programa
+        var firstName, lastName, fullName;
+
+        // Pregunta al usuario su nombre de pila y almacénalo en una variable firstName
+        firstName = prompt("¡Hola! ¿Cual es tú primer nombre?");
+        
+        // Pregunta al usuario su apellido y almacénalo en una variable lastName
+        lastName = prompt("¡Excelente! ¿Cual es tú segundo nombre?");
+        
+        // Concatena las dos variables anteriores en otra llamada fullName
+        fullName = firstName + ' ' + lastName;
+
+        // Muestra la última variable como un título <h3> usando document.write
+        document.write("<h3>Tú nombre completo es: </h3>" + fullName)
+
+    </script>
+</body>
+</html>

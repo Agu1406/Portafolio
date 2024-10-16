@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Creamos todas las variables utilizadas al principio del programa
+        var acepta = false, opcion, ahorro, objetivo, metaCumplida = false, saldo = 0;
+
+        // Utilizo un bucle do-while porque siempre se ejecuta por lo menos una vez.
+        do {
+            
+            // Pregunta al usuari osi desea abrir una cuenta de ahorro (y avisa de las respuestas validas)
+            opcion = prompt("¿Deseas abrir una cuenta de ahorro? (Respuestas validas 'si' o 'no')");
+
+            // Si acepta, continúa con el programa. 
+            if (opcion === "si") {
+                acepta = true; // Cambia a true para salir del bucle.
+
+            // Si no, vuelve a preguntar.        
+            } else if (opcion === "no") {
+                alert("¡Reconsideralo! No saldras del bucle hasta decir que si.");
+            
+                // Si no es una opción valida, avisa y vuelve a preguntar.
+            } else {
+                alert("¡Error! Respuesta invalida, solo se acepta un 'si' o un 'no'.");
+            }
+
+        } while (acepta != true);
+    
+        /* Solicita al usuario la cantidad positiva que desee ahorrar. */
+        do {
+            // Solicitamos por pantalla y por teclado la cantidad que se desa ahorrar.
+            objetivo = prompt("¿Que cantidad te gustaría ahorrar? (números positivos)");
+            
+            // Casteo el valor de "ahorro" de una cadena a un número entero
+            objetivo = parseInt(objetivo);
+
+            // Si la cantidad introducida es menor a 1 entonces es cero o negativo y por lo tanto, da error.
+            if (objetivo < 1 || isNaN(objetivo)) {
+                alert("¡Error! La cantidad que quieres ahorrar debe ser mayor a cero, no puedes ahorrar " + ahorro + " euros");
+            }
+
+        } while (objetivo < 1);
+
+        /* Pregunta al usuario cuánto dinero quiere añadir. 
+           El dinero se añadirá a lo ahorrado.
+           Cuando la hucha haya cumplido el objetivo,
+           se mostrará un texto de objetivo conseguido 
+           con la cantidad ahorrada.
+        */
+       do {
+        ahorro = prompt("¿Cuanto deseas añadir a la cuenta?");
+
+        // Casteamos "ahorro" de cadena a un número entero
+        ahorro = parseInt(ahorro);
+
+        saldo = saldo + ahorro;
+
+        alert("Se ha añadido esa cantidad a la cuenta");
+
+        if (saldo >= objetivo) {
+            alert("¡Felicidades! Llegaste a la meta, no te lo gastes todo.")
+            metaCumplida = true;
+        }
+
+       } while (metaCumplida != true);
+
+    </script>
+</body>
+</html>
