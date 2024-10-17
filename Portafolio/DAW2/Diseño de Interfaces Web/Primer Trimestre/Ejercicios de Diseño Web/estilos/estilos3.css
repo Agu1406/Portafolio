@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contenedorInterno {
+    width: 50vh;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+    box-sizing: border-box;
+    background-color: beige;
+    border-radius: 25%;
+    box-shadow: 0px 0px 10px black;
+}
