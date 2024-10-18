@@ -42,6 +42,6 @@ else {
     $_SESSION['contador']++;
 }
 
-echo "hola " . $_SESSION['contador'];
+echo "¡Hola! Has iniciado sesión aquí un total de " . $_SESSION['contador'] . " veces.";
 
-echo "<br><a href='sesiones_uso_basico2.php'>Siguiente</a>";
+echo "<br><a href='sesiones_uso_basico2.php'>Siguiente archivo PHP</a>";
