@@ -46,6 +46,18 @@
     <title>Formulario de login</title>
 </head>
 <body>
+    <?php
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if($_POST['usuario']=="Carlos" and $_POST['pw']=="1234"){
+            header("Location: bienvenido.html");
+        }else{
+            $err = true;
+        }
+    }
+    if(isset($err)){
+        echo "<p>Revise su usuario y contraseña</p>";
+    }
+    ?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
         <fieldset> 
             <label for="titulo" class="label-titulo">Formulario básico</label><br><br>
@@ -64,14 +76,4 @@
     </form>
 </body>
 </html>
-<?php
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-       if($_POST['usuario']=="Carlos" and $_POST['pw']=="1234"){
-            header("Location: bienvenido.html");
-        }else{
-            $err = true;
-        }
-    }
-    if(isset($err)){
-        echo "<p>Revise su usuario y contraseña</p>";
-    }?>
+
