@@ -28,21 +28,16 @@ function cifrarTexto() {
         }
     }
 
-    // Mostrar el texto cifrado en la página
-    document.write(`<p>Texto cifrado: ${textoCifrado}</p>`);
+    // Mostrar el texto cifrado en la página usando innerHTML
+    document.getElementById("resultado").innerHTML = `
+        <p><strong>Texto cifrado:</strong> ${textoCifrado}</p>
+        <p><strong>Texto original:</strong> ${texto}</p>
+    `;
 }
 
-// Función que desplaza una letra dentro del abecedario dado (diferencia mayúusculas y minúsculas)
+// Función que desplaza una letra dentro del abecedario dado
 function desplazarLetra(letra, abecedario, desplazamiento) {
-    
     const posicionActual = abecedario.indexOf(letra); // Encuentra la posición actual de la letra
-    
-    const nuevaPosicion = posicionActual + desplazamiento; // Desplaza esa posición "X" espacios a la derecha.
-
-    // Si por ejemplo, se desplaza la "z" quedaría el número "29" lo cual es incorrecto, así que le restamos
-    if (nuevaPosicion > 26) {
-        nuevaPosicion -= 26;
-    }
-
+    const nuevaPosicion = (posicionActual + desplazamiento) % abecedario.length; // Desplaza y usa módulo para evitar desbordes
     return abecedario[nuevaPosicion]; // Retorna la nueva letra desplazada
 }
