@@ -20,5 +20,6 @@ try {
 
 // En caso de que ocurriese algún error / excepción, lo atrapamos e imprimimos por pantalla que algo ha salido mal.
 catch (PDOException $e) {
+    // En caso de capturar una excepcion, imprime por pantalla nuestro mensaje personalizado + la excepcion + el mensaje de excepcion.
     echo 'Error al intentar conectar con la base de datos: <br>' . $e -> getMessage();
 }
