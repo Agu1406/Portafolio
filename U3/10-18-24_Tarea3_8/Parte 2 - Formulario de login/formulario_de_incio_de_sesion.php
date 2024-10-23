@@ -22,8 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         crearCookie($usuario);
 
         // Redirigimos al usuario a la página de bienvenida
-        header("Location: bienvenido.html");
-        exit(); // Terminamos el script después de la redirección
+        header("Location: Sesiones1_principal.php");
 
     } else {
         // Si los datos no son válidos, mostramos un mensaje de error
