@@ -1,7 +1,7 @@
 // Función que cifra un texto con el cifrado César desplazando 3 posiciones
 function cifrarTexto() {
     const texto = document.getElementById("texto").value; // Obtenemos el texto del input
-    const desplazamiento = 3; // Número de posiciones a desplazar
+    const desplazamiento = document.getElementById("desplazamiento").value; // Número de posiciones a desplazar
     let textoNormalizado = ""; // Variable para almacenar el texto normalizado
     let textoCifrado = ""; // Variable para almacenar el resultado cifrado
     const abecedarioMinuscula = "abcdefghijklmnopqrstuvwxyz"; // 26 letras (sin ñ)
@@ -39,5 +39,6 @@ function cifrarTexto() {
 function desplazarLetra(letra, abecedario, desplazamiento) {
     const posicionActual = abecedario.indexOf(letra); // Encuentra la posición actual de la letra
     const nuevaPosicion = (posicionActual + desplazamiento) % abecedario.length; // Desplaza y usa módulo para evitar desbordes
+    
     return abecedario[nuevaPosicion]; // Retorna la nueva letra desplazada
 }
