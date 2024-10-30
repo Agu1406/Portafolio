@@ -64,7 +64,7 @@ tecnología y no podría estar más feliz de haber enfocado mi vida profesional 
 <p>Si deseas ponerte en contacto o colaborar en algún proyecto, puedes encontrarme en:</p>
 <ul>
   <li><strong>Email:</strong> agustin6041@outlook.es</li>
-  <li><strong>LinkedIn:</strong> <a href="www.linkedin.com/in/agustin6041">Tu Perfil de LinkedIn</a></li>
+  <li><strong>LinkedIn:</strong> <a href="www.linkedin.com/in/agustin6041">Agustín. A. Marquez. Piña</a></li>
 </ul>
 
 <p>¡Gracias por visitar mi portafolio! 😊</p>
