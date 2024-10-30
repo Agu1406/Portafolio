@@ -17,23 +17,56 @@
 function jugarLoteria () {
 
     // Creamos una "constante" cuyo valor es "[]" indicando, por lo tanto, que es un array.
-    const arrayNumerosAleatorios = [];
+    let arrayNumerosAleatorios = [];
 
-    // Creamos la variable de valor cambiante por cada aleatorio generado.
-    let numeroAleatorio;
+    // Llenar el array con números del 1 al 49
+    for (let i = 1; i <= 49; i++) {
+        arrayNumerosAleatorios.push(i);
+    }
 
-    // Bucle que genera "49" veces un aleatorio y lo "pushea" dentro del array.
-    for (let posicion = 0; posicion < 50; posicion++) {
-        
-        // Llamamos la función, generamos el aleatorio y lo guardamos.
-        numeroAleatorio = generarAleatorios();
+    // Generar y mostrar 10 combinaciones de 6 números cada una.
+    for (let i = 0; i < 10; i++) {
+        // Desordenar el array en cada iteración.
+        desordenarArray(arrayNumerosAleatorios);
 
-        // Pusheamos ese "aleatorio" dentro del array.
-        arrayNumerosAleatorios.push(numeroAleatorio);
+        // Tomar los primeros 6 números del array desordenado.
+        const combinacion = arrayNumerosAleatorios.slice(0, 6);
+        console.log(`Combinación ${i + 1}:`, combinacion.join(", "));
     }
 }
 
 /**
+ * Método / Función que desordena el contendio de cualquier array utilizando el
+ * algoritmo de desordenamiento de Fisher-Yates que requiere una sol pasada por
+ * todo el array con la misma probabilida de desorden para todos los números
+ * o valores del array, funciona con dos indices, los cuales son, en honor al
+ * nombre del algoritmo, que son "posicion" y "posicionAleatoria" que es donde
+ * se intercambiara el valor que se encuentre en "posicion".
+ * @param {*} arrayNumerosAleatorios 
+ */
+function desordenarArray (arrayNumerosAleatorios) {
+
+    /**
+     * La posición sera el array.lenght -1, ¿Por que "-1"? Porque si hay 50 elementos en el Array, 
+     * el indice de la ultima posición es "49", no "50", luego, internamente, la posición aleatoria
+     * siempre está limitada a ser una posición entre "0" y la posición actual del bucle, porque
+     * si ya un número fue asignado más alla de dicha posición, esa posición es final y no lo
+     * volvemos a mezclar.
+     */
+    for (let posicion = arrayNumerosAleatorios.length -1; posicion > 0; posicion--) {
+        // Elegimos una posición aleatoria dentro del array entre "0" y la "posicion" actual del bucle "+1" para incluir la posición también.
+        const posicionAleatoria = Math.floor(Math.random() * (posicion + 1));
+
+        // Utulizamos destructuración en JavaScript para intercambiar los valores de posición con los de posición aleatoria.
+        [arrayNumerosAleatorios[posicion], arrayNumerosAleatorios[posicionAleatoria]] = [arrayNumerosAleatorios[posicionAleatoria], arrayNumerosAleatorios[posicion]];
+    }
+}
+
+/**
+ * @deprecated En deshuso porque erroneamente generaba 49 números aleatorios del "0" al "49" pero ya que
+ * los números no se pueden repetir dentro del array, realmente solo tenia que llenar el array con
+ * todos los números del "0" al "49" y luego desordenarlos.
+ * 
  * Función / Método que genera números aleatorios, según
  * nuestra formula del "0" al "49" ambos incluidos.
  * */
@@ -66,17 +99,4 @@ function generarAleatorios () {
 
     // Devolvemos el "aleatorio" generado cada que llamamos la función.
     return numeroAleatorio;
-}
-
-/**
- * Método / Función que desordena el contendio de cualquier array utilizando el
- * algoritmo de desordenamiento de Fisher-Yates que requiere una sol pasada por
- * todo el array con la misma probabilida de desorden para todos los números
- * o valores del array, funciona con dos indices, los cuales son, en honor al
- * nombre del algoritmo, que son "F" (posición en el array) y "Y" que es donde
- * se intercambiara el valor que se encuentre en "F".
- * @param {*} arrayNumerosAleatorios 
- */
-function desordenarArray (arrayNumerosAleatorios) {
-
 }
