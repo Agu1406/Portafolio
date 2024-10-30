@@ -14,15 +14,18 @@
  * Finalmente, mostraremos los seis primeros números del array cada vez que revolvamos éste.
  */
 
-function jugarLoteria () {
-
-    // Creamos una "constante" cuyo valor es "[]" indicando, por lo tanto, que es un array.
+function jugarLoteria() {
+    // Crear el array que contiene los números del 1 al 49.
     let arrayNumerosAleatorios = [];
 
-    // Llenar el array con números del 1 al 49
+    // Llenar el array con números del 1 al 49.
     for (let i = 1; i <= 49; i++) {
         arrayNumerosAleatorios.push(i);
     }
+
+    // Selecciona la div en la que se mostrarán las combinaciones y la vacía.
+    const mostrarCombinaciones = document.querySelector('.mostrarCombinaciones');
+    mostrarCombinaciones.innerHTML = '<ul>';
 
     // Generar y mostrar 10 combinaciones de 6 números cada una.
     for (let i = 0; i < 10; i++) {
@@ -31,8 +34,14 @@ function jugarLoteria () {
 
         // Tomar los primeros 6 números del array desordenado.
         const combinacion = arrayNumerosAleatorios.slice(0, 6);
-        console.log(`Combinación ${i + 1}:`, combinacion.join(", "));
+        
+        // Crear un elemento de lista con la combinación actual y añadirlo a la div.
+        const combinacionElement = document.createElement('li');
+        combinacionElement.textContent = `Combinación ${i + 1}: ${combinacion.join(", ")}`;
+        mostrarCombinaciones.appendChild(combinacionElement);
     }
+
+    mostrarCombinaciones.innerHTML += '</ul>';
 }
 
 /**
