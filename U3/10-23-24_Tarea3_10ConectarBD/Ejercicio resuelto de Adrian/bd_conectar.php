@@ -1,6 +1,6 @@
 <?php
 // Creamos una variable donde pondremos los datos de conexión de la base datos, en nuestro caso, MySQL, su nombre es "empresa" y el host es la IP local de Xampp
-$datos_conexion ='mysql:dbname=empresa;host=127.0.0.1';
+$datos_conexion ='mysql:dbname=empresa;host=127.0.0.1:3309';
 
 // Creamos la variable "administrador" y le damos como valor "root".
 $administrador ='root';

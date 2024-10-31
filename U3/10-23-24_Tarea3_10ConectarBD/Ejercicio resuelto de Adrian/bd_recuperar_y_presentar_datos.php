@@ -1,5 +1,5 @@
 <?php
-$datos_conexion ='mysql:dbname=empresa;host=127.0.0.1';
+$datos_conexion ='mysql:dbname=empresa;host=127.0.0.1:3309';
 $administrador ='root';
 $pw ='';
 
