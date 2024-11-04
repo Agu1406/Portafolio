@@ -1,0 +1,34 @@
+body {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 100vh;
+    min-height: 70vh;
+}
+
+h1 {
+    font-size: 80px;
+    color: palegreen;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #724caf;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 1.3s;
+}
+
+input[type="submit"]:hover {
+    transform: scale(10);
+    background-color: #a04591;
+}
