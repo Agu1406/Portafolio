@@ -80,7 +80,7 @@ try {
     $preparada2 -> execute(array(":clave" => 2222));
 
     // Salto de linea, avisamos lo que vamos a imprimir y otro salto de linea.
-    echo "<br>Los usuarios con rol \"2222\" son los siguientes: <br>";
+    echo "<br>Los usuarios cuya clave es \"2222\" son los siguientes: <br>";
 
     /**
      * Con un bucle foreach recorremos el array "preparada" donde hemos ejecutado
@@ -88,9 +88,9 @@ try {
      * filtrado que se vean los usuarios de rol "0" solamente.
      */
     foreach ($preparada2 as $usuario) {
-        print "Nombre del usuario: " . usuario["nombre"] . " | ";
-        print "Clave / Contraseña: " . usuario["clave"] . " | ";
-        print "Rol del usuario: " . usuario["rol"] . "<br>";
+        print "Nombre del usuario: " . $usuario["nombre"] . " | ";
+        print "Clave / Contraseña: " . $usuario["clave"] . " | ";
+        print "Rol del usuario: " . $usuario["rol"] . "<br>";
     }
 
 } catch (PDOException $e) {
