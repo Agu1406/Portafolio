@@ -22,8 +22,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      * el "false" e imprime el mensaje de "error".
      */
     if (validarCredenciales($posibleUsuario, $posiblePassword)) {
+
+        // Si los datos son validos, creamos una sesión para el usuario
+        session_start();
+
+        // A esa sesión le añadimos un atributo llamado "usuario" asignado al usuario que hizo login
+        $_SESSION["usuario"] = $posibleUsuario;
+        
+        // Creamos o actualizamos la Cookie con el usuario que inicio sesión.
+        crearCookie($posibleUsuario);
+        
         // Si los datos son validos, redirigimos el usuario al apartado de subir archivos.
         header("Location: subirArchivos.php");
+
+
 
     } else {
     // Si la validación falla por cualquier motivo, el "error" se establece en "true".
@@ -117,39 +129,13 @@ function conexionBD() :PDO {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * Función para crear o actualizar una cookie del usuario
  */
-function crearCookie($usuario) {
+function crearCookie($posibleUsuario) {
     // Definir el nombre de la cookie y su duración
-    $nombreDeLaCookie = $usuario; // El nombre de la cookie es el nombre del usuario
-    $valorDeLaCookie = "Sesión activa para " . $usuario;
+    $nombreDeLaCookie = $posibleUsuario; // El nombre de la cookie es el nombre del usuario
+    $valorDeLaCookie = "Sesión activa para " . $posibleUsuario;
     $tiempoExpiracion = time() + (86400); // 24 horas de duración
 
     // Si ya existe la cookie, la actualizamos
