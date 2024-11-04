@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         crearCookie($posibleUsuario);
         
         // Si los datos son validos, redirigimos el usuario al apartado de subir archivos.
-        header("Location: subirArchivos.php");
+        header("Location: formularioSubirArchivo.html");
 
 
 
@@ -109,7 +109,7 @@ function validarCredenciales ($posibleUsuario, $posiblePassword) :bool {
 function conexionBD() :PDO {
     try {
     // La conexión se realiza utilizando el constructor de la clase PDO
-    $datosConexion = "mysql:dbname=empres;host=127.0.0.1:3309";
+    $datosConexion = "mysql:dbname=empresa;host=127.0.0.1:3309";
     $usuarioBD = "root";
     $claveBD = "";
 

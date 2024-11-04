@@ -35,11 +35,19 @@ label {
     display: block;
     margin-bottom: 5px;
 }
-input[type="submit"], input[type="reset"], input[type="button"] {
+input[type="submit"], input[type="reset"], input[type="button"] input[type="file"] {
     margin-right: 10px;
     margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px;
 }
-.color-picker, .image-upload {
+
+input[type="file"] {
+    border: 2px solid black;
+    margin-top: 10px;
+}
+
+.color-picker, .image-upload .file-upload {
     display: block;
     margin-top: 5px;
 }
