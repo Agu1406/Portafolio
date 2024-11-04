@@ -46,9 +46,9 @@ try {
      * "rol".
      * */
     foreach ($usuarios as $espejo) {
-        print "Nombre del usuario: " . espejo["nombre"] . " | ";
-        print "Clave / Contraseña: " . espejo["clave"] . " | ";
-        print "Rol del usuario: " . espejo["rol"] . "<br>";
+        print "Nombre del usuario: " . $espejo["nombre"] . " | ";
+        print "Clave / Contraseña: " . $espejo["clave"] . " | ";
+        print "Rol del usuario: " . $espejo["rol"] . "<br>";
     }
 
     /**
@@ -67,9 +67,9 @@ try {
      * filtrado que se vean los usuarios de rol "0" solamente.
      */
     foreach ($preparada as $usuario) {
-        print "Nombre del usuario: " . usuario["nombre"] . " | ";
-        print "Clave / Contraseña: " . usuario["clave"] . " | ";
-        print "Rol del usuario: " . usuario["rol"] . "<br>";
+        print "Nombre del usuario: " . $usuario["nombre"] . " | ";
+        print "Clave / Contraseña: " . $usuario["clave"] . " | ";
+        print "Rol del usuario: " . $usuario["rol"] . "<br>";
     }
 
     /**
