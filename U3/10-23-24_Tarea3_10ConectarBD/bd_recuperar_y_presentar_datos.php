@@ -76,8 +76,8 @@ try {
      * Creamos una consulta pre "preparada" para filtrar a todos los usuarios cuyas
      * roles de usuario sean "0".
      */
-    $preparada2 = $baseDeDatos -> prepare("SELECT nombre, clave, rol FROM usuarios WHERE rol =:rol");
-    $preparada2 -> execute(array(":rol" => 2222));
+    $preparada2 = $baseDeDatos -> prepare("SELECT nombre, clave, rol FROM usuarios WHERE clave =:clave");
+    $preparada2 -> execute(array(":clave" => 2222));
 
     // Salto de linea, avisamos lo que vamos a imprimir y otro salto de linea.
     echo "<br>Los usuarios con rol \"2222\" son los siguientes: <br>";
