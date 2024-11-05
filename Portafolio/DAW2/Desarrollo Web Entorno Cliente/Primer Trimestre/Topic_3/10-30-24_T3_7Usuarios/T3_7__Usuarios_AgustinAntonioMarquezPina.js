@@ -54,11 +54,20 @@ document.querySelector('.contenedorFormulario').addEventListener('submit', funct
 // Función para mostrar los resultados
 function mostrarResultado(datos) {
     const resultadoDiv = document.getElementById("resultado");
-    resultadoDiv.innerHTML = `<p>Nombre de usuario: ${datos.username} ${datos.pais}</p>`;
+
+    // Crear un nuevo párrafo para mostrar la información del usuario actual
+    const nuevoResultado = document.createElement('p');
+    nuevoResultado.innerHTML = 
+    `
+    Nombre de usuario: ${datos.username}
+    país: ${datos.pais} <br>`;
     
+    // Agregar el nuevo párrafo al div de resultados
+    resultadoDiv.appendChild(nuevoResultado);
+
     // Comprobamos si la inicial del nombre y los dos primeros caracteres del apellido forman "oso"
     const nombreValido = datos.username.charAt(0).toLowerCase() + datos.apellido.slice(0, 2).toLowerCase();
     if (nombreValido === "oso") {
-        alert(`¡Cuidado, hay 1 oso cerca!`); // Mensaje de advertencia
+        alert(`¡Cuidado, hay 1 oso cerca!`); // Aquí puedes personalizar el número de osos si lo deseas
     }
 }
