@@ -1,33 +1,76 @@
+/* Estilos generales */
 body {
-    display: flex; /* Utilizamos "flex" para centrar todo */
-    justify-content: center; /* Centramos todo horizontalmente */
-    align-items: center; /* Centramos todo verticalmente */
-    margin: 0px; /* Establece el margen en todos los lados en "0" */
-    padding: 0px; /* Establece la separación entre elementos en "0" */
-    background-color: azure; /* Color "Azure" porque está*/
-    text-align: center; /* Centramos todo el texto */
-}
-form {
-    max-width: 600px; /* Tamaño maximo posible del formulario */
-    margin: 0 auto; /* Margen a todos lados del formulario */
-    padding: 20px; /* Separación interna entre el borde y los elementos internos*/
-    border: 1px solid #ccc; /* Borde externo solido de 1 pixel del formulario */
-    border-radius: 8px; /* Redondeamos un poco el borde por añadido estetico */
-    background-color: #f9f9f9; /* El color de fondo del formulario es un gris claro */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Fondo blanco para el cuerpo */
+    color: #000000; /* Texto negro */
 }
 
-fieldset {
-    margin-bottom: 15px;
-    border: none;
+/* Estilos para el header */
+header {
+    background-color: #ff6600; /* Naranja fuerte */
+    color: #ffffff; /* Texto blanco */
+    padding: 20px;
+    text-align: center;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+/* Contenedor principal */
+.contenedor {
+    display: flex; /* Usamos flexbox para organizar el contenido */
+    flex-direction: column; /* Organiza en columnas */
+    align-items: center; /* Centramos el contenido horizontalmente */
+    padding: 20px;
 }
 
+/* Estilo del contenedor de formulario */
+.contenedorFormulario {
+    background-color: #f9f9f9; /* Gris claro */
+    padding: 20px;
+    border: 2px solid #ff6600; /* Borde naranja */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 75%; /* Ancho completo */
+    max-width: 600px; /* Ancho máximo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo del contenedor de información */
+.info-container {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 20px;
+    border: 2px solid #000000; /* Borde negro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-top: 20px; /* Margen superior */
+    width: 100%; /* Ancho completo */
+    max-width: 600px; /* Ancho máximo */
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #ff6600; /* Naranja fuerte */
+    color: #ffffff; /* Texto blanco */
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Para usar en posicionamiento */
+    bottom: 0; /* Para fijar al final */
+    width: 100%; /* Ancho completo */
+}
+
+/* Estilos de botones */
 input[type="submit"], input[type="reset"], input[type="button"] {
-    margin-right: 10px;
-    margin-top: 10px;
-    border-radius: 8px; /* Redondeamos un poco el borde por añadido estetico */
+    background-color: #ff6600; /* Naranja fuerte */
+    color: #ffffff; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Relleno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+    background-color: #cc5200; /* Color más oscuro al pasar el ratón */
 }

@@ -44,28 +44,38 @@
     Elena:Costaguta:70068005T:7123098654:ecostag@madrid.org:45230
     Orestes:Sosa:52243028T::sosaorestes2000@yahoo.com:28001
 -->
-    <div>
+    <div class="contenedor">
         <h3>Actividad T3_7 - Usuarios</h3>
         <br>
-        <label for="nombre">Introduce tú nombre: </label>
-        <input type="text" name="nombre" id="nombre" placeholder="Ejemplo: Agustín">
-        <br><br>
-        <label for="apellido">Introduce tú apellido: </label>
-        <input type="text" name="apellido" id="apellido" placeholder="Ejemplo: Piña">
-        <br><br>
-        <label for="DNI">Introduce tú DNI / NIE</label>
-        <input type="text" name="DNI" id="DNI" placeholder="Ejemplo: 1234567H">
-        <br><br> 
-        <label for="movil">Introduce tú movil</label>
-        <input type="text" name="movil" id="movil" placeholder="Ejemplo: 691 64 36 61">
-        <br><br>
-        <label for="correo">Introduce tú correo</label>
-        <input type="email" name="correo" id="correo" placeholder="Ejemplo: tunomete@cabra.com">
-        <br><br>
-        <label for="codPostal">Introduce tú código postal</label>
-        <input type="text" name="codPostal" id="codPostal" placeholder="Ejemplo: 28231">  
+        <form class="contenedorFormulario" action="T3_7__Usuarios_AgustinAntonioMarquezPina.js" method="post">
+            <label for="nombre">Introduce tú nombre: </label>
+            <input type="text" name="nombre" id="nombre" placeholder="Ejemplo: Agustín">
+            <br><br>
+            <label for="apellido">Introduce tú apellido: </label>
+            <input type="text" name="apellido" id="apellido" placeholder="Ejemplo: Piña">
+            <br><br>
+            <label for="DNI">Introduce tú DNI / NIE</label>
+            <input type="text" name="DNI" id="DNI" placeholder="Ejemplo: 1234567H">
+            <br><br> 
+            <label for="movil">Introduce tú movil</label>
+            <input type="text" name="movil" id="movil" placeholder="Ejemplo: 691 64 36 61">
+            <br><br>
+            <label for="correo">Introduce tú correo</label>
+            <input type="email" name="correo" id="correo" placeholder="Ejemplo: tunomete@cabra.com">
+            <br><br>
+            <label for="codPostal">Introduce tú código postal</label>
+            <input type="text" name="codPostal" id="codPostal" placeholder="Ejemplo: 28231">
+            <br><br>
+            <input type="submit" value="¡Enviar información del usuario!">  
+        </form>
     </div>
-    
+    <br>
+    <div class="contenedor">
+        <h3>Información del usuario:</h3>
+        <div id="resultado">
+        <!-- Aquí se mostrarán los resultados -->
+        </div> 
+    </div>
     <script src="T3_7__Usuarios_AgustinAntonioMarquezPina.js"></script>
 </body>
 </html>
