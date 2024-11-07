@@ -2,6 +2,7 @@
     <xs:element name="DB_config">
         <xs:complexType>
             <xs:sequence>
+                <!-- Ou' yea nena -->
                 <xs:element name="DB_type" type="xs:string"></xs:element>
                 <xs:element name="DB_name" type="xs:string"></xs:element>
                 <xs:element name="DB_host" type="xs:string"></xs:element>
