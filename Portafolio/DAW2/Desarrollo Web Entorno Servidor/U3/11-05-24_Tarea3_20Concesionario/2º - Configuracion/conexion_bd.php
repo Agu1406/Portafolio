@@ -28,6 +28,42 @@ try {
         throw new ExceptionXML ("¡Error! El archivo XML no existe en la ruta indicada.", 1);
     }
 
+    // Llamamos al método que lee el XML y guarda los datos de conexión en un Array.
+    $arrayDatosDeConexion = leerDatosXML ($configuracionBD);
+    
+/**
+ * Debemos hacer tantos "catch" como excepciones hayamos hecho que ocurran de forma
+ * posible en un Script, por ejemplo, la primera que atrapa es mi excepcion propia
+ * que indica que el XML no existe en la ruta indicada.
+ */
+} catch (ExceptionXML $error) {
+    // Imprime un mensaje de error personalizado indicando que el XML no existe en "X" ruta.
+    echo "¡Error! El archivo XML " . $rutaDelXML . " no existe en la ruta indicada.";
+}
+
+// Crear la cadena de conexión DSN (Data Source Name)
+$dsn = "$tipo:dbname=$nombreBD;host=$host";
+
+try {
+    // Crear la conexión a la base de datos usando PDO
+    $conexion = new PDO($dsn, $user, $pass);
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Ejecutar una consulta
+    $resultados = $conexion->query("SELECT * FROM t_fabricante");
+
+    // Mostrar los resultados
+    foreach ($resultados as $fila) {
+        echo "<p>[+] -> " . $fila['columna1'] . "</p>"; // Cambia 'columna1' según tu esquema
+        echo "<p>[+] -> " . $fila['columna2'] . "</p>";
+    }
+
+} catch (PDOException $e) {
+    // Manejar errores de conexión
+    echo "[!] ERROR: " . $e->getMessage();
+}
+
+function leerDatosXML ($configuracionBD) {
     /**
      * Como no tengo dos monitores y me gusta dejar todo lo mejor explicado posible, os cuento
      * si el if-else ha sido exitoso, en "configuracionBD" tendremos cargado el XML completo
@@ -67,37 +103,4 @@ try {
 
     // El siguiente es la contraseña de dicho usuario, en mi caso, vacia.
     $contrasena = $configuracionBD -> xpath("//Contrasena")[0] -> __toString();
-
-/**
- * Debemos hacer tantos "catch" como excepciones hayamos hecho que ocurran de forma
- * posible en un Script, por ejemplo, la primera que atrapa es mi excepcion propia
- * que indica que el XML no existe en la ruta indicada.
- */
-} catch (ExceptionXML $error) {
-    // Imprime un mensaje de error personalizado indicando que el XML no existe en "X" ruta.
-    echo "¡Error! El archivo XML " . $rutaDelXML . " no existe en la ruta indicada.";
-}
-
-
-
-// Crear la cadena de conexión DSN (Data Source Name)
-$dsn = "$tipo:dbname=$nombreBD;host=$host";
-
-try {
-    // Crear la conexión a la base de datos usando PDO
-    $conexion = new PDO($dsn, $user, $pass);
-    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Ejecutar una consulta
-    $resultados = $conexion->query("SELECT * FROM t_fabricante");
-
-    // Mostrar los resultados
-    foreach ($resultados as $fila) {
-        echo "<p>[+] -> " . $fila['columna1'] . "</p>"; // Cambia 'columna1' según tu esquema
-        echo "<p>[+] -> " . $fila['columna2'] . "</p>";
-    }
-
-} catch (PDOException $e) {
-    // Manejar errores de conexión
-    echo "[!] ERROR: " . $e->getMessage();
 }
