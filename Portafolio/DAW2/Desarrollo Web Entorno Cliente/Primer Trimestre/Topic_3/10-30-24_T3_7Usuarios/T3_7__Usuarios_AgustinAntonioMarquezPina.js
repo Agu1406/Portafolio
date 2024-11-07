@@ -52,7 +52,7 @@ document.querySelector('.contenedorFormulario').addEventListener('submit', funct
 });
 
 // Función para mostrar los resultados
-function mostrarResultado(datos) {
+function mostrarResultado(estructuraDeDatos) {
     const resultadoDiv = document.getElementById("resultado");
 
     // Crear un nuevo párrafo para mostrar la información del usuario actual
