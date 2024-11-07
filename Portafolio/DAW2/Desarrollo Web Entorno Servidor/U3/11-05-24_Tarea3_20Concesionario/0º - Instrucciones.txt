@@ -57,3 +57,6 @@ que solo exista una unica instancia de algo, ejemplo, una sola conexión a
 una base de datos, este patrón ahorra recursos y se asegura de que solo
 haya una instancia conectada a la base de datos.
 
+No obstante, en cara a los examenes, hice el ejercicio como el resto de la
+clase, solo PHP a saco y nada más, el archivo está creado dentro de la
+carpeta "Nº2 - configuracion", cuyo nombre es "conexion_bd.php"
