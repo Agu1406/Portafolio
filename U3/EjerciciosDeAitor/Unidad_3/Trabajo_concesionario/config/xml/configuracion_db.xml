@@ -1,0 +1,7 @@
+<DB_config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="configuracion_db_schema.xsd">
+    <DB_type>mysql</DB_type>
+    <DB_name>db_concesionario</DB_name>
+    <DB_host>127.0.0.1</DB_host>
+    <USER_admin>root</USER_admin>
+    <USER_password></USER_password>
+</DB_config>

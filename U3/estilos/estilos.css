@@ -1,0 +1,33 @@
+body {
+    display: flex; /* Utilizamos "flex" para centrar todo */
+    justify-content: center; /* Centramos todo horizontalmente */
+    align-items: center; /* Centramos todo verticalmente */
+    margin: 0px; /* Establece el margen en todos los lados en "0" */
+    padding: 0px; /* Establece la separación entre elementos en "0" */
+    background-color: azure; /* Color "Azure" porque está*/
+    text-align: center; /* Centramos todo el texto */
+}
+form {
+    max-width: 600px; /* Tamaño maximo posible del formulario */
+    margin: 0 auto; /* Margen a todos lados del formulario */
+    padding: 20px; /* Separación interna entre el borde y los elementos internos*/
+    border: 1px solid #ccc; /* Borde externo solido de 1 pixel del formulario */
+    border-radius: 8px; /* Redondeamos un poco el borde por añadido estetico */
+    background-color: #f9f9f9; /* El color de fondo del formulario es un gris claro */
+}
+
+fieldset {
+    margin-bottom: 15px;
+    border: none;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="submit"], input[type="reset"], input[type="button"] {
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 8px; /* Redondeamos un poco el borde por añadido estetico */
+}

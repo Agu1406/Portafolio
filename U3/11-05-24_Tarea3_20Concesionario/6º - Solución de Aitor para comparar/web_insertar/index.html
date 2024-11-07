@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar en db_concesionario</title>
+</head>
+<body>
+    <h1>INSERCIONES EN EL CONCESIONARIO</h1>
+    <div id="container">
+
+        <div id="t_coches" class="content">
+            <form action="subir_coche.php" method="post" enctype="multipart/form-data">
+                <p>TABLA COCHE</p>
+                <input type="text" name="modelo" id="modelo" placeholder="modelo">
+                <input type="text" name="fabricante" id="fabricante" placeholder="ID fabricante">
+                <input type="text" name="anyo" id="anyo" placeholder="año">
+                <input type="file" name="foto" id="foto" placeholder="foto">
+                <div class="sub">
+                    <input type="submit" value="SUBIR">
+                </div>
+            </form>
+        </div>
+
+        <div id="t_fabricante" class="content">
+            <form action="subir_fabricante.php" method="post">
+                <p>TABLA FABRICANTE</p>
+                <input type="text" name="nombre-fabricante" id="nombre-fabricante" placeholder="nombre">
+                <div class="sub">
+                    <input type="submit" value="SUBIR">
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

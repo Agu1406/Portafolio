@@ -1,0 +1,39 @@
+==================================================================
+ Instalar PHPMailer con Composer en Windows 10/11
+ IES Arquitecto Ventura Rodríguez/DW2-2023-24/Prof.Mercedes Urios
+==================================================================
+
+Sigue las indicaciones del fichero adjunto  "Instalar_PHPMailer.pdf" 
+que te indica cómo realizar primero la instalación de Composer para
+instalar después PHPMailer.
+
+Hay que dar los pasos siguientes:
+
+1) Instalar composer.
+
+2) Después, tienes que crear una carperta "composer" bajo "xampp".
+En mi caso, mi xampp esta en C:/xampp por lo que la creo en C:/xampp/composer
+
+3) A continuación, debes abrir una ventana de línea de comandos de Windows 
+y situarte en la carpeta recien creada: 
+	cd C:/xampp/composer
+
+4) Instalar PHPMailer invocando a composer:
+	C:\xampp\composer>composer require phpmailer/phpmailer
+
+5) Verificar la instalación viendo que se ha creado, bajo composer/vendor, 
+la carpeta phpmailer con su código y librerias.
+
+
+SI FALLA LA INSTALACIÓN CON EL ERROR:
+Failed to download phpmailer/phpmailer from dist: The zip extension and unzip/7z commands are both missing, skipping.
+The php.ini used by your command-line PHP is: C:\xampp\php\php.ini
+Haz lo siguiente:
+
+I) Desde la ventana de configuración de XAMPP >botón Config de Apache > PHP(php.ini) 
+	> Editar > Buscar > zip
+II) en la línea ;extension=zip << borrar el punto y coma dejando la línea así: extension=zip
+
+III) Desde la barra de menú >Archivo >Guardar y cerrar la ventana
+
+IV) Vuelve a 4) Instalar PHPMailer invocando a composer
