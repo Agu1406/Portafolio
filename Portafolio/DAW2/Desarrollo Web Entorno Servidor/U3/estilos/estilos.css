@@ -70,13 +70,15 @@ input[type="submit"], input[type="reset"], input[type="button"] input[type="file
     padding: 10px 20px; /* Relleno */
     border-radius: 5px; /* Esquinas redondeadas */
     cursor: pointer; /* Cursor de mano */
-    transition: background-color 0.3s; /* Transición suave */
+    transition: background-color ease-in 0.3s; /* Transición suave */
+    transition: transform ease-out 0.3s; /* Transición suave */
     text-align: center;
 }
 
 input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
     background-color: #cc5200; /* Color más oscuro al pasar el ratón */
     text-align: center;
+    transform: scale(0.9);
 }
 
 input[type="file"] {
