@@ -30,6 +30,11 @@ try {
 
     // Llamamos al método que lee el XML y guarda los datos de conexión en un Array.
     $arrayDatosDeConexion = leerDatosXML ($configuracionBD);
+
+    // Llamamos al método que instancia PDO para conectar con la base de datos.
+    $conexionBD = conectarBD ($arrayDatosDeConexion);
+
+    
     
 /**
  * Debemos hacer tantos "catch" como excepciones hayamos hecho que ocurran de forma
@@ -39,12 +44,20 @@ try {
 } catch (ExceptionXML $error) {
     // Imprime un mensaje de error personalizado indicando que el XML no existe en "X" ruta.
     echo "¡Error! El archivo XML " . $rutaDelXML . " no existe en la ruta indicada.";
+} catch (PDOException $error) {
+    // Imrpime un mensaje de error si la excepción es ocasionada por la conexión (PDO)
+    echo "¡Error estableciento la conexión con la base de datos!";
 }
 
+
+
+// Separador innecesario que utilizo yo para diferencia la parte "main" de los métodos y funciones.
+
+
 /**
- * Dejo el ejerciio hasta aquí, el siguiente paso es crear otra función llamada
- * "conectarBD" el cual, usando el array con los datos de conexión, instancia
- * y se conecte a la BD utilizando la clase PDO
+ * Método del script que utilizando el array asociativo generado con el método
+ * "leerDatosXML" instancia un nuevo objeto de la clase PDO generando así una
+ * conexión con nuestra base de datos.
  */
 function conectarBD($arrayDatosDeConexion) {
     try {
@@ -93,28 +106,13 @@ function leerDatosXML ($configuracionBD) {
      * tiempo que los extraemos del XML, por lo tanto:
      */
 
-    // Obtenemos primero el tipo de base de datos ("mysql")
-    $tipoBD = $configuracionBD -> xpath("//Tipo")[0] -> __toString();
-
-    // Ahora, para el nombre primero debemos agregar la palabra "dbname=", por lo tanto
-    $nombreBD = "dbname=" . $configuracionBD -> xpath("//Nombre")[0] -> __toString();
-
-    // Para el host, igual, al principio debe ir la palabra "host=", por lo tanto:
-    $hostBD = "host=" . $configuracionBD -> xpath("//Host")[0] -> __toString();
-
-    // El siguiente es el usuario (administrador) de la base de datos
-    $usuarioBD = $configuracionBD -> xpath("//Usuario")[0] -> __toString();
-
-    // El siguiente es la contraseña de dicho usuario, en mi caso, vacia.
-    $contrasenaBD = $configuracionBD -> xpath("//Contrasena")[0] -> __toString();
-
-    // Creamos un array donde guardamos todos los valores extraidos del XML
+    // Creamos un array asociativo donde guardamos todos los valores extraídos del XML
     $datosDeConexion = [
-        $tipo = $tipoBD,
-        $nombre = $nombreBD,
-        $host = $hostBD,
-        $usuario = $usuarioBD,
-        $contrasena = $contrasenaBD
+        'tipo' => $configuracionBD->xpath("//Tipo")[0]->__toString(),
+        'nombre' => "dbname=" . $configuracionBD->xpath("//Nombre")[0]->__toString(),
+        'host' => "host=" . $configuracionBD->xpath("//Host")[0]->__toString(),
+        'usuario' => $configuracionBD->xpath("//Usuario")[0]->__toString(),
+        'contrasena' => $configuracionBD->xpath("//Contrasena")[0]->__toString()
     ];
 
     return $datosDeConexion;

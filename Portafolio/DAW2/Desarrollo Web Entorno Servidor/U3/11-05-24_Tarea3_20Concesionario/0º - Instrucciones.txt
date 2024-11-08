@@ -65,3 +65,8 @@ carpeta "Nº2 - configuracion", cuyo nombre es "conexion_bd.php"
 cuarto paso dos métodos, uno de ellos que lee el XML y guarda sus valores
 en una estructura de datos y un segundo método que, utilizando dicha
 estructura de datos, instancie la clase PDO para conectarse con la BD.
+
+    SEXTO PASO: Con nuestro Script ya hecho, el siguiente paso es crear los
+dos sitios web que nos permitiran insertar datos (fotos, fabricantes, etc)
+y el sitio web que nos permitira visualizar el contenido de nuestra base de
+datos.
