@@ -60,3 +60,8 @@ haya una instancia conectada a la base de datos.
 No obstante, en cara a los examenes, hice el ejercicio como el resto de la
 clase, solo PHP a saco y nada más, el archivo está creado dentro de la
 carpeta "Nº2 - configuracion", cuyo nombre es "conexion_bd.php"
+
+    QUINTO PASO: Ségún el propio enunciado, tiene que haber en el Script del
+cuarto paso dos métodos, uno de ellos que lee el XML y guarda sus valores
+en una estructura de datos y un segundo método que, utilizando dicha
+estructura de datos, instancie la clase PDO para conectarse con la BD.

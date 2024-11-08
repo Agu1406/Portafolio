@@ -46,7 +46,27 @@ try {
  * "conectarBD" el cual, usando el array con los datos de conexión, instancia
  * y se conecte a la BD utilizando la clase PDO
  */
+function conectarBD($arrayDatosDeConexion) {
+    try {
+        $dsn = "{$arrayDatosDeConexion['tipo']}:{$arrayDatosDeConexion['nombre']};{$arrayDatosDeConexion['host']}";
+        $usuario = $arrayDatosDeConexion['usuario'];
+        $contrasena = $arrayDatosDeConexion['contrasena'];
 
+        // Instancia PDO
+        $conexion = new PDO($dsn, $usuario, $contrasena);
+        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Conexión exitosa a la base de datos.";
+    } catch (PDOException $e) {
+        echo "Error en la conexión: " . $e->getMessage();
+    }
+}
+
+
+/**
+ * Método del script que lee un archivo XML, extrae del mismo uno a uno los datos
+ * necesarios para hacer la conexión con la BD de datos y luego los devuelve
+ * en forma de una estructura de datos (un Array)
+ */
 function leerDatosXML ($configuracionBD) {
     /**
      * Como no tengo dos monitores y me gusta dejar todo lo mejor explicado posible, os cuento
