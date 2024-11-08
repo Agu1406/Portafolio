@@ -13,23 +13,29 @@
         <br>
         <div class="contenedorFormulario">
             <form action="subirFabricante.php" method="post">
+                <legend>¡SUBIDA DE FABRICANTES!</legend>
+                <br>
                 <label for="nombreFabricante">Nombre del fabricante:</label>
                 <input type="text" name="nombreFabricante" id="nombreFabricante">
+                <input type="submit" value="¡Subir fabricante!">
             </form>
         </div>
 
-        <br><br>
+        <br><br><br>
 
         <div class="contenedorFormulario">
             <form action="subirCoche.php" method="post" enctype="multipart/form-data">
+                <legend>¡SUBIDA DE COCHES!</legend>
+                <br>
                 <label for="modelo">Modelo del coche</label>
                 <input type="text" name="modelo" id="modelo">
                 <label for="fabricante">Fabricante</label>
                 <input type="text" name="fabricante" id="fabricante">
                 <label for="ano">Año</label>
                 <input type="number" name="ano" id="ano">
-                <label for="foto">Foto del coche</label>
+                <label for="foto">Foto del coche:</label>
                 <input type="file" name="foto" id="foto">
+                <input type="submit" value="¡Subir coche!">
             </form>
         </div>
     </div>
