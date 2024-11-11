@@ -6,7 +6,7 @@
  * debe leer para cargar los datos de la conexión, ese
  * archivo está en la misma carpeta que este, por lo tanto:
  */
-$rutaDelXML = "datosDeConexion.xml";
+$rutaDelXML = "D:/2DAW-AGUSTIN/PortafolioDAW/Portafolio/DAW2/Desarrollo Web Entorno Servidor/U3/11-05-24_Tarea3_20Concesionario/2º - Configuracion/datosDeConexionXML.xml";
 
 /**
  * Si queremos crear nuestras propias excepciones personalizadas en el
@@ -25,16 +25,16 @@ try {
         // Si el archivo existe, utilizamos el método "simplexml_load_file" para cargar/leer el archivo.
         $configuracionBD = simplexml_load_file($rutaDelXML);
     } else {
-        throw new ExceptionXML ("¡Error! El archivo XML no existe en la ruta indicada.", 1);
+        throw new ExceptionXML ("[1] ¡Error! El archivo XML no existe en la ruta indicada.", 1);
+        echo "¡La ruta real es: " . realpath($rutaDelXML) . "!";
+
     }
 
     // Llamamos al método que lee el XML y guarda los datos de conexión en un Array.
     $arrayDatosDeConexion = leerDatosXML ($configuracionBD);
 
     // Llamamos al método que instancia PDO para conectar con la base de datos.
-    $conexionBD = conectarBD ($arrayDatosDeConexion);
-
-    
+    $conexionBD = conectarBD ($arrayDatosDeConexion);    
     
 /**
  * Debemos hacer tantos "catch" como excepciones hayamos hecho que ocurran de forma
@@ -43,7 +43,7 @@ try {
  */
 } catch (ExceptionXML $error) {
     // Imprime un mensaje de error personalizado indicando que el XML no existe en "X" ruta.
-    echo "¡Error! El archivo XML " . $rutaDelXML . " no existe en la ruta indicada.";
+    echo "[2] ¡Error! El archivo XML " . $rutaDelXML . " no existe en la ruta indicada.";
 } catch (PDOException $error) {
     // Imrpime un mensaje de error si la excepción es ocasionada por la conexión (PDO)
     echo "¡Error estableciento la conexión con la base de datos!";
@@ -67,11 +67,18 @@ function conectarBD($arrayDatosDeConexion) {
 
         // Instancia PDO
         $conexion = new PDO($dsn, $usuario, $contrasena);
+        
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
         echo "Conexión exitosa a la base de datos.";
+
+        return $conexion;
+
     } catch (PDOException $e) {
         echo "Error en la conexión: " . $e->getMessage();
+        return null;
     }
+
 }
 
 

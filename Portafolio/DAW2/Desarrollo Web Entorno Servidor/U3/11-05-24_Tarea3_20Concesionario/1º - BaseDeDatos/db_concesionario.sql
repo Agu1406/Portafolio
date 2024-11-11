@@ -22,18 +22,21 @@ USE DB_CONCESIONARIO;
 
 -- Creación de la tabla FABRICANTES
 CREATE TABLE `FABRICANTES` (
-    `ID` CHAR(4) NOT NULL,      -- ID único de cada fabricante en la BD.
-    `NOMBRE` VARCHAR(35)        -- Nombre del fabricante al que se refiere.
+    `ID` INT NOT NULL,      -- ID único de cada fabricante en la BD.
+    `NOMBRE` VARCHAR(35) NOT NULL        -- Nombre del fabricante al que se refiere.
 );
 
 -- Definimos la primary key de la tabla "FABRICANTES"
 ALTER TABLE `FABRICANTES` ADD PRIMARY KEY (`ID`);
 
+-- Decimos que el "ID" sea un valor auto incrementable.
+ALTER TABLE `FABRICANTES` MODIFY COLUMN `ID` INT AUTO_INCREMENT;
+
 -- Creación de la tabla COCHES
 CREATE TABLE `COCHES` (
-    `ID` CHAR(4) NOT NULL,        -- ID único de cada coche en la BD.
-    `MODELO` VARCHAR(35),         -- Modelo del coche al que se refiere.
-    `ID_FABRICANTE` CHAR(4),      -- Clave foránea que conecta con la tabla FABRICANTES.
+    `ID` INT NOT NULL,        -- ID único de cada coche en la BD.
+    `MODELO` VARCHAR(35) NOT NULL,         -- Modelo del coche al que se refiere.
+    `ID_FABRICANTE` INT,      -- Clave foránea que conecta con la tabla FABRICANTES.
     `FOTO` MEDIUMBLOB,            -- Foto del coche almacenada en formato binario.
     `AÑO` INT                     -- Año de fabricación del coche.
 );
@@ -44,3 +47,6 @@ ALTER TABLE `COCHES` ADD PRIMARY KEY (`ID`);
 -- Definimos la foreign key en la tabla "COCHES" que conecta con "FABRICANTES"
 ALTER TABLE `COCHES` ADD CONSTRAINT `FK_FABRICANTE` FOREIGN KEY (`ID_FABRICANTE`)
 REFERENCES `FABRICANTES`(`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- Decimos que el "ID" de COCHES sea un valor auto incrementable.
+ALTER TABLE `COCHES` MODIFY COLUMN `ID` INT AUTO_INCREMENT;
