@@ -1,0 +1,87 @@
+/* Estilos generales */
+body {
+    font-family: 'Lato', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Fondo blanco para el cuerpo */
+    color: #000000; /* Texto negro */
+}
+
+/* Estilos para el header */
+header {
+    background-color: #ff6600; /* Naranja fuerte */
+    color: #ffffff; /* Texto blanco */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.contenedor {
+    display: flex; /* Usamos flexbox para organizar el contenido */
+    flex-direction: column; /* Organiza en columnas */
+    align-items: center; /* Centramos el contenido horizontalmente */
+    padding: 20px;
+}
+
+/* Estilo del contenedor de formulario */
+.contenedorFormulario {
+    background-color: #f9f9f9; /* Gris claro */
+    padding: 20px;
+    border: 2px solid #ff6600; /* Borde naranja */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 75%; /* Ancho completo */
+    max-width: 600px; /* Ancho máximo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Modificamos este selector para que no afecte a los inputs */
+.contenedorFormulario * {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%; /* Hacemos que los inputs ocupen todo el ancho del contenedor */
+}
+
+form *:nth-child(2n-1) {
+    margin-top: 15px;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #ff6600; /* Naranja fuerte */
+    color: #ffffff; /* Texto blanco */
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Para usar en posicionamiento */
+    bottom: 0; /* Para fijar al final */
+    width: 100%; /* Ancho completo */
+}
+
+/* Estilos de botones */
+input[type="submit"], input[type="reset"], input[type="button"] input[type="file"] {
+    background-color: #ff6600; /* Naranja fuerte */
+    color: #ffffff; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Relleno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color ease-in 0.3s; /* Transición suave */
+    transition: transform ease-out 0.3s; /* Transición suave */
+    text-align: center;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+    background-color: #cc5200; /* Color más oscuro al pasar el ratón */
+    text-align: center;
+    transform: scale(0.9);
+}
+
+input[type="file"] {
+    margin: 10px;
+    border: solid 2px black;
+}

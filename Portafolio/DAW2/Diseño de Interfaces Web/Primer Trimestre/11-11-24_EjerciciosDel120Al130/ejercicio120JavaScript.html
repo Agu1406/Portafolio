@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Agustiniano</title>
+    <link rel="stylesheet" href="../estilos/estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>¡Mi primer JavaScript!</h1>
+        <br>
+        <p id="demostracion">
+            JavaScript nos permita cambiar los estilos de un
+            elemento.
+        </p>
+        <br>
+        <input type="button" value="¡Cambiar estilos!" onclick="funcionDePrueba()">     
+    </div>
+    
+    <!-- Cargamos el script al final del body sin ningún motivo aparente -->
+    <script>
+        function funcionDePrueba () {
+            document.getElementById("demostracion").style.fontSize = "XL";
+            document.getElementById("demostracion").style.color = "red";
+            document.getElementById("demostracion").style.backgroundColor = "beige";
+        }
+    </script>
+</body>
+</html>
