@@ -6,7 +6,9 @@
  * debe leer para cargar los datos de la conexión, ese
  * archivo está en la misma carpeta que este, por lo tanto:
  */
-$rutaDelXML = "D:/2DAW-AGUSTIN/PortafolioDAW/Portafolio/DAW2/Desarrollo Web Entorno Servidor/U3/11-05-24_Tarea3_20Concesionario/2º - Configuracion/datosDeConexionXML.xml";
+
+// $rutaDelXML = "D:/2DAW-AGUSTIN/PortafolioDAW/Portafolio/DAW2/Desarrollo Web Entorno Servidor/U3/11-05-24_Tarea3_20Concesionario/2º - Configuracion/datosDeConexionXML.xml";
+$rutaDelXML = "C:/Users/AlumnoMañana.DESKTOP-KK9UC82/Desktop/Repositorios/PortafolioDAW/Portafolio/DAW2/Desarrollo Web Entorno Servidor/U3/11-05-24_Tarea3_20Concesionario/2º - Configuracion/datosDeConexionXML.xml";
 
 /**
  * Si queremos crear nuestras propias excepciones personalizadas en el
@@ -14,6 +16,7 @@ $rutaDelXML = "D:/2DAW-AGUSTIN/PortafolioDAW/Portafolio/DAW2/Desarrollo Web Ento
  * (heredan) de la clase nativa "Exception" de PHP, como podrás ver a
  * continuación:
  */
+
 class ExceptionXML extends Exception {
     // Aquí no pongo nada, no hace falta, no nos complicamos la vida.
 }
@@ -69,8 +72,6 @@ function conectarBD($arrayDatosDeConexion) {
         $conexion = new PDO($dsn, $usuario, $contrasena);
         
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        echo "Conexión exitosa a la base de datos.";
 
         return $conexion;
 

@@ -1,4 +1,4 @@
-/* Estilos generales */
+* Estilos generales */
 body {
     font-family: 'Lato', Arial, sans-serif;
     margin: 0;
@@ -7,7 +7,7 @@ body {
     color: #000000; /* Texto negro */
 }
 
-/* Estilos para el header */
+/* Estilo BEM - Bloque de la cabecera */
 header {
     background-color: #ff6600; /* Naranja fuerte */
     color: #ffffff; /* Texto blanco */
@@ -15,16 +15,27 @@ header {
     text-align: center;
 }
 
-/* Contenedor principal */
-.contenedor {
+h1 {
+    color: white;
+    text-shadow: 3px 3px black;
+}
+
+/* Estilo BEM - Bloque del contenedor principal */
+.contenedor-principal {
+    /* Estilos de forma gradiente con naranja y marrón oscuro */
+    background: rgb(37,12,1);
+    background: linear-gradient(90deg, rgba(37,12,1,1) 0%, rgba(255,181,82) 50%, rgba(37,12,1,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
     display: flex; /* Usamos flexbox para organizar el contenido */
     flex-direction: column; /* Organiza en columnas */
     align-items: center; /* Centramos el contenido horizontalmente */
     padding: 20px;
 }
 
-/* Estilo del contenedor de formulario */
-.contenedorFormulario {
+/* Estilo BEM - Bloque del formulario */
+.contenedor-formulario {
     background-color: #f9f9f9; /* Gris claro */
     padding: 20px;
     border: 2px solid #ff6600; /* Borde naranja */
@@ -40,7 +51,7 @@ header {
 
 
 /* Modificamos este selector para que no afecte a los inputs */
-.contenedorFormulario * {
+.contenedor-formulario * {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,37 +62,106 @@ form *:nth-child(2n-1) {
     margin-top: 15px;
 }
 
-/* Estilos para el footer */
-footer {
+/* Estilo BEM - Bloque del pie de pagina (footer) */
+.pie-de-pagina {
     background-color: #ff6600; /* Naranja fuerte */
     color: #ffffff; /* Texto blanco */
     text-align: center;
     padding: 10px;
-    position: relative; /* Para usar en posicionamiento */
-    bottom: 0; /* Para fijar al final */
+    position: relative;
+    bottom: 0;
     width: 100%; /* Ancho completo */
 }
 
-/* Estilos de botones */
-input[type="submit"], input[type="reset"], input[type="button"] input[type="file"] {
+.mostrar-productos {
+    width: 75%;
+    height: auto;
+    border: 2px solid #ff6600; /* Borde naranja */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    grid-gap: 20px; /* Espacio entre productos */
+    padding: 20px;
+}
+
+/* BEM - Elemento "producto" */
+.mostrar-productos__producto {
+    background-color: #fff;
+    border: 1px solid #ff6600; /* Borde naranja */
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    text-align: center; /* Centra el texto dentro de cada producto */
+}
+
+/* BEM - Elemento interno de "producto" */
+.mostrar-productos__producto img {
+    max-width: 100%; /* Asegura que las imágenes no desborden */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* BEM - Elemento interno de "producto" */
+.mostrar-productos__producto h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+/* BEM - Elemento interno de "producto" */
+.mostrar-productos__producto p {
+    font-size: 1rem;
+    color: #555; /* Color gris para las descripciones */
+}
+
+/* Estilos para inputs y etiquetas */
+label {
+    margin-top: 10px;
+    font-weight: 700; /* Resalta las etiquetas */
+}
+
+/* Estilos para los inputs especificos de texto, números y archivos */
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+    width: calc(100% - 20px); /* Ajusta el ancho */
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Estilos especificos para el input de tipo "submit" */
+input[type="submit"] {
     background-color: #ff6600; /* Naranja fuerte */
     color: #ffffff; /* Texto blanco */
-    border: none; /* Sin borde */
-    padding: 10px 20px; /* Relleno */
-    border-radius: 5px; /* Esquinas redondeadas */
-    cursor: pointer; /* Cursor de mano */
-    transition: background-color ease-in 0.3s; /* Transición suave */
-    transition: transform ease-out 0.3s; /* Transición suave */
-    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px; /* Separación superior */
+    transition: background-color 0.3s ease-in, transform 0.3s ease-out;
 }
 
-input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+/* Estilos especificos para el "submit" cuando el ratón esta encima de él. */
+input[type="submit"]:hover {
     background-color: #cc5200; /* Color más oscuro al pasar el ratón */
-    text-align: center;
-    transform: scale(0.9);
+    transform: scale(0.98);
 }
 
-input[type="file"] {
-    margin: 10px;
-    border: solid 2px black;
+
+/* DE AQUÍ PARA ABAJO LOS MEDIA-QUERYS - EXPERIMENTAL - NO LOS MANEJO BIEN */
+
+/* Para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .mostrar-productos {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
+    }
+}
+
+/* Para pantallas más pequeñas aún */
+@media (max-width: 480px) {
+    .mostrar-productos {
+        grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+    }
 }

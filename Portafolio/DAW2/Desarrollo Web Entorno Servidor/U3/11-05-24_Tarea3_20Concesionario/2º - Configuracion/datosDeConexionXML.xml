@@ -9,7 +9,7 @@
 xsi:noNamespaceSchemaLocation="configuracion.xsd">
     <Tipo>mysql</Tipo>
     <Nombre>db_concesionario</Nombre>
-    <Host>127.0.0.1:3309</Host>
+    <Host>127.0.0.1:3306</Host>
     <Usuario>root</Usuario>
     <Contrasena><!-- Vacia, no tiene. --></Contrasena>
 </Configuracion_BD>
