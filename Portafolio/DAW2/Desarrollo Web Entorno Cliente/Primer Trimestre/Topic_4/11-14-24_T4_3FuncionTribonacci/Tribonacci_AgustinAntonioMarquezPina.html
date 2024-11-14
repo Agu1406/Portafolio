@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos/estilos.css">
+</head>
+    <script src="Tribonacci_AgustinAntonioMarquezPina.js"></script>
+<body>
+    <!-- 
+    Basado en la sucesión de Fibonacci del recurso de AV "Ejemplo Recursividad", 
+    tenemos la de Tribonacci. En esta última, cada elemento es la suma de los 
+    tres anteriores: 1, 1, 2, 4, 7, 13, 24, etc, debemos de:
+
+    1º) Resuelve la función de forma recursiva, dada una posición.
+    2º) Resuelve la función de forma iterativa, dada una posición.
+    -->
+    <div class="contenedor-principal">
+        <h1>Ecuación de Tribonacci</h1>
+        <br>
+        <div class="contenedor-formulario">
+            <legend>¿Que pisición de Tribonacci deseas consultar?</legend>
+            <br>
+            <label for="numero">¡Introduce un número (posición)</label>
+            <input type="number" name="numero" id="numero">
+            <br>
+            <input type="submit" value="¡Enviar consulta!" onclick="imprimirResultado()">
+
+        </div>
+        <br>
+        <!-- Este div está oculto hasta que JavaScript lo haga aparecer e imprima en el
+         los resultados de ambas consultas tribonacci, la recursiva y la iterativa. -->
+        <div class="mostrar-dos-listas" id="mostrar-dos-listas" style="opacity: 0;">
+        </div>
+        </div>
+    </div>
+</body>
+</html>
