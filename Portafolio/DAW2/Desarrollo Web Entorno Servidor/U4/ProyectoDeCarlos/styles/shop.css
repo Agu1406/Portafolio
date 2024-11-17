@@ -1,0 +1,95 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Colores corporativos */
+:root {
+    --azul-marino: #0A1E41 ;
+    --naranja-pastel: #FF7514;
+    --gris-claro: #f1f1f1;
+    --blanco: #ffffff;
+}
+
+/* Header */
+.header {
+    background-color: var(--azul-marino);
+    color: var(--blanco);
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    flex: 1; /* Alinea el logo a la izquierda */
+}
+
+.usuario,.shoppingCart{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Products */
+.product-grid {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+    width: 100%; 
+    padding: 0 10px;
+}
+
+/* Tarjeta de producto */
+.product-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    width: 100%;
+    background-color: var(--blanco);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    gap: 15px;
+    text-align: left;
+}
+
+/* Estilo para el contenido del producto */
+.product-price {
+    flex: 1; /* Distribuye el espacio */
+}
+
+.nombre {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--azul-marino);
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 1em;
+    color: var(--naranja-pastel);
+    font-weight: bold;
+}
+
+
+
+/* Footer */
+.footer {
+    background-color: var(--azul-marino);
+    color: var(--blanco);
+    padding: 1em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}

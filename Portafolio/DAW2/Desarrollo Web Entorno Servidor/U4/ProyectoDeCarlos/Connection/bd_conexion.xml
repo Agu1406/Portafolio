@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseConfig>
+    <host>127.0.0.1</host>
+    <nombreBD>bd_grafo</nombreBD>
+    <administrador>root</administrador>
+    <pw></pw>
+</databaseConfig>
