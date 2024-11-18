@@ -1,3 +1,16 @@
+<?php
+// Incluir el archivo que contiene la clase categoriaCRUD
+include_once __DIR__ . "/../modelos/crud_categorias.php";
+
+// Obtener las categorías
+$categorias = categoriaCRUD::leerCategorias();
+
+// Verifica si hay categorías para mostrar en el formulario
+if (count($categorias) == 0) {
+    echo "No hay categorías disponibles.";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,36 +23,39 @@
     <div class="contenedor-principal">
         <h1>Bienvenido a tumercado.com</h1>
         <div class="seccion">
-            <!-- Div de la izquierda con H1 y párrafo -->
             <div class="izquierda">
                 <h1>¡Añade un nuevo producto a tu tienda!</h1>
                 <p>&emsp; Rellena los datos del producto para incluirlo en nuestro catálogo de productos.</p>
             </div>
-            <!-- Div de la derecha con el formulario -->
             <div class="derecha">
                 <form class="login-form" action="../controladores/agregar_producto.php" method="post" enctype="multipart/form-data">
                     <label for="nombre_producto">Nombre del Producto</label>
                     <input type="text" name="nombre_producto" id="nombre_producto" placeholder="Ingresa el nombre del producto" required>
-                    
+                    <br>
                     <label for="descripcion_producto">Descripción</label>
                     <input type="text" name="descripcion_producto" id="descripcion_producto" placeholder="Ingresa la descripción del producto">
-                    
+                    <br>
                     <label for="precio_producto">Precio</label>
                     <input type="number" name="precio_producto" id="precio_producto" step="0.01" placeholder="Precio del producto" required>
-                    
+                    <br>
                     <label for="stock">Stock</label>
                     <input type="number" name="stock" id="stock" placeholder="Cantidad disponible" required>
-                    
+                    <br>
                     <label for="categoria">Categoría</label>
                     <select name="categoria" id="categoria">
-                        <!-- Las categorías deberían ser obtenidas desde la base de datos -->
-                        <option value="1">Alimentos</option>
-                        <option value="2">Cosméticos</option>
-                        <option value="3">Parafarmacia</option>
+                        <!-- Aquí se insertan las categorías obtenidas directamente del CRUD -->
+                        <?php if (is_array($categorias)): ?>
+                            <?php foreach ($categorias as $categoria): ?>
+                                <option value="<?= $categoria['id_categoria']; ?>"><?= $categoria['nombre_categoria']; ?></option>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <option value="">No hay categorías disponibles.</option>
+                        <?php endif; ?>
                     </select>
-                    
+                    <br>
                     <label for="imagen">Imagen del Producto</label>
                     <input type="file" name="imagen" id="imagen" accept="image/*" required>
+                    <br>
                     
                     <input type="submit" value="Añadir Producto">
                 </form>

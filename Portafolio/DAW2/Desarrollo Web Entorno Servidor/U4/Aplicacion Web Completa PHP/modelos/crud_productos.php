@@ -62,7 +62,12 @@ class productoCRUD {
         );
 
         // Usando bindParam asignamos valores a los "values" con los datos recibidos como argumentos.
-        $sql -> bindParam();
+        $sql -> bindParam(":nombre_producto", $nombre_producto, PDO::PARAM_STR);
+        $sql -> bindParam(":descripcion_producto", $descripcion_producto, PDO::PARAM_STR);
+        $sql -> bindParam(":precio_producto", $precio_producto, PDO::PARAM_STR);
+        $sql -> bindParam(":stock", $stock, PDO::PARAM_STR);
+        $sql -> bindParam(":imagen", $imagen, PDO::PARAM_STR);
+        $sql -> bindParam(":categoria_codigo", $categoria_codigo_categoria, PDO::PARAM_STR);
     }
 
     public static function leerProducto () {

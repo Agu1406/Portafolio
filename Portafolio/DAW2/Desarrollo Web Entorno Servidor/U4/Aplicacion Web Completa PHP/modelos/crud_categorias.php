@@ -13,8 +13,8 @@ try {
     die("Error: No se ha podido conectar a la base de datos, " . $e->getMessage());
 }
 
-class productoCRUD {
-    public function crearCategoria ($nombre_categoria) {
+class categoriaCRUD {
+    public static function crearCategoria ($nombre_categoria) {
         // Obtenemos la instancia y la conexion de la base de datos.
         $conexion = ConexionBaseDeDatos::obtenerInstancia() -> obtenerConexion();
 
@@ -69,6 +69,34 @@ class productoCRUD {
 
             // Devuelve un mensaje de error en caso de excepción.
             return "Error al insertar la categoría: " . $e -> getMessage();
+        }
+    }
+
+    public static function leerCategorias () {        
+        // Obtenemos la conexión de la base de datos.
+        $conexion = ConexionBaseDeDatos::obtenerInstancia()->obtenerConexion();
+
+        try {
+            // Preparamos la consulta para obtener todas las categorías
+            $sql = $conexion->prepare("SELECT id_categoria, nombre_categoria FROM Categoria");
+
+            // Ejecutamos la consulta
+            $sql->execute();
+
+            // Obtenemos todos los resultados en un array asociativo
+            $categorias = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+            // Si no hay categorías, devolvemos un array vacío
+            if (count($categorias) == 0) {
+                return "No hay categorías disponibles.";
+            }
+
+            // Devolvemos el array con las categorías
+            return $categorias;
+
+        } catch (Exception $e) {
+            // En caso de error, lo manejamos y devolvemos un mensaje
+            return "Error al leer las categorías: " . $e->getMessage();
         }
     }
 }
