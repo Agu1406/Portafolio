@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo de conexión
-include "../modelos/conexion_bd.php";
+include __DIR__ . "/../modelos/conexion_bd.php";
 
 // Al haber importado el script, tenemos acceso a sus métodos y funciones, los usamos.
 try {
@@ -11,11 +11,12 @@ try {
     $conexion = $baseDeDatos->obtenerConexion();
     
 } catch (Exception $e) {
+    // En caso de error de conexión imprime un echo al respecto.
     echo "Error: No se ha podido conectar a la base de datos, " . $e->getMessage();
     exit();
 }
 
-// Recoger los datos del formulario
+// Extrae del POST ambos, el usuario y la contraseña.
 $usuario = $_POST['usuario'];
 $contrasena = $_POST['contrasena'];  // La contraseña en texto plano
 
@@ -30,9 +31,11 @@ $contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);  // Hasheo con 
 
 // Insertar el usuario y el hash de la contraseña en la base de datos
 $sql = "INSERT INTO Credenciales (correo, Contraseña) VALUES (:usuario, :contrasena)";
-$stmt = $conexion->prepare($sql);  // Usamos $conexion en lugar de $conn
 
-// Enlazar los parámetros de forma segura con bindParam
+// Preparamos la consulta en la conexión a la base de datos.
+$stmt = $conexion->prepare($sql);
+
+// con bindParam remplazamos los valores ":usuario" y ":contrasena" por los recibidos desde el formulario.
 $stmt->bindParam(':usuario', $usuario, PDO::PARAM_STR);
 $stmt->bindParam(':contrasena', $contrasena_hash, PDO::PARAM_STR);
 
@@ -41,4 +44,5 @@ if ($stmt->execute()) {
     echo "Usuario registrado correctamente.";
 } else {
     echo "Error al registrar el usuario: " . $stmt->errorInfo()[2];
+    header("Location registro.php?error=1");
 }

@@ -13,31 +13,30 @@ try {
     die("Error: No se ha podido conectar a la base de datos, " . $e->getMessage());
 }
 
-class UsuarioModel {
+class UsuarioCRUD {
     // Método para verificar las credenciales del usuario
     public static function verificarCredenciales($usuario, $contrasena) {
         // Obtenemos la conexión a la base de datos
-        $db = ConexionBaseDeDatos::obtenerInstancia()->obtenerConexion();
+        $conexion = ConexionBaseDeDatos::obtenerInstancia()->obtenerConexion();
 
-        // Preparamos la consulta SQL
-        $sql = $db->prepare("SELECT * FROM usuarios WHERE nombre_usuario = :usuario LIMIT 1");
-        $sql->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+        // Preparamos la consulta SQL en la conexión a la base de datos.
+        $sql = $conexion -> prepare("SELECT * FROM usuarios WHERE nombre_usuario = :usuario LIMIT 1");
+
+        // Con bindParam remplazamos los valores de ":usuario" con los recibidos en el argumento del método.
+        $sql -> bindParam(':usuario', $usuario, PDO::PARAM_STR);
 
         // Ejecutamos la consulta
-        $sql->execute();
+        $sql -> execute();
 
-        // Obtenemos el resultado de la consulta
-        $resultado = $sql->fetch(PDO::FETCH_ASSOC);
+        // "Jalamos" del "sql" todos los usuarios que hayan coincidido con la consulta.
+        $resultado = $sql -> fetch(PDO::FETCH_ASSOC);
 
-        // Verificamos si se obtuvo un resultado
-        if ($resultado) {
-            // Verificamos si la contraseña coincide con el hash almacenado
-            if (password_verify($contrasena, $resultado['contrasena'])) {
-                return $resultado; // Retorna los datos del usuario autenticado
-            }
+        // Verificamos si se encontró un usuario y se compara la contraseña hasheada.
+        if ($resultado && password_verify($contrasena, $resultado['contrasena'])) {
+            return $resultado; // Devuelve los datos del usuario si la contraseña coincide
+        } else {
+            return false; // Retorna false si las credenciales no son válidas
         }
-
-        return false; // Retorna false si las credenciales no coinciden
     }
 
     // Método para registrar un nuevo usuario (CRUD)
