@@ -78,7 +78,7 @@ class categoriaCRUD {
 
         try {
             // Preparamos la consulta para obtener todas las categorías
-            $sql = $conexion->prepare("SELECT id_categoria, nombre_categoria FROM Categoria");
+            $sql = $conexion->prepare("SELECT codigo_categoria, nombre_categoria FROM Categoria");
 
             // Ejecutamos la consulta
             $sql->execute();

@@ -7,7 +7,7 @@ $categorias = categoriaCRUD::leerCategorias();
 
 // Verifica si hay categorías para mostrar en el formulario
 if (count($categorias) == 0) {
-    echo "No hay categorías disponibles.";
+    echo "[1] No hay categorías disponibles.";
 }
 ?>
 
@@ -46,7 +46,7 @@ if (count($categorias) == 0) {
                         <!-- Aquí se insertan las categorías obtenidas directamente del CRUD -->
                         <?php if (is_array($categorias)): ?>
                             <?php foreach ($categorias as $categoria): ?>
-                                <option value="<?= $categoria['id_categoria']; ?>"><?= $categoria['nombre_categoria']; ?></option>
+                                <option value="<?= $categoria['codigo_categoria']; ?>"><?= $categoria['nombre_categoria']; ?></option>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <option value="">No hay categorías disponibles.</option>
