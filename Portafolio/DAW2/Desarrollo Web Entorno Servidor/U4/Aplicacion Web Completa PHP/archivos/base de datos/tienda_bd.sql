@@ -90,8 +90,9 @@ CREATE TABLE `Producto` (
     `nombre_producto` VARCHAR(45) NOT NULL,      -- Nombre del producto.
     `descripcion_producto` VARCHAR(45) NULL,     -- Descripción opcional del producto.
     `precio_producto` DECIMAL(10,2) NOT NULL,    -- Precio del producto.
-    `stock` INT NOT NULL,                        -- Cantidad disponible del producto.
-    `Categoria_codigo_categoria` INT NOT NULL,   -- Clave foránea hacia la tabla Categoria.
+    `stock` INT NOT NULL,
+    `imagen` LONGBLOB NOT NULL,                        -- Cantidad disponible del producto.
+    `categoria_codigo_categoria` INT NOT NULL,   -- Clave foránea hacia la tabla Categoria.
     PRIMARY KEY (`codigo_producto`),             -- Clave primaria del producto.
     CONSTRAINT `fk_Producto_Categoria` FOREIGN KEY (`Categoria_codigo_categoria`)
     REFERENCES `Categoria`(`codigo_categoria`)  -- Relación con la tabla Categoria.
@@ -114,3 +115,28 @@ CREATE TABLE `Detalle_Carrito` (
     REFERENCES `Producto`(`codigo_producto`)    -- Relación con la tabla Producto.
     ON DELETE CASCADE ON UPDATE CASCADE         -- Acciones en caso de eliminación o actualización.
 );
+
+/* DE AQUÍ PARA ABAJO SIN INSERTS MANUALES QUE USO PARA PROBAR LA BASE DE DATOS */
+
+
+-- Insertar categorías en la tabla Categoria
+
+-- Categoría 1: Alimentos
+INSERT INTO `Categoria` (`codigo_categoria`, `nombre_categoria`)
+VALUES (1, 'Alimentos');
+
+-- Categoría 2: Cosméticos
+INSERT INTO `Categoria` (`codigo_categoria`, `nombre_categoria`)
+VALUES (2, 'Cosmeticos');
+
+-- Categoría 3: Parafarmacia
+INSERT INTO `Categoria` (`codigo_categoria`, `nombre_categoria`)
+VALUES (3, 'Parafarmacia');
+
+-- Insertar cliente en la tabla Cliente
+INSERT INTO `Cliente` (`codigo_cliente`, `cif_cliente`, `direccion`, `codigo_postal`, `telefono`)
+VALUES (1, '12345678A', 'Avenida La Calle 2', '12345', '123456789');
+
+-- Insertar credenciales asociadas al cliente con codigo_cliente = 1
+INSERT INTO `Credenciales` (`correo`, `contrasena`, `cliente_codigo_cliente`)
+VALUES ('ejemplo@ejemplo.com', '$2y$10$/iSfeyOg7I4ukjBKRZAjTe6tba9419SrKaq/7NEfGEZy3wou1FUhe', 1);

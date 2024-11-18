@@ -22,7 +22,7 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
         setcookie('usuario', $resultado['nombre_usuario'], time() + (86400 * 30), "/"); // 30 días de duración
 
         // Redirigir al usuario a la página de inicio o panel
-        header("Location: index.php");
+        header("Location: catalogo.php");
 
         // Hacemos un exit para no gastar recursos y salir del scrip
         exit();

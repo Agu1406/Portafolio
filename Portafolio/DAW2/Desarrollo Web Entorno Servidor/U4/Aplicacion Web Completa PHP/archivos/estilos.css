@@ -26,10 +26,9 @@ body, html {
 .seccion {
     display: flex;
     flex-direction: row;
-    width: 90%; /* Ajustado para mantener un espacio alrededor */
+    width: 100%; /* Ajustado para mantener un espacio alrededor */
     max-width: 1000px;
     background-color: #007bff;
-    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -89,4 +88,68 @@ body, html {
 
 .login-form input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+/* Estilo del header */
+header {
+    background-color: #333; /* Color de fondo de la barra */
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos (logo y menú) de izquierda a derecha */
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header .logo img {
+    height: 32px; /* Tamaño del ícono */
+    width: 32px;
+}
+
+/* Estilo del menú de navegación */
+nav ul {
+    display: flex; /* Utiliza flexbox para los elementos */
+    list-style-type: none; /* Elimina los puntos por defecto */
+}
+
+nav ul li {
+    margin-left: 20px; /* Espacio entre los enlaces */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f1a7b6; /* Color de hover */
+}
+
+/* Espaciado después del header para evitar que el contenido quede oculto */
+main {
+    padding-top: 80px; /* Ajusta este valor si cambias el alto del header */
+}
+
+/* Responsividad para dispositivos móviles */
+@media screen and (max-width: 412px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
 }
