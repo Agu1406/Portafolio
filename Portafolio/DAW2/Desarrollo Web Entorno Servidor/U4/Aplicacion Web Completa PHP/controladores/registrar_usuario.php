@@ -1,48 +1,37 @@
 <?php
-// Incluir el archivo de conexión
+// Incluir el archivo de conexión y el modelo CRUD
 include __DIR__ . "/../modelos/conexion_bd.php";
+include __DIR__ . "/../modelos/crud_usuarios.php"; // Asegúrate de incluir el archivo del modelo UsuarioCRUD
 
-// Al haber importado el script, tenemos acceso a sus métodos y funciones, los usamos.
+// Obtener la conexión a la base de datos
 try {
-    // Obtener la instancia de la clase ConexionBaseDeDatos
     $baseDeDatos = ConexionBaseDeDatos::obtenerInstancia();
-
-    // Obtener la conexión de la base de datos desde la instancia.
     $conexion = $baseDeDatos->obtenerConexion();
-    
 } catch (Exception $e) {
-    // En caso de error de conexión imprime un echo al respecto.
     echo "Error: No se ha podido conectar a la base de datos, " . $e->getMessage();
     exit();
 }
 
-// Extrae del POST ambos, el usuario y la contraseña.
+// Recoger los datos del formulario
 $usuario = $_POST['usuario'];
-$contrasena = $_POST['contrasena'];  // La contraseña en texto plano
+$contrasena = $_POST['contrasena'];
+$cif_cliente = $_POST['cif_cliente'];
+$direccion = $_POST['direccion'];
+$codigoPostal = $_POST['codigoPostal'];
+$telefono = $_POST['telefono'];
 
-// Verificar si los campos están vacíos
-if (empty($usuario) || empty($contrasena)) {
-    echo "Por favor ingrese ambos campos.";
+// Verificar que no haya campos vacíos
+if (empty($usuario) || empty($contrasena) || empty($cif_cliente) || empty($direccion) || empty($codigoPostal) || empty($telefono)) {
+    echo "Todos los campos son obligatorios.";
     exit();
 }
 
-// Hashear la contraseña
-$contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);  // Hasheo con el algoritmo predeterminado (bcrypt)
+// Usar el método registrarUsuario de UsuarioCRUD para insertar el usuario
+$resultado = UsuarioCRUD::registrarUsuario($usuario, $contrasena, $cif_cliente, $direccion, $codigoPostal, $telefono);
 
-// Insertar el usuario y el hash de la contraseña en la base de datos
-$sql = "INSERT INTO Credenciales (correo, Contraseña) VALUES (:usuario, :contrasena)";
-
-// Preparamos la consulta en la conexión a la base de datos.
-$stmt = $conexion->prepare($sql);
-
-// con bindParam remplazamos los valores ":usuario" y ":contrasena" por los recibidos desde el formulario.
-$stmt->bindParam(':usuario', $usuario, PDO::PARAM_STR);
-$stmt->bindParam(':contrasena', $contrasena_hash, PDO::PARAM_STR);
-
-// Ejecutar la consulta
-if ($stmt->execute()) {
+// Comprobar el resultado
+if ($resultado === true) {
     echo "Usuario registrado correctamente.";
 } else {
-    echo "Error al registrar el usuario: " . $stmt->errorInfo()[2];
-    header("Location registro.php?error=1");
+    echo $resultado; // Si hay un error, mostrarlo
 }

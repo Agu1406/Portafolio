@@ -72,16 +72,19 @@ class ConexionBaseDeDatos
     // Método para leer los datos del archivo XML
     private function leerDatosXML($configuracionBD)
     {
-        // Creamos un array asociativo del cual extraemos uno por uno los valores del XML cargado.
+        // Crear una instancia de DOMXPath usando el documento cargado.
+        $xpath = new DOMXPath($configuracionBD);
+    
+        // Realizar las consultas XPath para extraer los datos.
         $datosDeConexion = [
-            'tipo' => $configuracionBD->xpath("//Tipo")[0]->__toString(),
-            'nombre' => "dbname=" . $configuracionBD->xpath("//Nombre")[0]->__toString(),
-            'host' => "host=" . $configuracionBD->xpath("//Host")[0]->__toString(),
-            'usuario' => $configuracionBD->xpath("//Usuario")[0]->__toString(),
-            'contrasena' => $configuracionBD->xpath("//Contrasena")[0]->__toString()
+            'tipo' => $xpath->query("//Tipo")->item(0)->nodeValue,
+            'nombre' => "dbname=" . $xpath->query("//Nombre")->item(0)->nodeValue,
+            'host' => "host=" . $xpath->query("//Host")->item(0)->nodeValue,
+            'usuario' => $xpath->query("//Usuario")->item(0)->nodeValue,
+            'contrasena' => $xpath->query("//Contrasena")->item(0)->nodeValue
         ];
-
-        // Returnamos ese mismo Array una vez creado.
+    
+        // Retornar el array con los datos de conexión.
         return $datosDeConexion;
     }
 
@@ -96,8 +99,8 @@ class ConexionBaseDeDatos
     }
 
     // Prevenimos la clonación de la clase
-    private function __clone() {}
-    private function __wakeup() {}
+    public function __clone() {}
+    public function __wakeup() {}
 
     // Método para obtener la conexión
     public function obtenerConexion()

@@ -12,13 +12,13 @@
 
 -- Elimina la base de datos si ya existe para evitar conflictos de nombres y 
 -- asegurar una creación limpia
-DROP DATABASE IF EXISTS `mydb`;
+DROP DATABASE IF EXISTS `tienda_bd`;
 
 -- Crea la base de datos con el nombre específico proporcionado
-CREATE DATABASE `mydb`;
+CREATE DATABASE `tienda_bd`;
 
 -- Selecciona la base de datos recién creada para comenzar a operar sobre ella
-USE `mydb`;
+USE `tienda_bd`;
 
 -- Creación de la tabla CLIENTE
 CREATE TABLE `Cliente` (
@@ -36,10 +36,10 @@ ALTER TABLE `Cliente` MODIFY COLUMN `codigo_cliente` INT AUTO_INCREMENT;
 -- Creación de la tabla CREDENCIALES
 CREATE TABLE `Credenciales` (
     `correo` VARCHAR(80) NOT NULL,               -- Correo del cliente (clave primaria).
-    `Contraseña` VARCHAR(255) NOT NULL,           -- Contraseña para acceso.
-    `Cliente_codigo_cliente` INT NOT NULL,       -- Clave foránea hacia Cliente.
+    `contrasena` VARCHAR(255) NOT NULL,           -- Contraseña para acceso.
+    `cliente_codigo_cliente` INT NOT NULL,       -- Clave foránea hacia Cliente.
     PRIMARY KEY (`correo`),                      -- Clave primaria del correo.
-    CONSTRAINT `fk_Credenciales_Cliente` FOREIGN KEY (`Cliente_codigo_cliente`)
+    CONSTRAINT `fk_Credenciales_Cliente` FOREIGN KEY (`cliente_codigo_cliente`)
     REFERENCES `Cliente`(`codigo_cliente`)      -- Relación con la tabla Cliente.
     ON DELETE CASCADE ON UPDATE CASCADE         -- Acciones en caso de eliminación o actualización.
 );
@@ -48,9 +48,9 @@ CREATE TABLE `Credenciales` (
 CREATE TABLE `Carrito` (
     `codigo_carrito` INT NOT NULL,               -- ID único del carrito.
     `fecha_creacion` DATETIME NULL,              -- Fecha de creación del carrito.
-    `Cliente_codigo_cliente` INT NOT NULL,       -- Clave foránea hacia Cliente.
+    `cliente_codigo_cliente` INT NOT NULL,       -- Clave foránea hacia Cliente.
     PRIMARY KEY (`codigo_carrito`),              -- Clave primaria del carrito.
-    CONSTRAINT `fk_Carrito_Cliente` FOREIGN KEY (`Cliente_codigo_cliente`)
+    CONSTRAINT `fk_Carrito_Cliente` FOREIGN KEY (`cliente_codigo_cliente`)
     REFERENCES `Cliente`(`codigo_cliente`)      -- Relación con la tabla Cliente.
     ON DELETE CASCADE ON UPDATE CASCADE         -- Acciones en caso de eliminación o actualización.
 );
@@ -64,10 +64,10 @@ CREATE TABLE `Pedido` (
     `fecha_pedido` DATETIME NOT NULL,            -- Fecha del pedido.
     `estado_pedido` VARCHAR(20) NOT NULL,        -- Estado del pedido (ej. Pendiente, Enviado).
     `metodo_pago` VARCHAR(15) NOT NULL,          -- Método de pago utilizado.
-    `Cliente_codigo_cliente` INT NOT NULL,       -- Clave foránea hacia Cliente.
+    `cliente_codigo_cliente` INT NOT NULL,       -- Clave foránea hacia Cliente.
     PRIMARY KEY (`codigo_pedido`),               -- Clave primaria del pedido.
-    CONSTRAINT `fk_Pedido_Cliente` FOREIGN KEY (`Cliente_codigo_cliente`)
-    REFERENCES `Cliente`(`codigo_cliente`)      -- Relación con la tabla Cliente.
+    CONSTRAINT `fk_Pedido_Cliente` FOREIGN KEY (`cliente_codigo_cliente`)
+    REFERENCES `cliente`(`codigo_cliente`)      -- Relación con la tabla Cliente.
     ON DELETE CASCADE ON UPDATE CASCADE         -- Acciones en caso de eliminación o actualización.
 );
 

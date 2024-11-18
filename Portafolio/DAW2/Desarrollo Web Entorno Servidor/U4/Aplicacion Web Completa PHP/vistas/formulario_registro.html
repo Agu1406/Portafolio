@@ -19,12 +19,20 @@
             </div>
             <!-- Div de la derecha con el formulario -->
             <div class="derecha">
-                <form class="login-form" action="../controladores/validar_login.php" method="post">
+                <form class="login-form" action="../controladores/registrar_usuario.php" method="post">
                     <label for="usuario">Usuario</label>
                     <input type="text" name="usuario" id="usuario" placeholder="Ingresa tu usuario">
                     <label for="contrasena">Contraseña</label>
                     <input type="password" name="contrasena" id="contrasena" placeholder="Ingresa tu contraseña">
-                    <input type="submit" value="Iniciar sesión">
+                    <label for="cif_cliente">DNI/NIE/CIF</label>
+                    <input type="text" name="cif_cliente" id="cif_cliente">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" name="direccion" id="direccion">
+                    <label for="codigoPostal">Código postal:</label>
+                    <input type="text" name="codigoPostal" id="codigoPostal">
+                    <label for="telefono">telefono</label>
+                    <input type="text" name="telefono" id="telefono">
+                    <input type="submit" value="Registrar nuevo usuario">
                 </form>
             </div>
         </div>

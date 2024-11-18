@@ -1,7 +1,7 @@
 <?php
 // Importar el modelo de usuario y la conexión a la base de datos
 include_once __DIR__ . "/../modelos/crud_usuarios.php";
-include_once __DIR__ - "/../modelos/conexion_bd.php";
+include_once __DIR__ . "/../modelos/conexion_bd.php";
 
 // Verificar si se han enviado los datos del formulario
 if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {

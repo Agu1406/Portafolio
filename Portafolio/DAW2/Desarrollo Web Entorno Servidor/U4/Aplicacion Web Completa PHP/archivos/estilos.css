@@ -1,88 +1,92 @@
-        body {
-            min-height: 600px;
-            width: 100%;
-            margin: 0;
-            padding: 0px;
-        }
+/* Estilos generales para asegurarte de que la caja se ajuste */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Contenedor principal */
-        .contenedor-principal {
-            margin: 0px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
-            text-align: center;
+/* Asegurar que todos los elementos respeten el box-sizing */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
 
-        }
+/* Contenedor principal */
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    width: 100%;
+    text-align: center;
+}
 
-        /* Sección que contiene los dos divs */
-        .seccion {
-            display: flex;
-            width: 100%;
-            max-width: 1000px;
-            height: 400px;
-            background-color: #007bff;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+/* Sección de los divs */
+.seccion {
+    display: flex;
+    flex-direction: row;
+    width: 90%; /* Ajustado para mantener un espacio alrededor */
+    max-width: 1000px;
+    background-color: #007bff;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
-        /* Div de la izquierda */
-        .izquierda {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 5%;
-            color: white;
-        }
+/* Div de la izquierda */
+.izquierda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+    color: white;
+}
 
-        .izquierda p {
-            text-align: justify;
-        }
+.izquierda p {
+    text-align: justify;
+}
 
-        /* Div de la derecha */
-        .derecha {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
-            padding: 20px;
-            margin: 5%;
+/* Div de la derecha */
+.derecha {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    margin: 5%;
 
-            border-left: 2px solid #ccc;
-        }
+    border-left: 2px solid #ccc;
+}
 
-        /* Estilos del formulario */
-        .login-form {
-            display: flex;
-            flex-direction: column;
-            width: 80%;
-        }
+/* Estilos del formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+}
 
-        .login-form input[type="text"],
-        .login-form input[type="password"] {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-        .login-form input[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.login-form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        .login-form input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
+.login-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
