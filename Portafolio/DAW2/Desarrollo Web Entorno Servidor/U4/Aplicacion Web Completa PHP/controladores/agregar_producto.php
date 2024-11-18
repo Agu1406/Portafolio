@@ -17,52 +17,36 @@ try {
 
  // Si el formulario enviado es "POST" ejecutamos el if, si no el "else" envia error.
 if ($_SERVER["REQUEST_METHOD" == "POST"]) {
+    // Si efectivamente es POST extrameos de la variable superglobal los valores del producto
+    $nombreProducto = $_POST["nombre_producto"];
+    $descripcionProducto = $_POST["descripcion_producto"];
+    $precioProducto = $_POST["precio_producto"];
+    $stock = $_POST["stock"];
+    $categoria = $_POST["categoria"];
+
+    // Aquí es diferente, hay que convertir la imagén en binario para guardarla en la base de datos.
+    $imagen = convertirImagen("imagen");
+
+    // "Si" la imagén no es nula, se subio correctamente, procede el if.
+    if ($imagen !== null) {
+        // Llamamos al método de crear productos del CRUD y le parseamos sus valores
+        productoCRUD::crearProducto()
+    }
 
 } else {
     echo "Error al intentar subir un producto.";
 }
 
+function convertirImagen($imagen) {
+    // Primero, verificamos el código de error de la imagen, si es "0" se subio correctamente.
+    if ($_FILES[$imagen]["error"] == 0) {
+        // Si era "0", usamos file_get_content para convertirla en binario
+        $imagenConvertida = file_get_contents($_FILES[$imagen]["tmp_name"]);
 
-    $modelo = $_POST['modelo'];
-    $fabricante = $_POST['fabricante'];
-    $ano = $_POST['ano'];
-
-    // Aquí utiizamos el método "subirFoto" del script para preparar la foto.
-    $fotoCoche = subirFoto('foto');
-
-
-    // Si la foto existe, es decir, no es ("!==") null, se ejecuta el if.
-    if ($fotoCoche !== null) {
-        // Preparamos la consulta para insertar los datos e nla base de datos.
-        $sql = "INSERT INTO COCHES (MODELO, ID_FABRICANTE, FOTO, AÑO) VALUES (:modelo, :fabricante, :foto, :ano)";
-
-        // Preparamos la consulta en la instancia de PDO (conexión de base de datos)
-        $stmt = $conexionBD -> prepare($sql);
-
-        // Asociamos a los atributos de la consulta sus valores del formulario.
-        $stmt -> bindParam(':modelo', $modelo);
-        $stmt -> bindParam(':fabricante', $fabricante);
-        $stmt -> bindParam(':foto', $fotoCoche);
-        $stmt -> bindParam(':ano', $ano);
-
-        // Ejecutamos la ocnsulta en la base de datos.
-        $stmt -> execute();
-
-        // Enviamos un mensaje de exito si la consulta se ejecuta correctamente.
-        echo "Coche subido con éxito.";
-}
-
-
-function subirFoto($fotoDelFormulario) {
-    // Si el código de error es "0", significa que no hubo errores al subir la foto, se ejecuta el if
-    if ($_FILES[$fotoDelFormulario]['error'] == 0) {
-        // El valor de "foto" sera la foto del formulario.
-        $foto = file_get_contents($_FILES[$fotoDelFormulario]['tmp_name']);
-        // Ya convertida, la devuelve.
-        return $foto;
-
+        // Ya convertida, la returnamos.
+        return $imagenConvertida;
     } else {
-        // Si el código de error no es "0", devuelve un objeto null.
+        // El "else" se ejecuta si el código de error no era "0".
         return null;
     }
 }
