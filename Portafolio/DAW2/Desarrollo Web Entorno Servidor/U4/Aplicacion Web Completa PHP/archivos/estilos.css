@@ -65,7 +65,7 @@ body, html {
 .login-form {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 
@@ -109,6 +109,11 @@ header .logo img {
     width: 32px;
 }
 
+header .titulo-menu {
+    font-size: large; /* Cambia a un tamaño absoluto si necesitas precisión, como 18px */
+    font-weight: bolder; /* Cambia a 700 si prefieres valores numéricos */
+}
+
 /* Estilo del menú de navegación */
 nav ul {
     display: flex; /* Utiliza flexbox para los elementos */
@@ -133,6 +138,8 @@ nav ul li a:hover {
 /* Espaciado después del header para evitar que el contenido quede oculto */
 main {
     padding-top: 80px; /* Ajusta este valor si cambias el alto del header */
+    margin: 0;
+    width: 100%;
 }
 
 /* Responsividad para dispositivos móviles */

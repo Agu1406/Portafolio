@@ -1,6 +1,6 @@
 <?php
 // Importar el modelo de usuario y la conexión a la base de datos
-include_once __DIR__ . "/../modelos/crud_usuarios.php";
+include_once __DIR__ . "/../modelos/crud_sesiones.php";
 include_once __DIR__ . "/../modelos/conexion_bd.php";
 
 // Verificar si se han enviado los datos del formulario
@@ -9,7 +9,7 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
     $contrasena = $_POST['contrasena'];
 
     // Llamar al método del modelo para verificar las credenciales
-    $resultado = UsuarioCRUD::verificarCredenciales($usuario, $contrasena);
+    $resultado = controlSesiones::crearSesion($usuario, $contrasena);
 
     if ($resultado) {
         // Iniciar sesión o establecer una cookie si las credenciales son correctas

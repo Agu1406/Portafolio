@@ -20,6 +20,8 @@ if (count($categorias) == 0) {
     <link rel="stylesheet" href="../archivos/estilos.css">
 </head>
 <body>
+    <?php include_once "header.php"; ?>
+    <main>
     <div class="contenedor-principal">
         <h1>Bienvenido a tumercado.com</h1>
         <div class="seccion">
@@ -62,5 +64,7 @@ if (count($categorias) == 0) {
             </div>
         </div>
     </div>
+    </main>
+    <?php include_once "footer.php"; ?>
 </body>
 </html>
