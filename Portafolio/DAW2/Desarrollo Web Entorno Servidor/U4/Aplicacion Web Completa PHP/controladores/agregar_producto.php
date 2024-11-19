@@ -2,7 +2,7 @@
 
 // Importamos ambos, la conexión-instancia a la base de datos y el CRUD de productos.
 include_once __DIR__ . "/../modelos/conexion_bd.php";
-include_once __DIR__ . "../modelos/crud_productos.php";
+include_once __DIR__ . "/../modelos/crud_productos.php";
 
 // Al haber importado el script, tenemos acceso a sus métodos y funciones, los usamos.
 try {
@@ -16,7 +16,7 @@ try {
 }
 
  // Si el formulario enviado es "POST" ejecutamos el if, si no el "else" envia error.
-if ($_SERVER["REQUEST_METHOD" == "POST"]) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Si efectivamente es POST extrameos de la variable superglobal los valores del producto
     $nombreProducto = $_POST["nombre_producto"];
     $descripcionProducto = $_POST["descripcion_producto"];
@@ -30,8 +30,15 @@ if ($_SERVER["REQUEST_METHOD" == "POST"]) {
     // "Si" la imagén no es nula, se subio correctamente, procede el if.
     if ($imagen !== null) {
         // Llamamos al método de crear productos del CRUD y le parseamos sus valores
-        productoCRUD::crearProducto()
+        $resultado = productoCRUD::crearProducto($nombreProducto, $descripcionProducto, $precioProducto, $stock, $imagen, $categoria);
+
+    } else {
+        // En caso de error, avisamos con un echo.
+        echo "Error intentanto crear un nuevo producto";
     }
+
+    // Desde el propio CRUD el "resultado" sera un String positivo o de error.
+    echo $resultado;
 
 } else {
     echo "Error al intentar subir un producto.";

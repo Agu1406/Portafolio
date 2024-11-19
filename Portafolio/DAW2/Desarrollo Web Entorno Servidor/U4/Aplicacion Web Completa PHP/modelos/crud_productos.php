@@ -65,9 +65,17 @@ class productoCRUD {
         $sql -> bindParam(":nombre_producto", $nombre_producto, PDO::PARAM_STR);
         $sql -> bindParam(":descripcion_producto", $descripcion_producto, PDO::PARAM_STR);
         $sql -> bindParam(":precio_producto", $precio_producto, PDO::PARAM_STR);
-        $sql -> bindParam(":stock", $stock, PDO::PARAM_STR);
-        $sql -> bindParam(":imagen", $imagen, PDO::PARAM_STR);
-        $sql -> bindParam(":categoria_codigo", $categoria_codigo_categoria, PDO::PARAM_STR);
+        $sql -> bindParam(":stock", $stock, PDO::PARAM_INT);
+        $sql -> bindParam(":imagen", $imagen, PDO::PARAM_LOB);
+        $sql -> bindParam(":categoria_codigo_categoria", $categoria_codigo_categoria, PDO::PARAM_INT);
+
+        // Ejecutamos la consulta SQL para realizar los cambios
+        $sql -> execute();
+
+        // Hacemos el commit si todo ha ido bien.
+        $conexion -> commit();
+
+        return "Producto creado con exito";
     }
 
     public static function leerProducto () {
