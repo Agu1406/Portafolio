@@ -1,3 +1,16 @@
+<?php
+// Iniciar sesión
+session_start();
+
+// Verificar si el usuario no ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    // Si no ha iniciado sesión, redirigir al login
+    header("Location: formulario_login.php");
+
+    // Sale del script luego de redirigir.
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,6 +20,8 @@
     <link rel="stylesheet" href="../archivos/estilos.css">
 </head>
 <body>
+    <?php include_once "header.php"; ?>
+    <main>
     <div class="contenedor-principal">
         <h1>Bienvenido a tumercado.com</h1>
         <div class="seccion">
@@ -26,5 +41,7 @@
             </div>
         </div>
     </div>
+    </main>
+    <?php include_once "footer.php"; ?>
 </body>
 </html>

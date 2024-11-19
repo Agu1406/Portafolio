@@ -1,4 +1,16 @@
 <?php
+// Iniciar sesión
+session_start();
+
+// Verificar si el usuario no ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    // Si no ha iniciado sesión, redirigir al login
+    header("Location: formulario_login.php");
+
+    // Sale del script luego de redirigir.
+    exit();
+}
+
 // Incluir el archivo que contiene la clase categoriaCRUD
 include_once __DIR__ . "/../modelos/crud_categorias.php";
 

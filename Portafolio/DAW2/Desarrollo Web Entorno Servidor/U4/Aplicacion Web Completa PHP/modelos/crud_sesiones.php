@@ -1,15 +1,23 @@
 <?php
-/**
- * Esta clase es la que se encarga de, a peticion del controlador de sesiones
- * de verificar si un usuario ha iniciado sesión o no, en caso de no haber
- * iniciado sesión y estar en paginas privadas, le redige al login, este
- * mismo modelo también puede controlar el cerrar sesión de los usuarios.
- */
+// Importamos la conexión de la base de datos.
+include_once "conexion_bd.php";
+
+// Al haber importado el script, tenemos acceso a sus métodos y funciones, los usamos.
+try {
+    // Obtener la instancia de la clase ConexionBaseDeDatos
+    $baseDeDatos = ConexionBaseDeDatos::obtenerInstancia();
+    // Obtener la conexión de la base de datos desde la instancia.
+    $conexion = $baseDeDatos->obtenerConexion();
+} catch (Exception $e) {
+    // Manejo de errores más específico
+    die("Error: No se ha podido conectar a la base de datos, " . $e->getMessage());
+}
+
 class controlSesiones {
     // Método para verificar las credenciales del usuario
     public static function crearSesion ($usuario, $contrasena) {
         // Obtenemos la conexión a la base de datos
-        $conexion = ConexionBaseDeDatos::obtenerInstancia()->obtenerConexion();
+        $conexion = ConexionBaseDeDatos::obtenerInstancia()-> obtenerConexion();
 
         // Preparamos la consulta SQL en la conexión a la base de datos.
         $sql = $conexion -> prepare("SELECT * FROM Credenciales WHERE correo = :usuario LIMIT 1");

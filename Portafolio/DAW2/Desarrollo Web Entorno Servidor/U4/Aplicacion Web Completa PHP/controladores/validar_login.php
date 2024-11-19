@@ -5,8 +5,9 @@ include_once __DIR__ . "/../modelos/conexion_bd.php";
 
 // Verificar si se han enviado los datos del formulario
 if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
-    $usuario = $_POST['usuario'];
-    $contrasena = $_POST['contrasena'];
+    
+    $usuario = trim($_POST['usuario']);
+    $contrasena = trim($_POST['contrasena']);
 
     // Llamar al método del modelo para verificar las credenciales
     $resultado = controlSesiones::crearSesion($usuario, $contrasena);
@@ -16,13 +17,16 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
         session_start();
 
         // A la sesión le asignamos un atributo/valor con el nombre de usuario.
-        $_SESSION['usuario'] = $resultado['nombre_usuario'];
+        $_SESSION['usuario'] = $resultado['correo'];
+
+        // Prueba para verificar que el nombre de usuario está en la sesión
+        var_dump($_SESSION);
 
         // Le creamos una cookie al usuario con una duración de 30 días.
-        setcookie('usuario', $resultado['nombre_usuario'], time() + (86400 * 30), "/"); // 30 días de duración
+        setcookie('usuario', $resultado['correo'], time() + (86400 * 30), "/"); // 30 días de duración
 
         // Redirigir al usuario a la página de inicio o panel
-        header("Location: catalogo.php");
+        header("Location: ../vistas/catalogo.php");
 
         // Hacemos un exit para no gastar recursos y salir del scrip
         exit();
