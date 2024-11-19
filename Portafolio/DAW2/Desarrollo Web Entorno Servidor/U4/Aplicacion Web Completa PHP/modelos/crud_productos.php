@@ -78,18 +78,54 @@ class productoCRUD {
         return "Producto creado con exito";
     }
 
-    public static function leerProducto () {
+    public static function leerProducto() {
         // Obtenemos la instancia de la conexión de la base de datos
-        $conexion = ConexionBaseDeDatos::obtenerInstancia();
+        $conexion = ConexionBaseDeDatos::obtenerInstancia()->obtenerConexion();
+    
+        // Encerramos todo en un try-catch, intentamos leer productos, si no, devolvemos error.
+        try {
+            // Preparo la consulta para leer la base de datos y extraer los productos.
+            $sql = $conexion->prepare("SELECT nombre_producto, descripcion_producto, precio_producto, imagen FROM Producto");
+    
+            // Ejecutamos la consulta
+            $sql->execute();
+    
+            // Almacenamos todos los productos y sus valores con fetchAll en un array asociativo.
+            $productos = $sql->fetchAll(PDO::FETCH_ASSOC);
+    
+            // Si no hay productos, retornamos un String que avisa de ello.
+            if (count($productos) == 0) {
+                return "No hay productos disponibles.";
+            }
+    
+            // Convertir las imágenes binarias a base64 antes de devolver los productos
+            foreach ($productos as &$producto) {
+                // Verificamos si la imagen existe (para evitar problemas si la imagen está vacía)
+                if (!empty($producto['imagen'])) {
+                    // Convertir la imagen binaria a base64
+                    $producto['imagen'] = base64_encode($producto['imagen']);
+                    // Formatear la imagen para ser usada en una etiqueta <img> de HTML
+                    $producto['imagen'] = 'data:image/jpeg;base64,' . $producto['imagen'];
+                }
+            }
+    
+            // Devolvemos el array con los productos extraídos de la base de datos.
+            return $productos;
+    
+        } catch (Exception $e) {
+            // En caso de error, lo manejamos y devolvemos un mensaje
+            return "Error al leer los productos: " . $e->getMessage();
+        }
     }
+    
 
     public static function actualizarProducto () {
         // Obtenemos la instancia de la conexión de la base de datos
-        $conexion = ConexionBaseDeDatos::obtenerInstancia();
+        $conexion = ConexionBaseDeDatos::obtenerInstancia() -> obtenerConexion();
     }
 
     public static function borrarProducto () {
         // Obtenemos la instancia de la conexión de la base de datos
-        $conexion = ConexionBaseDeDatos::obtenerInstancia();
+        $conexion = ConexionBaseDeDatos::obtenerInstancia() -> obtenerConexion();
     }
 }

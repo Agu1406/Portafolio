@@ -57,7 +57,6 @@ body, html {
     background-color: #fff;
     padding: 20px;
     margin: 5%;
-
     border-left: 2px solid #ccc;
 }
 
@@ -88,6 +87,50 @@ body, html {
 
 .login-form input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+/* Estilo para la cuadrícula de productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas por defecto */
+    gap: 20px; /* Espacio entre los productos */
+}
+
+/* Estilos de cada producto */
+.producto {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+    max-width: 256px;
+    max-height: 256px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.producto h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333; /* Color más oscuro para mayor legibilidad */
+}
+
+.producto p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #555; /* Gris oscuro para el texto */
+}
+/* Estilo del pie de pagina */
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    padding: 1%;
 }
 
 /* Estilo del header */
@@ -143,6 +186,12 @@ main {
 }
 
 /* Responsividad para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas para pantallas medianas */
+    }
+}
+
 @media screen and (max-width: 412px) {
     header {
         flex-direction: column;
@@ -158,5 +207,9 @@ main {
         margin: 10px 0;
         width: 100%;
         text-align: center;
+    }
+
+    .productos-grid {
+        grid-template-columns: 1fr; /* 1 columna en dispositivos pequeños */
     }
 }
