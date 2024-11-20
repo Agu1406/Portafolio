@@ -124,6 +124,70 @@ body, html {
     margin: 5px 0;
     color: #555; /* Gris oscuro para el texto */
 }
+
+/*******************************/
+
+/* Tabla del carrito */
+.tabla-carrito {
+    width: 80%; /* Ajustamos el ancho de la tabla */
+    margin-top: 20px;
+    border-collapse: collapse; /* Para que las celdas se alineen sin espacios */
+    text-align: left;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-carrito th, .tabla-carrito td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.tabla-carrito th {
+    background-color: #007bff;
+    color: white;
+}
+
+.tabla-carrito td input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tabla-carrito td button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tabla-carrito td button:hover {
+    background-color: #e60000;
+}
+
+/* Estilo para el total del pedido */
+.total-pedido {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Estilos generales para centrar todo en la página */
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+}
+
+/**********************************/
+
 /* Estilo del pie de pagina */
 footer {
     text-align: center;

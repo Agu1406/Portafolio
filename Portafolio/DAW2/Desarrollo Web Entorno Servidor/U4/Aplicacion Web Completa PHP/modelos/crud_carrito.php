@@ -15,30 +15,61 @@ try {
 
 class carritoCRUD {
   // Método para agregar un producto al carrito
-  public function agregarProductoCarrito($codigoCarrito, $codigoProducto, $cantidad) {
+  public static function agregarProductoCarrito($codigoCarrito, $codigoProducto, $cantidad) {
     try {
         // Obtenemos la conexión a la base de datos
         $conexion = ConexionBaseDeDatos::obtenerInstancia()->obtenerConexion();
-        
-        $sql = $conexion -> prepare(
-            "INSERT INTO Detalle_Carrito (cantidad_producto, Carrito_codigo_carrito, Producto_codigo_producto) 
-             VALUES (:cantidad, :codigo_carrito, :codigo_producto)"
+
+        // Verificamos si el producto ya está en el carrito
+        $sql = $conexion->prepare(
+            "SELECT * FROM Detalle_Carrito 
+             WHERE Carrito_codigo_carrito = :codigo_carrito 
+             AND Producto_codigo_producto = :codigo_producto"
         );
-        $sql->bindParam(':cantidad', $cantidad, PDO::PARAM_INT);
         $sql->bindParam(':codigo_carrito', $codigoCarrito, PDO::PARAM_INT);
         $sql->bindParam(':codigo_producto', $codigoProducto, PDO::PARAM_INT);
         $sql->execute();
 
-        return "Producto agregado al carrito correctamente.";
+        // Si el producto ya está en el carrito, actualizamos la cantidad
+        if ($sql->rowCount() > 0) {
+            // Si existe, actualizamos la cantidad sumando la nueva cantidad
+            $productoExistente = $sql->fetch(PDO::FETCH_ASSOC);
+            $nuevaCantidad = $productoExistente['cantidad_producto'] = $cantidad;
+
+            // Actualizar la cantidad del producto en el carrito
+            $sql = $conexion->prepare(
+                "UPDATE Detalle_Carrito 
+                 SET cantidad_producto = :nuevaCantidad 
+                 WHERE Carrito_codigo_carrito = :codigo_carrito 
+                 AND Producto_codigo_producto = :codigo_producto"
+            );
+            $sql->bindParam(':nuevaCantidad', $nuevaCantidad, PDO::PARAM_INT);
+            $sql->bindParam(':codigo_carrito', $codigoCarrito, PDO::PARAM_INT);
+            $sql->bindParam(':codigo_producto', $codigoProducto, PDO::PARAM_INT);
+            $sql->execute();
+
+            return "Cantidad del producto actualizada en el carrito.";
+        } else {
+            // Si no existe, insertamos el producto en el carrito
+            $sql = $conexion->prepare(
+                "INSERT INTO Detalle_Carrito (cantidad_producto, Carrito_codigo_carrito, Producto_codigo_producto) 
+                 VALUES (:cantidad, :codigo_carrito, :codigo_producto)"
+            );
+            $sql->bindParam(':cantidad', $cantidad, PDO::PARAM_INT);
+            $sql->bindParam(':codigo_carrito', $codigoCarrito, PDO::PARAM_INT);
+            $sql->bindParam(':codigo_producto', $codigoProducto, PDO::PARAM_INT);
+            $sql->execute();
+
+            return "Producto agregado al carrito correctamente.";
+        }
 
     } catch (Exception $e) {
-
         return "Error al agregar el producto al carrito: " . $e->getMessage();
     }
 }
 
 // Método para leer los productos del carrito de un usuario
-public function leerProductoCarrito($codigoCarrito) {
+public static function leerProductoCarrito($codigoCarrito) {
     try {
         // Obtenemos la conexión a la base de datos
         $conexion = ConexionBaseDeDatos::obtenerInstancia()->obtenerConexion();
@@ -55,6 +86,7 @@ public function leerProductoCarrito($codigoCarrito) {
         $sql->execute();
 
         return $sql->fetchAll(PDO::FETCH_ASSOC); // Devuelve un array asociativo con los productos
+        
     } catch (Exception $e) {
 
         return "Error al leer los productos del carrito: " . $e->getMessage();
@@ -62,7 +94,7 @@ public function leerProductoCarrito($codigoCarrito) {
 }
 
 // Método para actualizar la cantidad de un producto en el carrito
-public function actualizarProductoCarrito($codigoCarrito, $codigoProducto, $nuevaCantidad) {
+public static function actualizarProductoCarrito($codigoCarrito, $codigoProducto, $nuevaCantidad) {
     try {
         // Obtenemos la conexión a la base de datos
         $conexion = ConexionBaseDeDatos::obtenerInstancia()->obtenerConexion();
@@ -89,7 +121,7 @@ public function actualizarProductoCarrito($codigoCarrito, $codigoProducto, $nuev
 }
 
 // Método para eliminar un producto del carrito
-public function borrarProductoCarrito($codigoCarrito, $codigoProducto) {
+public static function borrarProductoCarrito($codigoCarrito, $codigoProducto) {
     try {
         // Obtenemos la conexión a la base de datos
         $conexion = ConexionBaseDeDatos::obtenerInstancia()->obtenerConexion();

@@ -85,7 +85,7 @@ class productoCRUD {
         // Encerramos todo en un try-catch, intentamos leer productos, si no, devolvemos error.
         try {
             // Preparo la consulta para leer la base de datos y extraer los productos.
-            $sql = $conexion->prepare("SELECT nombre_producto, descripcion_producto, precio_producto, imagen FROM Producto");
+            $sql = $conexion->prepare("SELECT codigo_producto, nombre_producto, descripcion_producto, precio_producto, imagen FROM Producto");
     
             // Ejecutamos la consulta
             $sql->execute();
@@ -114,7 +114,7 @@ class productoCRUD {
     
         } catch (Exception $e) {
             // En caso de error, lo manejamos y devolvemos un mensaje
-            return "Error al leer los productos: " . $e->getMessage();
+            return [];
         }
     }
     
