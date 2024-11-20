@@ -140,3 +140,7 @@ VALUES (1, '12345678A', 'Avenida La Calle 2', '12345', '123456789');
 -- Insertar credenciales asociadas al cliente con codigo_cliente = 1
 INSERT INTO `Credenciales` (`correo`, `contrasena`, `cliente_codigo_cliente`)
 VALUES ('ejemplo@ejemplo.com', '$2y$10$/iSfeyOg7I4ukjBKRZAjTe6tba9419SrKaq/7NEfGEZy3wou1FUhe', 1);
+
+-- Insertar un carrito para el cliente con codigo_cliente = 1
+INSERT INTO `Carrito` (`fecha_creacion`, `cliente_codigo_cliente`)
+VALUES (NOW(), 1);

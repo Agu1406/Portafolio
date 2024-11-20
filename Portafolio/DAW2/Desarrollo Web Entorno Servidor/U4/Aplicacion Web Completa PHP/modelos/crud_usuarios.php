@@ -68,9 +68,21 @@ public static function registrarUsuario($usuario, $contrasena, $cif, $direccion,
         $sql->bindParam(':codigo_cliente', $codigoCliente, PDO::PARAM_INT);
         $sql->execute();
 
+        // MUCHA ATENCIÓN, ESTE TROZO DE ABAJO ES EL ENCARGADO DE CREARLE UN CARRITO UNICO A CADA USUARIO.    
+    
+        // Inserción en la tabla Carrito
+        $sql = $db->prepare(
+            "INSERT INTO Carrito (fecha_creacion, cliente_codigo_cliente) 
+                VALUES (NOW(), :codigo_cliente)"
+        );
+        $sql->bindParam(':codigo_cliente', $codigoCliente, PDO::PARAM_INT);
+        $sql->execute();
+
         // Confirmamos la transacción
         $db->commit();
-        return true; // Registro exitoso
+        
+        // Devolvemos true confirmando el registro exitoso del usuario.
+        return true;
     } catch (Exception $e) {
         // Si ocurre un error, se revierte la transacción
         $db->rollBack();
