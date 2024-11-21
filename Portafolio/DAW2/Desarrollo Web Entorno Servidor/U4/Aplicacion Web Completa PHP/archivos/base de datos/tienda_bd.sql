@@ -144,3 +144,9 @@ VALUES ('ejemplo@ejemplo.com', '$2y$10$/iSfeyOg7I4ukjBKRZAjTe6tba9419SrKaq/7NEfG
 -- Insertar un carrito para el cliente con codigo_cliente = 1
 INSERT INTO `Carrito` (`fecha_creacion`, `cliente_codigo_cliente`)
 VALUES (NOW(), 1);
+
+-- Insertar productos en la tabla Producto
+
+-- Producto 1: Harina de almendras.
+
+-- Producto 2: Ampollas pantene.

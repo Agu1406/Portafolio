@@ -75,7 +75,7 @@ public static function leerProductoCarrito($codigoCarrito) {
         $conexion = ConexionBaseDeDatos::obtenerInstancia()->obtenerConexion();
         
         $sql = $conexion -> prepare(
-            "SELECT p.nombre_producto, dc.cantidad_producto, p.precio 
+            "SELECT p.codigo_producto, p.nombre_producto, dc.cantidad_producto, p.precio_producto, p.descripcion_producto
              FROM Detalle_Carrito dc
              INNER JOIN Producto p ON dc.Producto_codigo_producto = p.codigo_producto
              WHERE dc.Carrito_codigo_carrito = :codigo_carrito"

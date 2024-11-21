@@ -52,7 +52,11 @@ try {
                 $cantidad = $_POST['cantidad'];
 
                 $mensaje = carritoCRUD::agregarProductoCarrito($codigoCarrito, $codigoProducto, $cantidad);
+                
                 echo $mensaje;
+
+                header("Location: ../vistas/carrito.php");
+                
                 break;
 
             // Permite agregar productos al carrito y returna un mensaje de exito o de error.
@@ -72,8 +76,10 @@ try {
 
             // Permite agregar productos al carrito y returna un mensaje de exito o de error.
             case 'actualizar':
+
                 $codigoProducto = $_POST['codigo_producto'];
-                $nuevaCantidad = $_POST['nueva_cantidad'];
+
+                $nuevaCantidad = $_POST['cantidad_producto'];
 
                 $mensaje = carritoCRUD::actualizarProductoCarrito($codigoCarrito, $codigoProducto, $nuevaCantidad);
                 echo $mensaje;
@@ -81,6 +87,7 @@ try {
             
             // Permite agregar productos al carrito y returna un mensaje de exito o de error.
             case 'borrar':
+
                 $codigoProducto = $_POST['codigo_producto'];
 
                 $mensaje = carritoCRUD::borrarProductoCarrito($codigoCarrito, $codigoProducto);

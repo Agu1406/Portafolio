@@ -8,6 +8,20 @@ if (!isset($_SESSION['usuario'])) {
     header("Location: formulario_login.php");
     exit(); // Asegurarse de salir del script
 }
+
+//Incluimos una vez el controlador del carrito que gestiona cargar los productos de "X" carrito.
+include_once __DIR__ . "/../controladores/control_carrito.php";
+
+// ¿De donde sale "$codigoCarrito"? Del propio script "control_carrito.php" quien lo extrae usando la sesión.
+
+// Guardamos los productos de "X" carrito en un array que retorna el método importado de "control_carrito.php".
+$productosCarrito = carritoCRUD::leerProductoCarrito($codigoCarrito);
+
+if (!is_array($productosCarrito)) {
+    echo "Error leyendo los productos del carrito, el valor devuelto no es un array";
+    die;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,8 +36,8 @@ if (!isset($_SESSION['usuario'])) {
 <body>
     <div class="contenedor-principal">
         <h1>Tu Carrito de Compras</h1>
-        <!-- Si existe el array productos y no está vacio pinta toda la tabla y sus valores -->
-        <?php if (isset($productos) && count($productos) > 0): ?>
+        <!-- Si existe el array productos y no está vacío, pinta toda la tabla y sus valores -->
+        <?php if (isset($productosCarrito) && count($productosCarrito) > 0): ?>
         <table class="tabla-carrito">
             <thead>
                 <tr>
@@ -35,27 +49,34 @@ if (!isset($_SESSION['usuario'])) {
                 </tr>
             </thead>
             <tbody>
-                <!-- Logica que carga con un foreach cada uno de los productos en el array asociativo y sus valores -->
+                <!-- Lógica que carga con un foreach cada uno de los productos en el array asociativo y sus valores -->
                 <?php 
 
-                // Variable que se actualizara al precio total de todos los productos.
+                // Variable que se actualizará al precio total de todos los productos.
                 $total = 0;
 
                 // Recorre todos los productos uno por uno en el array asociativo y va actualizando el total del carrito.
-                foreach ($productos as $producto): 
-                    $total += $producto['precio'] * $producto['cantidad_producto']; // Calculamos el total de la línea
+                foreach ($productosCarrito as $producto): 
+                    $total += $producto['precio_producto'] * $producto['cantidad_producto']; // Calculamos el total de la línea
                 ?>
 
                 <!-- Pinta el nombre de "X" producto, su descripción y su precio. -->
                 <tr>
                     <td><?php echo htmlspecialchars($producto['nombre_producto']); ?></td>
-                    <td><?php echo htmlspecialchars($producto['descripcion']); ?></td>
-                    <td><?php echo number_format($producto['precio'], 2, ',', '.'); ?>€</td>
+                    <td><?php echo htmlspecialchars($producto['descripcion_producto']); ?></td>
+                    <td><?php echo number_format($producto['precio_producto'], 2, ',', '.'); ?>€</td>
                     <td>
-                        <input type="number" value="<?php echo $producto['cantidad_producto']; ?>" min="1">
+                        <!-- Formulario para actualizar la cantidad de un producto en el carrito. -->
+                        <form method="POST" action="carrito.php" style="display: inline-block; margin-right: 10px;">
+                            <input type="number" name="cantidad_producto" value="<?php echo $producto['cantidad_producto']; ?>" min="1">
+                            <input type="hidden" name="accion" value="actualizar">
+                            <input type="hidden" name="codigo_producto" value="<?php echo htmlspecialchars($producto['codigo_producto']); ?>">
+                            <button type="submit">Actualizar</button>
+                        </form>
                     </td>
                     <td>
-                        <form method="POST" action="carrito.php">
+                        <!-- Formulario para borrar el producto -->
+                        <form method="POST" action="carrito.php" style="display: inline-block;">
                             <input type="hidden" name="accion" value="borrar">
                             <input type="hidden" name="codigo_producto" value="<?php echo htmlspecialchars($producto['codigo_producto']); ?>">
                             <button type="submit">Borrar</button>
@@ -69,9 +90,9 @@ if (!isset($_SESSION['usuario'])) {
         <div class="total-pedido">
             <h3>Total: <?php echo number_format($total, 2, ',', '.'); ?>€</h3>
         </div>
-        <!-- En el caso de que el array este vacio, solo se pinta el "<p>Carrito vacío</p>" -->
+        <!-- En el caso de que el array esté vacío, solo se pinta el "<p>Carrito vacío</p>" -->
         <?php else: ?>
-        <p>Carrito vacío</p>
+        <p>Carrito vacío, ¿Por qué no añades algunos productos? :P</p>
         <?php endif; ?>
     </div>
 </body>
