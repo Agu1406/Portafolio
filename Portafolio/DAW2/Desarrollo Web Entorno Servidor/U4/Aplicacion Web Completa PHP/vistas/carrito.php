@@ -9,20 +9,18 @@ if (!isset($_SESSION['usuario'])) {
     exit(); // Asegurarse de salir del script
 }
 
-//Incluimos una vez el controlador del carrito que gestiona cargar los productos de "X" carrito.
+// Incluir el controlador del carrito
 include_once __DIR__ . "/../controladores/control_carrito.php";
 
-// ¿De donde sale "$codigoCarrito"? Del propio script "control_carrito.php" quien lo extrae usando la sesión.
-
-// Guardamos los productos de "X" carrito en un array que retorna el método importado de "control_carrito.php".
+// Obtener los productos del carrito
 $productosCarrito = carritoCRUD::leerProductoCarrito($codigoCarrito);
 
 if (!is_array($productosCarrito)) {
     echo "Error leyendo los productos del carrito, el valor devuelto no es un array";
     die;
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -51,22 +49,19 @@ if (!is_array($productosCarrito)) {
             <tbody>
                 <!-- Lógica que carga con un foreach cada uno de los productos en el array asociativo y sus valores -->
                 <?php 
-
-                // Variable que se actualizará al precio total de todos los productos.
+                // Variable que se actualizará al precio total de todos los productos
                 $total = 0;
 
-                // Recorre todos los productos uno por uno en el array asociativo y va actualizando el total del carrito.
+                // Recorre todos los productos uno por uno en el array asociativo y va actualizando el total del carrito
                 foreach ($productosCarrito as $producto): 
                     $total += $producto['precio_producto'] * $producto['cantidad_producto']; // Calculamos el total de la línea
                 ?>
-
-                <!-- Pinta el nombre de "X" producto, su descripción y su precio. -->
                 <tr>
                     <td><?php echo htmlspecialchars($producto['nombre_producto']); ?></td>
                     <td><?php echo htmlspecialchars($producto['descripcion_producto']); ?></td>
                     <td><?php echo number_format($producto['precio_producto'], 2, ',', '.'); ?>€</td>
                     <td>
-                        <!-- Formulario para actualizar la cantidad de un producto en el carrito. -->
+                        <!-- Formulario para actualizar la cantidad de un producto en el carrito -->
                         <form method="POST" action="carrito.php" style="display: inline-block; margin-right: 10px;">
                             <input type="number" name="cantidad_producto" value="<?php echo $producto['cantidad_producto']; ?>" min="1">
                             <input type="hidden" name="accion" value="actualizar">
@@ -86,9 +81,21 @@ if (!is_array($productosCarrito)) {
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <!-- Este es el DIV donde se pinta el total del carrito con decimales y todo. -->
+
+        <!-- Este es el DIV donde se pinta el total del carrito con decimales y todo -->
         <div class="total-pedido">
             <h3>Total: <?php echo number_format($total, 2, ',', '.'); ?>€</h3>
+        </div>
+        <div class="medio">
+        <!-- Formulario para hacer el pedido -->
+            <form class="login-form" method="POST" action="pedido.php">
+                <!-- Pasar cada producto y su cantidad en un campo oculto -->
+                <?php foreach ($productosCarrito as $producto): ?>
+                    <input type="hidden" name="productos[<?php echo htmlspecialchars($producto['codigo_producto']); ?>][codigo]" value="<?php echo htmlspecialchars($producto['codigo_producto']); ?>">
+                    <input type="hidden" name="productos[<?php echo htmlspecialchars($producto['codigo_producto']); ?>][cantidad]" value="<?php echo $producto['cantidad_producto']; ?>">
+                <?php endforeach; ?>
+                <button type="submit" class="btn-pedido">Hacer pedido</button>
+            </form>
         </div>
         <!-- En el caso de que el array esté vacío, solo se pinta el "<p>Carrito vacío</p>" -->
         <?php else: ?>

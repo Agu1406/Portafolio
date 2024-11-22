@@ -17,10 +17,33 @@ body, html {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
     width: 100%;
     text-align: center;
+    background-color: grey; /* Color de fondo gris por defecto */
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    background-image: url(./imagenes/pina.jpeg); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
 }
+
+/* Pseudo-elemento para el overlay */
+.contenedor-principal::before {
+    content: ""; /* Necesario para crear el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(128, 128, 128, 0.5); /* Gris con opacidad */
+    z-index: 1; /* Asegura que el overlay esté por encima de la imagen pero debajo del contenido */
+}
+
+/* Asegúrate de que el contenido del contenedor se muestre por encima del overlay */
+.contenedor-principal > * {
+    position: relative;
+    z-index: 2; /* Hace que el contenido quede encima del overlay */
+}
+
 
 /* Sección de los divs */
 .seccion {
@@ -176,14 +199,31 @@ body, html {
     font-weight: bold;
 }
 
-/* Estilos generales para centrar todo en la página */
-.contenedor-principal {
+
+/* Estilo específico para el botón de hacer pedido */
+.btn-pedido {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 175px;
+    min-height: 45px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.btn-pedido:hover {
+    background-color: #006adc;
+}
+
+/* Estilo para el contenedor del pedido */
+.medio {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    background-color: #f9f9f9;
+    align-items: center;
+    margin-top: 20px;
 }
 
 /**********************************/
@@ -244,7 +284,7 @@ nav ul li a:hover {
 
 /* Espaciado después del header para evitar que el contenido quede oculto */
 main {
-    padding-top: 80px; /* Ajusta este valor si cambias el alto del header */
+    padding-top: 20px; /* Ajusta este valor si cambias el alto del header */
     margin: 0;
     width: 100%;
 }
