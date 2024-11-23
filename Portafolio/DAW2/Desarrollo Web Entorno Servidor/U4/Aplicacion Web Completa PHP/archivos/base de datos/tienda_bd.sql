@@ -116,6 +116,20 @@ CREATE TABLE `Detalle_Carrito` (
     ON DELETE CASCADE ON UPDATE CASCADE         -- Acciones en caso de eliminación o actualización.
 );
 
+-- Creación de la tabla DETALLE_PEDIDO
+CREATE TABLE `Detalle_Pedido` (
+    `cantidad_producto` INT NOT NULL,            -- Cantidad de productos en el pedido.
+    `Pedido_codigo_pedido` INT NOT NULL,         -- Clave foránea hacia Pedido.
+    `Producto_codigo_producto` INT NOT NULL,     -- Clave foránea hacia Producto.
+    PRIMARY KEY (`Pedido_codigo_pedido`, `Producto_codigo_producto`), -- Clave primaria compuesta.
+    CONSTRAINT `fk_Detalle_Pedido_Pedido` FOREIGN KEY (`Pedido_codigo_pedido`)
+    REFERENCES `Pedido`(`codigo_pedido`)         -- Relación con la tabla Pedido.
+    ON DELETE CASCADE ON UPDATE CASCADE,         -- Acciones en caso de eliminación o actualización.
+    CONSTRAINT `fk_Detalle_Pedido_Producto` FOREIGN KEY (`Producto_codigo_producto`)
+    REFERENCES `Producto`(`codigo_producto`)     -- Relación con la tabla Producto.
+    ON DELETE CASCADE ON UPDATE CASCADE          -- Acciones en caso de eliminación o actualización.
+);
+
 /* DE AQUÍ PARA ABAJO SIN INSERTS MANUALES QUE USO PARA PROBAR LA BASE DE DATOS */
 
 
@@ -144,9 +158,3 @@ VALUES ('ejemplo@ejemplo.com', '$2y$10$/iSfeyOg7I4ukjBKRZAjTe6tba9419SrKaq/7NEfG
 -- Insertar un carrito para el cliente con codigo_cliente = 1
 INSERT INTO `Carrito` (`fecha_creacion`, `cliente_codigo_cliente`)
 VALUES (NOW(), 1);
-
--- Insertar productos en la tabla Producto
-
--- Producto 1: Harina de almendras.
-
--- Producto 2: Ampollas pantene.

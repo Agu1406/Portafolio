@@ -40,6 +40,9 @@ try {
     // Extramos del array asociativo el codigo del carrito.
     $codigoCarrito = $carrito['codigo_carrito'];
 
+    // Además agregamos a la sesión el codigo de carrito del usuario
+    $_SESSION['codigo_carrito'] = $carrito['codigo_carrito'];
+
     // Procesar la acción solicitada desde las vistas "catalogo" o "carrito" con los botones.
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion'])) {
         $accion = $_POST['accion'];

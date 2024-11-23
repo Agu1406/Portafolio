@@ -22,6 +22,8 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
         // A la sesión tambien le asignamos un atributo/valor con el código cliente del usuario
         $_SESSION['codigo_cliente'] = $resultado['cliente_codigo_cliente'];
 
+        // A la sesión tambien le asignamos un atributo/valor con el código de su carrito.
+
         // Prueba para verificar que el nombre de usuario está en la sesión
         var_dump($_SESSION);
 

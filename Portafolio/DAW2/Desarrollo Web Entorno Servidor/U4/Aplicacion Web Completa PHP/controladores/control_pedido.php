@@ -1,29 +1,47 @@
 <?php
-/**
- * Este controlador se encarga de recibir un array asociativo desde "carrito.php" con el
- * método POST y de esa forma tener en él todos los productos dentro del carrito de "X"
- * cliente.
- */
+// Iniciar la sesión
+session_start(); 
 
- // Arrancamos una sesión aquí,
- session_start();
+// Verificar si el usuario no ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    // Si no ha iniciado sesión, redirigir al login
+    header("Location: formulario_login.php");
+    exit(); // Asegurarse de salir del script
+}
 
-// Si no existe una sesión el usuario actualmente en el PHP se ejecuta el if.
- if (!isset($_SESSION["usuario"])) {
-    // Si no ha iniciado sesión, le llevamos al incio de sesión.
-    header ("Location: ../vistas/formulario_login.php");
- }
+// Importamos la clase del CRUD de pedidos y carritos.
+include_once __DIR__ . "/../modelos/crud_pedidos.php";
+include_once __DIR__ . "/../modelos/crud_carrito.php";
 
- // Verificamos que el método de envio desde carrito.php es POST
- if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verificamos si existe la variable "productos" y si es un array.
-    if ((isset($_POST["productos"]) && is_array($_POST["productos"]))) {
-        // Extraemos de POST el array lleno de productos y lo guardamos en una variable
-        $productosCarrito = $_POST["productos"];
+// Obtenemos el código del carrito del usuario que hace el pedido.
+$codigoCarrito = $_SESSION['codigo_carrito'];
 
-        
-    } else {
-        // En caso de que no existe productos o no sea un array.
-        echo "No hay productos en el carrito, lo siento.";
+// Crear un nuevo pedido
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    /**
+     * Desde el INSERT se pone la fecha con VALUE (NOW) y el código de pedido
+     * se genera por si solo y es autoincrementativo, por eso aquí no se les
+     * ve.
+     */
+    $codigoCliente = $_SESSION['codigo_cliente']; // Suponiendo que el código del cliente está en la sesión
+    $metodoPago = $_POST['metodoPago'];
+    $estadoPedido = 'Pendiente';
+    $productosPedido = carritoCRUD::leerProductoCarrito($codigoCarrito); 
+
+    foreach ($productosPedido as $producto) {
+        $detalles[] = [
+            'cantidad' => $producto['cantidad_producto'],
+            'codigoProducto' => $producto['codigo_producto']
+        ];
     }
- }
+
+    // Llamamos al método para crear el pedido
+    $codigoPedido = pedidosCRUD::crearPedido($codigoCliente, $metodoPago, $estadoPedido, $detalles);
+
+    // Guardamos en $_SESSION el código del pedido como variable de uso global
+    $_SESSION["codigoPedido"] = $codigoPedido;
+
+    // Enviamos al location con el mensaje de confirmación del pedido.
+    header("Location: ../vistas/confirmacion.php");
+}

@@ -91,6 +91,10 @@ if (!is_array($productosCarrito)) {
             <form class="login-form" method="POST" action="pedido.php">
                 <!-- Pasar cada producto y su cantidad en un campo oculto -->
                 <?php foreach ($productosCarrito as $producto): ?>
+                    <!-- Estos inputs envian con cada iteración del bucle un "produto" identificado por su
+                     código de producto, enviando uno de ellos la cantidad del producto y el otro de ellos
+                     el propio código del producto, todo esto se guardaria en $_POST en un array llamado
+                     "productos". -->
                     <input type="hidden" name="productos[<?php echo htmlspecialchars($producto['codigo_producto']); ?>][codigo]" value="<?php echo htmlspecialchars($producto['codigo_producto']); ?>">
                     <input type="hidden" name="productos[<?php echo htmlspecialchars($producto['codigo_producto']); ?>][cantidad]" value="<?php echo $producto['cantidad_producto']; ?>">
                 <?php endforeach; ?>
