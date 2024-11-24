@@ -12,6 +12,7 @@ if (!isset($_SESSION['usuario'])) {
 // Importamos la clase del CRUD de pedidos y carritos.
 include_once __DIR__ . "/../modelos/crud_pedidos.php";
 include_once __DIR__ . "/../modelos/crud_carrito.php";
+include_once __DIR__ . "/../modelos/correo.php";
 
 // Obtenemos el código del carrito del usuario que hace el pedido.
 $codigoCarrito = $_SESSION['codigo_carrito'];
@@ -41,6 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Guardamos en $_SESSION el código del pedido como variable de uso global
     $_SESSION["codigoPedido"] = $codigoPedido;
+
+    // Llamamos a la clase PHPMAiler para enviar un corre de confirmación de un pedido.
+    correo::enviarEmail($productosPedido);
 
     // Enviamos al location con el mensaje de confirmación del pedido.
     header("Location: ../vistas/confirmacion.php");
