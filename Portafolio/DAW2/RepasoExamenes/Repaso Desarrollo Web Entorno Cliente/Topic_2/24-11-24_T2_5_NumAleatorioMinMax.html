@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Agu1406">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <script>
+        /**
+         * Muestra por consola un número aleatorio entre dos dados por el usuario.
+         * 
+         * Utiliza prompt, console.log, Math.random y operaciones aritméticas.
+         * */
+
+
+        // Creo las variables que usare a lo largo de todo el código.
+        var primerNumero, segundoNumero, aleatorio, auxiliar;
+
+        // Solicito por pantalla con promt los dos números
+        primerNumero = prompt("Dime el primer número");
+        segundoNumero = prompt("Dime el segundo número");
+
+        // Todo lo recibido con "promp" o "inputs" para JavaScript son Strings, debemos parsear a números.
+        primerNumero = parseInt(primerNumero);
+        segundoNumero = parseInt(segundoNumero);
+
+        // Usando "auxiliar" dejo en primer número el menor y en el otro el mayor.
+        if (primerNumero > segundoNumero) {
+            auxiliar = segundoNumero;
+            segundoNumero = primerNumero;
+            primerNumero = auxiliar;
+        }
+
+        // Utilizamos Math.random para generar un aleatorio entre esos dos números.
+        aleatorio = Math.random() * (segundoNumero - primerNumero) + primerNumero;
+
+        // Mostramos por consola el aleatorio generado.
+        console.log("El aleatorio generado es: " + aleatorio);
+
+        // Para que el número fuese entero (no decimal) tendriamos que redondeear
+        aleatorio = Math.floor(aleatorio);
+
+        // Mostramos el número redondeando (entero) por consola.
+        console.log("El mismo número redondeado es: " + aleatorio);
+    </script>
+</body>
+</html>

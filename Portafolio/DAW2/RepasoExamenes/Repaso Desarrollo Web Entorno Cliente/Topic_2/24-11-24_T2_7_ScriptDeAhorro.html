@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Agu140">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <script>
+
+        // Creo las variables que usare en el script.
+        var menu = true, pregunta, agregar, ahorro = 0, objetivo;
+
+        /* Pregunta al usuario si desea abrir una cuenta de ahorro.
+        - Si acepta, continúa con el programa. 
+        - Si no, vuelve a preguntar.
+        */        
+        do {
+            // con un promt le hago la pregunta de si quiere o no abrir su cuenta ahorro.
+            pregunta = prompt("¿Le gustaría abrir su cuenta ahorro? (\"si\" o \"no\")");
+
+            // Convertirmos su respuesta a minúsculas.
+            pregunta = pregunta.toLowerCase();
+
+            // Con un Switch-case verificamos que respondio.
+            switch (pregunta) {
+                case "si":
+                    // "menu" se vuelve false, saliendo del bucle y ejecutando el resto del script.
+                    menu = false;
+                    break;
+
+                case "no":
+                    // No hace nada, seguira preguntando infinitamente.
+                    break;
+                default:
+                    // Si introduce algo diferente de "si" y "no" el default le advierte.
+                    alert("¡Error! Solo se admiten \"si\" y \"no\" como respuestas.");
+                    break;
+            }
+        } while (menu);
+
+        /**
+         * Solicita al usuario la cantidad positiva que desee ahorrar (su "objetivo").
+         * 
+         * Mientras cantidad no sea un número no sea positivo, seguira preguntando.
+         * */
+        while (isNaN(objetivo) || objetivo < 1) {
+
+            // Usando prompt pedimos la cantidad positiva que desea ahorrar.
+            objetivo = Number(prompt("¿Cuanto te gustaría poder ahorrar?"));
+
+            if (isNaN(objetivo) || objetivo < 1) {
+                alert("¡Error! el objeto debería ser un número positivo, intentalo de nuevo.");
+            }
+        }
+
+        /**
+         * Pregunta al usuario cuánto dinero quiere añadir.
+         * 
+         * El dinero se añadirá a lo ahorrado.
+         * 
+         * Cuando la hucha haya cumplido el objetivo, se 
+         * mostrará un texto de objetivo conseguido con 
+         * la cantidad ahorrada.
+         * 
+         * Su ahorro inicial porque su cuenta está recien
+         * abierta es de "0".
+        */
+        while (ahorro < objetivo) {
+            // Le digo su ahorro actual.
+            alert("Tu cuenta de ahorrro tiene un saldo actual de: " + ahorro);
+
+            // A través de un prompt le pido la cantidad que desea ahorrar.
+            agregar = Number(prompt("¿Cuanto te gustaría ingresar a tú cuenta de ahorro?"));       
+
+            // Un if verifica que "agregar" sea un número y que ese número sea mayor a "0".
+            if(isNaN(agregar) || agregar < 1) {
+                alert("¡Error! La cantidad que desees agregar debe ser un número positivo.");
+            } else {
+                // Si es un número y es mayor a "0" lo sumamos a sus ahorros actuales.
+                ahorro += agregar;
+            }
+        }
+
+        // Fuera del bucle lo felicito y le digo cual era su objetivo y sus ahorros finales.
+        if (ahorro >= objetivo) {
+            alert("¡Felicidades! Querías ahorrar \""+ objetivo + "\" y has logrado ahorrar: " + ahorro);
+        }
+
+        </script>    
+</body>
+</html>
