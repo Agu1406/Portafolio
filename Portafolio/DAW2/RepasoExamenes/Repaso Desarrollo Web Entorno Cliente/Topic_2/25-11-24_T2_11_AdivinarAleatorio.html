@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Agu140">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <script>
+        /*
+        Crea una página que juegue con el usuario a adivinar un número. 
+
+        1. La página genera un número del 1 al 100.
+
+        2. La página pregunta al usuario cuál cree que es el número.
+
+        3. Si el usuario falla, se indica si es menor o mayor y se le 
+        vuelve a preguntar.
+
+        4. Si el usuario acierta, se felicita y se indica que ha acabado 
+        el juego, indicando el número de intentos.
+
+        5. Si el usuario escribe algo que no es un número, se indica el 
+        error y vuelve a preguntar.
+
+        6. Si el usuario cancela en algún momento, el juego termina 
+        indicando que se ha cancelado.
+
+        7. Cuando acaba el juego de cualquiera de las formas, se permite 
+        volver a jugar mediante un cuadro de confirmación.
+
+        8. Muestra por console.log el número calculado para poder comprobar el acierto.
+        */
+
+        // Creamos las variables usadas en el script
+        var aleatorio, intento, menu = true;
+
+        // Primero generamos un aleatorio con el método que genera aleatorios.
+        aleatorio = generarAleatorio();
+
+        // Lo imprimimos en consola para saber si controlar el programa.
+        console.log("El número ganador es: " + aleatorio);
+
+        // Damos la bienvenida al juego con un alert.
+        alert("¡Bienvenido! Tu misión es adivinar un número del '1' al '100'");
+
+        // Bucle do-while que se sigue repitiendo hasta cancelar el juego o adivinar el número o jugar otra vez.
+        do {
+            alert("¡Puedes intentar adivinar un número o escribir \"salir\" para salir del juego");
+
+            intento = prompt("Introduce un número para intentar adivinar o \"salir\" para parar el juego.");
+
+            // Si "intento" es "salir" sale directamente del juego.
+            if (intento === "salir") {
+                alert("¡Hasta luego flipa'o");
+                menu = false;
+
+            } else if (isNaN(intento) || intento > 100 || intento < 0) {
+                // Si intento no es "salir" o se sale de los rangos posibles avisa del problema.
+                alert("¡Error! Solo valen números enteros positivos del 0 al 100 o la palabra 'salir'");
+
+            } else {
+                // Parseamos el número a un número entero.
+                intento = Number(intento);
+
+                if (intento === aleatorio) {
+                    alert("¡Felicidades flipa'o! Has gana'o.");
+                    menu = false;
+                } else {
+                    alert("¡¡Ooopsss!! Mejor suerte en el siguiente intento.");
+                }
+            }
+
+            // Imprimo por consola el ultimo intento que hice.
+            console.log("El ultimo intento fue el número: " + intento);
+            
+        } while (menu);
+
+        function generarAleatorio() {
+            // Variable interna donde guardar el número generado.
+            let aleatorio;
+
+            // Genera un aleatorio entre "0" y "100" ambos incluidos.
+            aleatorio = Math.floor(Math.random() * (101));
+
+            // Returnamos ese valor.
+            return aleatorio;
+        }
+    </script>    
+</body>
+</html>
