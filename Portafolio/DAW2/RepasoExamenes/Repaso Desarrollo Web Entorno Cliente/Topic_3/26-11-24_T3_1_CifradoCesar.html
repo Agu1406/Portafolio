@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Agu140">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <script>
+        // Pedimos el texto que vamos a cifrar con un prompt
+        let texto = prompt("Introduce el texto que deseas cifrar");
+
+        // Pedimos el desplazamiento del cifrado que vamos a usar
+        let desplazamiento = prompt("Introduce el desplazamiento deseado del cifrado");
+
+        // Creamos una variable que guardara el texto normalizado (sin acentos ni "Ñ")
+        let textoNormalizado = "";
+
+        // Creamos una variable que guardara luego el texto cifrado.
+        let textoCifrado = "";
+
+        // Guardamos el abecedario en una variable para poder desplazar el cifrado.
+        let abecedario = "abcdefghijklmnopqrstuvwxyz";
+
+        // Normalizamos el texto con la API nativa de Js de normalización
+        textoNormalizado = texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+        // Convertirmos todo el texto a minúsculas.
+        textoNormalizado = textoNormalizado.toLowerCase();
+
+        // Ciframos el texto normalizado con su método.
+        textoCifrado = cifrarTexto(textoNormalizado);
+
+        // Escribimos con document.write ambos, el texto original y cifrado.
+        document.write(texto + "<br>" + textoCifrado);
+        
+
+        function cifrarTexto (textoNormalizado) {
+            // Con un bucle recorremos una por una todas las letras del texto (string)
+            for (posicion = 0; posicion < textoNormalizado.length; posicion++) {
+                // Cojemos la letra en la posición actual y la guardamos.
+                let letra = textoNormalizado.charAt(posicion);
+
+                // Creamos la variable que guarda la letra desplazada y llamos al méotod
+                let nuevaLetra = desplazarLetra (letra, abecedario, desplazamiento);
+
+                // Guardamos esa nueva letra en el texto cifrado
+                textoCifrado += nuevaLetra;
+            }
+
+            return textoCifrado;
+        }
+
+        /**
+         * @param {string} abecedario
+         * @param {number} desplazamiento
+         * @param {string} letra   
+        */
+        function desplazarLetra (letra, abecedario, desplazamiento) {
+            // Busca la posición de "letra" en el "abecedario".
+            let posicion = abecedario.indexOf(letra);
+
+            // La nueva letra sera aquella que este "desplazamiento" hacia la derehca
+            let nuevaPosicion = (posicion + desplazamiento) % abecedario.length;
+
+            // Devuelve la letra del "abecedario" desplazada en "X" posición.
+            return abecedario[nuevaPosicion];
+        }
+    </script>
+</body>
+</html>

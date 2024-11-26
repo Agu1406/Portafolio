@@ -48,48 +48,86 @@
         secuenciaNoValida = ['A','T','G','G','C','T','T','A','I','G'];
 
         cuentaNucleotidos(secuenciaValida) //Map(4){'A'=>2,'C'=>1,'G'=>1,'T'=>2}
-        cuentaNucleotidos(secuenciaNoValida) //Error: Secuencia de ADN no válida. Sólo debe contener 'A', 'C', 'G' o 'T'.
+
+        cuentaNucleotidos(secuenciaNoValida) //Error: Secuencia de ADN no válida. 
+        Sólo debe contener 'A', 'C', 'G' o 'T'.
+
+        Convertir la función del Ejercicio 1 en una función autoejecutable. Al cargar
+        la página la función se debe realizar el conteo de los nucleótidos del array 
+        que se pasa por parámetro.
+
+        Mostrar en el lado del cliente (mediante document.write) los resultados del estudio. 
+        Por ejemplo, pasando a la función autoejecutable la secuencia: 
+
+        ['A','T','G','C','T','T','C','A','G','A','A','A'], se debe visualizar: 
+
+        A => 5
+
+        C => 2 
+
+        G => 2 
+
+        T => 3
         */
 
         // Primero creamos los dos arrays a modo de demo que nuestro script probara.
-        var secuenciaDemo1 = ["A", "G", "A", "C", "T", "A", "C"];
-        var secuenciaDemo2 = ["A", "G", "A", "S", "T", "A", "C"];
+        let secuenciaDemo1 = ["A", "G", "A", "C", "T", "A", "C"];
+        let secuenciaDemo2 = ["A", "G", "A", "S", "T", "A", "C"];
 
-        // Creamos las variable que "true", es valida, "false" no lo es.
-        var valida1 = verificarSecuenciaValida(secuenciaDemo1);
-        var valida2 = verificarSecuenciaValida(secuenciaDemo2);
+        // Creamos las letiable que "true", es valida, "false" no lo es.
+        verificarSecuenciaValida(secuenciaDemo1);
 
-        // Imprime en consola la validez de las secuencias.
-        console.log("La secuencia N.º1 es: " + (valida1 ? "valida" : "invalida") + ".");
-        console.log("La secuencia N.º2 es: " + (valida2 ? "valida" : "invalida") + ".");
+        /**
+         * Método / función que imprime el mapa con los indices
+         * actualizados y contados de todos los nucleotidos en
+         * una secuencia valida de ADN.´
+         * 
+         * @param {Map<string, number>} mapaValido
+        */
+       function imprimirMapa(mapaValido) {
 
-        // Trabajamos solo con la secuencia valida, procedemos a contar los nucleotidos.
-        var totalNucleotidos = cuentaNucleotidos(secuenciaDemo1);
+            mapaValido.forEach((cantidad, nucleotido) => {
+                
+                document.write("<p>"+ nucleotido + " => "+ cantidad + "</p><br>");
+                
+            });
+       }
 
-
-
-
-        // Función / método que verifica si una secuencia es valida o no.
+        /**
+         * Función / método que verifica si una secuencia es valida o no.
+         * 
+         * @param {string[]} secuencia 
+         */
         function verificarSecuenciaValida (secuencia) {
             // De entrada es supuestamente "valida" hasta que se demuestre lo contrario.
-            var resultado = true;
+            let resultado = true;
 
             // Recorremos el array una por una sus posiciones, si encontramos algo diferente a "A", "G", "C" o "T" devuelve false.
             for (posicion = 0; posicion < secuencia.length; posicion++) {
                 // Verificamos una a una las pisiciones con charAt y un if algo largo..
                 if (secuencia[posicion] !== "A" && secuencia[posicion] !== "C" && secuencia[posicion] !== "G" && secuencia[posicion] !== "T") {
-                    alert("¡Error! Secuencia no valida, solo puede contener 'A', 'C', 'G' o 'T'");
+                    document.write("¡Error! La secuencia solo puede contener \"A\", \"G\", \"C\" o \"T\"<br>");
                     resultado = false;
                 }
             }    
-            
-            // Devolvera true a menos que el "if" lo convierta en false.
-            return resultado;
+
+            if (resultado) {
+                cuentaNucleotidos(secuencia);
+            }
         }
 
+        /**
+         * Función / Método que cuenta los nucleotidos en una secuencia de ADN
+         * valida.
+         * 
+         * @param {string[]} secuencia 
+         */
         function cuentaNucleotidos(secuencia) {
             // Creamo un nuevo mapa al que, ahora, le diremos sus indices.
-            var nuevoMapa = new Map();
+            /**
+             * @type {Map<string, number>}
+             */
+            let nuevoMapa = new Map();
 
             // Creamos los indices para los 4 nucleotidos con valor "0".
             nuevoMapa.set("A", 0);
@@ -98,14 +136,18 @@
             nuevoMapa.set("T", 0);
 
             // Bucle que recorre una por una todas las posiciones de un array.
-            for (posicion = 0; posicion < secuencia.length - 1; posicion++) {
-                // Guardamos en una variable el nucleotido en la posición actual del array.
-                var nucleotido = secuencia[posicion];
+            for (posicion = 0; posicion < secuencia.length; posicion++) {
+                // Guardamos en una letiable el nucleotido en la posiº<ción actual del array.
+                let nucleotido = secuencia[posicion];
 
-                conteoActual = nuevoMapa.get(nucleotido);
+                // Si existe ese "nucleotido" dentro de la secuencia, obtiene su valor actual en el mapa y lo incrementa "1".
+                if (nuevoMapa.has(nucleotido)) {
+                    nuevoMapa.set(nucleotido, nuevoMapa.get(nucleotido) +1);
+                }
 
-                
             }
+
+            imprimirMapa(nuevoMapa);
         }
     </script>
 </body>
