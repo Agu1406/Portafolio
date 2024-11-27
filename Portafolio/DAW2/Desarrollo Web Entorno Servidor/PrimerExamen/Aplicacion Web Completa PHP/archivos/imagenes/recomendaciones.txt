@@ -1,0 +1,3 @@
+Lista de tamaños recomendados:
+
+Iconos: 32px X 32px o 16px X 16px

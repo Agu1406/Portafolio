@@ -1,0 +1,18 @@
+<!-- Importamos el estandar XSD de W3 con la siguiente linea -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Creamos un elemento principal llamando "configuracion" -->
+    <xs:element name="Configuracion_BD">
+        <!-- Es de tipo "complejo" porque contiene más de un valor. -->
+        <xs:complexType>
+            <!-- Es una secuencia sucesiva de datos -->
+            <xs:sequence>
+                <!-- En cada elemento indicamos el nombre y el tipo de datos -->
+                <xs:element name="Tipo" type="xs:string"/>
+                <xs:element name="Nombre" type="xs:string"/>
+                <xs:element name="Host" type="xs:string"/>
+                <xs:element name="Usuario" type="xs:string"/>
+                <xs:element name="Contrasena" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
