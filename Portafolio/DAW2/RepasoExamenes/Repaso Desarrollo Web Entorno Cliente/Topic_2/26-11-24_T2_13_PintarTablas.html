@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Agu140">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<style>
+    table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+    }
+    td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    }
+</style>
+<body>
+    <table id="tabla" class="tabla">
+        <!-- Aquí se generará dinámicamente la tabla -->
+    </table>
+
+    <script>
+        /*
+        Crea una página que pinte una tabla en HTML. 
+
+        La página pide al usuario un número entero positivo asignado a filas.
+        La página pide al usuario un número entero positivo asignado a columnas. 
+        La página dibujará una tabla con tantas filas y columnas como indique el 
+        usuario introduciendo el número natural correspondiente a cada celda.
+
+        Ej.: Tabla de 2 filas y 3 columnas
+
+        [1][2][3]
+        [4][5][6]
+
+
+        */
+
+    // Guardamos en una variable la tabla donde pintaremos las filas y columnas.
+    let tabla = document.getElementById("tabla");
+
+    // Pedimos al usuario el número de filas y columnas.
+    let filas = Number(prompt("¿De cuántas filas deseas la tabla? (Número entero positivo)"));
+    let columnas = Number(prompt("¿De cuántas columnas deseas la tabla? (Número entero positivo)"));
+
+    // Usamos un contador para pintar los números en la celda.
+    let contador = 1;
+
+    // Generamos las filas con un bucle.
+    for (let posicionF = 1; posicionF <= filas; posicionF++) {
+        // Creamos la fila (<tr>).
+        let fila = document.createElement("tr");
+
+        // Generamos las celdas/columnas de la fila con otro bucle.
+        for (let posicionC = 1; posicionC <= columnas; posicionC++) {
+            // Creamos una celda (<td>).
+            let celda = document.createElement("td");
+
+            // Asignamos el número consecutivo a la celda.
+            celda.textContent = contador;
+
+            contador++;
+
+            // Agregamos la celda a la fila.
+            fila.appendChild(celda);
+        }
+
+        // Agregamos la fila completa a la tabla.
+        tabla.appendChild(fila);
+    }
+
+    </script>
+</body>
+</html>
