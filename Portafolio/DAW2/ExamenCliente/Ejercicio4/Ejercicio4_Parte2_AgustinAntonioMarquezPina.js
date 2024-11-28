@@ -1,4 +1,4 @@
- // Roberto, si lees esto, apruebame por favor.
+// Roberto, si lees esto, apruebame por favor.
 
 /**
  * Para mayor claridad del código he creado funciones que verifican por mi si los números
@@ -21,6 +21,7 @@ console.log("Hay un total de: " + arrayConEstadisticas.cantidadBuzz + " Buzz.");
 console.log("Hay un total de: " + arrayConEstadisticas.cantidadFizz + " Fizz.");
 console.log("Hay un total de: " + arrayConEstadisticas.cantidadFizzBuzz + " FizzBuzz.");
 console.log("Hay un total de: " + arrayConEstadisticas.cantidadNormales + " Normales.")
+console.log("Hay un total de: " + arrayConEstadisticas.cantidadExtra + " Extras.")
 
 
 // Función que verifica si un número es Fizz (divisible por 3)
@@ -51,7 +52,7 @@ function fizzBuzzTipico(numeroInicial, numeroFinal) {
 
     // Recorremos el rango de números
     for (let posicion = numeroInicial; posicion <= numeroFinal; posicion++) {
-        // Guardamos en dos buleanos los resultados de mis métodos que verifican "Fizz" o "Buzz".
+        // Guardamos en los buleanos los resultados de mis métodos que verifican "Fizz", "Buzz" y "Extra"
         let esDivisiblePor3 = esFizz(posicion);
         let esDivisiblePor5 = esBuzz(posicion);
         let esDivisiblePorExtra = esExtra(posicion);
@@ -65,7 +66,17 @@ function fizzBuzzTipico(numeroInicial, numeroFinal) {
          * de las anteriores, el else, por su puesto, imprime el número
          * a secas y actualiza esa estadistica.
          */
-        if (esDivisiblePor3 && esDivisiblePor5) {
+
+        /**
+         * Antes este if no funcionaba porque al estár casi abajo del todo si
+         * el número era divisible entre "3" lo marcaba como "Fizz" y nunca
+         * llegaba a haber un número "Extra", pero ahora si los hay.
+         */
+        if (esDivisiblePorExtra) {
+            console.log("Extra");
+            // Actualizo las estadisticad del extra (parte 2 del examen)
+            estadisticasAgustinianas.cantidadExtra++;
+        } else if (esDivisiblePor3 && esDivisiblePor5) {
             console.log("FizzBuzz");
             // Actualizo las estadisticas del array asociativo.
             estadisticasAgustinianas.cantidadFizzBuzz++;
@@ -77,10 +88,6 @@ function fizzBuzzTipico(numeroInicial, numeroFinal) {
             console.log("Buzz");
             // Actualizo las estadisticas del array asociativo.
             estadisticasAgustinianas.cantidadBuzz++;
-        } else if (esDivisiblePorExtra) {
-            console.log("Extra");
-            // Actualizo las estadisticad del extra (parte 2 del examen)
-            estadisticasAgustinianas.cantidadExtra++;
         } else {
             console.log(posicion);
             // Actualizo las estadisticas del array asociativo.
