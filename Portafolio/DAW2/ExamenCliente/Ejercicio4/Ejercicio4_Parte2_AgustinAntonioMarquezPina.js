@@ -78,6 +78,7 @@ function fizzBuzzTipico(numeroInicial, numeroFinal) {
             // Actualizo las estadisticas del array asociativo.
             estadisticasAgustinianas.cantidadBuzz++;
         } else if (esDivisiblePorExtra) {
+            console.log("Extra");
             // Actualizo las estadisticad del extra (parte 2 del examen)
             estadisticasAgustinianas.cantidadExtra++;
         } else {
