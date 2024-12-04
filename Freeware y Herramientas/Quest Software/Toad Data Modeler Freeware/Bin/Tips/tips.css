@@ -1,0 +1,21 @@
+body, BODY {
+	overflow: hidden;
+	border: none;
+}
+
+.tip {
+	font-family : Arial, Verdana;
+	font-size : 11px;
+	font-style : normal;
+	font-weight : normal;
+	color: #000066;
+	vertical-align: top;
+	margin-top: 0px;
+	background-color: #FFFFFF;
+	text-align: left;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	
+}
+
