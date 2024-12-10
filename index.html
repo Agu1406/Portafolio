@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agustín Márquez - Portafolio</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --bg-color: #f5f6fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Agustín Márquez</h1>
+        <p>Desarrollador Web Full Stack</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#formacion">Formación</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="sobre-mi" class="section">
+            <h2>Sobre Mí</h2>
+            <p>Soy un desarrollador web apasionado por crear soluciones digitales innovadoras. 
+               Actualmente estoy cursando el Grado Superior en Desarrollo de Aplicaciones Web (DAW), 
+               donde estoy adquiriendo una sólida base en diferentes tecnologías y metodologías de desarrollo.</p>
+        </section>
+
+        <section id="formacion" class="section">
+            <h2>Formación</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>DAW1</h3>
+                    <ul>
+                        <li><a href="formacion/daw1/bases-datos">Bases de Datos</a></li>
+                        <li><a href="formacion/daw1/lenguaje-marcas">Lenguaje de Marcas</a></li>
+                        <li><a href="formacion/daw1/programacion">Programación</a></li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <h3>DAW2</h3>
+                    <ul>
+                        <li><a href="formacion/daw2/desarrollo-cliente">Desarrollo Cliente</a></li>
+                        <li><a href="formacion/daw2/desarrollo-servidor">Desarrollo Servidor</a></li>
+                        <li><a href="formacion/daw2/interfaces-web">Interfaces Web</a></li>
+                        <li><a href="formacion/daw2/empresa">Empresa</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="section">
+            <h2>Proyectos Personales</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>50 Proyectos en 50 Días</h3>
+                    <ul>
+                        <li><a href="proyectos-personales/50-proyectos-50-dias/paneles-expandibles">Paneles Expandibles</a></li>
+                        <li><a href="proyectos-personales/50-proyectos-50-dias/seguimiento-pasos">Seguimiento de Pasos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="recursos" class="section">
+            <h2>Recursos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Documentación y Herramientas</h3>
+                    <ul>
+                        <li><a href="recursos/documentacion">Documentación</a></li>
+                        <li><a href="recursos/herramientas">Herramientas</a></li>
+                        <li><a href="recursos/ejemplos">Ejemplos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Agustín Márquez - Portafolio Personal</p>
+    </footer>
+</body>
+</html>
