@@ -1,9 +1,0 @@
- <Configuracion_BD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
- xsi:noNamespaceSchemaLocation="datos_de_validacion.xsd">
-     <Tipo>mysql</Tipo>
-     <Nombre>tienda_bd</Nombre>
-     <Host>127.0.0.1:3306</Host>
-     <Usuario>root</Usuario>
-     <Contrasena></Contrasena><!-- Vacia, no tiene. -->
- </Configuracion_BD> 
- 

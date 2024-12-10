@@ -1,9 +1,0 @@
-<!ELEMENT objetos (objeto+)>
-
-<!-- Las entidades parametricas se llaman con un "%" indicando precisamente que son parametricas,
-remplazando donde quiera que sean llamadas por el valor asignado en su creación. -->
-<!ENTITY % dimensiones "alto CDATA #IMPLIED ancho CDATA #IMPLIED profundo CDATA #IMPLIED">
-
-<!ELEMENT objeto (#PCDATA)>
-
-<!ATTLIST objeto %dimensiones;>

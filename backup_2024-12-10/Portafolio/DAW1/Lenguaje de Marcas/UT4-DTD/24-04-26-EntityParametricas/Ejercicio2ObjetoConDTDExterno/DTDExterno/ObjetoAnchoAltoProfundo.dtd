@@ -1,7 +1,0 @@
-<!ELEMENT objetos (objeto+)>
-
-<!ELEMENT objeto (#PCDATA)>
-
-<!ATTLIST objeto alto CDATA #REQUIRED>
-<!ATTLIST objeto ancho CDATA #REQUIRED>
-<!ATTLIST objeto profundo CDATA #REQUIRED>

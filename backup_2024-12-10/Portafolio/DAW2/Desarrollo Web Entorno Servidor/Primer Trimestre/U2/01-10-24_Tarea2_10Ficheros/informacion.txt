@@ -1,4 +1,0 @@
-agustin;carlos;guido;david;
-paula;miguel;marta;cristina;
-amarillo;azul;rojo;blanco;
-arroz;pollo;pasta;ternera;

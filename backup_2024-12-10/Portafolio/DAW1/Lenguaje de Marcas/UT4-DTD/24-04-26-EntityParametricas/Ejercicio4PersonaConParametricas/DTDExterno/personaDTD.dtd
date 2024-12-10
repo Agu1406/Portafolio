@@ -1,8 +1,0 @@
-<!ELEMENT persona EMPTY>
-
-<!ENTITY % String "CDATA">
-
-<!ATTLIST persona 
-    nombre %String; #REQUIRED
-    apellido %String; #REQUIRED
->
