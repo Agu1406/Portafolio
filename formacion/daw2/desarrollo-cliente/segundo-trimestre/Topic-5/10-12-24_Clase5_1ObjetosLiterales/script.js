@@ -1,3 +1,16 @@
+/***
+ * En este primer ejemplo creamos un objeto de forma "literal" que es cuando
+ * en la propia declaración de la variable / instancia se crean el objeto
+ * y dentro de llaves ( "{" y "}" ) se establecen los métodos, funciones
+ * y atributos propios del objeto, en este ejemplo el objeto "punto"
+ * tiene:
+ * 
+ * - Un atributo llamado "X" cuyo valor es "15".
+ * - Un atributo llamado "Y" cuyo valor es "3".
+ * - Un método llamado "devolverCoord" que devuelve
+ * las coordenadas especificas de la instancia que
+ * llame al método.
+ * */
 let punto = {
     x: 15,
     y: 3,
@@ -5,7 +18,9 @@ let punto = {
         return ("punto1: " + `(${this.x}, ${this.y})`);
     }
 };
-console.log(punto.devolverCoord()); //(15, 3)
+
+// Probando el método del objeto en consola, debe devolver "15" y "3".
+console.log(punto.devolverCoord());
 
 
 
