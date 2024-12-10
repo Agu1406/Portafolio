@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOGO>
+    <LIBRO>
+        <TITULO>MASTERING XML</TITULO>
+        <EDITORIAL>SYBEX</EDITORIAL>
+        <AUTORES>
+            <AUTOR>ANN NAVARRO</AUTOR>
+            <AUTOR>CHUCK WHITE</AUTOR>
+            <AUTOR>LINDA BURMAN</AUTOR>
+        </AUTORES>
+        <ISBN>0782122663</ISBN>
+        <PAGINAS>888</PAGINAS>
+        <PRECIO MONEDA="PESETA">10.425</PRECIO>
+        <PRECIO MONEDA="EURO">62.66</PRECIO>
+    </LIBRO>
+</CATALOGO>

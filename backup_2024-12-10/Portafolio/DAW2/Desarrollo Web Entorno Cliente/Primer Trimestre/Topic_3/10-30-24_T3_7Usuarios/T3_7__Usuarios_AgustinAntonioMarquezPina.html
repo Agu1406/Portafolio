@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Agu1406" content="">
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <title>Tarea 3-7</title>
+    <link rel="stylesheet" href="../../../estilos/estilos.css">
+</head>
+<body>
+    <!--
+    Realizar un programa que reciba una cadena con el siguiente formato: “nombre:apellidos:dni:telefono:email:codigopostal”
+    
+    Tras recibir la cadena, se debe desglosar la información. Crear una estructura de datos que recoja la información extraída
+    de la cadena de caracteres.
+    
+    Validar si la letra del DNI introducido es correcta. (Para la validación usar aproximación sin utilizar Expresiones 
+    regulares). Añadir el campo de tipo boolean “dniValido” cuyo valor será true en caso de DNI correcto o false en caso
+    de que la letra del DNI del usuario no coincida.
+    
+    Suponiendo un formato de email “direccion@servidor”, se debe crear un campo llamado “servidor” para asignarle el nombre
+    del servidor asociado (sin la @).
+    
+    Generar un nombre de usuario con la primera letra del nombre, las tres últimas del apellido separadas por un carácter “_”.
+    
+    Guardar el nombre de usuario generado en el campo “username” de la estructura creada, asociado a cada usuario.
+    
+    Añadir un campo a la estructura llamado “país” y asignar como valor una cadena de caracteres que represente la bandera
+    de su país (elegir cualquiera). *Dependiendo del navegador, en algunos casos se puede visualizar un icono de la
+    bandera o en otros casos la combinación de los caracteres únicos para cada país. (Ejemplo: España se podría
+    visualizar: Bandera de España o 🇪🇸).
+    
+    Mostrar los nombres de usuario y las banderas correspondientes a su país en la página del lado del cliente.
+    
+    Por último, si la inicial del nombre y los dos primeros caracteres del apellido forman la palabra “oso” (sin distinguir
+    mayúsculas o minúsculas), la página lanzará una ventana de dialogo de tipo alert: “¡Cuidado, hay # osos cerca!”, 
+    indicando en # el número de usuarios con la cadena.
+    
+    Unos usuarios de ejemplo serían:
+    
+    Rocio:Osorno:01101315Y:612345649:rocio@outlook.com:28001
+    Sonia: Sastre:15340807Z:765430987:ssastre@gmail.com:43071
+    Olivia:Soriano:46216401X:654567098:osor01@educa.madrid.org:28660
+    Elena:Costaguta:70068005T:7123098654:ecostag@madrid.org:45230
+    Orestes:Sosa:52243028T::sosaorestes2000@yahoo.com:28001
+-->
+    <div class="contenedor">
+        <h3>Actividad T3_7 - Usuarios</h3>
+        <br>
+        <form class="contenedorFormulario" action="T3_7__Usuarios_AgustinAntonioMarquezPina.js" method="post">
+            <label for="nombre">Introduce tú nombre: </label>
+            <input type="text" name="nombre" id="nombre" placeholder="Ejemplo: Agustín">
+            <br><br>
+            <label for="apellido">Introduce tú apellido: </label>
+            <input type="text" name="apellido" id="apellido" placeholder="Ejemplo: Piña">
+            <br><br>
+            <label for="DNI">Introduce tú DNI / NIE</label>
+            <input type="text" name="DNI" id="DNI" placeholder="Ejemplo: 1234567H">
+            <br><br> 
+            <label for="movil">Introduce tú movil</label>
+            <input type="text" name="movil" id="movil" placeholder="Ejemplo: 691 64 36 61">
+            <br><br>
+            <label for="correo">Introduce tú correo</label>
+            <input type="email" name="correo" id="correo" placeholder="Ejemplo: tunomete@cabra.com">
+            <br><br>
+            <label for="codPostal">Introduce tú código postal</label>
+            <input type="text" name="codPostal" id="codPostal" placeholder="Ejemplo: 28231">
+            <br><br>
+            <input type="submit" value="¡Enviar información del usuario!">  
+        </form>
+    </div>
+    <br>
+    <div class="contenedor">
+        <h3>Información de los usuarios:</h3>
+        <div id="resultado">
+        <!-- Aquí se mostrarán los resultados -->
+        </div> 
+    </div>
+    <script src="T3_7__Usuarios_AgustinAntonioMarquezPina.js"></script>
+</body>
+</html>

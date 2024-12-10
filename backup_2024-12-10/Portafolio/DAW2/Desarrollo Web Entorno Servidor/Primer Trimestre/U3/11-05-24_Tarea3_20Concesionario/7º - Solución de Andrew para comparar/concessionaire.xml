@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concessionaire>
+    <cars>
+        <car>
+            <ID>1</ID>
+            <Model>Mustang</Model>
+            <Manufacturer>1</Manufacturer>
+            <Image>aGVsbG8gd29ybGQ=</Image>
+            <Year>2020-01-01</Year>
+        </car>
+        <car>
+            <ID>2</ID>
+            <Model>Camaro</Model>
+            <Manufacturer>2</Manufacturer>
+            <Image>aGVsbG8gd29ybGQ=</Image>
+            <Year>2021-01-01</Year>
+        </car>
+    </cars>
+
+    <manufacturers>
+        <manufacturer>
+            <ID>1</ID>
+            <Name>Ford</Name>
+        </manufacturer>
+        <manufacturer>
+            <ID>2</ID>
+            <Name>Chevrolet</Name>
+        </manufacturer>
+    </manufacturers>
+</concessionaire>

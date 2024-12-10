@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas - Manos a la Olla</title>
+    <link rel="stylesheet" href="./estilos/main.css">
+</head>
+<body>
+    <header></header>
+
+    <main class="contenedor">
+        <div class="recetas">
+            <aside class="filtros">
+                <h2 class="filtros__titulo">Filtrar Recetas</h2>
+                
+                <div class="filtros__grupo">
+                    <label class="filtros__etiqueta">Buscar</label>
+                    <input type="search" class="filtros__busqueda" placeholder="Buscar recetas...">
+                </div>
+
+                <div class="filtros__grupo">
+                    <label class="filtros__etiqueta">Categoría</label>
+                    <select class="filtros__select">
+                        <option value="">Todas las categorías</option>
+                        <option value="tradicional">Cocina Tradicional</option>
+                        <option value="mediterranea">Mediterránea</option>
+                        <option value="postres">Postres</option>
+                        <option value="saludable">Saludable</option>
+                    </select>
+                </div>
+
+                <div class="filtros__grupo">
+                    <label class="filtros__etiqueta">Tiempo de preparación</label>
+                    <div class="filtros__opciones">
+                        <label class="filtros__opcion">
+                            <input type="checkbox" name="tiempo" value="rapido">
+                            <span>Menos de 30 min</span>
+                        </label>
+                        <label class="filtros__opcion">
+                            <input type="checkbox" name="tiempo" value="medio">
+                            <span>30-60 min</span>
+                        </label>
+                        <label class="filtros__opcion">
+                            <input type="checkbox" name="tiempo" value="elaborado">
+                            <span>Más de 60 min</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filtros__grupo">
+                    <label class="filtros__etiqueta">Dificultad</label>
+                    <div class="filtros__opciones">
+                        <label class="filtros__opcion">
+                            <input type="radio" name="dificultad" value="facil">
+                            <span>Fácil</span>
+                        </label>
+                        <label class="filtros__opcion">
+                            <input type="radio" name="dificultad" value="media">
+                            <span>Media</span>
+                        </label>
+                        <label class="filtros__opcion">
+                            <input type="radio" name="dificultad" value="dificil">
+                            <span>Difícil</span>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="recetas__lista">
+                <div class="recetas__cabecera">
+                    <h1 class="recetas__titulo">Recetas</h1>
+                    <div class="recetas__controles">
+                        <select class="recetas__ordenar">
+                            <option value="reciente">Más recientes</option>
+                            <option value="popular">Más populares</option>
+                            <option value="valoradas">Mejor valoradas</option>
+                        </select>
+                        <button class="btn btn--primario">Nueva Receta</button>
+                    </div>
+                </div>
+
+                <div class="recetas__grid">
+                    <!-- Tarjeta de receta -->
+                    <article class="receta-card">
+                        <img src="./assets/paella.jpg" alt="Paella Valenciana" class="receta-card__imagen">
+                        <div class="receta-card__contenido">
+                            <h3 class="receta-card__titulo">Paella Valenciana</h3>
+                            <p class="receta-card__autor">Por María García</p>
+                            <div class="receta-card__meta">
+                                <span>⏱️ 60 min</span>
+                                <span>👥 4 personas</span>
+                                <span>⭐ 4.8</span>
+                            </div>
+                            <div class="receta-card__etiquetas">
+                                <span class="etiqueta">Tradicional</span>
+                                <span class="etiqueta">Arroz</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Más tarjetas de recetas... -->
+                </div>
+
+                <div class="paginacion">
+                    <button class="paginacion__btn">Anterior</button>
+                    <span class="paginacion__actual">1</span>
+                    <button class="paginacion__btn">Siguiente</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="./scripts/cargarComponentes.js"></script>
+</body>
+</html>

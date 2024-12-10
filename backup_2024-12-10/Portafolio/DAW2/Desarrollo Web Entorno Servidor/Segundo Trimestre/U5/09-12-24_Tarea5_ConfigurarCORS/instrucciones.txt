@@ -1,0 +1,32 @@
+==================================================================
+ Configurar CORS en Apache para nuestra pruabas locales con AJAX
+ IES Arquitecto Ventura Rodríguez/DW2-2023-24/Prof.Mercedes Urios
+==================================================================
+
+Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+
+	Cross-Origin Resource Sharing (CORS) is an HTTP-header based 
+    mechanism that allows a server to indicate any origins (domain,
+    scheme, or port) other than its own from which a browser should
+    permit loading resources. For security reasons, browsers restrict
+    cross-origin HTTP requests initiated from scripts.
+
+Los servidores web actuales implementan CORS como medida de seguridad. 
+Por eso, si queremos que Apache nos permita enviar consultas al servidor mediante los XMLHttpRequest, tenemos que indicárselo en su fichero "httpd.conf". En producción NO haríamos estos cambios.
+
+1º) Parar el Servidor Web Apache.
+
+2º) Hay que hacer una copia de respaldo del archivo "httpd.conf" antes de hacer los cambios.
+	> En xampp sobre windows, el fichero se encuentra en C:\xampp\apache\conf\httpd.conf
+
+3º) Hay que incluir las líneas siguientes después de la línea>> Listen 80
+
+#----------------mis cambios principio---------------------------------------------
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "X-Requested-With, Content-Type, X-Token-Auth, Authorization"
+#----------------mis cambios fin---------------------------------------------------
+
+4º) ¡ojo! Guardar (¡NO "Guardar como"!) para no alterar la extensión del archivo.
+
+5º) Iniciar el Servidor Web Apache.

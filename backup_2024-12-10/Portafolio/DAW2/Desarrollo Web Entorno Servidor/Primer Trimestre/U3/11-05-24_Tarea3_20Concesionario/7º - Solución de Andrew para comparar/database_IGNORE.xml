@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <name>empresa</empresa>
+    <host>127.0.0.1</host>
+    <user_root>root<user_root>
+    <user_password></user_password>
+</database>

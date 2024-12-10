@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cocina - Manos a la Olla</title>
+    <link rel="stylesheet" href="./estilos/main.css">
+</head>
+<body>
+    <header></header>
+
+    <main class="contenedor">
+        <div class="mi-cocina">
+            <aside class="mi-cocina__sidebar">
+                <div class="mi-cocina__perfil">
+                    <img src="./assets/avatar1.jpg" alt="María García" class="mi-cocina__avatar">
+                    <h2 class="mi-cocina__nombre">María García</h2>
+                    <p class="mi-cocina__nivel">Nivel: Chef Experto</p>
+                </div>
+
+                <div class="mi-cocina__stats">
+                    <div class="mi-cocina__stat">
+                        <span class="numero">125</span>
+                        <span class="etiqueta">Recetas</span>
+                    </div>
+                    <div class="mi-cocina__stat">
+                        <span class="numero">1.2k</span>
+                        <span class="etiqueta">Me gusta</span>
+                    </div>
+                    <div class="mi-cocina__stat">
+                        <span class="numero">450</span>
+                        <span class="etiqueta">Guardadas</span>
+                    </div>
+                </div>
+
+                <nav class="mi-cocina__menu">
+                    <a href="#" class="mi-cocina__enlace mi-cocina__enlace--activo">
+                        <span>📝</span> Mis Recetas
+                    </a>
+                    <a href="#" class="mi-cocina__enlace">
+                        <span>🔖</span> Guardadas
+                    </a>
+                    <a href="#" class="mi-cocina__enlace">
+                        <span>📊</span> Estadísticas
+                    </a>
+                    <a href="#" class="mi-cocina__enlace">
+                        <span>⚙️</span> Configuración
+                    </a>
+                </nav>
+            </aside>
+
+            <section class="mi-cocina__contenido">
+                <div class="mi-cocina__cabecera">
+                    <h1>Mis Recetas</h1>
+                    <button class="btn btn--primario">
+                        <span>➕</span> Nueva Receta
+                    </button>
+                </div>
+
+                <div class="mi-cocina__filtros">
+                    <input type="search" placeholder="Buscar en mis recetas..." class="mi-cocina__busqueda">
+                    <select class="mi-cocina__select">
+                        <option value="">Ordenar por</option>
+                        <option value="reciente">Más recientes</option>
+                        <option value="popular">Más populares</option>
+                        <option value="alfabetico">Alfabéticamente</option>
+                    </select>
+                </div>
+
+                <div class="mi-cocina__grid">
+                    <!-- Tarjeta de receta con opciones de edición -->
+                    <article class="receta-editable">
+                        <div class="receta-editable__opciones">
+                            <button class="receta-editable__btn" aria-label="Editar">✏️</button>
+                            <button class="receta-editable__btn" aria-label="Eliminar">🗑️</button>
+                        </div>
+                        <img src="./assets/paella.jpg" alt="Paella Valenciana" class="receta-editable__imagen">
+                        <div class="receta-editable__contenido">
+                            <h3 class="receta-editable__titulo">Paella Valenciana</h3>
+                            <div class="receta-editable__meta">
+                                <span>⏱️ 60 min</span>
+                                <span>👥 4 personas</span>
+                            </div>
+                            <div class="receta-editable__stats">
+                                <span>❤️ 234</span>
+                                <span>💬 45</span>
+                                <span>👁️ 1.2k</span>
+                            </div>
+                            <div class="receta-editable__estado">
+                                <span class="etiqueta etiqueta--publicada">Publicada</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Más tarjetas de recetas... -->
+                </div>
+
+                <div class="paginacion">
+                    <button class="paginacion__btn">Anterior</button>
+                    <span class="paginacion__actual">1</span>
+                    <button class="paginacion__btn">Siguiente</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="./scripts/cargarComponentes.js"></script>
+</body>
+</html>

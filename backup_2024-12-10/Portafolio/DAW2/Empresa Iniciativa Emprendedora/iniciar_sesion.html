@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Manos a la Olla</title>
+    <link rel="stylesheet" href="./estilos/main.css">
+</head>
+<body>
+    <header></header>
+
+    <main class="contenedor">
+        <div class="formulario-acceso">
+            <h1 class="formulario-acceso__titulo">Iniciar Sesión</h1>
+            
+            <form class="formulario">
+                <div class="formulario__grupo">
+                    <label for="email" class="formulario__etiqueta">Correo electrónico</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        class="formulario__entrada"
+                        placeholder="tucorreo@ejemplo.com"
+                        required
+                        aria-required="true"
+                    >
+                </div>
+
+                <div class="formulario__grupo">
+                    <label for="password" class="formulario__etiqueta">Contraseña</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        class="formulario__entrada"
+                        required
+                        aria-required="true"
+                        minlength="8"
+                    >
+                    <button type="button" class="formulario__mostrar-password" aria-label="Mostrar contraseña">
+                        👁️
+                    </button>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label class="formulario__checkbox">
+                        <input type="checkbox" name="recordar">
+                        <span class="formulario__texto">Recordar mi sesión</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn--primario formulario__submit">
+                    Iniciar Sesión
+                </button>
+
+                <a href="#" class="formulario__enlace">¿Olvidaste tu contraseña?</a>
+            </form>
+
+            <div class="formulario-acceso__alternativa">
+                <p>¿No tienes cuenta?</p>
+                <a href="registro.html" class="btn btn--secundario">Crear cuenta nueva</a>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="./scripts/cargarComponentes.js"></script>
+</body>
+</html>

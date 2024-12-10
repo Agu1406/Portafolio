@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE objetos [
+
+    <!ELEMENT objetos (objeto+)>
+
+    <!ELEMENT objeto (#PCDATA)>
+
+    <!ATTLIST objeto alto CDATA #REQUIRED>
+    <!ATTLIST objeto ancho CDATA #REQUIRED>
+    <!ATTLIST objeto profundo CDATA #REQUIRED>
+
+]>
+<objetos>
+    <objeto ancho="30CM" alto="175CM" profundo="210CM">
+        PAULA
+    </objeto>
+</objetos>

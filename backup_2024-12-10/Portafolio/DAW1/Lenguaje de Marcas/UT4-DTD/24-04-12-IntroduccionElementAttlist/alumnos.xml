@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lista_alumnos [
+<!--
+Guía de cardinalidades para los elementos del DTD, cuya sintaxis es:
+<!ELEMENT "nombreElemento" (tipoDato/hijos/herencia)>:
+
+- "*" indica que puede haber entre "0" y "n" instancias del elemento.
+- "+" indica que debe haber al menos una instancia del elemento, y puede haber más.
+- "?" indica que puede haber entre "0" y 1 instancia del elemento.
+
+Guía de etiquetas de datos para los elementos del DTD:
+
+- "#PCDATA": El valor del elemento puede ser cualquier texto alfanumérico.
+- "EMPTY": El elemento no puede contener un valor y se convierte en un booleano.
+  Es decir, si el elemento está presente, es "true"; si no lo está, es "false".
+- "ANY": Permite añadir dentro del elemento otros elementos, por ejemplo, texto, etc.
+
+Guía de etiquetas para atributos, cuya sintaxis es:
+<!ATTLIST "elemento" "nombre" "tipoDato" "etiqueta">
+
+- "#REQUIRED": Debe contener un valor, incluso si es nulo.
+- "#IMPLIED": Puede contener un valor, pero es opcional, no obligatorio.
+- "#FIXED": Debe contener un valor, y este no puede ser nulo.
+-->
+
+<!-- Elemento raíz que puede contener uno o más 'alumnos' -->
+<!ELEMENT lista_alumnos (alumnos+)>
+
+<!-- Elemento 'alumnos' que contiene 'nombre', 'apellido', y 'asignaturas' -->
+<!ELEMENT alumnos (nombre, apellido, asignaturas)>
+
+<!-- 'nombre' y 'apellido' pueden contener texto alfanumérico -->
+<!ELEMENT nombre (#PCDATA)>
+<!ATTLIST nombre CodigoAlumno ID #REQUIRED>
+<!ATTLIST nombre CodigoCentro IDREF #REQUIRED>
+<!ATTLIST nombre CodigoExterno NMTOKENS #IMPLIED>
+
+<!-- 'asignaturas' debe elegir entre 'texto' o 'curso' -->
+<!ELEMENT asignaturas (texto | curso)>
+
+<!-- Elementos 'texto', 'curso' y 'apellido' contienen datos textuales -->
+<!ELEMENT texto (#PCDATA)>
+<!ELEMENT curso (#PCDATA)>
+<!ELEMENT apellido (#PCDATA)>
+]>
+
+<lista_alumnos>
+    <alumnos>
+        <nombre CodigoAlumno="A001" CodigoCentro="00A" CodigoExterno="EX1">Agustin</nombre>
+        <apellido>Marquez</apellido>
+        <!-- 'asignaturas' eligiendo el elemento 'texto' -->
+        <asignaturas>
+            <texto>Programación Avanzada</texto>
+        </asignaturas>
+    </alumnos>
+    <alumnos>
+        <nombre CodigoAlumno="A002" CodigoCentro="00A" CodigoExterno="EX1">Laura</nombre>
+        <apellido>González</apellido>
+        <!-- 'asignaturas' eligiendo el elemento 'curso' -->
+        <asignaturas>
+            <curso>Matemáticas</curso>
+        </asignaturas>
+    </alumnos>
+</lista_alumnos>

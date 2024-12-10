@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE curso [
+    <!-- Definición de la estructura del documento XML -->
+
+    <!-- Elemento 'curso' que contiene un elemento 'asignaturas' -->
+    <!ELEMENT curso (asignaturas)>
+    
+    <!-- Elemento 'asignaturas' que contiene datos de caracteres (PCDATA) -->
+    <!ELEMENT asignaturas (#PCDATA)> 
+
+    <!-- Definición de una entidad, ahora, donde quiera que escriba "&nomclub" sera
+    reamplazado con e lvalor que le he dado al crear la ENTITY, este ejercicio usa
+    ambas cosas internas, el ENTITY y el DTD. -->
+    <!ENTITY nomclub "Curso 1.º de DAW">
+]>
+<!-- Elemento raíz del documento XML -->
+<curso>
+    <!-- Elemento 'asignaturas' que utiliza la entidad 'nomclub', cuyo valor
+    sera remplazado por "Curso 1.º de DAW" cuando se visualize en la web. -->
+    <asignaturas>En el &nomclub; realizamos cursos sobre Internet.</asignaturas>
+</curso>

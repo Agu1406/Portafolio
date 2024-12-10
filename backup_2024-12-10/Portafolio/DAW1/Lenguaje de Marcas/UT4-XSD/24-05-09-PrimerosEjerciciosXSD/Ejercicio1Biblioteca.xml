@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<BIBLIOTECA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSDEjercicio1/BIBLIOTECA.xsd">
+<!-- Declaración de la biblioteca -->
+    <!-- Definición del primer libro -->
+    <LIBRO COD="1">
+        <!-- Título del primer libro -->
+        <TITULO>XML para todos</TITULO>
+        <!-- Autor del primer libro -->
+        <AUTOR>Sergio Lujan Mora</AUTOR>
+        <!-- Editorial del primer libro -->
+        <EDITORIAL>UA Prensa</EDITORIAL>
+    </LIBRO>
+    <!-- Definición del segundo libro -->
+    <LIBRO COD="11">
+        <!-- Título del segundo libro -->
+        <TITULO>Probar una opcion</TITULO>
+        <!-- Autores del segundo libro -->
+        <AUTOR>María Zayas Fonteles</AUTOR>
+        <AUTOR>Sergio Luján Mora</AUTOR>
+        <!-- Editorial del segundo libro -->
+        <EDITORIAL>Prensa Editorial</EDITORIAL>
+        <!-- Año de publicación del segundo libro -->
+        <ANO>1994</ANO>
+    </LIBRO>
+</BIBLIOTECA>

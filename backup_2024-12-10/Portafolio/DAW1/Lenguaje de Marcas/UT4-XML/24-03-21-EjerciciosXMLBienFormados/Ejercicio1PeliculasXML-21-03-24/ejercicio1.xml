@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<directorio autor="Vanessa">
+  <pelicula>
+    <titulo>Con faldas y a lo loco</titulo>
+    <director>Billy Wilder</director>
+  </pelicula>
+  <pelicula>
+    <titulo>Sopa de ganso</titulo>
+    <director>Leo McCarey</director>
+  </pelicula>
+</directorio>
+
+<!-- 
+
+    ESTE ERA EL EJERCICIO SIN CORREGIR, MIS OBSERVACIONES Y ERRORES: 
+    
+    <?xml version="1.0" encoding="UTF-8"?>
+<pelicula>
+    <titulo>Con faldas y a lo loco</titulo>
+    <director>Billy Wilder</director>
+</pelicula>
+<pelicula>
+    <titulo>Leo McCarey</titulo>
+    <director>Sopa de Ganso</director>
+</pelicula>
+<autor/>Vanessa</autor>
+
+
+    El primer de los errores parece ser que no hay un contenedor principal
+en el XML, hay varias peliculas, pero ninguna pertenece a un contenedor
+principal que es la estructura correcta que deberia tener un XML.
+
+    El segundo error parece ser que la pelicula autor, además de que esta
+mal abierta, no especifica nada, no dice que sea el autor de algo en especifico, 
+¿Quizás es el autor del XML? de cualquier forma, no está bien hecho.
+
+    El tercer y ultimo error era que en la segunda pelicula el director y el
+titulo estaban invertidos, siendo correctamente el titulo "Sopa de Ganso" y
+el director "Leo McCarey"
+-->

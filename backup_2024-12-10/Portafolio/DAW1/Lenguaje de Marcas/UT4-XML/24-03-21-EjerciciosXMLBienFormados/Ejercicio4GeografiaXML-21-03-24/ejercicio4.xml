@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<geografia_mundial>
+    <pais>
+        <pais continente="Europa">España</pais>
+        <capital>Madrid</capital>
+    </pais>
+</geografia_mundial>
+
+<!--
+
+    Primer error: dentro de la etiqueta "geografia" se repite dos veces
+la palabra "mundial" que no aporta nada, porque no está correctamente
+expuesta como un atributo, por lo que no cumple las reglas y da error,
+incluso, si se separa con un guíon bajo, seria todo parte del mismo
+titulo.
+
+    Segundo error: quizas por organización, dentro de Contienente deberian
+ir todos los paises de ese continente o dejar continente como un atributo
+del país, no parece que valga mucho la pena tenerlo como un contenedor
+individual en cada país.
+
+
+                            EJERCICIO SIN CORREGIR:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<geografia mundial>
+    <pais>
+        <pais>España</pais>
+        <continente>Europa</continente>
+        <capital>Madrid</capital>
+    </pais>
+</geografia mundial>
+-->

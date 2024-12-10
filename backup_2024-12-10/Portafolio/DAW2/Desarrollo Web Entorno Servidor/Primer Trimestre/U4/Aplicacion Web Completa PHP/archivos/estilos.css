@@ -1,0 +1,355 @@
+/* Estilos generales para asegurarte de que la caja se ajuste */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Asegurar que todos los elementos respeten el box-sizing */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Contenedor principal */
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    background-color: grey; /* Color de fondo gris por defecto */
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    background-image: url(./imagenes/pina.jpeg); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+}
+
+/* Pseudo-elemento para el overlay */
+.contenedor-principal::before {
+    content: ""; /* Necesario para crear el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(128, 128, 128, 0.5); /* Gris con opacidad */
+    z-index: 1; /* Asegura que el overlay esté por encima de la imagen pero debajo del contenido */
+}
+
+/* Asegúrate de que el contenido del contenedor se muestre por encima del overlay */
+.contenedor-principal > * {
+    position: relative;
+    z-index: 2; /* Hace que el contenido quede encima del overlay */
+}
+
+
+/* Sección de los divs */
+.seccion {
+    display: flex;
+    flex-direction: row;
+    width: 100%; /* Ajustado para mantener un espacio alrededor */
+    max-width: 1000px;
+    background-color: #007bff;
+    overflow: hidden;
+}
+
+/* Div de la izquierda */
+.izquierda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+    color: white;
+}
+
+.izquierda p {
+    text-align: justify;
+}
+
+/* Div de la derecha */
+.derecha {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    margin: 5%;
+    border-left: 2px solid #ccc;
+}
+
+/* Estilos del formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para la cuadrícula de productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas por defecto */
+    gap: 20px; /* Espacio entre los productos */
+}
+
+/* Estilos de cada producto */
+.producto {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+    max-width: 256px;
+    max-height: 256px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.producto h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333; /* Color más oscuro para mayor legibilidad */
+}
+
+.producto p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #555; /* Gris oscuro para el texto */
+}
+
+/*******************************/
+
+/* Tabla del carrito */
+.tabla-carrito {
+    width: 80%; /* Ajustamos el ancho de la tabla */
+    margin-top: 20px;
+    border-collapse: collapse; /* Para que las celdas se alineen sin espacios */
+    text-align: left;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-carrito th, .tabla-carrito td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.tabla-carrito th {
+    background-color: #007bff;
+    color: white;
+}
+
+.tabla-carrito td input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tabla-carrito td button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tabla-carrito td button:hover {
+    background-color: #e60000;
+}
+
+/* Estilo para el total del pedido */
+.total-pedido {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+/* Estilo específico para el botón de hacer pedido */
+.btn-pedido {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 175px;
+    min-height: 45px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.btn-pedido:hover {
+    background-color: #006adc;
+}
+
+/* Estilo para el contenedor del pedido */
+.medio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/**********************************/
+
+/* Estilo del pie de pagina */
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    padding: 1%;
+}
+
+/* Estilo del header */
+header {
+    background-color: #333; /* Color de fondo de la barra */
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos (logo y menú) de izquierda a derecha */
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header .logo img {
+    height: 32px; /* Tamaño del ícono */
+    width: 32px;
+}
+
+header .titulo-menu {
+    font-size: large; /* Cambia a un tamaño absoluto si necesitas precisión, como 18px */
+    font-weight: bolder; /* Cambia a 700 si prefieres valores numéricos */
+}
+
+/* Estilo del menú de navegación */
+nav ul {
+    display: flex; /* Utiliza flexbox para los elementos */
+    list-style-type: none; /* Elimina los puntos por defecto */
+}
+
+nav ul li {
+    margin-left: 20px; /* Espacio entre los enlaces */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f1a7b6; /* Color de hover */
+}
+
+/* Espaciado después del header para evitar que el contenido quede oculto */
+main {
+    padding-top: 20px; /* Ajusta este valor si cambias el alto del header */
+    margin: 0;
+    width: 100%;
+}
+
+/* Estilos del mensaje */
+.message {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message p {
+    font-size: 18px;
+}
+
+.order-code {
+    font-weight: bold;
+    color: #333;
+    font-size: 22px;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsividad para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas para pantallas medianas */
+    }
+}
+
+@media screen and (max-width: 412px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .productos-grid {
+        grid-template-columns: 1fr; /* 1 columna en dispositivos pequeños */
+    }
+}

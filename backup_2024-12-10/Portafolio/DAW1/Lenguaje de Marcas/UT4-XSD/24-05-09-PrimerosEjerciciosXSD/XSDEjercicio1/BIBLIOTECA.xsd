@@ -1,0 +1,30 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Define el elemento raíz del esquema -->
+    <xs:element name="BIBLIOTECA">
+        <!-- Define el tipo de contenido del elemento XSDBiblioteca -->
+        <xs:complexType>
+            <!-- Define la secuencia de elementos dentro de XSDBiblioteca -->
+            <xs:sequence>
+                <!-- Define el elemento LIBRO -->
+                <xs:element name="LIBRO" minOccurs="1" maxOccurs="unbounded">
+                    <!-- Define el tipo de contenido del elemento LIBRO -->
+                    <xs:complexType>
+                        <!-- Define la secuencia de elementos dentro de LIBRO -->
+                        <xs:sequence>
+                            <!-- Elemento TITULO: título del libro (obligatorio) -->
+                            <xs:element name="TITULO" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                            <!-- Elemento AUTOR: autor(es) del libro (opcional, múltiples) -->
+                            <xs:element name="AUTOR" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                            <!-- Elemento EDITORIAL: editorial del libro (obligatorio, único) -->
+                            <xs:element name="EDITORIAL" type="xs:string" maxOccurs="1"/>
+                            <!-- Elemento ANO: año de publicación del libro (opcional, múltiples) -->
+                            <xs:element name="ANO" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                        <!-- Agregamos fuera del Sequence los atributos del libro. -->
+                        <xs:attribute name="COD" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,72 @@
+                ENUNCIADO DEL EJERCICIO
+
+Crear un script sql para una base de datos(puedes reutilizar el scrip
+del ejemplo empresa) que se llama concesionario y que tiene de 2 tablas:
+
+(1º) Tabla coches con las siguientes columnas: id,  modelo, fabricante, 
+foto, año.
+
+(2º) El tipo de datos de foto debe permitir cargar fotos de baja resolución, no el 
+path donde está la foto.
+
+(3º) Tabla fabricante con las siguientes columnas: id, nombre.
+
+Crear un archivo xml y su xsd (puedes usar los ejemplos vistos en clase)
+que tenga los parámetros de conexión a la base de datos.
+
+Crear una función en PHP que lea los datos de conexión a la BD del fichero
+xml anterior (puedes usar los ejemplos vistos en clase).
+
+Crear un script PHP que se conecte a esta base de datos usando la función
+anterior.
+
+Completa el script PHP realizando operaciones de inserción y de lectura.
+
+                INSTRUCCIONES PASO A PASO DE COMO LO RESOLVI
+
+    PRIMER PASO: según el propio enunciado, era crear un Script de base de
+datos con las siguientes características:
+
+- Una tabla llamada "coches" cuyos atributos son: ID, Modelo, Fabricante, Foto y Año.
+- El tipo de datos debe permitir cargar fotos de baja resolución en "Foto".
+- Una tabla llamada "fabricante" cuyos atributos son: ID, nombre.
+
+Puedes ver la base de datos creada desde cero en la carpeta llamada "BaseDeDatos".
+
+    SEGUNDO PASO: Es crear un archivo XML y su respectivo XSD que contienen la
+información necesaria para la conexión a la base de datos, estos archivos creados
+y documentados se encuentran en la carpeta "configuracion".
+
+Recordemos que un XSD es una especie de "guia" que los XML utilizan
+para validar si los datos, elementos y etquitas del XML son correctos
+o no, con el XSD creamos unas reglas que el XML debe seguir al pie de
+la letra para no ser incorrecto.
+
+    TERCER PASO: El siguiente paso es, aunque no lo parezca, abrir XAMP, ir a
+PhpMyAdmin y subir nuestra base de datos creada anteriormente importandola con
+el primer formato que es UTF-8 que es compatible con tildes, acentos y
+la famosa "Ñ".
+
+    CUARTO PASO: Ahora, tenemos que crear el script de PHP que lea los datos
+de conexión del XML y realiza desde ellos una conexión exitosa con nuestra
+base de datos.
+
+    Gracias a Aitor aprendí en esta practica un patrón de diseño llamado 
+"singleton" el cual consiste en, mediante el uso de una clase, controlar 
+que solo exista una unica instancia de algo, ejemplo, una sola conexión a 
+una base de datos, este patrón ahorra recursos y se asegura de que solo
+haya una instancia conectada a la base de datos.
+
+No obstante, en cara a los examenes, hice el ejercicio como el resto de la
+clase, solo PHP a saco y nada más, el archivo está creado dentro de la
+carpeta "Nº2 - configuracion", cuyo nombre es "conexion_bd.php"
+
+    QUINTO PASO: Ségún el propio enunciado, tiene que haber en el Script del
+cuarto paso dos métodos, uno de ellos que lee el XML y guarda sus valores
+en una estructura de datos y un segundo método que, utilizando dicha
+estructura de datos, instancie la clase PDO para conectarse con la BD.
+
+    SEXTO PASO: Con nuestro Script ya hecho, el siguiente paso es crear los
+dos sitios web que nos permitiran insertar datos (fotos, fabricantes, etc)
+y el sitio web que nos permitira visualizar el contenido de nuestra base de
+datos.

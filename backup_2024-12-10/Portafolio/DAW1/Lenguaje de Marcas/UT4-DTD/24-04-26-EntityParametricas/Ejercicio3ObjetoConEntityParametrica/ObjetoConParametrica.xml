@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE objetos SYSTEM "./DTDExterno/ObjetoAnchoAltoProfundo.dtd">
+<objetos>
+    <objeto ancho="30CM" alto="175CM" profundo="210CM">
+        PAULA
+    </objeto>
+</objetos>

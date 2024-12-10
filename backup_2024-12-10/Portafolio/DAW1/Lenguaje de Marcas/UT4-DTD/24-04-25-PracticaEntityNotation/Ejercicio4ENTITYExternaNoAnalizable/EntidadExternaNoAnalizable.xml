@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE biblioteca [
+    <!-- Definición de la estructura del documento XML -->
+    <!ELEMENT biblioteca (libros+)> <!-- Elemento 'biblioteca' que contiene uno o más elementos 'libros' -->
+    <!ELEMENT libros (ISBN, autor, titulo, portada)> <!-- Elemento 'libros' que contiene elementos 'ISBN', 'autor', 'titulo' y 'portada' -->
+    <!ELEMENT ISBN (#PCDATA)> <!-- Elemento 'ISBN' que contiene datos de caracteres (PCDATA) -->
+    <!ELEMENT autor (#PCDATA)> <!-- Elemento 'autor' que contiene datos de caracteres (PCDATA) -->
+    <!ELEMENT titulo (#PCDATA)> <!-- Elemento 'titulo' que contiene datos de caracteres (PCDATA) -->
+    <!ELEMENT portada EMPTY> <!-- Elemento 'portada' que no puede contener nada -->
+    
+        <!-- Definición de atributos para el elemento 'portada', con la etiqueta #REQUIRED para que sea
+    obligatorio la existencia del atributo en el elemento portada. -->
+    <!ATTLIST portada src ENTITY #REQUIRED> <!-- Atributo 'src' de 'portada' de tipo ENTITY y requerido -->
+    
+    <!-- Una entidad no analizable es aquella que XML, DTD o XSD no son capaces de comprender, por ejemplo
+    imagenes, por lo que, cuando se crean las entidades se debe indicar que tipo de datos contienen y su
+    formato, como está es una imagén publica de un sitio web utilizamos la etiqueta "PUBCLI" seguido de
+    la url del dato, luego solamente el nombre del mismo, el tipo de valor de los datos y su formato.-->
+    <!ENTITY iesbilingue PUBLIC "https://iesventura.es//_ies_datos//bilingue_ok.jpg" "bilingue_ok.jpg" NDATA jpg>
+
+    <!-- Definición de la NOTATION para el tipo de datos de 'portada', la ENTITY es la imagén extraida
+    de un sitio web, por lo que está en el sistema "SYSTEM" y es del tipo "image/jpg" por su fromato. -->
+    <!NOTATION jpg SYSTEM "image/jpg">
+    
+
+]>
+<!-- Elemento raíz del documento XML -->
+<biblioteca>
+    <!-- Elementos 'libros' dentro de 'biblioteca' -->
+    <libros>
+        <!-- Elementos dentro de 'libros' -->
+        <ISBN></ISBN>
+        <autor></autor>
+        <titulo></titulo>
+        <!-- Elemento 'portada' con atributo 'src' -->
+        <portada src="iesbilingue"/>
+    </libros>
+    <libros>
+        <!-- Elementos dentro de 'libros' -->
+        <ISBN></ISBN>
+        <autor></autor>
+        <titulo></titulo>
+        <!-- Elemento 'portada' con atributo 'src' -->
+        <portada src="iesbilingue"/>
+    </libros>
+    <libros>
+        <!-- Elementos dentro de 'libros' -->
+        <ISBN></ISBN>
+        <autor></autor>
+        <titulo></titulo>
+        <!-- Elemento 'portada' con atributo 'src' -->
+        <portada src="iesbilingue"/>
+    </libros>
+</biblioteca>

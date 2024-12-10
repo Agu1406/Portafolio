@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Creamos todas las variables al principio del Script con "Var"
+        var numero;
+
+        // Solicita un número con la función prompt y almacénalo en una variable.
+        numero = prompt("¡Introduce un número por pantalla!");
+
+        // Casteamos el número para convertirlo en un Int (número entero)
+        numero = parseInt(numero);
+
+        // Comprueba si la respuesta es o no un número. Utiliza la función isNaN
+        if (isNaN(numero)) {
+            // Si no, muestra: "No es un número".
+            console.log("¡Error! Introduce un número valido");
+        } else {
+            // Si es un número, muestra en ventana emergente: "Es un número". 
+            console.log("¡Felicidades! El número " + numero + " es valido.")
+        }        
+
+    </script>
+</body>
+</html>

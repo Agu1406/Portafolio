@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE redSocial [
+    <!-- Define el elemento raíz y su estructura de hijos que son elementos "persona" -->
+    <!ELEMENT redSocial (persona+)>
+
+    <!-- Define el elemento "persona" que incluye un elemento "nombre" y atributos "IDPersonal" y "amigoID" -->
+    <!ELEMENT persona (nombre)>
+    
+    <!-- ID unico que identifica a cada persona. -->
+    <!ATTLIST persona IDPersonal ID #REQUIRED>
+
+    <!-- ID que indica de quien es amigo una persona. -->
+    <!ATTLIST persona amigoID IDREF #REQUIRED> 
+
+    <!-- Define el elemento "nombre" que contiene texto -->
+    <!ELEMENT nombre (#PCDATA)>
+]>
+<redSocial>
+    <persona IDPersonal="A1" amigoID="A2">
+        <nombre>Marta Lopez</nombre>
+    </persona>
+    <persona IDPersonal="A2" amigoID="A1">
+        <nombre>Ismael Carvajal</nombre>
+    </persona>
+    <persona IDPersonal="A3" amigoID="A4">
+        <nombre>David Polar</nombre>
+    </persona>
+    <persona IDPersonal="A4" amigoID="A3">
+        <nombre>Agustin Marquez</nombre>
+    </persona>
+</redSocial>

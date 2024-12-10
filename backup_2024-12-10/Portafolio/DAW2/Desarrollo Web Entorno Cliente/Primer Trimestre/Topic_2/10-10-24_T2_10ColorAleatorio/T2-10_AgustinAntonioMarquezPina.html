@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body {
+            background-color: rgb(red, green, blue);
+        } */
+    </style>
+</head>
+<body>
+    <script>
+        // Creamos todas las variables utilizadas en el programa
+        var rojo, verde, azul;
+
+        // Generamos valores aleatorios entre "0" y "255" en cada tonalidad.
+        rojo = generarAleatorio();
+        verde = generarAleatorio();
+        azul = generarAleatorio();
+
+        // Cambiamos el color del body del sitio web con el método correspondiente
+        cambiaColor(rojo, verde, azul);
+
+        // Creamos el método / función que "incrusta" el CSS en el HTML con los valores que queremos.
+        function cambiaColor (rojo, verde, azul) {
+
+            document.body.style.backgroundColor = "rgb(" + rojo + "," + verde + "," + azul + ")";
+        }
+
+        // Creamos un método / función que genere números aleatorios (tonos de esos tres colores)
+        function generarAleatorio () {
+            /** 
+             * Utilizamos "Math.floor" para redondear los números generados al número entero inferior
+             * más cercano, eso porque "Math.random" genera números "pseudoaleatorios" decimale y
+             * fuera de "Math.random" mutliplicamos "* 256" porque "Math.random" genera números
+             * "aleatorios" entre 0 y 1, al multiplicar por "256" genera números aleatorios entre 0
+             * y 255,99999 que con "Math.floor" se redondeando quedando como posibles resultados
+             * números entre "0" y "255" los cuales son validos en el contexto de RGB.
+            */
+            return Math.floor(Math.random() * 256);
+
+        }
+    </script>
+</body>
+</html>

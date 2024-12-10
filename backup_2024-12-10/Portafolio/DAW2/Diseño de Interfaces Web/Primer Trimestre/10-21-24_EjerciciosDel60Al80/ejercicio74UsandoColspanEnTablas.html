@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, th, tr, td {
+        outline: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    th {
+        width: 70%;
+    }
+    tr {
+        height: 200px;
+    }
+</style>
+<body>
+    <h1>Creación y uso de tablas en HTML</h1>
+    <br>
+    <p>Las tablas en HTML son una forma de organizar
+        y presentar la información similares a las tablas
+        en Excel, estás se pueden crear utilizando las etiquetas
+        &lt;table&gt; (se debe cerrar), dentro de una tabla podemos
+        crear filas y columnas usando &lt;tr&gt; para las columnas
+        e internamente en ellas usando &lt;th&gt; o &lt;td&gt; para
+        crear las filas dentro de las mismas, ejemplo.
+    </p>
+    <br>
+    <table>
+        <tr>
+            <th>Fruta</th>
+            <td>Manzana</td>
+            <td>Plátano</td>
+            <td>Naranja</td>
+        </tr>
+        <tr>
+            <th>Color</th>
+            <td>Rojo</td>
+            <td>Amarillo</td>
+            <td>Naranja</td>
+        </tr>
+        <tr>
+            <th>Sabor</th>
+            <td colspan="2">Dulce</td>
+            <td>Ácido</td>
+        </tr>
+        <tr>
+            <th>Temporada</th>
+            <td>Otoño</td>
+            <td>Todo el año</td>
+            <td>Invierno</td>
+        </tr>
+    </table>
+</body>
+</html>

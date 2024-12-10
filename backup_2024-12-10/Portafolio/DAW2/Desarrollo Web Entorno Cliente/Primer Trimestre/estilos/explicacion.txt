@@ -1,0 +1,3 @@
+¿Por que hay una carpeta llamada "estilos" dentro del directorio? Porque, ya que me gusta ir creando mis propios estilos en cada ejercicio, he llegado
+a la conclusión de que si hago unos estilos "generales" para todos los ejercicios me permite que la estetica de los ejercicios sea más o menos similar
+y de esa forma que sean más agradables al ojo y más esteticos, más alla de ser, también, funcionales.

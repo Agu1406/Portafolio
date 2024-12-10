@@ -1,0 +1,15 @@
+<!-- En el XSD indicamos que el elemento del XML tiene que ser
+ una etiqueta llamada "Configuracion_BD", cualquier otro nombre
+ ocasionaria un fallo, de la misma forma, ocurre con los
+ elementos internos, ¿Como sabe el XML si los datos son correctos
+ o no? llamando al XSD desde aquí para que lo use como hoja de
+ validación de datos y de esa forma pueda validar si las etiquetas
+ y los datos alojados en ellas son correctos o no. -->
+<Configuracion_BD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="configuracion.xsd">
+    <Tipo>mysql</Tipo>
+    <Nombre>db_concesionario</Nombre>
+    <Host>127.0.0.1:3306</Host>
+    <Usuario>root</Usuario>
+    <Contrasena><!-- Vacia, no tiene. --></Contrasena>
+</Configuracion_BD>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deportistas>
+    
+    <deportista>
+        <deporte>Atletismo</deporte>
+        <nombre>Jesse Owens</nombre>
+    </deportista>
+    <deportista>
+        <deporte>Natación</deporte>
+        <nombre>Mark Spitz</nombre>
+    </deportista>
+
+</deportistas>
+
+<!--
+
+    Primer error: la primera etiqueta de deportista no está cerrada lo que
+perjudica la estructura del XML.
+
+    Segundo error: dentro del primer deportista el
+valor esta dentro de la etiqueta que a su vez está mal abierta y sin cerrar.
+
+    Tercer error: dentro del segundo deportista el deporte está demtro de la
+etiqueta que esta a su vez mal abierta, sin cierrar y con el valor dentro
+de la propia etiqueta.
+
+    EJERCICIO SIN CORREGIR:
+
+    <?xml version="1.0" encoding="UTF-8"?>
+<deportistas>
+    
+    <deportista>
+        <deporte Atletismo />
+        <nombre>Jesse Owens</nombre>
+    
+    <deportista>
+        <deporte Natación />
+        <nombre>Mark Spitz</nombre>
+    </deportista>
+
+</deportistas>
+-->

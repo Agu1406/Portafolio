@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE marcadoresPagina [
+<!-- 
+Para estos ejercicios se recomienda copiar-pegar la guia de cardinalidades
+hasta que se memorice, para poder ahorrar tiempo, la cul es:
+
+- "*" indica que puede ser entre "0" y "n" 
+- "+" indica que puede ser entre "1" y "n"
+- "?" indica que puede ser entre "0" y "1" 
+
+Tambien se recomienda llevar la guia de las etiquetas de los elementos las
+cuales son:
+
+- "#REQUIRED": Si o si debe contener un valor, incluso aunque este sea nulo.
+- "#IMPLIED": Puede contener un valor, pero es opcional, no obligatorio.
+- "#FIXED": Si o si debe contener un valor, este no puede ser nulo.
+-->
+
+
+<!-- marcadoresPagina (pagina+) utiliza la cardinalidad "+" porque espera
+como mínimo "1" y como maximo "n", es decir "varios". -->
+<!ELEMENT marcadoresPagina (pagina+)>
+
+<!-- pagina (nombre,descripcion,url) no utiliza cardinalidad, cuano la
+cardinalidad no se define, utiliza por defecto el "*". -->
+<!ELEMENT pagina (nombre,descripcion,url)>
+
+<!-- Nombre (#PCDATA) no tiene cardinalidad, el "#PCDATA" significa que puede 
+contener como valor / información un dato cualquier alfanúmerico. -->
+<!ELEMENT nombre (#PCDATA)>
+
+<!-- Descripción (#PCDATA) no tiene cardinalidad, el "#PCDATA" significa que puede 
+contener como valor / información un dato cualquier alfanúmerico. -->
+<!ELEMENT descripcion (#PCDATA)>
+
+<!-- Atributo del elemento "descripción" llamado "tipo" que recibe cualquier tipo
+de información, por eso es "CDATA" y lleva la etiqueta "#IMPLIE" ya que se le
+requiere si o si. -->
+<!ATTLIST descripcion tipo CDATA #IMPLIED>
+
+<!-- Url (#PCDATA) no tiene cardinalidad, el "#PCDATA" significa que puede 
+contener como valor / información un dato cualquier alfanúmerico. -->
+<!ELEMENT url (#PCDATA)>
+
+]>
+<marcadoresPagina>
+    <pagina>
+        <nombre>OpenAI</nombre>
+        <descripcion tipo="Información sobre mi persona.">Perfil de GitHub del creador de esté XML con DTD.</descripcion>
+        <url>https://github.com/Agu1406/</url>
+    </pagina>
+    <pagina>
+        <nombre>GitHub</nombre>
+        <descripcion tipo="Información sobre GitHub">Plataforma de hospedaje de código para control de versiones y colaboración.</descripcion>
+        <url>https://github.com</url>
+    </pagina>
+    <pagina>
+        <nombre>Stack Overflow</nombre>
+        <descripcion tipo="Información sobre la comunidad de StackOverFlow.">Comunidad de programadores para aprender, compartir ​y construir sus carreras.</descripcion>
+        <url>https://stackoverflow.com</url>
+    </pagina>
+</marcadoresPagina>

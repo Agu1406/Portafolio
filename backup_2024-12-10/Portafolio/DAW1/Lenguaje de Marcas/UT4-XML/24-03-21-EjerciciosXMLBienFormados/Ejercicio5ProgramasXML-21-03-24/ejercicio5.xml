@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<programas>
+  <programa nombre="Firefox" licencia="GPL/MPL" />
+  <programa nombre="OpenOffice.org" licencia="LGPL" />
+  <programa nombre="Inkscape" licencia="GPL" />
+</programas>
+<!--
+
+    Primer error: algunos atributos están mal cerrados, por ejemplo, en
+el segundo programa en "licencia" esta sin comillas, lo que da un error.
+
+    Segundo error: como hay un espacio entre el final de los atributos
+y el cierre de la etiqueta, podría ocusionar un fallo.
+
+
+                    EJERCICIO SIN CORREGIR:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<programas>
+    <programa nombre="Firefox" licencia="GPL" licencia="MPL" />
+    <programa nombre="OpenOffice.org" licencia=LGPL />
+    <programa nombre="Inkscape" licencia="GPL" />
+</programas>
+-->

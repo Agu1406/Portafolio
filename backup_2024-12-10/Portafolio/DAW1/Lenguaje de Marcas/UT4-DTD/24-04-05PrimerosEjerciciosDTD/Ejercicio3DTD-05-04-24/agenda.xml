@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Guia de cardinalidades para los elementos del DTD, cuya sintaxis es:
+<!ELEMENT "nombreElemento" (tipoDato/hijos/herencia)>:
+
+- "*" indica que puede ser entre "0" y "n" 
+- "+" indica que puede ser entre "1" y "n"
+- "?" indica que puede ser entre "0" y "1" 
+
+Guia de etiquetas de daos para los elementos del DTD:
+
+- "#PCDATA": El valor del elemento puede ser un valor/texto cualquier alfanúmerico.
+
+- "EMPTY": El elemento no puede contener un valor y esté se convierte en un booleano
+es decir, si el elemento este presente, es "true", si no lo esta, es "false".
+
+- "ANY": Permite añadir dentro del elemento otros elementos, por ejemplo, texto, etc.
+
+Guia de etiquetas para atributos, cuya sintaxis es:
+<!ATTLIST "elemento" "nombre" "tipoDato" "etiqueta">
+
+- "#REQUIRED": Si o si debe contener un valor, incluso aunque este sea nulo.
+- "#IMPLIED": Puede contener un valor, pero es opcional, no obligatorio.
+- "#FIXED": Si o si debe contener un valor, este no puede ser nulo.
+-->
+<!-- Inicio del DTD interno de lo que sera nuestro XML. -->
+<!DOCTYPE agenda [
+
+<!-- Elemento N.º1: Es la serie de contenedores internos de "agenda" que almacena
+a las personas, se llama "persona" y se espera una cardinalidad "1-n". -->
+<!ELEMENT agenda (persona+)>
+
+<!-- Elemento N.º2: Son los elementos hijos de "persona", se alojan dentro de el
+y tienen cardinalidad default "*" con excepción de mayorEdad que es "0-1" = "?".-->
+<!ELEMENT persona (nombre,mayorEdad?,ciudad)>
+
+<!-- Elemento N.º3: Es el nombre de una "persona", el tipo de datos esperados en
+él son alfanúmericos, por lo tanto, es un "#PCDATA".-->
+<!ELEMENT nombre (#PCDATA)>
+
+<!-- Elemento N.º4: Es el dato que indíca si una "persona es "mayorEdad" o no lo
+es, en este caso a modo de explorar otras etiquitas se definio en "EMPTY".-->
+<!ELEMENT mayorEdad (EMPTY)>
+
+<!-- Elemento N.º5: Es la ciudad en la que vive y/o habita una "persona", en este
+a modo de explorar otras etiquetas se definio como "ANY". -->
+<!ELEMENT ciudad (ANY)>
+
+]>
+<persona>
+    <nombre>Agustín</nombre>
+    <mayorEdad></mayorEdad> <!-- Como es del tipo "EMPTY" al estár presente es "true". -->
+    <ciudad>Las Rozas de Madrid</ciudad>
+</persona>
+<persona>
+    <nombre>Victor</nombre>
+    <!-- Como aqui no está presente "mayorEdad" se entiende que no lo es, es "false". -->    
+    <ciudad>Boadilla del Monte</ciudad>
+</persona>
+<persona>
+    <nombre>Guido</nombre>
+    <mayorEdad>Si</mayorEdad>
+    <ciudad>Pozuelo de Alarcon <!-- como "ciudad" es del tipo "ANY" permite crear otros
+    elementos y valores dentro de su etiwueta, ejemeplo "<texto>", en otros elementos
+    sin ser estos del tipo "ANY" esto ocasionaria un error.-->
+    <texto>Ejemplo del uso de ANY</texto>
+    </ciudad>
+</persona>

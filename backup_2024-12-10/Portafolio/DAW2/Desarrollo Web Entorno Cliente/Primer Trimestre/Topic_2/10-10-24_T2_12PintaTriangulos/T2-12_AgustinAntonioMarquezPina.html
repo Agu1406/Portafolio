@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triángulo de Asteriscos</title>
+</head>
+<body>
+    <h1>Dibuja un triángulo de asteriscos</h1>
+    <p>Introduce un número entero positivo para la longitud del lado del triángulo:</p>
+    
+    <input type="number" id="longitud" min="1" placeholder="Introduce un número entero positivo">
+    <button onclick="dibujarTriangulo()">Dibujar Triángulo</button>
+
+    <pre id="triangulo"></pre> <!-- El triángulo se mostrará aquí -->
+
+    <script>
+        // Función para dibujar el triángulo
+        function dibujarTriangulo() {
+            // Obtener el valor del input
+            var longitud = document.getElementById("longitud").value;
+
+            // Verificar que sea un número entero positivo
+            if (longitud <= 0 || !Number.isInteger(parseFloat(longitud))) {
+                alert("Por favor, introduce un número entero positivo.");
+                return;  // No hacer nada si el número no es válido
+            }
+
+            // Convertir a número entero (por si acaso se introduce como texto)
+            longitud = parseInt(longitud);
+
+            // Generar el triángulo
+            var resultado = "";
+            for (var i = 1; i <= longitud; i++) {
+                // Agregar "i" asteriscos en cada fila
+                for (var j = 1; j <= i; j++) {
+                    resultado += "* ";
+                }
+                resultado += "\n"; // Saltar a la siguiente línea
+            }
+
+            // Mostrar el triángulo en el contenedor <pre> con id "triangulo"
+            document.getElementById("triangulo").textContent = resultado;
+        }
+    </script>
+</body>
+</html>

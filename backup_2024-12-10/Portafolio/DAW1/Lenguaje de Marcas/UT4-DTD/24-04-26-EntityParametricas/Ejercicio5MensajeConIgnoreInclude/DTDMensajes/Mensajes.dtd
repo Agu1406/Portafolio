@@ -1,0 +1,26 @@
+   <!-- Se definen entidades para los modos corto y largo, esto funciona como un
+   interruptor, aquella que lleve "INCLUDE" sera la que el DTD utilice y aquella
+   que lleve "IGNORE" no sera utilizada, si intercambios los valores aquí lo que
+   ocurrira es que "Mensajes.xml" tendra un error porque habremos activado el
+   modo corto el cual no puede incluir la etiqueta "<palabras>" -->
+<!ENTITY % corto "IGNORE">
+<!ENTITY % largo "INCLUDE">
+
+<!-- Se utiliza la entidad seleccionada para definir la estructura del elemento 'mensaje' -->
+   <![%corto;[
+<!ELEMENT mensaje (emisor, receptor, contenido)>
+]]>
+
+<!-- Si se elige el modo largo, se define la misma estructura para el elemento 'mensaje' -->
+   <![%largo;[
+<!ELEMENT mensaje (emisor, receptor, contenido, palabras)>
+]]>
+
+<!-- Definición de los elementos principales -->
+<!ELEMENT Mensajes (mensaje+)>
+
+<!-- Definición de los elementos 'emisor', 'receptor' y 'contenido' -->
+<!ELEMENT emisor (#PCDATA)>
+<!ELEMENT receptor (#PCDATA)>
+<!ELEMENT contenido (#PCDATA)>
+<!ELEMENT palabras (#PCDATA)>

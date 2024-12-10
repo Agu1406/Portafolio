@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #383838;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Este código altera todo el cuerpo del HTML, establece el
+color de fondo como blanco, la familia de fuentes utilizada,
+y establece que la forma en la que se organizan y visualizan
+los elementos es utilizando "flex", todos los elementos están
+alineados y justificados en el centro horizontal y verticalmente
+ y separados al menos "100vh" de la parte superior del borde,
+ cuenta con un overflow "hidden" que oculta de la pantalla todos
+ los elementos que se salgan de la pantalla que visualice el
+ sitio web, y tiene un margen "0" para que no haya separaciones
+ de ningún tipo en los elementos. */
+body {
+  background-color: #f1f1f1;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+
+.contenedor {
+  text-align: center;
+}
+
+/* Establece que se organice todo en flex lo que pone uno al lado
+del otro, con spae between lo que deja un espacio igual entre cada
+uno de los elementos, con su posición relativa al contenedor donde
+están permitiend que otros elementos (como la linea negra) no
+se muevan de sitio y puedan posicionarse delante, atras o en
+el mismo indice "Z" de los elementos. */ 
+.medidorProgreso {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+/* Se utiliza un pseudo elemento ::before lo que
+al momento de visualizar el sitio web indica que
+esto se muestra antes que el medidor de progreso,
+no tiene contenido, porque es una entidad decorativa,
+su posición es absoluta con respecto a la posición relativa
+de los otros elementos, está centrado utilizando ambos,
+un top 50% y un translate/(-50%), además, su indice "Z"
+es -1 garantizando que se muestre siempre por detras del
+resto de elementos dentro del contenedor padre.*/
+.medidorProgreso::before {
+  content: '';
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+/* Es una linea azul que empieza con 0% de ancho y cada
+vez ques se progrese un poco se posiciona sobre el
+pseudoelemento anterior pintando una raya azul entre los
+pasos completados y el paso actual. */
+.progreso {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+/* Establece las propiedades de cualquiera de los circulos
+indicativos de "X" paso a seguir cuando se está inactivo. */
+.circulo {
+  background-color: #f1f1f1;
+  color:#e2e2e2;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4s ease;
+}
+
+/* Hereda las propiedades anteriores y además, si el circulo está
+"activo" el borde se vuelve azul simbolizando el paso completado
+o el paso actual según el caso. */
+.circulo.activo {
+  border-color: var(--line-border-fill);
+}
+
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}

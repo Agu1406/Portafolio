@@ -1,0 +1,10 @@
+/* Le añado color y tamaño a las etiquetas NOMBRE Y PRECIO */
+NOMBRE {
+    color: blue;
+    font-size: 25px;
+}
+
+PRECIO {
+    color: green;
+    font-size: 35px;
+}

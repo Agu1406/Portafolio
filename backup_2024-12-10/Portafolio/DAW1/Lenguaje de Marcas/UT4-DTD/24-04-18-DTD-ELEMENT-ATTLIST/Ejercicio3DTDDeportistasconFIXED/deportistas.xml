@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE deportistas [
+  <!-- Define el elemento raíz 'deportistas' que puede contener múltiples 'f1', y opcionalmente un 'tenis' y un 'roblox' -->
+  <!ELEMENT deportistas (f1*, tenis?, roblox?, minecraft?)>
+  
+  <!-- Define el elemento 'f1' para contener texto (#PCDATA) -->
+  <!ELEMENT f1 (#PCDATA)>
+
+  <!-- 'pais' ahora es un atributo fijo que siempre debe ser "España"
+  otro valor ocasionaria errores en el código, "FIXED" nos permite 
+  obligar a que un valor siempre sea el deseado. -->
+  <!ATTLIST f1 pais CDATA #FIXED "España">
+
+  <!-- Define 'tenis' y 'roblox' como elementos que contienen texto
+  (#PCDATA). -->
+  <!ELEMENT tenis (#PCDATA)>
+  <!ELEMENT roblox (#PCDATA)>
+  <!ELEMENT minecraft (#PCDATA)>
+
+  <!ATTLIST minecraft pais CDATA #FIXED "España">
+]>
+<deportistas>
+    <f1 pais="España">Carlos Sainz</f1>
+    <f1>Fernando Alonso</f1>
+    <tenis>Rafa nadal</tenis>
+    <roblox>Agustin Marquez</roblox>
+    <minecraft pais="España">Paula Díaz</minecraft>
+</deportistas>

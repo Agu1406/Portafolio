@@ -1,0 +1,23 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="grupo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="persona" type="datosDePersona" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="datosDePersona">
+        <xs:sequence>
+            <xs:group ref="datosBasicos"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="datosBasicos">
+        <xs:sequence>
+            <xs:element name="pais"/>
+            <xs:element name="ciudd"/>
+            
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

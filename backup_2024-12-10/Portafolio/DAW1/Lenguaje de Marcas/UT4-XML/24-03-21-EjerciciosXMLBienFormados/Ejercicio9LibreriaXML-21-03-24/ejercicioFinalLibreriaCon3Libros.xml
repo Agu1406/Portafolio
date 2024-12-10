@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libreria>
+    <libro>
+        <autores>Miguel de Cervantes</autores>
+        <titulo>Don Quijote de la Mancha</titulo>
+        <editorial>Editorial Española</editorial>
+        <fecha_publiacion>1605</fecha_publiacion>
+        <isbn>978-84-376-0494-7</isbn>
+    </libro>
+    <libro>
+        <autores>Federico García Lorca</autores>
+        <titulo>Bodas de sangre</titulo>
+        <editorial>Editorial Española</editorial>
+        <fecha_publiacion>1933</fecha_publiacion>
+        <isbn>978-84-376-2645-9</isbn>
+    </libro>
+    <libro>
+        <autores>Camilo José Cela</autores>
+        <titulo>La familia de Pascual Duarte</titulo>
+        <editorial>Editorial Española</editorial>
+        <fecha_publiacion>1942</fecha_publiacion>
+        <isbn>978-84-233-5442-1</isbn>
+    </libro>
+</libreria>

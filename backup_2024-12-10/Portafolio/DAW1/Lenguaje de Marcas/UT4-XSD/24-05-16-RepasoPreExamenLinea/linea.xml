@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<linea xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./xsd/linea.xsd.">
+    <inicio x="33,56" y="18,45"/>
+    <fin x="34,56" y="87,8"/>
+</linea>

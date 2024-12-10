@@ -1,0 +1,19 @@
+<!-- Definición del esquema XML -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Definición del elemento raíz "animales" -->
+    <xs:element name="animales">
+        <!-- Especifica que "animales" es un tipo complejo -->
+        <xs:complexType>
+            <!-- Permite una elección (choice) entre varios elementos hijos, pero solo uno. -->
+            <xs:choice>
+                <!-- Definición del elemento "OsoPolar" que puede ocurrir como máximo una vez y es de tipo cadena (string) -->
+                <xs:element name="OsoPolar" maxOccurs="1" type="xs:string"/>
+                <!-- Definición del elemento "Cat" que puede ocurrir como máximo una vez y es de tipo cadena (string) -->
+                <xs:element name="Cat" maxOccurs="1" type="xs:string"/>
+                <!-- Definición del elemento "Dog" que puede ocurrir como máximo una vez y es de tipo cadena (string) -->
+                <xs:element name="Dog" maxOccurs="1" type="xs:string"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>

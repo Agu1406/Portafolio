@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Importamos la hoja de estilos CSS que utilizaremos. -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    
+    <!-- Creamos el contenedor principal que sera la "caja" donde crearemos
+     todo el medidor de progreso-->
+     <div class="contenedor">
+        <!-- Creamos dentro de la caja principal el contendor donde ira
+         el medidor de progreso -->
+         <div class="medidorProgreso">
+            <div class="progreso" id="progreso"></div>
+            <!-- Creamos los circulos que el usuario vera en pantalla indicando
+             en cada momento en que paso actual se encuentre de una serie de
+             acciones de cuatro pasos que debe realizar, la palabra "activo"
+             se quitara y añadira al circulo que corresponda usando JavaScript. -->
+            <div class="circulo activo">1</div>
+            <div class="circulo">2</div>
+            <div class="circulo">3</div>
+            <div class="circulo">4</div>
+         </div>
+
+          <!-- Dentro del contenedor principal creamos los botones de "siguiente"
+          y "anterior" paso. -->
+          <button class="boton" id="siguiente">Siguiente</button>
+
+          <!-- Como empezamos por el primer paso el botón de "anterior" está
+           inicialmente desactivado ("disabled") ya que solo se podra volver
+           atrás a partir del segundo paso, el estado del botón cambiara con
+           el JavaScrip. -->
+          <button class="boton" id="anterior" disabled>Anterior</button>
+
+     </div>
+
+     <!-- Importamos el Scrip de JavaScript que vamos a utilizar -->
+      <script src="script.js"></script>
+</body>
+</html>

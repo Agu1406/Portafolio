@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Manos a la Olla</title>
+    <link rel="stylesheet" href="./estilos/main.css">
+</head>
+<body>
+    <header></header>
+
+    <main class="contenedor">
+        <div class="formulario-acceso">
+            <h1 class="formulario-acceso__titulo">Crear una cuenta nueva</h1>
+            
+            <form class="formulario">
+                <div class="formulario__grupo">
+                    <label for="nombre" class="formulario__etiqueta">Nombre completo</label>
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        class="formulario__entrada"
+                        required
+                        aria-required="true"
+                        minlength="2"
+                    >
+                </div>
+
+                <div class="formulario__grupo">
+                    <label for="fecha_nacimiento" class="formulario__etiqueta">Fecha de nacimiento</label>
+                    <input 
+                        type="date" 
+                        id="fecha_nacimiento" 
+                        class="formulario__entrada"
+                        required
+                        aria-required="true"
+                    >
+                    <span class="formulario__ayuda">Debes ser mayor de 65 años para registrarte</span>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label for="email" class="formulario__etiqueta">Correo electrónico</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        class="formulario__entrada"
+                        placeholder="tucorreo@ejemplo.com"
+                        required
+                        aria-required="true"
+                    >
+                </div>
+
+                <div class="formulario__grupo">
+                    <label for="password" class="formulario__etiqueta">Contraseña</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        class="formulario__entrada"
+                        required
+                        aria-required="true"
+                        minlength="8"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="Debe contener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y números"
+                    >
+                    <button type="button" class="formulario__mostrar-password" aria-label="Mostrar contraseña">
+                        👁️
+                    </button>
+                    <span class="formulario__ayuda">La contraseña debe tener al menos 8 caracteres, una mayúscula y un número</span>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label class="formulario__checkbox">
+                        <input 
+                            type="checkbox" 
+                            name="terminos" 
+                            required
+                            aria-required="true"
+                        >
+                        <span class="formulario__texto">
+                            Acepto los <a href="terminos.html" class="formulario__enlace">términos y condiciones</a>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn--primario formulario__submit">
+                    Crear cuenta
+                </button>
+            </form>
+
+            <div class="formulario-acceso__alternativa">
+                <p>¿Ya tienes una cuenta?</p>
+                <a href="iniciar_sesion.html" class="btn btn--secundario">Iniciar sesión</a>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="./scripts/cargarComponentes.js"></script>
+    <script src="./scripts/validarRegistro.js"></script>
+</body>
+</html>

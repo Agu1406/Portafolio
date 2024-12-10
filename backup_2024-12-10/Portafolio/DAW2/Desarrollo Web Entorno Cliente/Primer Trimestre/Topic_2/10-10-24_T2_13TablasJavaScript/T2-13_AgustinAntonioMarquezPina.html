@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibuja una tabla con JavaScript</title>
+</head>
+<style>
+    table, tr, td {
+        border-collapse: collapse; /* Evita que se dupliquen los bordes*/
+        border: 1px solid black; /* Añade un borde negro a cada celda */
+        padding: 10px; /* Espaciado dentro de cada celda */
+        text-align: center; /* Alinea el contenido al centro */
+    }
+</style>
+<body>
+    <h1>Pinta tablas con JavaScript</h1>
+    <br>
+    <p>Introduce dos números enteros positivos, el primero define la cantidad de filas, el segundo define la cantidad de columnas.</p>
+    
+    <p>Introduce el número de filas: </p>
+    <input type="number" name="filas" id="filas" placeholder="¿Cuántas filas?" min="1">
+    <br>
+    <p>Introduce el número de columnas: </p>
+    <input type="number" name="columnas" id="columnas" placeholder="¿Cuántas columnas?" min="1">
+    <br><br>
+    <button onclick="pintarTablas()">Dibujar la tabla</button>
+    <br><br>
+    
+    <div id="contenedor"></div>
+
+    <script>
+        /**
+         * Función que dibuja una tabla personalizada
+         * con el tamaño definido por el usuario
+         * indicando la cantidad de filas y columnas.
+         */
+        function pintarTablas() {
+            // Obtenemos el contenedor donde pintaremos la tabla.
+            var contenedor = document.getElementById("contenedor");
+
+            // En caso de que existiese una tabla previa en el contenedor, la borramos.
+            contenedor.innerHTML = "";
+
+            // Obtenemos el valor de las filas y columnas desde los inputs.
+            var filas = parseInt(document.getElementById("filas").value);
+            var columnas = parseInt(document.getElementById("columnas").value);
+
+            // Validamos si los valores son números enteros positivos.
+            if (isNaN(filas) || filas <= 0 || isNaN(columnas) || columnas <= 0) {
+                alert("Introduce números enteros positivos para filas y columnas.");
+                return;
+            }
+
+            // Creamos la tabla.
+            var tabla = document.createElement("table");
+
+            // Establecemos como el primer número de la primera columna en 1.
+            var contador = 1;
+
+            // Creamos los bucles anidados que pintarán la tabla.
+            for (var i = 0; i < filas; i++) {
+                // Creamos una fila.
+                var fila = document.createElement("tr");
+
+                // Dentro de esa fila, creamos las columnas.
+                for (var j = 0; j < columnas; j++) {
+                    // Creamos una columna.
+                    var columna = document.createElement("td");
+
+                    // Asignamos un número a la celda.
+                    columna.textContent = contador;
+
+                    // Incrementamos la variable contador.
+                    contador++;
+
+                    // Añadimos la columna a la fila.
+                    fila.appendChild(columna);
+                }
+
+                // Añadimos la fila a la tabla.
+                tabla.appendChild(fila);
+            }
+
+            // Añadimos la tabla al contenedor.
+            contenedor.appendChild(tabla);
+        }
+    </script>
+</body>
+</html>
