@@ -1,11 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Contacto - Manos a la Olla</title>
+    <link rel="stylesheet" href="./estilos/main.css">
 </head>
 <body>
-    
+    <header></header>
+
+    <main class="contenedor">
+        <div class="contacto">
+            <section class="contacto__info">
+                <h1 class="contacto__titulo">Contacta con nosotros</h1>
+                <p class="contacto__descripcion">
+                    ¿Tienes alguna pregunta o sugerencia? Nos encantaría escucharte. 
+                    Rellena el formulario y te responderemos lo antes posible.
+                </p>
+
+                <div class="contacto__detalles">
+                    <div class="contacto__detalle">
+                        <span class="contacto__icono">📍</span>
+                        <div>
+                            <h3>Dirección</h3>
+                            <p>Calle Mayor 123, 28001 Madrid</p>
+                        </div>
+                    </div>
+
+                    <div class="contacto__detalle">
+                        <span class="contacto__icono">📞</span>
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p>+34 900 123 456</p>
+                        </div>
+                    </div>
+
+                    <div class="contacto__detalle">
+                        <span class="contacto__icono">✉️</span>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@manosalaolla.es</p>
+                        </div>
+                    </div>
+
+                    <div class="contacto__detalle">
+                        <span class="contacto__icono">⏰</span>
+                        <div>
+                            <h3>Horario de atención</h3>
+                            <p>Lunes a Viernes: 9:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contacto__redes">
+                    <h3>Síguenos en redes sociales</h3>
+                    <div class="contacto__redes-lista">
+                        <a href="#" class="contacto__red-social">Facebook</a>
+                        <a href="#" class="contacto__red-social">Instagram</a>
+                        <a href="#" class="contacto__red-social">Twitter</a>
+                        <a href="#" class="contacto__red-social">YouTube</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contacto__formulario">
+                <form class="formulario">
+                    <div class="formulario__grupo">
+                        <label for="nombre" class="formulario__etiqueta">Nombre completo</label>
+                        <input 
+                            type="text" 
+                            id="nombre" 
+                            class="formulario__entrada"
+                            required
+                            aria-required="true"
+                        >
+                    </div>
+
+                    <div class="formulario__grupo">
+                        <label for="email" class="formulario__etiqueta">Correo electrónico</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="formulario__entrada"
+                            required
+                            aria-required="true"
+                        >
+                    </div>
+
+                    <div class="formulario__grupo">
+                        <label for="asunto" class="formulario__etiqueta">Asunto</label>
+                        <select id="asunto" class="formulario__entrada">
+                            <option value="">Selecciona un asunto</option>
+                            <option value="soporte">Soporte técnico</option>
+                            <option value="sugerencia">Sugerencia</option>
+                            <option value="colaboracion">Colaboración</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="formulario__grupo">
+                        <label for="mensaje" class="formulario__etiqueta">Mensaje</label>
+                        <textarea 
+                            id="mensaje" 
+                            class="formulario__entrada formulario__entrada--textarea"
+                            rows="6"
+                            required
+                            aria-required="true"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--primario formulario__submit">
+                        Enviar mensaje
+                    </button>
+                </form>
+            </section>
+        </div>
+
+        <section class="mapa">
+            <h2 class="mapa__titulo">Nuestra ubicación</h2>
+            <div class="mapa__contenedor">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.67890!2d-3.123456!3d40.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDA3JzM0LjQiTiAzwrAwNyc0NC40Ilc!5e0!3m2!1ses!2ses!4v1234567890"
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    title="Ubicación de Manos a la Olla"
+                ></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="./scripts/cargarComponentes.js"></script>
 </body>
 </html>

@@ -3,9 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi perfil</title>
+    <title>Mi Perfil - Manos a la Olla</title>
+    <link rel="stylesheet" href="./estilos/main.css">
 </head>
 <body>
-    
+    <header></header>
+
+    <main class="contenedor">
+        <div class="perfil">
+            <div class="perfil__cabecera">
+                <img src="./assets/perfil-banner.jpg" alt="" class="perfil__banner">
+                <div class="perfil__info">
+                    <img src="./assets/avatar1.jpg" alt="María García" class="perfil__avatar">
+                    <div class="perfil__datos">
+                        <h1 class="perfil__nombre">María García</h1>
+                        <p class="perfil__bio">Apasionada por la cocina tradicional española. Me encanta compartir recetas de mi abuela.</p>
+                        <div class="perfil__estadisticas">
+                            <div class="perfil__stat">
+                                <span class="perfil__numero">125</span>
+                                <span class="perfil__etiqueta">Recetas</span>
+                            </div>
+                            <div class="perfil__stat">
+                                <span class="perfil__numero">1.2k</span>
+                                <span class="perfil__etiqueta">Seguidores</span>
+                            </div>
+                            <div class="perfil__stat">
+                                <span class="perfil__numero">450</span>
+                                <span class="perfil__etiqueta">Siguiendo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="perfil__navegacion">
+                <button class="perfil__tab perfil__tab--activo">Mis Recetas</button>
+                <button class="perfil__tab">Guardados</button>
+                <button class="perfil__tab">Me gusta</button>
+            </nav>
+
+            <div class="perfil__contenido">
+                <!-- Grid de publicaciones -->
+                <div class="publicaciones-grid">
+                    <article class="publicacion-miniatura">
+                        <img src="./assets/receta1.jpg" alt="Paella valenciana" class="publicacion-miniatura__imagen">
+                        <div class="publicacion-miniatura__overlay">
+                            <div class="publicacion-miniatura__stats">
+                                <span>❤️ 234</span>
+                                <span>💬 45</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Más publicaciones... -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="./scripts/cargarComponentes.js"></script>
 </body>
 </html>
