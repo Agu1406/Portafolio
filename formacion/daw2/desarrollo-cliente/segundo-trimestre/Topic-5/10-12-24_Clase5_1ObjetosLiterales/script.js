@@ -23,17 +23,22 @@ let punto = {
 console.log(punto.devolverCoord());
 
 
-
+// Otra forma de crear objetos es, literalmente haciendo un "new object"
 let punto2 = new Object();
+// Luego, usando un "." definimo tanto los atributos como sus valores.
 punto2.x = 12;
 punto2.y = punto2.x * 2;
+
+// y podemos crear / usar funciones desde ellos escribiendolas directamente.
 punto2.devolverCoord = function() {
     return ("punto2: " + `(${punto2.x}, ${punto2.y})`);
 };
+
+// Probamos todo, la función y los atributos.
 console.log(punto2.devolverCoord()); //(12, 24)
 
 
-
+// Aquí declaramos otra vez de forma literal un objeto y sus atributos y valores.
 let punto3 = {
     x: prompt('3. Introduce la coordenada x.', '2'),
     y: prompt('3. Introduce la coordenada y.', '1'),
@@ -41,6 +46,7 @@ let punto3 = {
         console.log("punto3: " + `(${this.x}, ${this.y})`);//Aquí hacemos una prueba con this, que es igual que punto3.
     }
 };
+
 punto3.mostrarCoord(); //(?, ?)
 
 

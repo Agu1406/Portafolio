@@ -20,6 +20,8 @@ function crearCoche(marcaCoche, modeloCoche, colorCoche) {
     }
     return coche;
 }
+
+
 let objCoche1 = crearCoche('Tesla', 'S', 'rojo');
 let objCoche2 = crearCoche('Toyota', 'Yaris', 'azul');
 objCoche1.datos();
@@ -34,7 +36,9 @@ function Coche(marcaCoche, modeloCoche, colorCoche) {
     console.log(`[Por constructor]\nEl coche es de la marca ${this.marca} y del color ${this.color}`);
   };
 }
-let coche1 = new Coche('Tesla', 'S', 'rojo');
+let 
+
+coche1 = new Coche('Tesla', 'S', 'rojo');
 let coche2 = new Coche('Toyota', 'Yaris', 'azul');
 coche1.datos();
 coche2.datos();

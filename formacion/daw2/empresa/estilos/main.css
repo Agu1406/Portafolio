@@ -11,11 +11,11 @@
     --color-fondo-suave: #f8f0cc40;
     
     /* Tamaños de fuente más grandes para mejor accesibilidad */
-    --fuente-xxl: 2.5rem;
-    --fuente-xl: 2rem;
-    --fuente-lg: 1.75rem;
-    --fuente-md: 1.5rem;
-    --fuente-base: 1.25rem;
+    --fuente-xxl: 3rem;
+    --fuente-xl: 2.2rem;
+    --fuente-lg: 1.8rem;
+    --fuente-md: 1.3rem;
+    --fuente-base: 1.5rem;
     --fuente-sm: 1.1rem;
     
     --espaciado: 1rem;
@@ -112,8 +112,8 @@ body {
 
 .publicacion__imagen {
     width: 100%;
-    min-height: 300px;
-    max-height: 500px;
+    height: auto;
+    max-height: 400px;
     object-fit: cover;
     border-radius: 12px;
     margin: var(--espaciado) 0;
@@ -148,8 +148,8 @@ body {
 /* Botones */
 .btn {
     display: inline-block;
-    padding: calc(var(--espaciado) / 2) var(--espaciado);
-    font-size: var(--fuente-base);
+    padding: calc(var(--espaciado) * 2) var(--espaciado);
+    font-size: var(--fuente-xxl);
     border-radius: 8px;
     text-decoration: none;
     cursor: pointer;
@@ -1698,4 +1698,9 @@ body {
 
 .seccion--claro {
     background-color: var(--color-fondo);
+}
+
+.publicacion__imagen-input {
+    margin: var(--espaciado);
+    font-size: var(--fuente-lg);
 }
