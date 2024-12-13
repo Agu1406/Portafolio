@@ -8,22 +8,18 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <!-- La cabecera se carga siempre dinamicamente. -->
     <header></header>
-    <!-- Cuerpo principal del HTML (vista) -->
     <main>
         <div class="contenedor-principal">
             <h1>Bienvenido a tumercado.com</h1>
             <div class="seccion">
-                <!-- Div de la izquierda con H1 y párrafo -->
                 <div class="izquierda">
                     <h1>Los mejores productos al mejor precio</h1>
                     <p>&emsp; Accede a tu cuenta para poder gestionar tus compras, tus pedidos
                         y acceder a nuestras ofertas y mucho más.</p>
                 </div>
-                <!-- Div de la derecha con el formulario -->
                 <div class="derecha">
-                    <form class="login-form" action="../controladores/validar_login.php" method="post">
+                    <form id="login-form" class="login-form">
                         <label for="usuario">Usuario</label>
                         <input type="text" name="usuario" id="usuario" placeholder="Ingresa tu usuario">
                         <label for="contrasena">Contraseña</label>
@@ -34,7 +30,7 @@
             </div>
         </div>
     </main>
-    <!-- El pie de pagina siempre se carga dinamicamente. -->
     <footer></footer>
+    <script src="script.js"></script>
 </body>
 </html>
