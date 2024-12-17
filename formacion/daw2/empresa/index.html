@@ -89,8 +89,12 @@
             });
         }
 
-        // Llamar a la función de mostrar login al cargar la página
-        window.onload = mostrarLogin;
+        // Llamar a la función de mostrar login solo si el usuario lo elige desde el menú
+        function iniciar() {
+            mostrarPublicaciones(); // Mostrar las publicaciones al cargar la página
+        }
+
+        window.onload = iniciar;
 
         // Función para leer el contenido en voz alta
         function leerContenido() {
