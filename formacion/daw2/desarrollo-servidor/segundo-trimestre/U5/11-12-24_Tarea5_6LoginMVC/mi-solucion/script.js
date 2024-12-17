@@ -23,8 +23,8 @@ formulario.addEventListener("submit", function(event) {
 const usuario = formulario.usuario.value;
 const contrasena = formulario.contrasena.value;
 
-// Creamos un objeto JSON donde guardamos los datos extraidos
-const datos = JSON.stringify(
+// Creamos un array que luego sera convertido en un JSON
+const datos =
     /***
      * Esto lo vimos en cliente, podemos crear objetos dentro
      * de otros objetos (anidación de objetos), usando llaves
@@ -34,13 +34,10 @@ const datos = JSON.stringify(
     {
         usuario: usuario,
         contrasena: contrasena
-    }
-    // Fuera de las llaves cerramos los argumentos "()" del JSON.
-);
+    };
 
 // Convertimos este objeto en un JSON.
-const datosJSON = new JSON.stringify(datos);
-
+const datosJSON = JSON.stringify(datos);
 
 // Instanciamos una nueva conexión con XMLHTTPREQUEST();
 const conexion = new XMLHttpRequest();
@@ -54,3 +51,44 @@ const conexion = new XMLHttpRequest();
  */
 conexion.open("POST", "../servidor.php", true);
 
+/**
+ * Ya abierta la conexión debemos indicar que tipo de contenido
+ * (Content-Type), en nuestro caso estamos enviando un JSON
+ * (application/json).
+ */
+conexion.setRequestHeader("Content-Type", "application/json");
+
+// Enviamos a través de la conexión nuestro JSON.
+conexion.send(datosJSON);
+
+
+/**
+ * Como muchas cosas puede salir mal durante la conexión y el
+ * envio de datos verificamos que todo sea correcto, primero
+ * con "readyState" que tiene nos indíca el estado actual
+ * del envio, sus posibles códigos son:
+ * 
+ * 0 (UNSENT): El método open() no ha sido llamado aún.
+ * 1 (OPENED): Se ha hecho "open()" pero no se ha enviado nada.
+ * 2 (HEADERS_RECEIVED): El servidor ha recibido la solicitud
+ * y ha enviado la respuesta inicial.
+ * 3 (LOADING): El servidor está enviando la respuesta.
+ * 4 (DONE): La solicitud ha terminado y la respuesta está completamente recibida.
+ * 
+ * Nos interesa el código "4" que es un rotundo "Todo OK".
+ * 
+ * El segundo es "status" que también tienen diferentes códigos
+ * con diferentes significados, los cuales son:
+ * 
+ * 200: Solicitud exitosa.
+ * 404: Recurso no encontrado.
+ * 500: Error interno del servidor.
+ * 
+ * En nuestro caso, nos interesa confirmar que todo este "OK",
+ * es decir, el código "200".
+ */
+conexion.onreadystatechange = function () {
+    if (conexion.readyState === 4 && conexion.status === 200) {
+
+    }
+};
