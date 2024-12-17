@@ -17,7 +17,7 @@ let persona = {
      * nombre y apellido.
      */
     nombre : {
-        nombre: "Agustín",
+        pila: "Agustín",
         apellido: "Piña"
     },
 
@@ -39,11 +39,11 @@ let persona = {
     
     // Función que imprime en un alert un saludo de persona.
     saludo: function () {
-        alert("¡Hola! Mi nombre es: " + persona.nombre.nombre + " y mi apellido es: " + persona.nombre.apellido);
+        alert("¡Hola! Mi nombre es: " + this.nombre.pila + " y mi apellido es: " + this.apellido);
     },
     // Función que imprime los datos biologicos de la persona.
     bio: function () {
-        alert(this.persona.nombre + " tiene " + persona.edad + " años y su genero es: " + persona.genero);
+        alert(this.nombre.pila + " tiene " + this.edad + " años y su genero es: " + this.genero);
     }
 };
 
@@ -60,7 +60,7 @@ let persona = {
  * "nombre" y dentro de nombre acceder a "nombre" o
  * "apellido" según nos interese.
  */
-console.log("Nombre: " + persona.nombre.nombre);
+console.log("Nombre: " + persona.nombre.pila);
 console.log("Apellido: " + persona.nombre.apellido);
 
 /**
