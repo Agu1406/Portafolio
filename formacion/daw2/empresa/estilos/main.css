@@ -52,6 +52,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .navegacion__logo-imagen {
@@ -61,9 +62,11 @@ body {
 .navegacion__enlace {
     color: white;
     text-decoration: none;
-    padding: calc(var(--espaciado) / 2) var(--espaciado);
-    font-size: var(--fuente-md);
+    padding: calc(var(--espaciado) * 1.5) var(--espaciado);
+    font-size: var(--fuente-lg);
     border-radius: 8px;
+    flex: 1;
+    text-align: center;
 }
 
 .navegacion__enlace:hover {
@@ -198,7 +201,9 @@ body {
 /* Media queries */
 @media (max-width: 768px) {
     .navegacion__menu {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
     
     .publicacion__acciones {

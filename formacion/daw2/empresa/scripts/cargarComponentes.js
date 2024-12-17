@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 // Función para mostrar las publicaciones
 function mostrarPublicaciones() {
-    const contenedorPublicaciones = document.querySelector('.publicacion'); // Cambiar por el contenedor correcto
+    const contenedorPublicaciones = document.getElementById('contenedorPublicaciones'); // Cambiar por el contenedor correcto
     contenedorPublicaciones.innerHTML = ''; // Limpiar el contenedor
 
     publicaciones.forEach(pub => {
@@ -69,8 +69,29 @@ function mostrarPublicaciones() {
                 <div class="publicacion__fecha">${pub.fecha}</div>
             </div>
             <p class="publicacion__contenido">${pub.contenido}</p>
-            <img src="${pub.imagen}" alt="Receta" class="publicacion__imagen" /> <!-- Mostrar la imagen -->
+            <img src="${pub.imagen}" alt="Receta" class="publicacion__imagen" />
+            <div class="publicacion__acciones">
+                <button class="publicacion__boton" onclick="meGusta('${pub.usuario}')">
+                    <span>👍</span> Me gusta
+                </button>
+                <button class="publicacion__boton" onclick="comentar('${pub.usuario}')">
+                    <span>💬</span> Comentar
+                </button>
+            </div>
         `;
         contenedorPublicaciones.innerHTML += publicacionHTML; // Agregar la nueva publicación al contenedor
     });
+}
+
+// Función para manejar "Me gusta"
+function meGusta(usuario) {
+    alert(`Te gusta la publicación de ${usuario}`);
+}
+
+// Función para manejar comentarios
+function comentar(usuario) {
+    const comentario = prompt(`Escribe tu comentario para ${usuario}:`);
+    if (comentario) {
+        alert(`Comentario enviado a ${usuario}: ${comentario}`);
+    }
 } 

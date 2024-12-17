@@ -13,7 +13,7 @@
         <section class="seccion seccion--claro">
             <div class="contenedor">
                 <div class="publicacion--crear">
-                    <form class="publicacion__formulario">
+                    <form class="publicacion__formulario" id="formPublicacion">
                         <textarea 
                             placeholder="¿Qué estás cocinando hoy?" 
                             class="publicacion__entrada"
@@ -26,82 +26,8 @@
                 </div>
 
                 <!-- Feed de publicaciones -->
-                <div class="publicacion">
-                    <div class="publicacion__cabecera">
-                        <img src="./imagenes/maria-garcia.png" alt="María García" class="publicacion__avatar">
-                        <div>
-                            <div class="publicacion__usuario">María García</div>
-                            <div class="publicacion__fecha">Hace 2 horas</div>
-                        </div>
-                    </div>
-                    <p class="publicacion__contenido">
-                        ¡Hoy preparé la receta de mi abuela! Estas empanadas gallegas quedaron deliciosas. 
-                        La clave está en el sofrito del relleno. ¿Alguien quiere la receta?
-                    </p>
-                    <img src="https://images.unsplash.com/photo-1628191010210-a59de33e5941" alt="Empanadas gallegas" class="publicacion__imagen" loading="lazy">
-                    <div class="publicacion__acciones">
-                        <button class="publicacion__boton">
-                            <span>👍</span> Me gusta
-                        </button>
-                        <button class="publicacion__boton">
-                            <span>💬</span> Comentar
-                        </button>
-                        <button class="publicacion__boton">
-                            <span>📤</span> Compartir
-                        </button>
-                    </div>
-                </div>
-
-                <div class="publicacion">
-                    <div class="publicacion__cabecera">
-                        <img src="./imagenes/juan-perez.jpg" alt="Juan Pérez" class="publicacion__avatar">
-                        <div>
-                            <div class="publicacion__usuario">Juan Pérez</div>
-                            <div class="publicacion__fecha">Hace 5 horas</div>
-                        </div>
-                    </div>
-                    <p class="publicacion__contenido">
-                        Paella dominical con la familia. Una tradición que mantenemos desde hace 30 años. 
-                        El secreto está en el caldo casero y el arroz bomba.
-                    </p>
-                    <img src="https://images.unsplash.com/photo-1534080564583-6be75777b70a" alt="Paella valenciana" class="publicacion__imagen" loading="lazy">
-                    <div class="publicacion__acciones">
-                        <button class="publicacion__boton">
-                            <span>👍</span> Me gusta
-                        </button>
-                        <button class="publicacion__boton">
-                            <span>💬</span> Comentar
-                        </button>
-                        <button class="publicacion__boton">
-                            <span>📤</span> Compartir
-                        </button>
-                    </div>
-                </div>
-
-                <div class="publicacion">
-                    <div class="publicacion__cabecera">
-                        <img src="./imagenes/carmen-martinez.jpg" alt="Carmen Martínez" class="publicacion__avatar">
-                        <div>
-                            <div class="publicacion__usuario">Carmen Martínez</div>
-                            <div class="publicacion__fecha">Hace 1 día</div>
-                        </div>
-                    </div>
-                    <p class="publicacion__contenido">
-                        Mi primera vez haciendo pan casero. ¡No puedo creer lo bien que ha salido! 
-                        Gracias a todos por los consejos en el grupo.
-                    </p>
-                    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73" alt="Pan casero recién horneado" class="publicacion__imagen" loading="lazy">
-                    <div class="publicacion__acciones">
-                        <button class="publicacion__boton">
-                            <span>👍</span> Me gusta
-                        </button>
-                        <button class="publicacion__boton">
-                            <span>💬</span> Comentar
-                        </button>
-                        <button class="publicacion__boton">
-                            <span>📤</span> Compartir
-                        </button>
-                    </div>
+                <div class="publicacion" id="contenedorPublicaciones">
+                    <!-- Las publicaciones se cargarán aquí -->
                 </div>
             </div>
         </section>
@@ -109,6 +35,35 @@
 
     <footer></footer>
 
-    <script src="./scripts/cargar_componentes.js"></script>
+    <script src="./scripts/cargarComponentes.js"></script>
+    <script>
+        // Función para simular el login
+        function iniciarSesion() {
+            const email = prompt("Ingrese su correo electrónico:");
+            const password = prompt("Ingrese su contraseña:");
+
+            if (email === "ejemplo@manosalaolla.com" && password === "1234ABCD") {
+                alert("Inicio de sesión exitoso");
+            } else {
+                alert("Credenciales incorrectas");
+            }
+        }
+
+        // Llamar a la función de inicio de sesión al cargar la página
+        window.onload = iniciarSesion;
+
+        // Función para leer el contenido en voz alta
+        function leerContenido() {
+            const texto = document.body.innerText; // Obtener todo el texto del cuerpo
+            const utterance = new SpeechSynthesisUtterance(texto);
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Botón para leer el contenido
+        const btnLeer = document.createElement('button');
+        btnLeer.innerText = "Leer contenido en voz alta";
+        btnLeer.onclick = leerContenido;
+        document.body.prepend(btnLeer); // Agregar el botón al inicio del body
+    </script>
 </body>
 </html>
