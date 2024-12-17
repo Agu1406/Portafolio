@@ -15,7 +15,31 @@
 
     <main>
         <h1>Titulo de la actividad</h1>
-        <p>Descripción de la actividad.</p>
+        <p>Crea un tipo de objeto que sirva para representar una Carta. Tendrá dos propiedades:</p>
+        <ul>
+            <li><strong>Palo:</strong> un número de 1 a 4 (1 - oros; 2 - espadas; 3 - bastos; 4 - copas).</li>
+            <li><strong>Valor:</strong> un número del 1 al 10 (8 - sota; 9 - caballo; 10 - rey).</li>
+        </ul>
+        <p>Los objetos de este tipo se construirán indicando el palo y el valor. Si hay fallos en los datos, se devuelve un objeto nulo en la creación.</p>
+        
+        <p>Las cartas tendrán estos métodos:</p>
+        <ul>
+            <li><strong>darValor():</strong> recibe un número de palo y un valor y los asigna a la carta. Si recibe datos incorrectos, no hace nada.</li>
+            <li><strong>toString():</strong> devuelve (no imprime) un texto que describe la carta (por ejemplo: As de Oros).</li>
+        </ul>
+        
+        <p>Crea otro tipo de objeto que sirva para representar una Baraja de cartas. Contendrá las siguientes propiedades:</p>
+        <ul>
+            <li><strong>Cartas:</strong> array con las 40 cartas de una baraja.</li>
+        </ul>
+        
+        <p>Al construir la Baraja, se rellenan las cartas en el siguiente orden: por palos y, cada palo, con las cartas del 1 al 10. No se podrá acceder directamente al array fuera de la función constructora.</p>
+        
+        <p>Una baraja tendrá estos métodos:</p>
+        <ul>
+            <li><strong>barajar():</strong> baraja las cartas, desordenándolas de forma aleatoria.</li>
+            <li><strong>toString():</strong> devuelve un texto con el orden en el que están las cartas dentro de la baraja.</li>
+        </ul>
     </main>
 
     <footer>

@@ -9,7 +9,7 @@ body {
 
 /* Estilo del header */
 header {
-    background-color: #333;
+    background-color: darkgreen;
     color: #fff;
     padding: 15px 0;
     text-align: center;
@@ -28,13 +28,25 @@ main {
 
 main h1 {
     font-size: 2.5em;
-    color: #333;
+    color: darkgreen;
     margin-bottom: 20px;
 }
 
 main p {
     font-size: 1.2em;
     color: #666;
+    text-align: justify; /* Justificar el texto */
+}
+
+/* Estilo de las listas */
+ul {
+    list-style-type: disc; /* Cambiar el estilo de la lista a puntos */
+    padding-left: 20px; /* Espaciado a la izquierda */
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+li {
+    margin-bottom: 10px; /* Espaciado entre los elementos de la lista */
 }
 
 /* Estilo del contenedor del formulario */
@@ -98,7 +110,7 @@ main p {
 
 /* Estilo del footer */
 footer {
-    background-color: #333;
+    background-color: darkgreen;
     color: #fff;
     text-align: center;
     padding: 10px;
