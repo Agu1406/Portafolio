@@ -1,4 +1,23 @@
-let publicaciones = []; // Array para almacenar publicaciones
+let publicaciones = [
+    {
+        usuario: 'María García',
+        fecha: 'Hace 2 horas',
+        contenido: '¡Hoy preparé la receta de mi abuela! Estas empanadas gallegas quedaron deliciosas. La clave está en el sofrito del relleno. ¿Alguien quiere la receta?',
+        imagen: 'https://images.unsplash.com/photo-1628191010210-a59de33e5941'
+    },
+    {
+        usuario: 'Juan Pérez',
+        fecha: 'Hace 5 horas',
+        contenido: 'Paella dominical con la familia. Una tradición que mantenemos desde hace 30 años. El secreto está en el caldo casero y el arroz bomba.',
+        imagen: 'https://images.unsplash.com/photo-1534080564583-6be75777b70a'
+    },
+    {
+        usuario: 'Carmen Martínez',
+        fecha: 'Hace 1 día',
+        contenido: 'Mi primera vez haciendo pan casero. ¡No puedo creer lo bien que ha salido! Gracias a todos por los consejos en el grupo.',
+        imagen: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73'
+    }
+]; // Ejemplo de publicaciones
 
 function cargarComponente(url, elemento) {
     fetch(url)

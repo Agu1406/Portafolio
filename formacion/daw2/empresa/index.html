@@ -37,20 +37,60 @@
 
     <script src="./scripts/cargarComponentes.js"></script>
     <script>
-        // Función para simular el login
-        function iniciarSesion() {
-            const email = prompt("Ingrese su correo electrónico:");
-            const password = prompt("Ingrese su contraseña:");
+        // Variables para manejar el estado de inicio de sesión
+        let usuarioLogueado = false;
 
-            if (email === "ejemplo@manosalaolla.com" && password === "1234ABCD") {
-                alert("Inicio de sesión exitoso");
-            } else {
-                alert("Credenciales incorrectas");
-            }
+        // Función para mostrar el formulario de inicio de sesión
+        function mostrarLogin() {
+            const loginForm = document.createElement('div');
+            loginForm.innerHTML = `
+                <div class="formulario-acceso">
+                    <h1 class="formulario-acceso__titulo">Iniciar Sesión</h1>
+                    <form id="formLogin">
+                        <div class="formulario__grupo">
+                            <label for="email" class="formulario__etiqueta">Correo electrónico</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="formulario__entrada"
+                                placeholder="ejemplo@manosalaolla.com"
+                                required
+                            >
+                        </div>
+                        <div class="formulario__grupo">
+                            <label for="password" class="formulario__etiqueta">Contraseña</label>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="formulario__entrada"
+                                required
+                            >
+                        </div>
+                        <button type="submit" class="btn btn--primario">Iniciar Sesión</button>
+                    </form>
+                </div>
+            `;
+            document.body.prepend(loginForm);
+
+            // Manejar el envío del formulario de inicio de sesión
+            document.getElementById('formLogin').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                if (email === "ejemplo@manosalaolla.com" && password === "1234ABCD") {
+                    usuarioLogueado = true;
+                    alert("Inicio de sesión exitoso");
+                    loginForm.remove(); // Eliminar el formulario de inicio de sesión
+                    mostrarPublicaciones(); // Mostrar las publicaciones
+                } else {
+                    alert("Credenciales incorrectas");
+                }
+            });
         }
 
-        // Llamar a la función de inicio de sesión al cargar la página
-        window.onload = iniciarSesion;
+        // Llamar a la función de mostrar login al cargar la página
+        window.onload = mostrarLogin;
 
         // Función para leer el contenido en voz alta
         function leerContenido() {
