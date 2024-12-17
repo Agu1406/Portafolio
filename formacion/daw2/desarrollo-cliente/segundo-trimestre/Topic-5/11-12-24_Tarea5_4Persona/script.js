@@ -82,3 +82,50 @@ console.log(persona.edad);
  */
 persona.bio();
 persona.saludo();
+
+/**
+ *  * Ahora creamos un constructor que nos permita instanciar más
+ * objetos del tipo persona, para ellos hacemos una función
+ * que recibe como argumentos los atributos que hacen falta
+ * para crear una persona.
+ * 
+ * ¿Que es esto de "param" y para que se usa? Para que la
+ * función haga un "tipeado" de los argumentos que recibe
+ * y sepa que tipo de variables son, así carga los
+ * métodos de cada uno (gracias Aitor).
+ *  
+ * @param {String} pila es el primer nombre.
+ * @param {String} apellido es el apellido.
+ * @param {number} edad es la edad (número entero)
+ * @param {String} genero es el genero (texto)
+ * @param {array} intereses es un array númerico.
+ */
+function Persona (pila, apellido, edad, genero, intereses) {
+    // Creamos el objeto "nombre" combinando "pila" y "apellido".
+    this.nombre = {
+        // Dentro del objeto guardamos la pila y el apellido.
+        pila: pila,
+        apellido: apellido
+    };
+    // Guardamos los datos a secas del objeto.
+    this.edad = edad;
+    this.genero = genero;
+    this.intereses = intereses;
+
+    // Creamos los métodos que tendra cada objeto creado con el constructor
+    this.saludo = function () {
+        alert("¡Hola! Mi nombre es: " + this.nombre.pila + " y mi apellido es: " + this.nombre.apellido);
+    }
+
+    this.bio = function () {
+        alert(this.nombre.pila + " tiene " + this.edad + " años y su genero es: " + this.genero)
+    }
+};
+
+// Instanciamos un nuevo objeto persona usando el constrcutor
+let nuevaPersona = new Persona("Adrian", "Pascual", 19, "Masculino", ["gaming", "deportes"]);
+
+// Probamos sus valores y métodos
+console.log(nuevaPersona.nombre.pila);
+nuevaPersona.bio();
+nuevaPersona.saludo();

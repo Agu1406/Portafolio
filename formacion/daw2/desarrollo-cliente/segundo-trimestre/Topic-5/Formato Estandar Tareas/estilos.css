@@ -4,20 +4,42 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
 }
 
 /* Estilo del header */
 header {
-    background-color: #333;
+    background-color: green;
     color: #fff;
-    padding: 15px 0;
+    padding: 10px 0;
     text-align: center;
 }
 
-header p {
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
     margin: 0;
-    font-size: 1.2em;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Estilo del footer */
+footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    color: green;
+    border-top: 1px solid #ddd;
 }
 
 /* Estilo del main */
@@ -29,79 +51,9 @@ main {
 main h1 {
     font-size: 2.5em;
     color: #333;
-    margin-bottom: 20px;
 }
 
 main p {
     font-size: 1.2em;
     color: #666;
-}
-
-/* Estilo del contenedor del formulario */
-.contenedor-formulario {
-    display: flex;
-    justify-content: center; /* Centrar el formulario horizontalmente */
-    align-items: center; /* Centrar el formulario verticalmente */
-    padding: 20px; /* Espaciado alrededor del formulario */
-}
-
-/* Estilo del formulario */
-.formulario {
-    border: #333 solid 4px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 400px;
-    width: 100%; /* Asegura que el formulario no exceda el contenedor */
-}
-
-.formulario label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Estilo de los inputs y el botón de envío */
-.formulario input[type="text"],
-.formulario input[type="password"],
-.formulario input[type="submit"] {
-    width: 75%; /* Ancho máximo del 75% */
-    max-width: 75%; /* Asegura que no exceda el 75% */
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s;
-    display: block; /* Asegura que se comporten como bloques */
-    margin-left: auto; /* Centrar horizontalmente */
-    margin-right: auto; /* Centrar horizontalmente */
-}
-
-.formulario input[type="text"]:focus,
-.formulario input[type="password"]:focus {
-    border-color: #007bff;
-}
-
-.formulario input[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
-}
-
-.formulario input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/* Estilo del footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    font-size: 0.9em;
-    border-top: 1px solid #ddd;
 }
