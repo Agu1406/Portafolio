@@ -113,4 +113,7 @@ function comentar(usuario) {
     if (comentario) {
         alert(`Comentario enviado a ${usuario}: ${comentario}`);
     }
-} 
+}
+
+// Llamar a la función para mostrar las publicaciones al cargar la página
+document.addEventListener('DOMContentLoaded', mostrarPublicaciones); 
