@@ -105,4 +105,10 @@ function controlLogin() {
             }
         }
     };
+
+    let mensaje = document.getElementById("mensaje");
+
+    mensaje.innerHTML = responseText;
+
+    mensaje.style.opacity = "1";
 }
