@@ -69,14 +69,14 @@ public class Persona {
     @Override
     public String toString() {
         // Creamos el StringBuilder con valor inicial de DNI, el unico que nunca es null.
-        StringBuilder respuesta = new StringBuilder("DNI: " + DNI + "\n");
+        StringBuilder respuesta = new StringBuilder("DNI: " + DNI);
         // Si el valor de "nombre" es diferente de null ("!=null") se agrega a la respuesta.
         if (nombre != null) {
-            respuesta.append("Nombre: " + nombre + "\n");
+            respuesta.append(", Nombre: ").append(nombre);
         }
         // Si el valor de "edad" es diferente de null ("!=edad") se agrega a la respuesta.
         if (edad != null) {
-            respuesta.append("Edad: " + edad + "\n");
+            respuesta.append(", Edad: ").append(edad);
         }
         // Transformamos el StringBuilder a String para que sea un return valido.
         return respuesta.toString();
@@ -115,14 +115,14 @@ public class Persona {
      * número valido returna "true" si ">=18" y false si
      * no.
      *
-     * @param edad tipo Integer.
      * @return "true" si es mayor de 18 años, "false" si no.
      */
-    public boolean esMayorDeEdad (Integer edad) {
-        if (edad == null) {
+    public boolean esMayorDeEdad () {
+        if (this.edad == null) {
             System.out.println("¡Error! La edad debe ser un número entero valido.");
         } else {
-            return edad >= 18;
+            return this.edad >= 18;
         }
+        return false;
     }
 }
