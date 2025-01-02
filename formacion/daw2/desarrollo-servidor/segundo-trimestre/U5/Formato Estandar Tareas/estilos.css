@@ -7,6 +7,16 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Estilo del contenedor principal, debería funcionar bien en dispositivos
+moviles porque distribuye todo en una fracción, es decir, una sola
+sola columna. */
+.contenedor {
+    display: grid; /* Usar grid para el layout */
+    grid-template-columns: 1fr; /* Una columna para móviles */
+    gap: 20px; /* Espacio entre elementos */
+    min-height: 100vh; /* Ocupa el 100% de la pantalla del dispositivo que visualice */
+}
+
 /* Estilo del header */
 header {
     background-color: #333;
