@@ -1,4 +1,4 @@
-package GradoSuperiorDAW.SegundaEvaluacion.UT5ClasePersona;
+package GradoSuperiorDAW.SegundaEvaluacion.UT5ClaseCuenta;
 
 import java.util.Objects;
 
