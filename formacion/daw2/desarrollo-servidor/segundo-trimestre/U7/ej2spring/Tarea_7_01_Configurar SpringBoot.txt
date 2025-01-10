@@ -1,0 +1,59 @@
+==================================================================
+ Configurar SpringBoot
+ IES Arquitecto Ventura Rodríguez/DW2-2023-24/Prof.Mercedes Urios
+==================================================================
+
+Ref: https://spring.io/guides
+
+..........................................................................................
+Crear un proyecto SpringBoot con con Spring initializr
+..........................................................................................
+1º) Entra en Spring initializr > https://start.spring.io/
+
+> Selecciona tipo de proyecto "Maven"
+
+> Selecciona en Dependencias:
+
+	1)"Spring Web" para que tengamos un proyecto RESTful con el MVC de Spring y Tomcat como contenedor. ¡Buscadlo en internet y completad esta info!
+	
+	2)"Lombok" que ayuda a reducir código repetitivo(mi código; mis clases más limpias) ¡Buscadlo en internet y completad esta info!
+
+> Metadatos:
+	Packaging: jar (será un autoejecutable de Spring mientras que war requiere su despliegue en Tomcat) | Java: 17
+	________________________________________________________________________________________________________________
+	
+	Group: indica el grupo de proyectos al que pertenece este proyecto y el package name debe ser consitente con este: es.daw2
+	
+	Artifact: Es el id de proyecto que usará Maven para identificar este artefacto/proyecto. Tiene que ser corto y mejor sólo 	una palabra: ej1spring
+	
+	Name: se auto rellena. Lo cambio por algo mío como: Inicio daw2 con spring
+	
+	Description: Proyecto spring de daw2 2023-24
+
+	Pakage name: se auto rellena. Es el nombre del paquete java ppal de este proyecto. Sabiendo que Maven usa la nomenclaruta 	"reverse.domain.name", elijo: es.daw2.xxx
+
+2º) Pulsa abajo en GENERATE que te descarga un archivo ej1spring.zip
+
+3º) Extraer el zip anterior y estudiar el archivo pom.xml 
+POM significa Project Object Module de Maven. Su razón de existir es describir el proyecto de software a construir, sus dependencias de otros módulos y componentes externos; y el orden de construcción de los elementos. Ref: POM Maven Wiki
+
+4º) Abrir este archivo desde un IDE.
+Desde eclipse:
+File > Import > Maven > Existing Maven Projects > Next
+	Root-directory: en mi caso busco y selecciono: "Descargas/ej1spring"
+		Veo que en la subventana Projects, ha encontrado el pom.xml
+		>tic en Add project to working set
+		> Finish
+¡¡¡¡.... tienes que esperar unos segundos!!!!.... a que Maven cree todo el árbol de recursos de tu proyecto.
+
+5º) Ojear el contenido del pom y comporbar que define lo que es un proyecto Maven creado para Spring Boot 
+y hemos elegido que sea con Java 17.
+
+6º) Ojear la carpeta src/main/java ("la primera" ¡no la src de más abajo!) y ver que sólo tiene un paquete donde está el .java con la clase main y que esta, tiene el inicializador de la clase Ej1springApplication.
+
+7º) Ejecutar esta aplicación: sobre el archivo .java >click derecho> Run as> Java application.
+En los mensaje de consola (en mi caso de eclipse) compruebo que ha arrancado el servicio Tomcat en el puerto http:8080
+Y que la aplicación se ha arrancado. La paro (en eclipse pulso el botón rojo) para que termine.
+
+
+
