@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo 5.2 propagación de eventos</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+</head>
+
+<body>
+    <h3>Eventos en HTML</h3>
+    <p>Es interesante saber cómo se propagan los eventos sobre los contenedores de los elementos. Por ejemplo, si
+        tenemos una capa <code>div</code> que contiene un párrafo y dentro de este un botón, ¿podrá el párrafo capturar
+        un click sobre el botón? ¿Y el contenedor <code>div</code>?</p>
+    <h5>Abrir consola para ver el comportamiento</h5>
+    <h4>Ejemplo 1:</h4>
+    <div class='ejemplo' id='ejemplo1'>
+        <p id='parrafo1'>
+            <button id='boton1'>Haz click aquí.</button>
+        </p>
+    </div>
+    <hr>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo 5.1 captura de eventos</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+</head>
+
+<body>
+    <h3>Eventos desde el HTML</h3>
+    <p>En las primeras versiones de JS, la captura de eventos se realizaba desde el código HTML,
+        a traves de ciertos atributos. Aunque aún se puede hacer, no es aconsejable, ya que
+        hace más complejo el mantenimiento del código al mezclar lenguajes.</p>
+        
+    <h4>Ejemplo 1 (en HTML):</h4>
+    
+    <div class='ejemplo' id='ejemplo-1'>
+
+        <h3>Elementos asociados a eventos</h3>
+        <p>Para independizar el código JS del HTML, mejorando el mantenimiento, se permite 
+            utilizar propiedades con el mismo nombre que estos atributos.</p>
+
+        <h4>Ejemplo 2 (en script):</h4>
+        <div class='ejemplo' id='ejemplo-2'>
+            <p id='parrafo2'>Haz click aquí.</p>
+        </div>
+        <hr>
+
+        <h3>Aconsejable: <code>addEventListener</code></h3>
+        <p>Todos los elementos tienen disponible el método <code>addEventListener</code> para capturar eventos. Su
+            principal ventaja es que puede ejecutar más de una función con un mismo evento. Todos los navegadores
+            actuales lo reconocen.</p>
+        <h4>Ejemplo 3 (método):</h4>
+        <div class='ejemplo' id='ejemplo-3'>
+            <p id='parrafo3'>Haz click aquí.</p>
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo 5.3 control de eventos</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+</head>
+
+<body>
+    <h3>Anular eventos: <code>removeEventListener</code></h3>
+    <p>Los eventos se capturan de forma indefinida; sin embargo, en algunas ocasiones nos puede interesar que un evento
+        se capture solo una vez. Para estos casos, se puede usar el método <code>removeEventListener</code>. El método
+        anulará la función asociada a un evento, pero esta no puede ser anónima.</p>
+    <h4>Ejemplo 1:</h4>
+    <div class='ejemplo' id='ejemplo1'>
+        <p id='parrafo1'>Haz click aquí.</p>
+    </div>
+
+    <h3>Capturar elementos dinámicos</h3>
+    <p>Cuando se crea un "escuchador" de eventos, este se asocia a los elementos indicados siempre que existan en el
+        DOM. Lógicamente, si un elemento se crea después, no se capturará ningún evento asociado a él si no se indica
+        después de su creación.</p>
+    <h4>Ejemplo 2:</h4>
+    <div class='ejemplo' id='ejemplo2'>
+        <p id='parrafo2'>Haz click aquí (p2).</p>
+        <p id='parrafo3'>Haz click aquí (p3).</p>
+    </div>
+    <pre>El p4 se ha creado después en el script, por lo que no reacciona ante el evento asociados a los párrafos del Ejemplo 2.</pre>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
