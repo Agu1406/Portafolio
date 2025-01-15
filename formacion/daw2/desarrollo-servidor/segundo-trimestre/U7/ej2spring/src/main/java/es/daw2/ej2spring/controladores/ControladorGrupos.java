@@ -40,7 +40,7 @@ public class ControladorGrupos {
      * @return Lista actualizada de grupos.
      */
     @PostMapping("/grupos/crear")
-    public ArrayList<Grupo> crearGrupo(@PathVariable Grupo nuevoGrupo) {
+    public ArrayList<Grupo> crearGrupo(@RequestBody Grupo nuevoGrupo) {
         // Ya recibido el "grupo" desde la URL, lo añadimos al ArrayList
         grupos.add(nuevoGrupo);
         // Devolvemos la lista de grupos actualizada.
