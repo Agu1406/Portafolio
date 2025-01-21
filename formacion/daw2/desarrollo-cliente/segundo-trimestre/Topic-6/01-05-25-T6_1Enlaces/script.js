@@ -37,3 +37,19 @@ nuevoParrafo.textContent = "Hay " + totalEnlaces1 + " enlaces en total.";
 // Por ultimo, le añadimos ese parrafo al contenedor para que se cargue.
 divTotalEnlaces.appendChild(nuevoParrafo);
 
+// SEGUNDA PARTE, CONTAR LOS ENLACES DEL TERCER PARRAFO
+
+// Guardamos todos los parrafos en una variable let.
+let numP=document.getElementsByTagName("p");
+
+// Creamos una variable que guarda el parrafo 3 (posición 2)
+let enlaces3P = numP[2].getElementsByTagName("a").length;
+
+// creamos un nuevo parrafo para guardar la respuesta.
+let nuevoParrafo2 = document.createElement("p");
+
+// guardamos el total de enlaces del parrafo 3 (posición 2)
+nuevoParrafo2.textContent = "Hay " + enlaces3P + " enlaces en el tercer parrafo.";
+
+// Le sumamos al div el nuevo parrafo con la nueva respuesta.
+divTotalEnlaces.appendChild(nuevoParrafo2);
