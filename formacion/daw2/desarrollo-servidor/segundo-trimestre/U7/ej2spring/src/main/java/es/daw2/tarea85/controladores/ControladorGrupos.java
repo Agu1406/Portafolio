@@ -1,21 +1,23 @@
-package es.daw2.ej2spring.controladores;
+package es.daw2.tarea85.controladores;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import es.daw2.ej2spring.modelos.Grupo;
+import es.daw2.tarea85.modelos.Ciclo;
+import es.daw2.tarea85.modelos.Grupo;
+import es.daw2.tarea85.servicios.ServicioGrupo;
 
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+
 
 /**
  * Controlador REST para gestionar los grupos de formación.
@@ -47,54 +49,8 @@ public class ControladorGrupos {
 
     // SECCIÓN DE "C" DE CRUD //
 
-    /**
-     * Crea un nuevo grupo y lo agrega a la lista de grupos.
-     * 
-     * @param nuevoGrupo Objeto Grupo recibido desde la URL.
-     * @return Lista actualizada de grupos.
-     */
-    @PostMapping("/grupos/crear")
-    public ArrayList<Grupo> crearGrupoArrayList(@RequestBody Grupo nuevoGrupo) {
-        // Ya recibido el "grupo" desde la URL, lo añadimos al ArrayList
-        grupos.add(nuevoGrupo);
-        // Devolvemos la lista de grupos actualizada.
-        return grupos;
-    }
-
-    /**
-     * Crea y lista los grupos de un instituto (IES) específico.
-     * 
-     * @param ies Nombre del instituto recibido desde la URL.
-     * @return Lista de grupos pertenecientes al instituto.
-     */
-    @GetMapping("/grupos/crear/{ies}")
-    public ArrayList<Grupo> gruposDeUnIes(@PathVariable String ies) {
-        // Crea un nuevo ArrayList de grupos llamado "nuevoGrupo"
-        ArrayList<Grupo> nuevogrupo = new ArrayList<Grupo>();
-        for (Grupo grupo : grupos) {
-            if (grupo.getIes().equalsIgnoreCase(ies)) {
-                nuevogrupo.add(grupo);
-            }
-        }
-        return nuevogrupo;
-    }
-
-    /**
-     * Función "C" de CRUD para crear nuevos grupos usando ResponseEntity
-     * la función crea un objeto de la clase URI que permite, una vez
-     * creado un recurso, devolver la localización (URL) del mismo, así
-     * devolviendo la respuesta HTTP también.
-     *
-     * @param nuevoGrupo recibido como JSON desde la consulta.
-     * @return respueta HTTP con el grupo recien creado.
-     */
-    @PostMapping("grupos/crear")
-    public String postMethodName(@RequestBody String entity) {
-        //TODO: process POST request
-        
-        return entity;
-    }
-
+    
+    @PostMapping ("grupos/creargrupo")
     public ResponseEntity<?> crearGrupo(@RequestBody Grupo nuevoGrupo) {
         // Agrega el nuevo grupo al ArrayList de grupos existentes.
         grupos.add(nuevoGrupo);
@@ -115,18 +71,6 @@ public class ControladorGrupos {
     }
 
     // SECCIÓN DE "R" DE CRUD
-
-    /**
-     * Método READ (CRUD) que permita listar todos los grupos existentes
-     * en la lista de grupos creados.
-     *
-     * @return la lista de grupos actualizada.
-     */
-    @GetMapping("/grupos/listar")
-    public ArrayList<Grupo> listarGrupos() {
-        // Devuelve la lista de grupos en su versión más reciente.
-        return grupos;
-    }
 
     /**
      * Función de tipo GET que recibe como argumento un instituto y
@@ -198,37 +142,20 @@ public class ControladorGrupos {
         }
     }
 
-    /**
-     * Actualiza el instituto (IES) de un grupo existente.
-     * 
-     * @param ies Nuevo nombre del instituto recibido desde la URL.
-     * @return Lista actualizada de grupos.
-     */
-    @PutMapping("/grupos/update/")
-    public ArrayList<Grupo> actualizarGrupoArrayList(@PathVariable String ies) {
-        return grupos;
+    // SECCIÓN "D" DEL CRUD (BORRAR) - Por hacer.
+    @PostMapping("grupos/borrargrupos/{ies}")
+    public ResponseEntity borrarGrupo (@RequestBody String instituto) {
+        
+        return null;
     }
+    
 
-    // SECCIÓN "D" DEL CRUD (BORRAR)
+    @Autowired
+    private ServicioGrupo serviciogrupo;
 
-    /**
-     * Elimina un grupo con base en el instituto (IES) proporcionado.
-     * 
-     * @param ies Nombre del instituto recibido desde la URL.
-     * @return Lista actualizada de grupos.
-     */
-    @DeleteMapping("/grupos/borrar/")
-    public ArrayList<Grupo> borrarGrupo(@PathVariable String ies) {
-        // Recorre con un foreach todos los grupos del Arraylist.
-        for (Grupo grupo : grupos) {
-            // Si consigue cualquier grupo con el mismo "ies" ejecuta el IF.
-            if (grupo.getIes().equalsIgnoreCase(ies)) {
-                // Remueve del ArrayList el grupo cuyo "ies" concuerde.
-                grupos.remove(grupo);
-            }
-        }
-        // Devuelve la lista actualizada de grupos.
-        return grupos;
+    @GetMapping("/{ies}/ciclos")
+    public ResponseEntity<?> recuperarCiclosPorIes(@PathVariable String ies) {
+        List<Ciclo> listaCiclosPorIes = serviciogrupo.obtenerCiclosPorIes(ies);
+        return ResponseEntity.ok(listaCiclosPorIes);
     }
-
 }
