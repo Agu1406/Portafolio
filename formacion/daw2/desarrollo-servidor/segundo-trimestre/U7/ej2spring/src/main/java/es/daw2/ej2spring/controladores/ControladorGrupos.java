@@ -1,7 +1,6 @@
 package es.daw2.ej2spring.controladores;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -90,7 +89,6 @@ public class ControladorGrupos {
      */
     @PostMapping("grupos/crear")
     public String postMethodName(@RequestBody String entity) {
-        //TODO: process POST request
         
         return entity;
     }

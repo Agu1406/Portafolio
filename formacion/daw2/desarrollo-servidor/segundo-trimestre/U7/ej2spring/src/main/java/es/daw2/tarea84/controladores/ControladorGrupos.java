@@ -143,6 +143,7 @@ public class ControladorGrupos {
     }
 
     // SECCIÓN "D" DEL CRUD (BORRAR) - Por hacer.
+    @SuppressWarnings("rawtypes")
     @PostMapping("grupos/borrargrupos/{ies}")
     public ResponseEntity borrarGrupo (@RequestBody String instituto) {
         
