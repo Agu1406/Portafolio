@@ -62,7 +62,7 @@ public class ControladorGrupos {
                 .path("/{ies}")
                 // Toma el IES del nuevo grupo creado y remplaza "{ies}" con ese valor.
                 .buildAndExpand(nuevoGrupo.getIes())
-                // Lo toma tood y lo convierte en URI.
+                // Lo toma todo y lo convierte en URI.
                 .toUri();
 
         // Devuelve en el cuerpo de la respuesta el nuevo grupo y la URL del recurso
@@ -121,25 +121,14 @@ public class ControladorGrupos {
      */
     @PutMapping("grupos/actualizargrupo/{nuevaposicion}")
     public ResponseEntity<?> actualizarGrupo(@PathVariable int nuevaposicion, @RequestBody Grupo grupo) {
-        // Try-catch que intenta actualizar la posición de un grupo dentro del ArrayList
-        // de grupos.
-        try {
-            // Si la nueva posición es mayor al tamaño del array o menor a "0" arroja una
-            // excepción.
             if (nuevaposicion > grupos.size() || nuevaposicion < 0) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "¡Error! La nueva posición no es posible.");
+                // Si la nueva posición es mayor que el tamaño del ArrayList o menor que 0, lanza un error.
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "¡Error! El nuevo indice no es posible.");
             }
-            // Si no, intenta actualizar la posición de "X" grupo dentro del ArrayList de
-            // grupos.
+            // Si no, intenta actualizar la posición de "X" grupo dentro del ArrayList de grupos.
             grupos.set(nuevaposicion, grupo);
             // Devuelve una respuesta positiva (OK) si todo sale bien.
             return ResponseEntity.ok(grupo);
-
-        } catch (IndexOutOfBoundsException exception) {
-            // Si el ArrayList se sale de los limites permitido atrapa la excepción y la
-            // envia con un mensaje.
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "¡Error!");
-        }
     }
 
     // SECCIÓN "D" DEL CRUD (BORRAR) - Por hacer.
