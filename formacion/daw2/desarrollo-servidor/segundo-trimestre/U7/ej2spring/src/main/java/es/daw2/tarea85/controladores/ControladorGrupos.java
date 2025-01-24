@@ -49,7 +49,12 @@ public class ControladorGrupos {
 
     // SECCIÓN DE "C" DE CRUD //
 
-    
+    /**
+     * Función de tipo POST que recibe un JSON con los datos de un nuevo grupo
+     * y lo añade al ArrayList de grupos existentes.
+     * @param nuevoGrupo JSON con los datos del nuevo grupo.
+     * @return un ResponseEntity con el nuevo grupo y la URL del recurso creado.
+     */
     @PostMapping ("grupos/creargrupo")
     public ResponseEntity<?> crearGrupo(@RequestBody Grupo nuevoGrupo) {
         // Agrega el nuevo grupo al ArrayList de grupos existentes.
@@ -70,7 +75,7 @@ public class ControladorGrupos {
         return ResponseEntity.created(location).body(nuevoGrupo);
     }
 
-    // SECCIÓN DE "R" DE CRUD
+    // SECCIÓN DE "R" DE CRUD 
 
     /**
      * Función de tipo GET que recibe como argumento un instituto y
