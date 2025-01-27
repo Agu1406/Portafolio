@@ -1,7 +1,7 @@
-package modelo;
+package sistema_gestion_agricola.modelo;
 
-import excepciones.HistorialVacioException;
-import interfaces.ActividadAgricola;
+import sistema_gestion_agricola.excepciones.HistorialVacioException;
+import sistema_gestion_agricola.interfaces.ActividadAgricola;
 import java.util.ArrayList;
 import java.util.List;
 

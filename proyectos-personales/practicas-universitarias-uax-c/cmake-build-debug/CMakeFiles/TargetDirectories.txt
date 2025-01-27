@@ -1,0 +1,3 @@
+C:/Users/agust/Documents/Grado Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/cmake-build-debug/CMakeFiles/JuegoDeConquistas.dir
+C:/Users/agust/Documents/Grado Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/agust/Documents/Grado Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/cmake-build-debug/CMakeFiles/rebuild_cache.dir

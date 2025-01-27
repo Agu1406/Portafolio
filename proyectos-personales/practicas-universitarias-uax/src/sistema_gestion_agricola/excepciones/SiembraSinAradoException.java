@@ -1,4 +1,4 @@
-package excepciones;
+package sistema_gestion_agricola.excepciones;
 
 public class SiembraSinAradoException extends Exception {
     public SiembraSinAradoException() {

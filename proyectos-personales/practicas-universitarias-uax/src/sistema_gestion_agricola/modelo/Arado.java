@@ -1,9 +1,9 @@
-package modelo;
+package sistema_gestion_agricola.modelo;
+import sistema_gestion_agricola.excepciones.CultivoSinAradoException;
+import sistema_gestion_agricola.excepciones.SiembraSinAradoException;
+import sistema_gestion_agricola.interfaces.ActividadAgricola;
 
-import excepciones.CultivoSinAradoException;
-import excepciones.SiembraSinAradoException;
-
-public class Arado extends ActividadParcela {
+public class Arado extends ActividadParcela implements ActividadAgricola {
     private RegistroActividades<Arado> registro;
 
     public Arado(RegistroActividades<Arado> registro, Parcela parcela) {

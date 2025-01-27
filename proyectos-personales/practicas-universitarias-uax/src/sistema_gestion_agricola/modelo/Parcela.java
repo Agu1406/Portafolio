@@ -1,4 +1,4 @@
-package modelo;
+package sistema_gestion_agricola.modelo;
 
 public class Parcela {
     private String nombre;

@@ -1,7 +1,7 @@
-package interfaces;
+package sistema_gestion_agricola.interfaces;
 
-import excepciones.CultivoSinAradoException;
-import excepciones.SiembraSinAradoException;
+import sistema_gestion_agricola.excepciones.CultivoSinAradoException;
+import sistema_gestion_agricola.excepciones.SiembraSinAradoException;
 
 public interface ActividadAgricola {
     void realizarArado();
