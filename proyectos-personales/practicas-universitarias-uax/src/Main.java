@@ -1,7 +1,11 @@
-import modelo.*;
-import excepciones.SiembraSinAradoException;
-import excepciones.CultivoSinAradoException;
-import excepciones.HistorialVacioException;
+import sistema_gestion_agricola.excepciones.SiembraSinAradoException;
+import sistema_gestion_agricola.excepciones.CultivoSinAradoException;
+import sistema_gestion_agricola.excepciones.HistorialVacioException;
+import sistema_gestion_agricola.modelo.Parcela;
+import sistema_gestion_agricola.modelo.Arado;
+import sistema_gestion_agricola.modelo.Siembra;
+import sistema_gestion_agricola.modelo.Cultivo;
+import sistema_gestion_agricola.modelo.RegistroActividades;
 
 public class Main {
     public static void main(String[] args) {
