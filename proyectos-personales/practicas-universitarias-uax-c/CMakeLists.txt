@@ -1,6 +1,18 @@
-cmake_minimum_required(VERSION 3.30)
-project(JuegoDeConquistas C)
+cmake_minimum_required(VERSION 3.26)
+project(practicas_universitarias_uax_c C)
 
-set(CMAKE_C_STANDARD 23)
+set(CMAKE_C_STANDARD 11)
 
-add_executable(JuegoDeConquistas main.c)
+# Ejecutable para el Juego de Conquistas
+add_executable(JuegoDeConquistas
+        JuegoDeConquistas/main.c)
+
+# Ejecutable para la Gestión de Supermercado
+add_executable(GestionSuperMercado
+        GestionSuperMercado/main.c
+        GestionSuperMercado/inicializacion.c
+        GestionSuperMercado/productos.c
+        GestionSuperMercado/ventas.c
+        GestionSuperMercado/reportes.c
+        GestionSuperMercado/archivos.c
+        GestionSuperMercado/interfaz.c)
