@@ -1,4 +1,4 @@
-package es.daw2.tarea92.controladores;
+package es.daw2.tarea93.controladores;
 
 public class ControladorAlumno {
 }

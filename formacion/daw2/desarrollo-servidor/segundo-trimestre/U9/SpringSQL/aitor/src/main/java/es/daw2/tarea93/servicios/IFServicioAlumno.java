@@ -1,8 +1,8 @@
-package es.daw2.tarea92.servicios;
+package es.daw2.tarea93.servicios;
+
+import es.daw2.tarea93.modelos.Alumno;
 
 import java.util.List;
-
-import es.daw2.tarea92.modelos.Alumno;
 
 public interface IFServicioAlumno  {
     

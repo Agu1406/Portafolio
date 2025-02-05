@@ -1,16 +1,11 @@
-package es.daw2.tarea92.repositorio;
+package es.daw2.tarea93.repositorio;
 
-import java.util.List;
-
+import es.daw2.tarea93.modelos.Alumno;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import es.daw2.tarea92.modelos.Alumno;
-
 @Repository
 public interface RepositorioAlumno extends CrudRepository<Alumno, Long> {
-
-    List<Alumno> findAll();
     /*
      * Un repositorio provee las funciones basicas de un CRUD
      * CREATE: save(argumento)
@@ -20,8 +15,4 @@ public interface RepositorioAlumno extends CrudRepository<Alumno, Long> {
      * DELETE: delete().
      * etc... hay otros.
      */
-
-    Alumno agregarAlumno(Alumno nuevoAlumno);
-    
-
 }

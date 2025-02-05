@@ -1,13 +1,19 @@
-package es.daw2.tarea92.servicios;
+package es.daw2.tarea93.servicios;
+
+import es.daw2.tarea93.modelos.Grupo;
 
 import java.util.List;
 
-import es.daw2.tarea92.modelos.Grupo;
-
 public interface IFServicioGrupo  {
+    // CRUD (CREATE) Permite agregar un nuevo grupo.
+    public abstract Grupo agregarGrupo (Grupo nuevoGrupo);
 
-    public abstract List<Grupo> findAll();
+    // CRUD (READ) Permite listar todos los grupos existentes.
+    public abstract List<Grupo> listarGrupos();
 
-    public abstract Grupo agregarGrupo (Grupo nuevoAlumno);
+    // CRUD (READ) Permite listar grupos filtrando por su "IES".
+    public abstract List<Grupo> listarGruposPorIes(String ies);
 
+    // CRUD (UPDATE) Permite actualizar el atributo de "X" grupo.
+    public abstract Grupo actualizarGrupo (Long idGrupo, Grupo nuevoGrupo);
 }
