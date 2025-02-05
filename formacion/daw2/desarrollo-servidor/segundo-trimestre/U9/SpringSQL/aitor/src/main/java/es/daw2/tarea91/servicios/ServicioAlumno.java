@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import es.daw2.tarea91.modelos.Alumno;
-import es.daw2.tarea91.repositorio.IFServicioAlumno;
 import es.daw2.tarea91.repositorio.RepositorioAlumno;
 
 @Service

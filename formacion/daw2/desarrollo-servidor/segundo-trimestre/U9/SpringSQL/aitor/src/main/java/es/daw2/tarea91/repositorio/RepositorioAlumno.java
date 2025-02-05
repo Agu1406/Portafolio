@@ -2,12 +2,13 @@ package es.daw2.tarea91.repositorio;
 
 import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import es.daw2.tarea91.modelos.Alumno;
 
 @Repository
-public interface RepositorioAlumno {
+public interface RepositorioAlumno extends CrudRepository<Alumno, Long> {
 
     List<Alumno> findAll();
     /*

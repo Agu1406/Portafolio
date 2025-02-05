@@ -20,7 +20,7 @@ static int manejarErrorEntrada(int* opcion) {
  * @return 0 si el programa finaliza correctamente
  */
 int main() {
-    Supermercado* super = inicializarSupermercado();
+    Supermercado* nuevoSupermercado = inicializarSupermercado();
     int opcion;
     char nombreProducto[MAX_NOMBRE];
     int codigo, stock;
@@ -52,7 +52,7 @@ int main() {
                 limpiarBuffer();
                 
                 Producto nuevoProducto = inicializarProducto(nombreProducto, codigo, precio, stock);
-                if (agregarProducto(super, nuevoProducto)) {
+                if (agregarProducto(nuevoSupermercado, nuevoProducto)) {
                     printf("Producto agregado exitosamente\n");
                 }
                 break;
@@ -61,7 +61,7 @@ int main() {
                 printf("Ingrese código del producto a eliminar: ");
                 scanf("%d", &codigo);
                 limpiarBuffer();
-                if (eliminarProducto(super, codigo)) {
+                if (eliminarProducto(nuevoSupermercado, codigo)) {
                     printf("Producto eliminado exitosamente\n");
                 }
                 break;
@@ -73,7 +73,7 @@ int main() {
                 printf("Ingrese nuevo stock: ");
                 scanf("%d", &stock);
                 limpiarBuffer();
-                actualizarStock(super, codigo, stock);
+                actualizarStock(nuevoSupermercado, codigo, stock);
                 break;
 
             case 4: // Actualizar precio
@@ -83,7 +83,7 @@ int main() {
                 printf("Ingrese nuevo precio: ");
                 scanf("%f", &precio);
                 limpiarBuffer();
-                actualizarPrecio(super, codigo, precio);
+                actualizarPrecio(nuevoSupermercado, codigo, precio);
                 break;
 
             case 5: // Registrar venta
@@ -93,14 +93,14 @@ int main() {
                 printf("Ingrese cantidad a vender: ");
                 scanf("%d", &stock);
                 limpiarBuffer();
-                registrarVenta(super, codigo, stock);
+                registrarVenta(nuevoSupermercado, codigo, stock);
                 break;
 
             case 6: // Buscar por nombre
                 printf("Ingrese nombre a buscar: ");
                 fgets(nombreProducto, MAX_NOMBRE, stdin);
                 nombreProducto[strcspn(nombreProducto, "\n")] = 0;
-                buscarPorNombre(super, nombreProducto);
+                buscarPorNombre(nuevoSupermercado, nombreProducto);
                 break;
 
             case 7: // Buscar por rango de precio
@@ -110,29 +110,29 @@ int main() {
                 printf("Ingrese precio máximo: ");
                 scanf("%f", &maxPrecio);
                 limpiarBuffer();
-                buscarPorRangoPrecio(super, minPrecio, maxPrecio);
+                buscarPorRangoPrecio(nuevoSupermercado, minPrecio, maxPrecio);
                 break;
 
             case 8: // Reporte de productos
-                generarReporteProductos(super);
+                generarReporteProductos(nuevoSupermercado);
                 break;
 
             case 9: // Reporte de ventas
-                generarReporteVentas(super);
+                generarReporteVentas(nuevoSupermercado);
                 break;
 
             case 10: // Guardar inventario
                 printf("Ingrese nombre del archivo para guardar: ");
                 scanf("%s", nombreArchivo);
                 limpiarBuffer();
-                guardarInventario(super, nombreArchivo);
+                guardarInventario(nuevoSupermercado, nombreArchivo);
                 break;
 
             case 11: // Cargar inventario
                 printf("Ingrese nombre del archivo para cargar: ");
                 scanf("%s", nombreArchivo);
                 limpiarBuffer();
-                cargarInventario(super, nombreArchivo);
+                cargarInventario(nuevoSupermercado, nombreArchivo);
                 break;
 
             case 0: // Salir
@@ -145,6 +145,6 @@ int main() {
     } while (opcion != 0);
 
     // Liberar memoria antes de salir
-    liberarMemoria(super);
+    liberarMemoria(nuevoSupermercado);
     return 0;
 } 

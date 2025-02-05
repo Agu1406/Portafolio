@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: JuegoDeConquistas
+# Project: practicas_universitarias_uax_c
 # Configurations: Debug
 # =============================================================================
 
@@ -49,11 +49,11 @@ cmake_ninja_workdir = C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proye
 
 build cmake_object_order_depends_target_JuegoDeConquistas: phony || .
 
-build CMakeFiles/JuegoDeConquistas.dir/main.c.obj: C_COMPILER__JuegoDeConquistas_unscanned_Debug C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/main.c || cmake_object_order_depends_target_JuegoDeConquistas
-  DEP_FILE = CMakeFiles\JuegoDeConquistas.dir\main.c.obj.d
-  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+build CMakeFiles/JuegoDeConquistas.dir/JuegoDeConquistas/main.c.obj: C_COMPILER__JuegoDeConquistas_unscanned_Debug C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/JuegoDeConquistas/main.c || cmake_object_order_depends_target_JuegoDeConquistas
+  DEP_FILE = CMakeFiles\JuegoDeConquistas.dir\JuegoDeConquistas\main.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\JuegoDeConquistas.dir
-  OBJECT_FILE_DIR = CMakeFiles\JuegoDeConquistas.dir
+  OBJECT_FILE_DIR = CMakeFiles\JuegoDeConquistas.dir\JuegoDeConquistas
 
 
 # =============================================================================
@@ -63,7 +63,7 @@ build CMakeFiles/JuegoDeConquistas.dir/main.c.obj: C_COMPILER__JuegoDeConquistas
 #############################################
 # Link the executable JuegoDeConquistas.exe
 
-build JuegoDeConquistas.exe: C_EXECUTABLE_LINKER__JuegoDeConquistas_Debug CMakeFiles/JuegoDeConquistas.dir/main.c.obj
+build JuegoDeConquistas.exe: C_EXECUTABLE_LINKER__JuegoDeConquistas_Debug CMakeFiles/JuegoDeConquistas.dir/JuegoDeConquistas/main.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\JuegoDeConquistas.dir
@@ -72,6 +72,108 @@ build JuegoDeConquistas.exe: C_EXECUTABLE_LINKER__JuegoDeConquistas_Debug CMakeF
   TARGET_FILE = JuegoDeConquistas.exe
   TARGET_IMPLIB = libJuegoDeConquistas.dll.a
   TARGET_PDB = JuegoDeConquistas.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target GestionSuperMercado
+
+
+#############################################
+# Order-only phony target for GestionSuperMercado
+
+build cmake_object_order_depends_target_GestionSuperMercado: phony || .
+
+build CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/main.c.obj: C_COMPILER__GestionSuperMercado_unscanned_Debug C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/GestionSuperMercado/main.c || cmake_object_order_depends_target_GestionSuperMercado
+  DEP_FILE = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado\main.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GestionSuperMercado.dir
+  OBJECT_FILE_DIR = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado
+
+build CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/inicializacion.c.obj: C_COMPILER__GestionSuperMercado_unscanned_Debug C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/GestionSuperMercado/inicializacion.c || cmake_object_order_depends_target_GestionSuperMercado
+  DEP_FILE = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado\inicializacion.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GestionSuperMercado.dir
+  OBJECT_FILE_DIR = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado
+
+build CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/productos.c.obj: C_COMPILER__GestionSuperMercado_unscanned_Debug C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/GestionSuperMercado/productos.c || cmake_object_order_depends_target_GestionSuperMercado
+  DEP_FILE = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado\productos.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GestionSuperMercado.dir
+  OBJECT_FILE_DIR = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado
+
+build CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/ventas.c.obj: C_COMPILER__GestionSuperMercado_unscanned_Debug C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/GestionSuperMercado/ventas.c || cmake_object_order_depends_target_GestionSuperMercado
+  DEP_FILE = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado\ventas.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GestionSuperMercado.dir
+  OBJECT_FILE_DIR = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado
+
+build CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/reportes.c.obj: C_COMPILER__GestionSuperMercado_unscanned_Debug C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/GestionSuperMercado/reportes.c || cmake_object_order_depends_target_GestionSuperMercado
+  DEP_FILE = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado\reportes.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GestionSuperMercado.dir
+  OBJECT_FILE_DIR = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado
+
+build CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/archivos.c.obj: C_COMPILER__GestionSuperMercado_unscanned_Debug C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/GestionSuperMercado/archivos.c || cmake_object_order_depends_target_GestionSuperMercado
+  DEP_FILE = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado\archivos.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GestionSuperMercado.dir
+  OBJECT_FILE_DIR = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado
+
+build CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/interfaz.c.obj: C_COMPILER__GestionSuperMercado_unscanned_Debug C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/GestionSuperMercado/interfaz.c || cmake_object_order_depends_target_GestionSuperMercado
+  DEP_FILE = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado\interfaz.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GestionSuperMercado.dir
+  OBJECT_FILE_DIR = CMakeFiles\GestionSuperMercado.dir\GestionSuperMercado
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target GestionSuperMercado
+
+
+#############################################
+# Link the executable GestionSuperMercado.exe
+
+build GestionSuperMercado.exe: C_EXECUTABLE_LINKER__GestionSuperMercado_Debug CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/main.c.obj CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/inicializacion.c.obj CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/productos.c.obj CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/ventas.c.obj CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/reportes.c.obj CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/archivos.c.obj CMakeFiles/GestionSuperMercado.dir/GestionSuperMercado/interfaz.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\GestionSuperMercado.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = GestionSuperMercado.exe
+  TARGET_IMPLIB = libGestionSuperMercado.dll.a
+  TARGET_PDB = GestionSuperMercado.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target GestionSuperMercadoV2
+
+
+#############################################
+# Order-only phony target for GestionSuperMercadoV2
+
+build cmake_object_order_depends_target_GestionSuperMercadoV2: phony || .
+
+build CMakeFiles/GestionSuperMercadoV2.dir/GestionSuperMercado/GestionSuperMercado.c.obj: C_COMPILER__GestionSuperMercadoV2_unscanned_Debug C$:/Users/agust/Documents/Grado$ Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/GestionSuperMercado/GestionSuperMercado.c || cmake_object_order_depends_target_GestionSuperMercadoV2
+  DEP_FILE = CMakeFiles\GestionSuperMercadoV2.dir\GestionSuperMercado\GestionSuperMercado.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\GestionSuperMercadoV2.dir
+  OBJECT_FILE_DIR = CMakeFiles\GestionSuperMercadoV2.dir\GestionSuperMercado
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target GestionSuperMercadoV2
+
+
+#############################################
+# Link the executable GestionSuperMercadoV2.exe
+
+build GestionSuperMercadoV2.exe: C_EXECUTABLE_LINKER__GestionSuperMercadoV2_Debug CMakeFiles/GestionSuperMercadoV2.dir/GestionSuperMercado/GestionSuperMercado.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\GestionSuperMercadoV2.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = GestionSuperMercadoV2.exe
+  TARGET_IMPLIB = libGestionSuperMercadoV2.dll.a
+  TARGET_PDB = GestionSuperMercadoV2.exe.dbg
 
 
 #############################################
@@ -99,6 +201,10 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build GestionSuperMercado: phony GestionSuperMercado.exe
+
+build GestionSuperMercadoV2: phony GestionSuperMercadoV2.exe
+
 build JuegoDeConquistas: phony JuegoDeConquistas.exe
 
 # =============================================================================
@@ -109,7 +215,7 @@ build JuegoDeConquistas: phony JuegoDeConquistas.exe
 #############################################
 # Folder: C:/Users/agust/Documents/Grado Superior/Portafolio/proyectos-personales/practicas-universitarias-uax-c/cmake-build-debug
 
-build all: phony JuegoDeConquistas.exe
+build all: phony JuegoDeConquistas.exe GestionSuperMercado.exe GestionSuperMercadoV2.exe
 
 # =============================================================================
 # Built-in targets

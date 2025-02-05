@@ -16,3 +16,7 @@ add_executable(GestionSuperMercado
         GestionSuperMercado/reportes.c
         GestionSuperMercado/archivos.c
         GestionSuperMercado/interfaz.c)
+
+# Ejecutable para la Gestión de Supermercado all in one.
+add_executable(GestionSuperMercadoV2
+        GestionSuperMercado/GestionSuperMercado.c)
