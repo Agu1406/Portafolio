@@ -31,3 +31,4 @@ let intervalo = setInterval(() => {
     }
 // Ejecuta cada iteración del intervalo en 1 segundo (1000 ms).
 }, 1000);
+
