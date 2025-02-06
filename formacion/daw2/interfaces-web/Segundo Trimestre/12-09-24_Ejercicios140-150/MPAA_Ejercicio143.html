@@ -12,12 +12,21 @@
 <body>
     <div class="contenedor">
         <header>
-            <p>Desarrollo Web Entorno Cliente.</p>
+            <p>Diseño de interfaces web.</p>
         </header>
 
         <main>
-            <h1>Titulo de la actividad</h1>
-            <p>Descripción de la actividad.</p>
+            <h1>Utilizando la etiqueta HTML "canvas" Parte N.º3</h1>
+            <p>En los ejercicios anteriores aprendimos a dibujar rectangulos, uno de ellos con una lineza trazada entre
+                punta y punta, ahora vamos a convertir el espacio interno, en el anterior lo que hicimos fue trazar una
+                lina dentro del canvas entre esquina y esquina, mirad:
+            </p>
+            <br>
+            <!-- El tamaño del lienzo será de 200 de ancho por 100 de alto -->
+            <canvas id="canvas" width="200" height="100" style="border: 1px solid black;">
+                <!-- Mensaje que se muetra si el "canvas" no carga -->
+                ¡Lo siento! Tú navegador web no soporta la etiqueta HTML "canvas".
+            </canvas>
         </main>
 
         <footer>
@@ -25,7 +34,23 @@
                 reservados.</p>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script>
+        // Obtenemos el elemento "canvas" usando su "id" y lo guardamos en una variable.
+        const canvas = document.getElementById("canvas");
+        // Obtenemos el contexto del elemento "canvas" en otra variable.
+        const contexto = canvas.getContext("2d");
+        // Iniciamos un nuevo trazo o camino en el contexto del canvas.
+        contexto.beginPath();
+        // Definimos un arco (círculo) con las siguientes propiedades:
+        // - 95: Coordenada X del centro del círculo.
+        // - 50: Coordenada Y del centro del círculo.
+        // - 40: Radio del círculo.
+        // - 0: Ángulo inicial del arco en radianes.
+        // - 2 * Math.PI: Ángulo final del arco en radianes (2 * PI es un círculo completo).
+        contexto.arc(95, 50, 40, 0, 2 * Math.PI);
+        // Trazamos el contorno del arco (círculo) definido anteriormente.
+        contexto.stroke();
+    </script>
 </body>
 
 </html>
