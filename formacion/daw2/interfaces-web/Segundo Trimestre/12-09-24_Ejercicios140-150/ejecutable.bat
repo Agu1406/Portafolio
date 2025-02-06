@@ -33,7 +33,7 @@ set "contenido=<!DOCTYPE html>^
             <p>Descripción de la actividad.</p>^
         </main>^
         <footer>^
-            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos reservados.</p>^
+            <p>&copy; 2024 <a href='https://github.com/agu1406' target='_blank'>Github Agu1406</a>. Todos los derechos reservados.</p>^
         </footer>^
     </div>^
     <script src='script.js'></script>^
