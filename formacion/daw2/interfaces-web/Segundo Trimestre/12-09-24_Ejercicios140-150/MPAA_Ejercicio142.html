@@ -12,12 +12,19 @@
 <body>
     <div class="contenedor">
         <header>
-            <p>Desarrollo Web Entorno Cliente.</p>
+            <p>Diseño de interfaces web.</p>
         </header>
 
         <main>
-            <h1>Titulo de la actividad</h1>
-            <p>Descripción de la actividad.</p>
+            <h1>Aprendiendo a usar la etiqueta "canvas" Parte N.º2</h1>
+            <p>En el anterior ejercicio dibujamos un canvas rectangulas, no obstante, en este vamos a dibujar un
+                triangulo, los atributos del canvas seran realizados con un script de JavaScript, como veremos a
+                continuación:
+            </p>
+            <br>
+            <canvas class="canvas" width="200" height="100" style="border: 1px solid black;">
+                ¡Lo siento! Tú navegador web no soporta la etiquieta HTML "canvas".
+            </canvas>
         </main>
 
         <footer>
@@ -25,7 +32,18 @@
                 reservados.</p>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script>
+        // Usando el "class name" del canvas lo guardamos en una variable
+        let canvas = document.getElementsByClassName("canvas")[0];
+        // Guardamos el "context" del elemento en otra variable.
+        let contexto = canvas.getContext("2d");
+        // Usamos el contexto para mover el canvas a las posiciones "X" y "Y" (0,0)
+        contexto.moveTo(0, 0);
+        // Pintamos las líneas del objeto con tamaños "200" y "100".
+        contexto.lineTo(200, 100);
+        // Por último, unimos ambos puntos lineales con una sola línea.
+        contexto.stroke();
+    </script>
 </body>
 
 </html>
