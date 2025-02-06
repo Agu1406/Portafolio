@@ -10,7 +10,7 @@ set "incremento=1"
 REM Creamos nuestras variables, la primera es el prefijo de los archivos
 REM la segunda es la extensión y la tercera es el número a partir del
 REM cual el bucle crea los arhivo (prefijo + número + extensión).
-set "prefijo=MarquezPina_AgustinAntonio_Ejercicio"
+set "prefijo=MPAA_Ejercicio"
 set "extension=.html"
 
 REM Definimos el contenido que se escribirá en cada archivo HTML
