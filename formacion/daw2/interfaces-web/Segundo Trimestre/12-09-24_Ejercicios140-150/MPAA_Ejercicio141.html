@@ -12,12 +12,23 @@
 <body>
     <div class="contenedor">
         <header>
-            <p>Desarrollo Web Entorno Cliente.</p>
+            <p>Diseño de interfaces web.</p>
         </header>
 
         <main>
-            <h1>Titulo de la actividad</h1>
-            <p>Descripción de la actividad.</p>
+            <h1>Graficos "canva" en HTML</h1>
+            <p>Este ejercicio nos busca enseñar como podemos dibujar graficos "canva" en nuestro navegador web usando la
+                etiquieta HTML "canvas" y como mostrar un mensaje de error en caso de que el navegador no soporte
+                "canvas" como se ve a continuación (según sea el caso si tu navegador lo soporta o no):
+            </p>
+            <br>
+            <canvas class="miCanvas" width="200" height="100" style="border: 1px solid black;">
+                <!--
+                Si el "Canvas" no fuese compatible con el navegador web se mostraría como mensaje de error el texto que
+                dejasemos escrito dentro de la etiqueta "canvas".
+                -->
+                ¡Lo siento! Tú navegador web no soporta la etiqueta HTML "canvas".
+            </canvas>
         </main>
 
         <footer>
