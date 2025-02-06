@@ -12,12 +12,28 @@
 <body>
     <div class="contenedor">
         <header>
-            <p>Desarrollo Web Entorno Cliente.</p>
+            <p>Diseño de interfaces web</p>
         </header>
 
         <main>
-            <h1>Titulo de la actividad</h1>
-            <p>Descripción de la actividad.</p>
+            <h1>Preselección de opciones</h1>
+            <p>Podemos crear un elemento HTML que nos permita elegir entre diferentes opciones y hacer que este tenga
+                una opción pre-seleccionada, para ello primero debemos crear un formulario el cual tendra las opciones,
+                en el ejemplo utilizaremos "coches", miradlo a continuación:
+            </p>
+            <div class="contenedor-formulario">
+                <form action="" class="formulario">
+                    <label for="coches">Elige un coche:</label>
+                    <select name="coches" id="coches">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">saab</option>
+                        <option value="fiat">Fiat</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                    <br><br>
+                    <input type="submit" value="¡Enviar formulario!">
+                </form>
+            </div>
         </main>
 
         <footer>
