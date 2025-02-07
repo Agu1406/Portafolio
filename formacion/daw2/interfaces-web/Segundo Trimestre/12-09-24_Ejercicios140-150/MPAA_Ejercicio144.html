@@ -12,12 +12,18 @@
 <body>
     <div class="contenedor">
         <header>
-            <p>Desarrollo Web Entorno Cliente.</p>
+            <p>Diseño de interfaces web.</p>
         </header>
 
         <main>
-            <h1>Titulo de la actividad</h1>
-            <p>Descripción de la actividad.</p>
+            <h1>Efectos (canvas) disponibles para el texto</h1>
+            <p>Está actividad busca demostrar de lo que es capaz hacer la etiqueta HTML canvas cuando se usa para, por
+                ejemplo, darle efectos a un parrafo o texto como veremos en el siguiente ejemplo:
+            </p>
+            <br>
+            <canvas id="canvas" width="200" height="100" style="border: 1px solid black;">
+                ¡Lo siento! Tú navegador no soporta la etiqueta HTML "canvas".
+            </canvas>
         </main>
 
         <footer>
@@ -25,7 +31,12 @@
                 reservados.</p>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const contexto = canvas.getContext("2d");
+        contexto.font = "30px Arial";
+        contexto.strokeText("¡Hola Emilio!", 10, 50);
+    </script>
 </body>
 
 </html>
