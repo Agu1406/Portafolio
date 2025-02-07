@@ -12,12 +12,17 @@
 <body>
     <div class="contenedor">
         <header>
-            <p>Desarrollo Web Entorno Cliente.</p>
+            <p>Diseño de interfaces web.</p>
         </header>
 
         <main>
-            <h1>Titulo de la actividad</h1>
-            <p>Descripción de la actividad.</p>
+            <h1>Gradiantes circulares usando canvas</h1>
+            <p>Como en el ejercicio anterior pero usando JavaScript (o TypeScript) para crear una gradiente de colores
+                de forma circular.</p>
+            <br>
+            <canvas class="canvas" width="200" height="100" style="border: 1px solid black;">
+                ¡Lo siento! Tú navegador web no soporta la etiquita HTML canvas.
+            </canvas>
         </main>
 
         <footer>
@@ -25,7 +30,17 @@
                 reservados.</p>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script>
+        let can = document.getElementsByClassName("canvas")[0];
+        let con = can.getContext("2d");
+
+        let gra = con.createRadialGradient(100, 50, 20, 100, 50, 100);
+        gra.addColorStop(0, "green");
+        gra.addColorStop(1, "white");
+
+        con.fillStyle = gra;
+        con.fillRect(10, 10, 180, 80);
+    </script>
 </body>
 
 </html>
