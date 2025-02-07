@@ -17,7 +17,11 @@
 
         <main>
             <h1>Gradientes de color utilizando las propiedades de la etiquita HTML canvas.</h1>
-            <p>Descripción de la actividad.</p>
+            <p>Lo probamos en el siguiente canvas:</p>
+            <br>
+            <canvas id="canvas" width="200" height="100" style="border: 1px solid black;">
+                ¡Lo siento! Tú navegador web no soporta la etiqueta HTML canvas.
+            </canvas>
         </main>
 
         <footer>
@@ -25,7 +29,17 @@
                 reservados.</p>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let contexto = canvas.getContext("2d");
+        // Creamos la gradiente de color.
+        let gradient = contexto.createLinearGradient(0, 0, 200, 0);
+        gradient.addColorStop(0, "green");
+        gradient.addColorStop(1, "white");
+        // Llenamos el canvas con la gradiente.
+        contexto.fillStyle = gradient;
+        contexto.fillRect(10, 10, 180, 80);
+    </script>
 </body>
 
 </html>
