@@ -1,4 +1,4 @@
-package es.daw2.tareas10;
+package es.daw2.tareas10.tarea10;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
