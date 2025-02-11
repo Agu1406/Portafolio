@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Formulario de la tarea 10</p>
+        </header>
+
+        <main>
+            <div class="contenedor">
+                <div class="contenedor-formulario">
+                    <form class="formulario" th:action="@{/agregar}" th:object="${asignatura}" method="post">
+
+                        <p><label>Nombre del Módulo: </label>
+                            <input type="text" th:field="*{nombre}" required="required">
+                        </p>
+
+                        <p><label>Ciclo del Módulo: </label>
+                            <input type="text" th:field="*{ciclo}" required="required">
+                        </p>
+
+                        <p><label>Horas del Módulo: </label>
+                            <input type="text" th:field="*{horas}" required="required">
+                        </p>
+
+                        <p><label>Curso del Módulo: </label>
+                            <input type="text" th:field="*{curso}" required="required">
+                        </p>
+
+                        <button type="submit">¡Enviar formulario!</button>
+                    </form>
+                </div>
+                <br>
+                <div class="contenedor-formulario">
+                    <form class="fomurlario">
+                        <p>
+                        <h1>Informe:</h1>
+                        </p>
+                        <br>
+                        <span th:text="${atr_nombre}"> Nombre por defecto</span>
+                        <span th:text="${atr_ciclo}"> Ciclo por defecto</span>
+                        <span th:text="${atr_curso}"> Curso por defecto</span>
+                        <span th:text="${atr_horas}"> Horas por defecto</span>
+                        <span th:text="${atr_horasTrimestre}"> Horas Trimestrales por defecto</span>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
