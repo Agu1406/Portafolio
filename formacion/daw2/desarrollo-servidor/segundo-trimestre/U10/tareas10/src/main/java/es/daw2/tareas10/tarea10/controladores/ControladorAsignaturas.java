@@ -3,7 +3,6 @@ package es.daw2.tareas10.tarea10.controladores;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.ui.Model;
 import es.daw2.tareas10.tarea10.modelos.Asignatura;
 
@@ -17,7 +16,7 @@ public class ControladorAsignaturas {
         return "formulario";
     }
 
-    @GetMapping("/agregar")
+    @PostMapping("/agregar")
     public String mostrarFormularioAgregar(Model modelo) {
         // Agregar atributos para mostrar en el informe
         modelo.addAttribute("atr_nombre", asignatura.getNombre());

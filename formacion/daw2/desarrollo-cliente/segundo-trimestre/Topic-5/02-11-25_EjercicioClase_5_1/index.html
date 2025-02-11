@@ -6,6 +6,7 @@
     <title>Nombre de la actividad</title>
     <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
     <link rel="stylesheet" href="estilos.css">
+
 </head>
 <body>
     <div class="contenedor">
@@ -16,6 +17,10 @@
         <main>
             <h1>Titulo de la actividad</h1>
             <p>Descripción de la actividad.</p>
+            <div class="div">
+                <p>¡Pinta rojo!</p>
+                <button id="boton">¡Pintar de verde!</button>
+            </div>
         </main>
     
         <footer>
@@ -23,6 +28,17 @@
                 reservados.</p>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script>
+        let boton = document.getElementById("boton");
+        let div = document.getElementsByClassName("div")[0];
+
+        boton.addEventListener("click", (ev) => {
+            document.body.style.backgroundColor = "green";
+        }, true); // Con "true" es burbuja, prueba con y sin true.
+
+        div.addEventListener("click", (ev) => {
+            document.body.style.background = "red";
+        }, true); // Con "true" es burbuja, prueba con y sin true.
+    </script>
 </body>
 </html>
