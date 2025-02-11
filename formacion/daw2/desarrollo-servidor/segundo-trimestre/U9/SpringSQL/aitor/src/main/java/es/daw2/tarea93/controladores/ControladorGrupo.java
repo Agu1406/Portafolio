@@ -15,6 +15,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/grupos")
 public class ControladorGrupo {
+    /*
+     * obtener todos los Grupos | obtenerGrupos()
+     * obtener un grupo dado su id | obtenerGrupo()
+     * añadir un grupo sin alumnos | crearGrupoVacio()
+     * añadir un grupo con alumnos | crearGrupo()
+     * actualizar los datos del grupo idGrupo. manteniendo su lista de alumnos
+     * anterior | actualizarGrupo
+     * borrar el grupo idGrupo, sólo si no tiene alumnos | borrarGrupo()
+     */
 
     @Autowired
     private ServicioGrupo servicioGrupo;
