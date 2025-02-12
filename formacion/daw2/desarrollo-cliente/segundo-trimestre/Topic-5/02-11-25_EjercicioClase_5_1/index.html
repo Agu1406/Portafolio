@@ -34,11 +34,11 @@
 
         boton.addEventListener("click", (ev) => {
             document.body.style.backgroundColor = "green";
-        }, true); // Con "true" es burbuja, prueba con y sin true.
+        }, true); // Con "true" es captura, sin él, es burbuja.
 
         div.addEventListener("click", (ev) => {
             document.body.style.background = "red";
-        }, true); // Con "true" es burbuja, prueba con y sin true.
+        }, true); // Con "true" es captura, sin él, es burbuja.
     </script>
 </body>
 </html>
