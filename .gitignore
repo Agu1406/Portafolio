@@ -2,3 +2,47 @@ formacion/daw1/programacion/out
 formacion/daw2/desarrollo-cliente/segundo-trimestre/Topic-6/T6_3AgustinAntonioMarquezPina.zip
 formacion/daw2/desarrollo-servidor/segundo-trimestre/U7/ej2spring/src/main/java/es/daw2/Tarea8_4MarquezPinaAgustinAntonio.zip
 formacion/daw2/desarrollo-servidor/segundo-trimestre/U7/ej2spring/src/main/java/es/daw2/Tarea8_5MarquezPinaAgustinAntonio.zip
+
+# Archivos y carpetas generados por Maven
+target/
+**/target/
+*.war
+*.jar
+*.ear
+pom.xml.tag
+pom.xml
+.mvn
+
+# Archivos y carpetas generados por Eclipse
+.settings/
+.project
+.classpath
+
+# Otros archivos temporales
+**/*.log
+**/*.tmp
+**/*~
+**/Thumbs.db
+**/ehcache.xml
+
+# Archivos específicos del sistema operativo
+.DS_Store
+
+# Archivos de compilación de Java
+**/*.class
+
+# Archivos de respaldo
+**/*.backup
+
+# Archivos de configuración de NetBeans
+nbproject/
+
+# Archivos de IntelliJ IDEA
+.idea/
+*.iml
+
+# Archivos de VS Code
+.vscode/
+
+# Archivos de configuración de macOS
+._*
