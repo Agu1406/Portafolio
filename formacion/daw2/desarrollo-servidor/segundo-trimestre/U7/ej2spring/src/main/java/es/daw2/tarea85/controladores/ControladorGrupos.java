@@ -55,7 +55,7 @@ public class ControladorGrupos {
      * @param nuevoGrupo JSON con los datos del nuevo grupo.
      * @return un ResponseEntity con el nuevo grupo y la URL del recurso creado.
      */
-    @PostMapping ("grupos/creargrupo")
+    @PostMapping ("grupos/creargrupot85")
     public ResponseEntity<?> crearGrupo(@RequestBody Grupo nuevoGrupo) {
         // Agrega el nuevo grupo al ArrayList de grupos existentes.
         grupos.add(nuevoGrupo);
@@ -86,7 +86,7 @@ public class ControladorGrupos {
      * @param ies String con el nombre del instituto que se busca.
      * @return un RespondeEntity con el array de los ciclos/cursos
      */
-    @GetMapping("/grupos/listarporinstitutos")
+    @GetMapping("/grupos/listarporinstitutost85")
     public ResponseEntity<ArrayList<Grupo>> obtenerGruposPorIES(@RequestParam String ies) {
         ArrayList<Grupo> gruposFiltrados = new ArrayList<>();
         /*
@@ -124,7 +124,7 @@ public class ControladorGrupos {
      * @param grupo         recibido como JSON o código desde el BODY.
      * @return una respuesta OK si todo sale bien, si no, excepciones.
      */
-    @PutMapping("grupos/actualizargrupo/{nuevaposicion}")
+    @PutMapping("grupos/actualizargrupot85/{nuevaposicion}")
     public ResponseEntity<?> actualizarGrupo(@PathVariable int nuevaposicion, @RequestBody Grupo grupo) {
             if (nuevaposicion > grupos.size() || nuevaposicion < 0) {
                 // Si la nueva posición es mayor que el tamaño del ArrayList o menor que 0, lanza un error.
@@ -137,7 +137,7 @@ public class ControladorGrupos {
     }
 
     // SECCIÓN "D" DEL CRUD (BORRAR) - Por hacer.
-    @PostMapping("grupos/borrargrupos/{ies}")
+    @PostMapping("grupos/borrargrupost85/{ies}")
     public ResponseEntity borrarGrupo (@RequestBody String instituto) {
         
         return null;
@@ -147,7 +147,7 @@ public class ControladorGrupos {
     @Autowired
     private ServicioGrupo serviciogrupo;
 
-    @GetMapping("/{ies}/ciclos")
+    @GetMapping("/{ies}/ciclost85")
     public ResponseEntity<?> recuperarCiclosPorIes(@PathVariable String ies) {
         List<Ciclo> listaCiclosPorIes = serviciogrupo.obtenerCiclosPorIes(ies);
         return ResponseEntity.ok(listaCiclosPorIes);
