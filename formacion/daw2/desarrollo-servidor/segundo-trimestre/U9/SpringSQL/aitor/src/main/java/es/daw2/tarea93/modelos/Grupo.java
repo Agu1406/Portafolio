@@ -40,4 +40,6 @@ public class Grupo {
     @OneToMany(mappedBy = "grupo")
     // Lista de alumnos pertenecientes a "X" grupo.
     private List<Alumno> alumnos;
+
+    
 }
