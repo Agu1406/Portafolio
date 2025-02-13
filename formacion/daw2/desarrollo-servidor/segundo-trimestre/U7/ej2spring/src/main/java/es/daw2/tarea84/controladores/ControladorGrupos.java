@@ -50,7 +50,7 @@ public class ControladorGrupos {
     // SECCIÓN DE "C" DE CRUD //
 
     
-    @PostMapping ("grupos/creargrupo")
+    @PostMapping ("grupos/creargrupot84")
     public ResponseEntity<?> crearGrupo(@RequestBody Grupo nuevoGrupo) {
         // Agrega el nuevo grupo al ArrayList de grupos existentes.
         grupos.add(nuevoGrupo);
@@ -81,7 +81,7 @@ public class ControladorGrupos {
      * @param ies String con el nombre del instituto que se busca.
      * @return un RespondeEntity con el array de los ciclos/cursos
      */
-    @GetMapping("/grupos/listarporinstitutos")
+    @GetMapping("/grupos/listarporinstitutost84")
     public ResponseEntity<ArrayList<Grupo>> obtenerGruposPorIES(@RequestParam String ies) {
         ArrayList<Grupo> gruposFiltrados = new ArrayList<>();
         /*
@@ -119,7 +119,7 @@ public class ControladorGrupos {
      * @param grupo         recibido como JSON o código desde el BODY.
      * @return una respuesta OK si todo sale bien, si no, excepciones.
      */
-    @PutMapping("grupos/actualizargrupo/{nuevaposicion}")
+    @PutMapping("grupos/actualizargrupot84/{nuevaposicion}")
     public ResponseEntity<?> actualizarGrupo(@PathVariable int nuevaposicion, @RequestBody Grupo grupo) {
         // Try-catch que intenta actualizar la posición de un grupo dentro del ArrayList
         // de grupos.
@@ -144,7 +144,7 @@ public class ControladorGrupos {
 
     // SECCIÓN "D" DEL CRUD (BORRAR) - Por hacer.
     @SuppressWarnings("rawtypes")
-    @PostMapping("grupos/borrargrupos/{ies}")
+    @PostMapping("grupos/borrargrupost84/{ies}")
     public ResponseEntity borrarGrupo (@RequestBody String instituto) {
         
         return null;
@@ -154,7 +154,7 @@ public class ControladorGrupos {
     @Autowired
     private ServicioGrupo serviciogrupo;
 
-    @GetMapping("/{ies}/ciclos")
+    @GetMapping("/{ies}/ciclost84")
     public ResponseEntity<?> recuperarCiclosPorIes(@PathVariable String ies) {
         List<Ciclo> listaCiclosPorIes = serviciogrupo.obtenerCiclosPorIes(ies);
         return ResponseEntity.ok(listaCiclosPorIes);
