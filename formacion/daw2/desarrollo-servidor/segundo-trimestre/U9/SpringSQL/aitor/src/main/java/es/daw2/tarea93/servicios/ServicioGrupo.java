@@ -14,14 +14,24 @@ public class ServicioGrupo implements IFServicioGrupo {
     @Autowired
     RepositorioGrupo repositorioGrupo;
 
+    @Override
+    public Grupo agregarGrupoVacio(Grupo nuevoGrupo) {
+        return repositorioGrupo.save(nuevoGrupo);
+    }
 
     @Override
-    public List<Grupo> listarGrupos() {
+    public Grupo agregarGrupoLleno(Grupo nuevoGrupo) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'agregarGrupoLleno'");
+    }
+
+    @Override
+    public List<Grupo> obtenerGrupos() {
         return (List<Grupo>) repositorioGrupo.findAll();
     }
 
     @Override
-    public List<Grupo> listarGruposPorIes(String ies) {
+    public List<Grupo> obtenerGrupoId(String ies) {
         // Creamos una lista donde guardaremos los grupos filtrados.
         List<Grupo> gruposFiltrados = new ArrayList<>();
         // Generamos una lista con todos los grupos existentes.
@@ -39,17 +49,12 @@ public class ServicioGrupo implements IFServicioGrupo {
     }
 
     @Override
-    public Grupo agregarGrupo(Grupo nuevoGrupo) {
-        return repositorioGrupo.save(nuevoGrupo);
-    }
-
-    @Override
     public Grupo actualizarGrupo(Long idGrupo, Grupo nuevoGrupo) {
         // Guardamos en una lista todos los grupos existentes.
         List<Grupo> grupos = (List<Grupo>) repositorioGrupo.findAll();
         // Recorremos uno por uno todos los grupos con foreach
         for (Grupo grupo : grupos) {
-            
+
         }
         return nuevoGrupo;
     }

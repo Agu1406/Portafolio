@@ -52,7 +52,7 @@ public class ControladorGrupos {
      * @param nuevoGrupo Objeto Grupo recibido desde la URL.
      * @return Lista actualizada de grupos.
      */
-    @PostMapping("/grupos/crear")
+    @PostMapping("/grupos/crearEj2")
     public ArrayList<Grupo> crearGrupoArrayList(@RequestBody Grupo nuevoGrupo) {
         // Ya recibido el "grupo" desde la URL, lo añadimos al ArrayList
         grupos.add(nuevoGrupo);
@@ -66,7 +66,7 @@ public class ControladorGrupos {
      * @param ies Nombre del instituto recibido desde la URL.
      * @return Lista de grupos pertenecientes al instituto.
      */
-    @GetMapping("/grupos/crear/{ies}")
+    @GetMapping("/grupos/crearEj2/{ies}")
     public ArrayList<Grupo> gruposDeUnIes(@PathVariable String ies) {
         // Crea un nuevo ArrayList de grupos llamado "nuevoGrupo"
         ArrayList<Grupo> nuevogrupo = new ArrayList<Grupo>();
@@ -87,7 +87,7 @@ public class ControladorGrupos {
      * @param nuevoGrupo recibido como JSON desde la consulta.
      * @return respueta HTTP con el grupo recien creado.
      */
-    @PostMapping("grupos/crear")
+    @PostMapping("grupos/crearEj22")
     public String postMethodName(@RequestBody String entity) {
         
         return entity;
@@ -120,7 +120,7 @@ public class ControladorGrupos {
      *
      * @return la lista de grupos actualizada.
      */
-    @GetMapping("/grupos/listar")
+    @GetMapping("/grupos/listarEj2")
     public ArrayList<Grupo> listarGrupos() {
         // Devuelve la lista de grupos en su versión más reciente.
         return grupos;
@@ -135,7 +135,7 @@ public class ControladorGrupos {
      * @param ies String con el nombre del instituto que se busca.
      * @return un RespondeEntity con el array de los ciclos/cursos
      */
-    @GetMapping("/grupos/listarporinstitutos")
+    @GetMapping("/grupos/listarporinstitutosEj2")
     public ResponseEntity<ArrayList<Grupo>> obtenerGruposPorIES(@RequestParam String ies) {
         ArrayList<Grupo> gruposFiltrados = new ArrayList<>();
         /*
@@ -173,7 +173,7 @@ public class ControladorGrupos {
      * @param grupo         recibido como JSON o código desde el BODY.
      * @return una respuesta OK si todo sale bien, si no, excepciones.
      */
-    @PutMapping("grupos/actualizargrupo/{nuevaposicion}")
+    @PutMapping("grupos/actualizargrupoEj2/{nuevaposicion}")
     public ResponseEntity<?> actualizarGrupo(@PathVariable int nuevaposicion, @RequestBody Grupo grupo) {
         // Try-catch que intenta actualizar la posición de un grupo dentro del ArrayList
         // de grupos.
@@ -202,7 +202,7 @@ public class ControladorGrupos {
      * @param ies Nuevo nombre del instituto recibido desde la URL.
      * @return Lista actualizada de grupos.
      */
-    @PutMapping("/grupos/update/")
+    @PutMapping("/grupos/updateEj2/")
     public ArrayList<Grupo> actualizarGrupoArrayList(@PathVariable String ies) {
         return grupos;
     }
@@ -215,7 +215,7 @@ public class ControladorGrupos {
      * @param ies Nombre del instituto recibido desde la URL.
      * @return Lista actualizada de grupos.
      */
-    @DeleteMapping("/grupos/borrar/")
+    @DeleteMapping("/grupos/borrarEj2/")
     public ArrayList<Grupo> borrarGrupo(@PathVariable String ies) {
         // Recorre con un foreach todos los grupos del Arraylist.
         for (Grupo grupo : grupos) {

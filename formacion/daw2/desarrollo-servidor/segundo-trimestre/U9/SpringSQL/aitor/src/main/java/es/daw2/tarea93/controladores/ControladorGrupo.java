@@ -30,9 +30,9 @@ public class ControladorGrupo {
 
     // SECCIÓN DE "C" DE CRUD //
 
-    @PostMapping("/creargrupo")
-    public ResponseEntity<?> crearGrupo(@RequestBody Grupo nuevoGrupo) {
-        Grupo grupoCreado = servicioGrupo.agregarGrupo(nuevoGrupo);
+    @PostMapping("/creargrupovacio")
+    public ResponseEntity<?> crearGrupoVacio(@RequestBody Grupo nuevoGrupo) {
+        Grupo grupoCreado = servicioGrupo.agregarGrupoVacio(nuevoGrupo);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
@@ -45,7 +45,7 @@ public class ControladorGrupo {
 
     @GetMapping("/listarporinstitutos")
     public ResponseEntity<List<Grupo>> obtenerGruposPorIES(@RequestParam String ies) {
-        List<Grupo> gruposFiltrados = servicioGrupo.listarGruposPorIes(ies);
+        List<Grupo> gruposFiltrados = servicioGrupo.obtenerGrupoId(ies);
         if (gruposFiltrados.isEmpty()) {
             return ResponseEntity.badRequest().build();
         } else {

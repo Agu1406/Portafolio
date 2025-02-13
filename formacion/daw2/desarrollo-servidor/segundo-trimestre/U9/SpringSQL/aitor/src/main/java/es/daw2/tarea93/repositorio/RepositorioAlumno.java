@@ -12,7 +12,7 @@ public interface RepositorioAlumno extends CrudRepository<Alumno, Long> {
      * READ: findAll(arugmento)
      * READ: findById(argumento)
      * UPDATE: no tiene.
-     * DELETE: delete().
+     * DELETE: delete(argumento).
      * etc... hay otros.
      */
 }
