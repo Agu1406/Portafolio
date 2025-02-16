@@ -58,4 +58,10 @@ public class ServicioGrupo implements IFServicioGrupo {
         }
         return nuevoGrupo;
     }
+
+    @Override
+    public Grupo borrarGrupo(Long idGrupo) {
+        // Guar
+
+    }
 }

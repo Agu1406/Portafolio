@@ -6,5 +6,6 @@
     "java.project.sourcePaths": [
         "formacion/daw1/programacion/src",
         "formacion/daw2/desarrollo-servidor/segundo-trimestre/U7/ej2spring/src/main/java/es/daw2/tarea85"
-    ]
+    ],
+    "commentTranslate.targetLanguage": "es"
 }

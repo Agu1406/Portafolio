@@ -17,6 +17,9 @@ public interface IFServicioGrupo  {
     // CRUD (READ) Permite listar grupos filtrando por su "IES".
     public abstract List<Grupo> obtenerGrupoId(String ies);
 
-    // CRUD (UPDATE) Permite actualizar el atributo de "X" grupo.
+    // CRUD (UPDATE) Permite actualizar el atributo de "X" grupo sin modificar sus alumnos.
     public abstract Grupo actualizarGrupo (Long idGrupo, Grupo nuevoGrupo);
+
+    // CRUD (DETELE) Permite borrar un grupo de la lista de grupos existente.
+    public abstract Grupo borrarGrupo (Long idGrupo);
 }

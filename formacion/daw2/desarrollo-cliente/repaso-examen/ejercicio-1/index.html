@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        /* Estilo del contenedor principal, debería funcionar bien en dispositivos
+moviles porque distribuye todo en una fracción, es decir, una sola
+sola columna. */
+        .contenedor {
+            display: grid;
+            /* Usar grid para el layout */
+            grid-template-columns: 1fr;
+            /* Una columna para móviles */
+            gap: 20px;
+            /* Espacio entre elementos */
+            min-height: 100vh;
+            /* Ocupa el 100% de la pantalla del dispositivo que visualice */
+        }
+
+        /* Estilo del header */
+        header {
+            background-color: darkgreen;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        /* Estilo del main */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        main h1 {
+            font-size: 2.5em;
+            color: darkgreen;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 1.2em;
+            color: #666;
+            text-align: justify;
+            /* Justificar el texto */
+        }
+
+        /* Estilo de las listas */
+        ul {
+            list-style-type: disc;
+            /* Cambiar el estilo de la lista a puntos */
+            padding-left: 20px;
+            /* Espaciado a la izquierda */
+            text-align: left;
+            /* Alinear el texto a la izquierda */
+        }
+
+        li {
+            margin-bottom: 10px;
+            /* Espaciado entre los elementos de la lista */
+        }
+
+        /* Estilo del contenedor del formulario */
+        .contenedor-formulario {
+            display: flex;
+            justify-content: center;
+            /* Centrar el formulario horizontalmente */
+            align-items: center;
+            /* Centrar el formulario verticalmente */
+            padding: 20px;
+            /* Espaciado alrededor del formulario */
+        }
+
+        /* Estilo del formulario */
+        .formulario {
+            border: #333 solid 4px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            /* Asegura que el formulario no exceda el contenedor */
+        }
+
+        .formulario label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Estilo de los inputs y el botón de envío */
+        .formulario input[type="text"],
+        .formulario input[type="password"],
+        .formulario input[type="submit"] {
+            width: 75%;
+            /* Ancho máximo del 75% */
+            max-width: 75%;
+            /* Asegura que no exceda el 75% */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+            display: block;
+            /* Asegura que se comporten como bloques */
+            margin-left: auto;
+            /* Centrar horizontalmente */
+            margin-right: auto;
+            /* Centrar horizontalmente */
+        }
+
+        .formulario input[type="text"]:focus,
+        .formulario input[type="password"]:focus {
+            border-color: #007bff;
+        }
+
+        .formulario input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .formulario input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilo del footer */
+        footer {
+            background-color: darkgreen;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            border-top: 1px solid #ddd;
+        }
+
+        footer a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Desarrollo Web Entorno Cliente.</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio N.º1 de repaso para los examenes</h1>
+            <p>Creación de objetos literales y no literales en Js.</p>
+            <br>
+            <p>¡Mirar la consola!</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script>
+        /**
+         * No usar la variable "var", está en deshuso y no es profesional, usar
+         * let o const en su lugar.
+         */
+
+        /**
+         * Hay dos formas de crear objetos de en JavaScript, crearlos literalmente como vemos en el primer ejemplo
+         * y luego crearlos usando un constructor (más parecido a lo que hemos visto en Java, PHP, etc), vamos a
+         * crear un objeto llamado "Hugo" con los atributos y carácteristicas de un animal:
+         */
+        let hugo;
+
+        // Luego, dentro de la variable, usando llaves "{}" definimos sus atributos de objeto.
+        hugo = {
+
+            // Atributo que guarda el nombre de un animal.
+            nombre: "Hugo",
+            // Atributo del animal que guarda su peso
+            peso: "2KG",
+
+            // Función de un objeto "animal" que le permite "comer".
+            Comer: function () {
+                console.log("¡Que rico! El hijo' puta de Hugo ya comio.");
+            },
+            // Función de un objeto "animal" que le permite "dormir".
+            Dormir: function () {
+                console.log("Mira como el perro de Hugo está durmiendo.");
+            }
+        }
+
+        // Probamos las funciones del objeto "Hugo", puede comer y/o dormir.
+        hugo.Comer();
+        hugo.Dormir();
+
+        /**
+         * Existe una segunda forma de crear objetos en JavaScript que es más parecida a lo que hemos
+         * visto por ejemplo en Java, en PHP, etc, que es usando un constructor que permite instanciar
+         * objetos de "X" tipo.
+         */
+
+        /**
+         * Constructor que permite crear "objetos" del tipo Animal.
+         * @param {String} nombre String con el nombre del animal.
+         * @param {number} peso int con el peso del animal.
+         */
+        function Animal(nombre, peso) {
+
+            // Definimos los atributos del objeto "Animal" que estemos creando.
+            this.nombre = nombre;
+            this.peso = peso;
+
+            // Definimos el método que todos los animales creados con este constructor tendran para comer.
+            this.Comer = function () {
+                console.log("¡El animal, cuyo nombre es: " + this.nombre + " ha comido!");
+            }
+            // Definimos el método que todos los animales creados con este constructor tendran para dormir.
+            this.Dormir = function () {
+                console.log("¡El animal, cuyo nombre es: " + this.nombre + " ha dormido!");
+            }
+        }
+
+        // Usando el constructor de "Animal" creamos un "Animal" llamado "Hugo" que pesa "2" kilos.
+        let animalHugo = new Animal("Hugo", 2);
+
+        // Probamos el método "comer" de los animales.
+        animalHugo.Comer();
+        // Probamos el método "dormir" de los animales.
+        animalHugo.Dormir();
+        // Imprimimos en un "console.log" el nombre y el peso del animal.
+        console.log("El nombre de este animal es: " + animalHugo.nombre + " y su peso es: " + animalHugo.peso);
+
+        /**
+         * Ahora, vamos a crear dos constructores, uno para "Perros" (Como Adrían) y otro para gatos (como K3),
+         * ambos van a heredar del objeto "Animal" los atributos.
+        */
+        function Perro(nombre, peso) {
+            // Hereda de "Animal" los atributos y métodos.
+            Animal.call(this, nombre, peso);
+
+            // Agregamos los métodos tipos de un "Perro".
+            this.Ladrar = function () {
+                console.log("¡Guau! ¡Guau! ¡Guau!");
+            }
+
+            this.Gruñir = function () {
+                console.log("¡GRRRRRRR ESTOY EN CELO!");
+            }
+        }
+
+        // Creamos un nuevo objeto del tipo "Perro".
+        let Adrian = new Perro("Adrian", 88);
+
+        // Probamos todos sus métodos.
+        Adrian.Gruñir();
+        Adrian.Ladrar();
+        Adrian.Comer();
+        Adrian.Dormir();
+
+        // ¿Adrían es un objeto del tipo "Animal"?, no lo es, sale "False".
+        console.log(Adrian instanceof Animal);
+        // ¿Adrían es un objeto del tipo "Perro"?, si lo es, sale "True".
+        console.log(Adrian instanceof Perro);
+
+        // ¿Como borrar cosas de un objeto? Con "Delete".
+        Adrian.delete(nombre);
+
+        
+    </script>
+</body>
+
+</html>
