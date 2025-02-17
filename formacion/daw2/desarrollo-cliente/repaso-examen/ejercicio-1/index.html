@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nombre de la actividad</title>
+    <title>Repaso para los examenes</title>
     <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
     <style>
         /* Estilos generales */
@@ -284,9 +284,12 @@ sola columna. */
         console.log(Adrian instanceof Perro);
 
         // ¿Como borrar cosas de un objeto? Con "Delete".
-        Adrian.delete(nombre);
+        delete Adrian.nombre;
 
-        
+        // Probamos a ver que sale despues de borrarle el nombre. Undefined, está borrado.
+        console.log(Adrian.nombre);
+
+
     </script>
 </body>
 
