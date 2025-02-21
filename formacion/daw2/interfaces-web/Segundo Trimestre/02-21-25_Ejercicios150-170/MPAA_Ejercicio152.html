@@ -12,12 +12,26 @@
 <body>
     <div class="contenedor">
         <header>
-            <p>Desarrollo Web Entorno Cliente.</p>
+            <p>Diseño de interfaces web</p>
         </header>
 
         <main>
-            <h1>Titulo de la actividad</h1>
-            <p>Descripción de la actividad.</p>
+            <h1>Poligono Estrellado</h1>
+            <p>Gráfico vectoriales (SVG)</p>
+            <br>
+            <svg width="300" height="500">
+                <defs>
+                    <linearGradient id="grad1">
+                        <stop offset="0%" stop-color="yellow" />
+                        <stop offset="100%" stop-color="red" />
+                    </linearGradient>
+                </defs>
+                <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+                <text fill="white" font-size="45" font-family="Verdana" x="50" y="86">
+                    SVG
+                </text>
+                ¡Lo siento! Tú naveagdor no soporta SVG en HTML.
+            </svg>
         </main>
 
         <footer>
