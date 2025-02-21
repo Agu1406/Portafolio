@@ -1,13 +1,14 @@
-package es.daw2.tarea93.controladores;
+package es.daw.tarea10docker.controladores;
 
-import es.daw2.tarea93.modelos.Grupo;
-import es.daw2.tarea93.servicios.ServicioGrupo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import es.daw.tarea10docker.modelos.Grupo;
+import es.daw.tarea10docker.servicios.ServicioGrupo;
 
 import java.net.URI;
 import java.util.List;

@@ -2,8 +2,8 @@
 setlocal enabledelayedexpansion
 
 REM Definimos el rango y el incremento directamente en el script.
-set "inicio=140"
-set "final=150"
+set "inicio=150"
+set "final=170"
 set "incremento=1"
 
 REM Creamos nuestras variables
