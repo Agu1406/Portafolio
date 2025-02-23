@@ -1,0 +1,222 @@
+/* Variables globales */
+:root {
+    --color-primario: #172e44;
+    --color-secundario: #f3c14e;
+    --color-texto: #333;
+    --color-fondo: #fff;
+    --max-width: 1024px;
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--color-texto);
+    line-height: 1.6;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: var(--color-primario);
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+.nav-desktop ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-desktop a {
+    color: var(--color-fondo);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-desktop a:hover {
+    color: var(--color-secundario);
+}
+
+/* Menú hamburguesa (oculto en desktop) */
+.menu-hamburguesa {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-hamburguesa span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-fondo);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* Main content */
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    gap: 3rem;
+}
+
+/* Estilos para la sección de imágenes */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas por defecto */
+    gap: 2rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+.galeria-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.galeria-item img,
+.galeria-item picture img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    aspect-ratio: 16/9; /* Mantiene proporción consistente */
+}
+
+figcaption {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--color-texto);
+    text-align: center;
+}
+
+/* Secciones de audio y video */
+.reproductor-audio,
+.reproductor-video {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.controles-video {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* Estilos para la sección de audio */
+.reproductor-audio {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: var(--color-primario);
+    border-radius: 0.5rem;
+}
+
+.reproductor-audio audio {
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(
+        to right,
+        var(--color-primario) 0%,
+        var(--color-primario) 50%,
+        var(--color-secundario) 50%,
+        var(--color-secundario) 100%
+    );
+    color: var(--color-fondo);
+    padding: 2rem;
+}
+
+.footer-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    gap: 2rem;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.contenedor {
+    width: 100%;
+    max-width: 1024px;
+    min-width: 620px;
+    margin: 0 auto;
+    background-color: var(--color-fondo);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 620px) {
+    header {
+        grid-template-columns: auto auto;
+    }
+
+    .nav-desktop {
+        display: none;
+    }
+
+    .menu-hamburguesa {
+        display: block;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+
+    .footer-section {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor {
+        min-width: 100%;
+    }
+}
+
+/* Ajuste para resoluciones mayores a 1024px */
+@media (min-width: 1024px) {
+    body {
+        background-color: #f0f0f0; /* Color de fondo para el espacio extra */
+    }
+    
+    .contenedor {
+        width: 1024px; /* Ancho fijo */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Opcional: añade sombra al contenedor */
+    }
+} 

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promoción Deportiva</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/svg+xml" href="imagenes/logo.svg">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <img src="imagenes/logo.svg" alt="Logo de la empresa" class="logo">
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#imagenes">Imágenes</a></li>
+                    <li><a href="#audio">Audio</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="pagina/tarea_4.html" target="_blank">Informe</a></li>
+                </ul>
+            </nav>
+            <button class="menu-hamburguesa" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+
+        <main>
+            <section id="imagenes">
+                <h2>Imágenes</h2>
+                <div class="galeria">
+                    <figure class="galeria-item">
+                        <img src="imagenes/1_Imagen.jpg" alt="Imagen propia" loading="lazy">
+                        <figcaption>1_Imagen.jpg</figcaption>
+                    </figure>
+                    
+                    <figure class="galeria-item">
+                        <img src="imagenes/2_Internet.jpg" alt="Imagen de internet" loading="lazy">
+                        <figcaption>2_Internet.jpg</figcaption>
+                    </figure>
+                    
+                    <figure class="galeria-item">
+                        <img src="imagenes/4_Composicion.jpg" alt="Composición" loading="lazy">
+                        <figcaption>4_Composicion.jpg</figcaption>
+                    </figure>
+                    
+                    <figure class="galeria-item">
+                        <!-- Usando picture para el cambio responsivo sin media queries -->
+                        <picture>
+                            <source media="(min-width: 400px)" 
+                                    srcset="imagenes/5_Composicion_1000.jpg">
+                            <img src="imagenes/6_Composicion_400.jpg" 
+                                 alt="Composición responsive" 
+                                 loading="lazy">
+                        </picture>
+                        <figcaption>Responsive</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section id="audio">
+                <h2>Audio</h2>
+                <div class="reproductor-audio">
+                    <audio controls>
+                        <source src="audios/1_audio.mp3" type="audio/mp3">
+                        <source src="audios/2_audio.ogg" type="audio/ogg">
+                        Tu navegador no soporta el elemento audio.
+                    </audio>
+                </div>
+            </section>
+
+            <section id="video">
+                <h2>Video</h2>
+                <div class="reproductor-video">
+                    <video id="miVideo" poster="imagenes/poster.jpg">
+                        <source src="videos/1_video.mp4" type="video/mp4">
+                        <source src="videos/2_video.webm" type="video/webm">
+                        Tu navegador no soporta el elemento video.
+                    </video>
+                    <div class="controles-video">
+                        <button id="playBtn">Play</button>
+                        <button id="pauseBtn">Pause</button>
+                        <input type="range" id="volumen" min="0" max="1" step="0.1" value="1">
+                        <span id="duracion">0:00</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-section">
+                <h3>Imágenes</h3>
+                <p>GIMP 2.10</p>
+            </div>
+            <div class="footer-section">
+                <h3>Audio</h3>
+                <p>Audacity</p>
+            </div>
+            <div class="footer-section">
+                <h3>Video</h3>
+                <p>OpenShot</p>
+            </div>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
