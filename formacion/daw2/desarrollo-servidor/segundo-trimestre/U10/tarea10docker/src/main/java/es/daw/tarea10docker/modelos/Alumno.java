@@ -6,7 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// Anotaciones de lombok
+/**
+ * Clase que representa la entidad Alumno en la base de datos
+ * Utiliza anotaciones de Lombok para generar código repetitivo
+ * y JPA para la persistencia
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,7 +25,7 @@ public class Alumno {
     private Long idAlumno;
     
     // Define una columna de la tabla, si su valor puede ser null y el tipo de dato.    
-    @Column (name = "NOMNRE", nullable = false, columnDefinition = "varchar(25)")
+    @Column (name = "NOMBRE", nullable = false, columnDefinition = "varchar(25)")
     private String nombre;
 
     // Define una columna de la tabla, si su valor puede ser null y el tipo de dato.

@@ -27,10 +27,10 @@ body {
 header {
     background-color: var(--color-primario);
     padding: 1rem;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     max-width: var(--max-width);
     margin: 0 auto;
     width: 100%;
@@ -45,6 +45,7 @@ header {
     display: flex;
     gap: 2rem;
     list-style: none;
+    justify-content: center;
 }
 
 .nav-desktop a {
@@ -58,21 +59,26 @@ header {
     color: var(--color-secundario);
 }
 
-/* Menú hamburguesa (oculto en desktop) */
+/* Estilos para el menú hamburguesa */
+.menu-toggle {
+    display: none; /* Ocultamos el checkbox */
+}
+
 .menu-hamburguesa {
-    display: none;
-    background: none;
-    border: none;
+    display: none; /* Por defecto está oculto */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
     cursor: pointer;
 }
 
 .menu-hamburguesa span {
     display: block;
-    width: 25px;
+    width: 100%;
     height: 3px;
     background-color: var(--color-fondo);
-    margin: 5px 0;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 /* Main content */
@@ -185,15 +191,52 @@ footer {
 /* Ajustes responsivos */
 @media (max-width: 620px) {
     header {
-        grid-template-columns: auto auto;
-    }
-
-    .nav-desktop {
-        display: none;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
     }
 
     .menu-hamburguesa {
-        display: block;
+        display: flex; /* Mostramos el menú hamburguesa */
+    }
+
+    .nav-desktop {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-primario);
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.3s ease;
+    }
+
+    .nav-desktop ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .nav-desktop li {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    /* Cuando el checkbox está marcado, mostramos el menú */
+    .menu-toggle:checked ~ .nav-desktop {
+        transform: scaleY(1);
+    }
+
+    /* Animación de las barras del menú hamburguesa */
+    .menu-toggle:checked ~ .menu-hamburguesa span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle:checked ~ .menu-hamburguesa span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked ~ .menu-hamburguesa span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 
     .galeria {
@@ -211,12 +254,7 @@ footer {
 
 /* Ajuste para resoluciones mayores a 1024px */
 @media (min-width: 1024px) {
-    body {
-        background-color: #f0f0f0; /* Color de fondo para el espacio extra */
-    }
-    
     .contenedor {
-        width: 1024px; /* Ancho fijo */
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Opcional: añade sombra al contenedor */
+        width: var(--max-width);
     }
 } 

@@ -3,7 +3,9 @@ package es.daw.tarea10docker.servicios;
 import es.daw.tarea10docker.modelos.Grupo;
 import es.daw.tarea10docker.repositorio.RepositorioGrupo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,16 +14,17 @@ import java.util.List;
 public class ServicioGrupo implements IFServicioGrupo {
 
     @Autowired
-    RepositorioGrupo repositorioGrupo;
+    private RepositorioGrupo repositorioGrupo;
 
     @Override
     public Grupo agregarGrupoVacio(Grupo nuevoGrupo) {
+        // Asegurarse que no hay alumnos asociados
+        nuevoGrupo.setAlumnos(null);
         return repositorioGrupo.save(nuevoGrupo);
     }
 
     @Override
     public Grupo agregarGrupoLleno(Grupo nuevoGrupo) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'agregarGrupoLleno'");
     }
 
@@ -50,18 +53,25 @@ public class ServicioGrupo implements IFServicioGrupo {
 
     @Override
     public Grupo actualizarGrupo(Long idGrupo, Grupo nuevoGrupo) {
-        // Guardamos en una lista todos los grupos existentes.
-        List<Grupo> grupos = (List<Grupo>) repositorioGrupo.findAll();
-        // Recorremos uno por uno todos los grupos con foreach
-        for (Grupo grupo : grupos) {
-
-        }
-        return nuevoGrupo;
+        Grupo grupoExistente = obtenerGrupoPorId(idGrupo);
+        grupoExistente.setIes(nuevoGrupo.getIes());
+        grupoExistente.setCiclo(nuevoGrupo.getCiclo());
+        grupoExistente.setCurso(nuevoGrupo.getCurso());
+        return repositorioGrupo.save(grupoExistente);
     }
 
     @Override
     public Grupo borrarGrupo(Long idGrupo) {
         // Guar
         return null;
+    }
+
+    public Grupo obtenerGrupoPorId(Long id) {
+        return repositorioGrupo.findById(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Grupo no encontrado"));
+    }
+
+    public List<Grupo> findAll() {
+        return (List<Grupo>) repositorioGrupo.findAll();
     }
 }

@@ -4,7 +4,21 @@ import es.daw.tarea10docker.modelos.Grupo;
 
 import java.util.List;
 
+/**
+ * Interfaz que define las operaciones disponibles para la gestión de Grupos
+ * Define el contrato que debe implementar ServicioGrupo
+ */
 public interface IFServicioGrupo  {
+    /*
+     * Métodos CRUD y operaciones específicas:
+     * - agregarGrupoVacio: Crear grupo sin alumnos
+     * - agregarGrupoLleno: Crear grupo con alumnos
+     * - obtenerGrupos: Listar todos los grupos
+     * - obtenerGrupoId: Filtrar grupos por IES
+     * - actualizarGrupo: Modificar datos sin afectar alumnos
+     * - borrarGrupo: Eliminar grupo si no tiene alumnos
+     */
+
     // CRUD (CREATE) Permite agregar un nuevo grupo vacio (sin alumnos).
     public abstract Grupo agregarGrupoVacio (Grupo nuevoGrupo);
 
