@@ -1,0 +1,1 @@
+import {Gato} from "./gatoClass.js"

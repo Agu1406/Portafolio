@@ -7,6 +7,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import es.daw.tarea10docker.modelos.Alumno;
 import es.daw.tarea10docker.servicios.ServicioAlumno;
+import es.daw.tarea10docker.servicios.ServicioGrupo;
 
 import java.net.URI;
 import java.util.List;
@@ -33,6 +34,9 @@ public class ControladorAlumno {
      */
     @Autowired
     private ServicioAlumno servicioAlumno;
+
+    @Autowired
+    private ServicioGrupo servicioGrupo;
 
     /*
      * Endpoints disponibles:
