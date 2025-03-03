@@ -69,10 +69,10 @@ public class ControladorGrupo {
         // .buildAndExpand(grupoCreado.getIdGrupo()) reemplaza el marcador con el ID real
         // .toUri() convierte el objeto UriComponents a URI
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(grupoCreado.getIdGrupo())
-                .toUri();
+                .fromCurrentRequest() // localhost:8080/grupo/creargrupovacio
+                .path("/{id}") // localhost:8080/grupo/creargrupovacio/{id}
+                .buildAndExpand(grupoCreado.getIdGrupo()) // localhost:8080/grupo/creargrupovacio/112
+                .toUri(); // URI direccion = "localhost:8080/grupo/creargrupovacio/112";
         
         // Devuelve una respuesta con código 201 (Created), la ubicación del recurso y el recurso creado
         return ResponseEntity.created(location).body(grupoCreado);
