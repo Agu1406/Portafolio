@@ -5,7 +5,6 @@
 /**
  * Constructor que nos permite crear varios objetos del tipo
  * persona.
- * @param {String} nombre de la persona.
  */
 function Persona (nombre) {
     this.nombre = nombre;

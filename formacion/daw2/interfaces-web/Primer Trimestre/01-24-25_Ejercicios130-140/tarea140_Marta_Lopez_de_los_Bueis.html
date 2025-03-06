@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>El elemento select</h2>
+  <p>El elemento selec, define una lista drop-down: </p>
+  <form action="/action_page.php">
+    <label for="coches">Elige un coche</label>
+    <select name="coches" id="coches">
+      <option value="volvo">Volvo</option>
+      <option value="Toyota">Toyota</option>
+      <option value="audi"selected>Audi</option>
+      <option value="fiat">Fiat</option>
+    </select>
+    <input type="submit" value="Enviar">
+    <p>En este ejemplo, el coche seleccionado por defecto aparece Audi ya que se lo hemos indicado como tal.<br>
+    Si no se le indica con "selected" aparecerá por defecto el primero de la lista</p>
+  </form>
+</body>
+</html>

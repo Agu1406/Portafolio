@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web.</p>
+        </header>
+
+        <main>
+            <h1>Utilizando la etiqueta HTML "canvas" Parte N.º3</h1>
+            <p>En los ejercicios anteriores aprendimos a dibujar rectangulos, uno de ellos con una lineza trazada entre
+                punta y punta, ahora vamos a convertir el espacio interno, en el anterior lo que hicimos fue trazar una
+                lina dentro del canvas entre esquina y esquina, mirad:
+            </p>
+            <br>
+            <!-- El tamaño del lienzo será de 200 de ancho por 100 de alto -->
+            <canvas id="canvas" width="200" height="100" style="border: 1px solid black;">
+                <!-- Mensaje que se muetra si el "canvas" no carga -->
+                ¡Lo siento! Tú navegador web no soporta la etiqueta HTML "canvas".
+            </canvas>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script>
+        // Obtenemos el elemento "canvas" usando su "id" y lo guardamos en una variable.
+        const canvas = document.getElementById("canvas");
+        // Obtenemos el contexto del elemento "canvas" en otra variable.
+        const contexto = canvas.getContext("2d");
+        // Iniciamos un nuevo trazo o camino en el contexto del canvas.
+        contexto.beginPath();
+        // Definimos un arco (círculo) con las siguientes propiedades:
+        // - 95: Coordenada X del centro del círculo.
+        // - 50: Coordenada Y del centro del círculo.
+        // - 40: Radio del círculo.
+        // - 0: Ángulo inicial del arco en radianes.
+        // - 2 * Math.PI: Ángulo final del arco en radianes (2 * PI es un círculo completo).
+        contexto.arc(95, 50, 40, 0, 2 * Math.PI);
+        // Trazamos el contorno del arco (círculo) definido anteriormente.
+        contexto.stroke();
+    </script>
+</body>
+
+</html>

@@ -35,9 +35,6 @@ public class ControladorAlumno {
     @Autowired
     private ServicioAlumno servicioAlumno;
 
-    @Autowired
-    private ServicioGrupo servicioGrupo;
-
     /*
      * Endpoints disponibles:
      * GET /alumnos/listar - obtener todos los Alumnos

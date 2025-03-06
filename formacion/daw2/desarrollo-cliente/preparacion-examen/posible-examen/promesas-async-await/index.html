@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promesas con Async/Await - Betis</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../../estilos/estilos.css">
+    <style>
+        .panel {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #008000;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .jugador-card {
+            background-color: #f5f5f5;
+            border-left: 4px solid #008000;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .jugador-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dorsal {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e4a000;
+            margin-right: 15px;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .error-message {
+            color: #d9534f;
+            background-color: #f9eaea;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            display: none;
+        }
+        
+        .success-message {
+            color: #5cb85c;
+            background-color: #eaf9ea;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            display: none;
+        }
+        
+        button {
+            background-color: #008000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background-color: #006400;
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .escudo {
+            max-width: 100px;
+            max-height: 100px;
+            margin: 0 auto 20px;
+            display: block;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        
+        .escudo.visible {
+            opacity: 1;
+        }
+        
+        .botones {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .codigo {
+            background-color: #f8f9fa;
+            border-left: 4px solid #008000;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+        
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .tab.active {
+            background-color: #008000;
+            color: white;
+            border-color: #008000;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Desarrollo Web Entorno Cliente - Promesas con Async/Await</p>
+        </header>
+
+        <main id="main">
+            <h2>Plantilla del Real Betis</h2>
+            <p>Este ejercicio demuestra el uso de promesas con async/await para cargar datos de forma asíncrona.</p>
+            
+            <div class="tabs">
+                <div class="tab active" data-tab="ejecucion">Ejecución</div>
+                <div class="tab" data-tab="codigo">Ver Código</div>
+            </div>
+            
+            <div class="tab-content active" data-tab="ejecucion">
+                <div class="botones">
+                    <button id="cargarEscudo">Cargar Escudo</button>
+                    <button id="cargarJugadores">Cargar Jugadores</button>
+                    <button id="cargarTodo">Cargar Todo</button>
+                    <button id="simularError">Simular Error</button>
+                    <button id="limpiar">Limpiar</button>
+                </div>
+                
+                <div class="panel">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Real_betis_logo.svg/1200px-Real_betis_logo.svg.png" 
+                         alt="Escudo del Real Betis" class="escudo" id="escudo">
+                    
+                    <div class="loader" id="loader"></div>
+                    <div class="error-message" id="errorMessage"></div>
+                    <div class="success-message" id="successMessage"></div>
+                    
+                    <div id="jugadoresContainer"></div>
+                </div>
+            </div>
+            
+            <div class="tab-content" data-tab="codigo">
+                <h3>Ejemplo de código con async/await</h3>
+                <div class="codigo">
+// Función para cargar el escudo usando async/await
+async function cargarEscudoAsync() {
+    try {
+        mostrarLoader();
+        const resultado = await cargarEscudo();
+        ocultarLoader();
+        mostrarExito(resultado);
+    } catch (error) {
+        ocultarLoader();
+        mostrarError(error);
+    }
+}
+
+// Función para cargar todo usando async/await
+async function cargarTodoAsync() {
+    try {
+        mostrarLoader();
+        // Ejecutamos ambas promesas en paralelo
+        const resultados = await Promise.all([
+            cargarEscudo(),
+            cargarJugadores()
+        ]);
+        ocultarLoader();
+        mostrarExito('Escudo y jugadores cargados correctamente');
+    } catch (error) {
+        ocultarLoader();
+        mostrarError(error);
+    }
+}
+
+// Función para cargar jugadores secuencialmente
+async function cargarJugadoresSecuencial() {
+    try {
+        mostrarLoader();
+        
+        // Primero cargamos el escudo
+        await cargarEscudo();
+        
+        // Después cargamos los jugadores
+        await cargarJugadores();
+        
+        ocultarLoader();
+        mostrarExito('Carga secuencial completada');
+    } catch (error) {
+        ocultarLoader();
+        mostrarError(error);
+    }
+}
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html> 

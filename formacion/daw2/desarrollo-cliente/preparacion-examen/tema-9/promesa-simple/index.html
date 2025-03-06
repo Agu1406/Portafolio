@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promesa Simple - Helado</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../../estilos/estilos.css">
+    <style>
+        .contenedor-helado {
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .helado {
+            font-size: 100px;
+            margin: 20px;
+            display: none;
+        }
+        
+        .mensaje {
+            font-size: 24px;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .exito {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Desarrollo Web Entorno Cliente - Promesas</p>
+        </header>
+
+        <main id="main">
+            <h1>Promesa de un Helado</h1>
+            <p>Este ejemplo muestra cómo funciona una promesa simple, como cuando le pides un helado a tu mamá.</p>
+            
+            <div class="contenedor-helado">
+                <button id="pedir-helado">Pedir Helado a Mamá</button>
+                <div id="mensaje" class="mensaje"></div>
+                <div id="helado" class="helado">🍦</div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,59 @@
+// Marco la clase como un controlador de API REST
+@RestController
+
+// Marco cual es la URL/URI del controlador.
+@RequestMappin("/")
+
+// Creamos la clase Java que sera el controlador API REST de Alumno.
+public class ControladorAlumno {
+
+    // Instanciamos e inyectamos automaticamente el servicio de alumno
+    @Autowired
+    private ServicioAlumno servicioAlumno;
+
+    /*
+    * Primer controlador CRUD de la API REST - permite Crear (create) un nuevo alumno, usamos @PostMapping
+    * para indicar la URL del método y el tipo de solicitud (POST es para crer nuevos recursos/objetos).
+    */
+    @PostMapping("crear)
+    // La función returna un ResponseEntityt y pide como argumentos los objetos del nuevo objeto en JSON usando @RequestBody.
+    public ResponseEntity <?> crearNuevoAlumno (@RequestBody Alumno nuevoAlumno) {
+        // Creamos una instancia de Alumno donde guardamos la respuesta del servicio
+        Alumno respuesta;
+
+        // Llamamos al servicio, le damos los datos del objeto a crear en JSON y nos da como respuesta el objeto creado.
+        respuesta = ServicioAlumno.agregarAlumno(nuevoAlumno); // Utiliza del repositorio el método save(nuevoAlumno)
+
+        // Creamos la URL/URI donde mostrar la respuesta y el objeto recien creado
+        URI direccion = new ServletUriComponentsBuilder
+
+        .fromCurrentRequest() // La URL original es "/crear", a partir de ahí creamos la nueva.
+
+        .path(/{id}) // Lo que añadimos a la URL, por ejemplo el ID del grupo recien creado.
+
+        .buildAndExpand(respueta.getIdAlumno()); // Remplaza "{id}" por el ID el alumno recien creado.
+
+        .toUri(); // finalmente lo convierte en la URL que mandareos como respuesta.
+
+        // Devuelve un código HTTP 201 (exito) y en el cuerpo (body) el objeto creado, en la URL creada con URI.
+        return ResponseEntity.created(direccion).body(respuesta);
+    }
+
+    /*
+    * Segundo controlador CRUD de la API REST - permite leer los alumnos
+    * existentes en la base de datos, usamos el método PUT porque no creamos recursos,
+    * solo los leeemos.
+    */
+    @PutMapping("listar")
+    public ResponseEntity <List<Alumno>> listarAlumnos () {
+        // Creamos una lista tipeada para Alumnos donde guardar los alumnos de la base de datos.
+        List<Alumno> alumnos = new List<>();
+
+        // Llamamos al servicio quien nos responda con todos los alumnos existentes.
+        alumnos = ServicioAlumno.findAll();
+
+        // Devuelve un código 200 de exito y la lista con todos los alumnos obtenidos.
+        return ResponseEntity.ok(alumnos);
+
+    }
+}

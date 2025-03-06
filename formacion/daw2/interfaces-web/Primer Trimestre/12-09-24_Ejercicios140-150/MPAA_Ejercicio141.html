@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web.</p>
+        </header>
+
+        <main>
+            <h1>Graficos "canva" en HTML</h1>
+            <p>Este ejercicio nos busca enseñar como podemos dibujar graficos "canva" en nuestro navegador web usando la
+                etiquieta HTML "canvas" y como mostrar un mensaje de error en caso de que el navegador no soporte
+                "canvas" como se ve a continuación (según sea el caso si tu navegador lo soporta o no):
+            </p>
+            <br>
+            <canvas class="miCanvas" width="200" height="100" style="border: 1px solid black;">
+                <!--
+                Si el "Canvas" no fuese compatible con el navegador web se mostraría como mensaje de error el texto que
+                dejasemos escrito dentro de la etiqueta "canvas".
+                -->
+                ¡Lo siento! Tú navegador web no soporta la etiqueta HTML "canvas".
+            </canvas>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

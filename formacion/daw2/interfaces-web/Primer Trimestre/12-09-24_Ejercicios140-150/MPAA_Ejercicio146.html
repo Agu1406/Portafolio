@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de la actividad</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web.</p>
+        </header>
+
+        <main>
+            <h1>Gradiantes circulares usando canvas</h1>
+            <p>Como en el ejercicio anterior pero usando JavaScript (o TypeScript) para crear una gradiente de colores
+                de forma circular.</p>
+            <br>
+            <canvas class="canvas" width="200" height="100" style="border: 1px solid black;">
+                ¡Lo siento! Tú navegador web no soporta la etiquita HTML canvas.
+            </canvas>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script>
+        let can = document.getElementsByClassName("canvas")[0];
+        let con = can.getContext("2d");
+
+        let gra = con.createRadialGradient(100, 50, 20, 100, 50, 100);
+        gra.addColorStop(0, "green");
+        gra.addColorStop(1, "white");
+
+        con.fillStyle = gra;
+        con.fillRect(10, 10, 180, 80);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aparecer y Desaparecer - Betis</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../../estilos/estilos.css">
+    <style>
+        .escudo-container {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            position: relative;
+            border: 2px dashed #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .escudo {
+            max-width: 100%;
+            max-height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease, transform 1s ease;
+            transform: scale(0.5);
+        }
+        .escudo.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .controles {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #008000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #006400;
+        }
+        .info {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Desarrollo Web Entorno Cliente - Aparecer y Desaparecer</p>
+        </header>
+
+        <main id="main">
+            <h2>Escudo del Real Betis</h2>
+            <p>Haz clic en los botones para hacer aparecer y desaparecer el escudo del Betis.</p>
+            
+            <div class="controles">
+                <button id="mostrarBtn">Mostrar Escudo</button>
+                <button id="ocultarBtn">Ocultar Escudo</button>
+                <button id="alternarBtn">Alternar Escudo</button>
+            </div>
+            
+            <div class="escudo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Real_betis_logo.svg/1200px-Real_betis_logo.svg.png" 
+                     alt="Escudo del Real Betis" class="escudo" id="escudo">
+            </div>
+            
+            <div class="info" id="info">El escudo está oculto</div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html> 
