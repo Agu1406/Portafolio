@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise.all - Fiesta de Cumpleaños</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../../estilos/estilos.css">
+    <style>
+        .contenedor-fiesta {
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .item {
+            font-size: 50px;
+            margin: 10px;
+            display: inline-block;
+            opacity: 0.3;
+            transition: opacity 0.5s;
+        }
+        
+        .item.listo {
+            opacity: 1;
+        }
+        
+        .mensaje {
+            font-size: 24px;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .exito {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .espera {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .fiesta {
+            font-size: 100px;
+            margin: 20px;
+            display: none;
+        }
+        
+        .preparativos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        
+        .preparativo {
+            margin: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            width: 150px;
+        }
+        
+        .preparativo-titulo {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .preparativo-estado {
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Desarrollo Web Entorno Cliente - Promise.all</p>
+        </header>
+
+        <main id="main">
+            <h1>Fiesta de Cumpleaños</h1>
+            <p>Este ejemplo muestra cómo funciona Promise.all, como cuando preparas una fiesta de cumpleaños y necesitas que todo esté listo antes de empezar.</p>
+            
+            <div class="contenedor-fiesta">
+                <button id="preparar-fiesta">Preparar Fiesta</button>
+                <div id="mensaje" class="mensaje"></div>
+                
+                <div class="preparativos">
+                    <div class="preparativo">
+                        <div class="preparativo-titulo">Pastel</div>
+                        <div id="pastel" class="item">🎂</div>
+                        <div id="estado-pastel" class="preparativo-estado">Pendiente</div>
+                    </div>
+                    
+                    <div class="preparativo">
+                        <div class="preparativo-titulo">Globos</div>
+                        <div id="globos" class="item">🎈</div>
+                        <div id="estado-globos" class="preparativo-estado">Pendiente</div>
+                    </div>
+                    
+                    <div class="preparativo">
+                        <div class="preparativo-titulo">Regalos</div>
+                        <div id="regalos" class="item">🎁</div>
+                        <div id="estado-regalos" class="preparativo-estado">Pendiente</div>
+                    </div>
+                    
+                    <div class="preparativo">
+                        <div class="preparativo-titulo">Invitados</div>
+                        <div id="invitados" class="item">👨‍👩‍👧‍👦</div>
+                        <div id="estado-invitados" class="preparativo-estado">Pendiente</div>
+                    </div>
+                </div>
+                
+                <div id="fiesta" class="fiesta">🥳</div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html> 

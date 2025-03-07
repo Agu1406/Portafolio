@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador - Betis</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../../estilos/estilos.css">
+    <style>
+        #jugador-display {
+            width: 80%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border: 3px solid #008000;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        #dorsal {
+            font-size: 48px;
+            font-weight: bold;
+            color: #e4a000;
+        }
+        #nombre {
+            font-size: 24px;
+            margin-top: 10px;
+            color: #008000;
+        }
+        #controles {
+            margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #008000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        button:hover {
+            background-color: #006400;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #temporizador {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Desarrollo Web Entorno Cliente - Temporizador</p>
+        </header>
+
+        <main id="main">
+            <h2>Plantilla del Real Betis</h2>
+            <p>Usa los controles para ver los jugadores con un temporizador.</p>
+            
+            <div id="jugador-display">
+                <div id="dorsal"></div>
+                <div id="nombre"></div>
+            </div>
+            
+            <div id="temporizador">Siguiente jugador en: <span id="contador">3</span> segundos</div>
+            
+            <div id="controles">
+                <button id="iniciar">Iniciar</button>
+                <button id="pausar">Pausar</button>
+                <button id="reiniciar">Reiniciar</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html> 

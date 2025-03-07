@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar con Retraso - Betis</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../../estilos/estilos.css">
+    <style>
+        #contenedor {
+            width: 100%;
+            min-height: 50px;
+            border: 2px solid #008000;
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+        .jugador {
+            margin: 5px 0;
+            padding: 8px;
+            background-color: #f0f0f0;
+            border-left: 3px solid #008000;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        .jugador.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        button {
+            background-color: #008000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #006400;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Desarrollo Web Entorno Cliente - Mostrar con Retraso</p>
+        </header>
+
+        <main id="main">
+            <h2>Plantilla del Real Betis</h2>
+            <p>Haz clic en el botón para mostrar los jugadores uno a uno con un retraso de 1 segundo entre cada uno.</p>
+            <button id="mostrarBtn">Mostrar Jugadores</button>
+            <div id="contenedor"></div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html> 
