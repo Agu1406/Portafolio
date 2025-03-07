@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 60 - Ancho de Botones</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 60 - Ancho de Botones</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Personalización del Ancho de Botones</h2>
+                <p>La propiedad <code>width</code> permite controlar el ancho de los botones, adaptándolos a diferentes necesidades de diseño y dispositivos.</p>
+                
+                <div class="botones-container">
+                    <div class="botones-grupo">
+                        <h3>Botones con Diferentes Valores de Ancho</h3>
+                        <div class="botones-demo">
+                            <button class="button button1">250px</button>
+                            <button class="button button2">50%</button>
+                            <button class="button button3">100%</button>
+                        </div>
+                        <div class="botones-explicacion">
+                            <p>La propiedad <code>width</code> puede tener diferentes valores:</p>
+                            <ul>
+                                <li><strong>Píxeles (250px):</strong> Establece un ancho fijo, independiente del tamaño del contenedor</li>
+                                <li><strong>Porcentaje (50%):</strong> Establece un ancho relativo al elemento padre, útil para diseños responsivos</li>
+                                <li><strong>Porcentaje (100%):</strong> Ocupa todo el ancho disponible del elemento padre</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="width-explicacion">
+                    <h3>Cómo Funciona la Propiedad Width</h3>
+                    <div class="width-demo">
+                        <div class="width-container">
+                            <div class="width-box width-box-1">width: 100px</div>
+                            <div class="width-box width-box-2">width: 200px</div>
+                            <div class="width-box width-box-3">width: 300px</div>
+                        </div>
+                        <div class="width-container">
+                            <div class="width-box width-box-4">width: 25%</div>
+                            <div class="width-box width-box-5">width: 50%</div>
+                            <div class="width-box width-box-6">width: 75%</div>
+                        </div>
+                    </div>
+                    <p>Consideraciones importantes sobre el ancho de los botones:</p>
+                    <ul>
+                        <li><strong>Valores fijos (px):</strong> Útiles cuando necesitas un tamaño específico y consistente</li>
+                        <li><strong>Valores relativos (%):</strong> Ideales para diseños responsivos que se adaptan a diferentes tamaños de pantalla</li>
+                        <li><strong>Diseño móvil:</strong> En dispositivos móviles, los botones con ancho del 100% son más fáciles de tocar</li>
+                        <li><strong>Accesibilidad:</strong> Los botones deben tener un tamaño suficiente para ser fácilmente clicables (mínimo 44x44px según WCAG)</li>
+                    </ul>
+                    <p>Prueba a cambiar el tamaño de la ventana del navegador para ver cómo se comportan los botones con diferentes anchos.</p>
+                </div>
+                
+                <div class="codigo-container">
+                    <h3>Código CSS</h3>
+                    <pre><code>.button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {width: 250px;}
+.button2 {width: 50%;}
+.button3 {width: 100%;}</code></pre>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

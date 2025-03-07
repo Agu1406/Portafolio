@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 50 - Tooltips</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .tooltips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .tooltip-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 40px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .demo-area {
+            height: 150px;
+            position: relative;
+            margin-bottom: 15px;
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Tooltip básico (original del ejercicio) */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Posiciones de tooltip */
+        .tooltip-top .tooltiptext {
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .tooltip-top .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+        
+        .tooltip-right .tooltiptext {
+            top: 50%;
+            left: 110%;
+            transform: translateY(-50%);
+        }
+        
+        .tooltip-right .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent black transparent transparent;
+        }
+        
+        .tooltip-bottom .tooltiptext {
+            top: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .tooltip-bottom .tooltiptext::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+        }
+        
+        .tooltip-left .tooltiptext {
+            top: 50%;
+            right: 110%;
+            transform: translateY(-50%);
+        }
+        
+        .tooltip-left .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent transparent black;
+        }
+        
+        /* Estilos de tooltip */
+        .tooltip-fade .tooltiptext {
+            transition: opacity 1s;
+        }
+        
+        .tooltip-slide-top .tooltiptext {
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+        
+        .tooltip-slide-top:hover .tooltiptext {
+            bottom: 125%;
+        }
+        
+        .tooltip-scale .tooltiptext {
+            transform: translateX(-50%) scale(0.5);
+            bottom: 125%;
+            left: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .tooltip-scale:hover .tooltiptext {
+            transform: translateX(-50%) scale(1);
+        }
+        
+        /* Estilos personalizados */
+        .tooltip-custom .tooltiptext {
+            background-color: #4CAF50;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            width: 150px;
+        }
+        
+        .tooltip-custom .tooltiptext::after {
+            border-color: #4CAF50 transparent transparent transparent;
+        }
+        
+        .tooltip-image {
+            border-bottom: none;
+        }
+        
+        .tooltip-image img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .tooltip-large .tooltiptext {
+            width: 200px;
+            padding: 10px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 50 - Tooltips</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Tooltips en CSS</h2>
+                <p>Los tooltips son pequeñas ventanas emergentes que aparecen cuando el usuario pasa el cursor sobre un elemento, proporcionando información adicional.</p>
+                
+                <div class="tooltips-container">
+                    <div class="tooltip-item">
+                        <h3>Tooltip Básico</h3>
+                        <div class="demo-area">
+                            <div class="tooltip">
+                                Pasa el cursor sobre mí
+                                <span class="tooltiptext">Texto del tooltip</span>
+                            </div>
+                        </div>
+                        <p>Este es el ejemplo original del ejercicio. Un tooltip básico que aparece sobre el texto.</p>
+                    </div>
+                    
+                    <div class="tooltip-item">
+                        <h3>Posiciones de Tooltip</h3>
+                        <div class="demo-area">
+                            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                                <div class="tooltip tooltip-top">
+                                    Arriba
+                                    <span class="tooltiptext">Tooltip arriba</span>
+                                </div>
+                                <div class="tooltip tooltip-right">
+                                    Derecha
+                                    <span class="tooltiptext">Tooltip derecha</span>
+                                </div>
+                                <div class="tooltip tooltip-bottom">
+                                    Abajo
+                                    <span class="tooltiptext">Tooltip abajo</span>
+                                </div>
+                                <div class="tooltip tooltip-left">
+                                    Izquierda
+                                    <span class="tooltiptext">Tooltip izquierda</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Los tooltips pueden posicionarse en diferentes direcciones: arriba, derecha, abajo e izquierda del elemento.</p>
+                    </div>
+                    
+                    <div class="tooltip-item">
+                        <h3>Efectos de Transición</h3>
+                        <div class="demo-area">
+                            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                                <div class="tooltip tooltip-fade tooltip-top">
+                                    Fade
+                                    <span class="tooltiptext">Aparición gradual</span>
+                                </div>
+                                <div class="tooltip tooltip-slide-top">
+                                    Slide
+                                    <span class="tooltiptext">Deslizamiento</span>
+                                </div>
+                                <div class="tooltip tooltip-scale">
+                                    Scale
+                                    <span class="tooltiptext">Escalado</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Se pueden aplicar diferentes efectos de transición para que los tooltips aparezcan de forma más elegante.</p>
+                    </div>
+                    
+                    <div class="tooltip-item">
+                        <h3>Tooltips Personalizados</h3>
+                        <div class="demo-area">
+                            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                                <div class="tooltip tooltip-custom tooltip-top">
+                                    Estilo personalizado
+                                    <span class="tooltiptext">Tooltip con estilo personalizado</span>
+                                </div>
+                                <div class="tooltip tooltip-image tooltip-top">
+                                    <img src="https://via.placeholder.com/50" alt="Imagen">
+                                    <span class="tooltiptext">Tooltip para imagen</span>
+                                </div>
+                                <div class="tooltip tooltip-large tooltip-top">
+                                    Tooltip grande
+                                    <span class="tooltiptext">Este es un tooltip más grande con más texto para mostrar información detallada al usuario.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Los tooltips pueden personalizarse con diferentes estilos, tamaños y contenidos para adaptarse a diferentes necesidades.</p>
+                    </div>
+                </div>
+                
+                <div class="tooltips-container">
+                    <div class="tooltip-item">
+                        <h3>Implementación de Tooltips</h3>
+                        <p>Para crear un tooltip básico en CSS:</p>
+                        <ol>
+                            <li>Crea un contenedor con <code>position: relative</code></li>
+                            <li>Añade el tooltip como un elemento hijo con <code>position: absolute</code></li>
+                            <li>Oculta el tooltip con <code>visibility: hidden</code></li>
+                            <li>Muestra el tooltip al pasar el cursor con <code>:hover</code></li>
+                            <li>Posiciona el tooltip según sea necesario</li>
+                            <li>Añade una flecha con pseudo-elementos si lo deseas</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="tooltip-item">
+                        <h3>Consideraciones de Accesibilidad</h3>
+                        <p>Al implementar tooltips, considera lo siguiente:</p>
+                        <ul>
+                            <li>Asegúrate de que la información crítica no esté solo en tooltips</li>
+                            <li>Proporciona alternativas para usuarios de teclado y lectores de pantalla</li>
+                            <li>Considera usar atributos <code>aria-label</code> o <code>aria-describedby</code></li>
+                            <li>Asegúrate de que haya suficiente contraste de color</li>
+                            <li>Evita tooltips que desaparezcan demasiado rápido</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

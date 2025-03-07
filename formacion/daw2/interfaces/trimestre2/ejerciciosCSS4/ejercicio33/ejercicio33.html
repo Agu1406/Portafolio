@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 33 - Transformaciones 2D</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .transformaciones-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .transformacion-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .caja-base {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.5s ease;
+        }
+        
+        .caja-base:hover {
+            transform: scale(1.2);
+        }
+        
+        .transform-rotate {
+            transform: rotate(45deg);
+        }
+        
+        .transform-rotate:hover {
+            transform: rotate(0deg);
+        }
+        
+        .transform-scale {
+            transform: scale(0.8);
+        }
+        
+        .transform-scale:hover {
+            transform: scale(1.5);
+        }
+        
+        .transform-translate {
+            transform: translate(20px, 20px);
+        }
+        
+        .transform-translate:hover {
+            transform: translate(-20px, -20px);
+        }
+        
+        .transform-skew {
+            transform: skew(10deg, 5deg);
+        }
+        
+        .transform-skew:hover {
+            transform: skew(-10deg, -5deg);
+        }
+        
+        .transform-multiple {
+            transform: rotate(15deg) scale(0.9) translate(10px, 10px);
+        }
+        
+        .transform-multiple:hover {
+            transform: rotate(-15deg) scale(1.1) translate(-10px, -10px);
+        }
+        
+        .transform-origin {
+            transform: rotate(45deg);
+            transform-origin: top left;
+        }
+        
+        .transform-origin:hover {
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 33 - Transformaciones 2D</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Transformaciones 2D en CSS</h2>
+                <p>CSS permite aplicar transformaciones 2D a elementos para modificar su posición, tamaño, rotación y más.</p>
+                <p>Pasa el cursor sobre cada caja para ver el efecto inverso o amplificado.</p>
+                
+                <div class="transformaciones-container">
+                    <div class="transformacion-item">
+                        <h3>Rotación (rotate)</h3>
+                        <div class="caja-base transform-rotate">rotate</div>
+                        <p><code>transform: rotate(45deg);</code></p>
+                        <p>Rota el elemento 45 grados en sentido horario.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>Escala (scale)</h3>
+                        <div class="caja-base transform-scale">scale</div>
+                        <p><code>transform: scale(0.8);</code></p>
+                        <p>Reduce el tamaño del elemento al 80% de su tamaño original.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>Traslación (translate)</h3>
+                        <div class="caja-base transform-translate">translate</div>
+                        <p><code>transform: translate(20px, 20px);</code></p>
+                        <p>Mueve el elemento 20px a la derecha y 20px hacia abajo.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>Sesgo (skew)</h3>
+                        <div class="caja-base transform-skew">skew</div>
+                        <p><code>transform: skew(10deg, 5deg);</code></p>
+                        <p>Inclina el elemento 10 grados en el eje X y 5 grados en el eje Y.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>Transformaciones Múltiples</h3>
+                        <div class="caja-base transform-multiple">múltiple</div>
+                        <p><code>transform: rotate(15deg) scale(0.9) translate(10px, 10px);</code></p>
+                        <p>Combina rotación, escala y traslación en una sola transformación.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>Origen de Transformación</h3>
+                        <div class="caja-base transform-origin">origen</div>
+                        <p><code>transform: rotate(45deg); transform-origin: top left;</code></p>
+                        <p>Rota el elemento desde la esquina superior izquierda en lugar del centro.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 48 - Funciones de Temporización</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .timing-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .timing-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 40px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .demo-area {
+            height: 400px;
+            position: relative;
+            margin-bottom: 15px;
+            border: 1px dashed #ccc;
+            overflow: hidden;
+        }
+        
+        .caja-animada {
+            width: 100px;
+            height: 58px;
+            background-color: red;
+            font-weight: bold;
+            position: relative;
+            animation-name: mymove;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        /* Funciones de temporización originales */
+        .timing-linear {
+            animation-timing-function: linear;
+        }
+        
+        .timing-ease {
+            animation-timing-function: ease;
+        }
+        
+        .timing-ease-in {
+            animation-timing-function: ease-in;
+        }
+        
+        .timing-ease-out {
+            animation-timing-function: ease-out;
+        }
+        
+        .timing-ease-in-out {
+            animation-timing-function: ease-in-out;
+        }
+        
+        @keyframes mymove {
+            from {
+                left: 0px;
+            }
+            to {
+                left: 300px;
+            }
+        }
+        
+        /* Funciones de temporización adicionales */
+        .timing-steps-5 {
+            animation-timing-function: steps(5, end);
+        }
+        
+        .timing-steps-10 {
+            animation-timing-function: steps(10, end);
+        }
+        
+        .timing-step-start {
+            animation-timing-function: step-start;
+        }
+        
+        .timing-step-end {
+            animation-timing-function: step-end;
+        }
+        
+        /* Funciones cubic-bezier personalizadas */
+        .timing-bounce {
+            animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        
+        .timing-elastic {
+            animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        }
+        
+        .timing-back {
+            animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        }
+        
+        /* Visualización de curvas */
+        .curve-container {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            background-color: #f5f5f5;
+        }
+        
+        .curve {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .curve-linear {
+            background-image: linear-gradient(to right, transparent 0%, transparent 49.9%, #ddd 50%, transparent 50.1%, transparent 100%), 
+                              linear-gradient(to bottom, transparent 0%, transparent 49.9%, #ddd 50%, transparent 50.1%, transparent 100%);
+        }
+        
+        .curve-linear::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: red;
+            bottom: 0;
+            left: 0;
+            transform-origin: bottom left;
+            transform: rotate(45deg);
+        }
+        
+        .curve-ease::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-bottom: 2px solid red;
+            border-left: 2px solid transparent;
+            border-right: 2px solid transparent;
+            border-top: 2px solid transparent;
+            border-radius: 0 0 50% 0;
+        }
+        
+        .curve-ease-in::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent;
+            border-bottom: 2px solid red;
+            border-radius: 0 0 100% 0;
+        }
+        
+        .curve-ease-out::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent;
+            border-bottom: 2px solid red;
+            border-radius: 0 0 0 100%;
+        }
+        
+        .curve-ease-in-out::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent;
+            border-bottom: 2px solid red;
+            border-radius: 0 0 50% 50%;
+        }
+        
+        /* Animación para mostrar el progreso */
+        .progress-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: blue;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            animation: move-dot 5s infinite;
+        }
+        
+        .progress-dot-linear {
+            animation-timing-function: linear;
+        }
+        
+        .progress-dot-ease {
+            animation-timing-function: ease;
+        }
+        
+        .progress-dot-ease-in {
+            animation-timing-function: ease-in;
+        }
+        
+        .progress-dot-ease-out {
+            animation-timing-function: ease-out;
+        }
+        
+        .progress-dot-ease-in-out {
+            animation-timing-function: ease-in-out;
+        }
+        
+        @keyframes move-dot {
+            from {
+                left: 0;
+                top: calc(100% - 10px);
+            }
+            to {
+                left: calc(100% - 10px);
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 48 - Funciones de Temporización</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Propiedad animation-timing-function</h2>
+                <p>La propiedad animation-timing-function especifica la curva de velocidad de una animación, determinando cómo se calculan los valores intermedios.</p>
+                
+                <div class="timing-container">
+                    <div class="timing-item">
+                        <h3>Funciones de Temporización Básicas</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada timing-linear">linear</div>
+                            <div class="caja-animada timing-ease">ease</div>
+                            <div class="caja-animada timing-ease-in">ease-in</div>
+                            <div class="caja-animada timing-ease-out">ease-out</div>
+                            <div class="caja-animada timing-ease-in-out">ease-in-out</div>
+                        </div>
+                        <p><code>animation-timing-function: linear | ease | ease-in | ease-out | ease-in-out;</code></p>
+                        <p>Estos son los ejemplos originales del ejercicio. Cada caja se mueve con una función de temporización diferente.</p>
+                    </div>
+                    
+                    <div class="timing-item">
+                        <h3>Funciones Step</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada timing-step-start">step-start</div>
+                            <div class="caja-animada timing-step-end">step-end</div>
+                            <div class="caja-animada timing-steps-5">steps(5)</div>
+                            <div class="caja-animada timing-steps-10">steps(10)</div>
+                        </div>
+                        <p><code>animation-timing-function: step-start | step-end | steps(n, end);</code></p>
+                        <p>Las funciones step dividen la animación en segmentos discretos, creando un efecto de "salto" en lugar de un movimiento suave.</p>
+                    </div>
+                    
+                    <div class="timing-item">
+                        <h3>Funciones Cubic-Bezier Personalizadas</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada timing-bounce">bounce</div>
+                            <div class="caja-animada timing-elastic">elastic</div>
+                            <div class="caja-animada timing-back">back</div>
+                        </div>
+                        <p><code>animation-timing-function: cubic-bezier(x1, y1, x2, y2);</code></p>
+                        <p>La función cubic-bezier permite crear curvas de temporización personalizadas definiendo cuatro puntos de control.</p>
+                    </div>
+                    
+                    <div class="timing-item">
+                        <h3>Visualización de Curvas</h3>
+                        <p>Representación visual de las diferentes curvas de temporización:</p>
+                        
+                        <div class="curve-container curve-linear">
+                            <div class="progress-dot progress-dot-linear"></div>
+                            <p style="position: absolute; bottom: -30px;">linear</p>
+                        </div>
+                        
+                        <div class="curve-container curve-ease">
+                            <div class="progress-dot progress-dot-ease"></div>
+                            <p style="position: absolute; bottom: -30px;">ease</p>
+                        </div>
+                        
+                        <div class="curve-container curve-ease-in">
+                            <div class="progress-dot progress-dot-ease-in"></div>
+                            <p style="position: absolute; bottom: -30px;">ease-in</p>
+                        </div>
+                        
+                        <div class="curve-container curve-ease-out">
+                            <div class="progress-dot progress-dot-ease-out"></div>
+                            <p style="position: absolute; bottom: -30px;">ease-out</p>
+                        </div>
+                        
+                        <div class="curve-container curve-ease-in-out">
+                            <div class="progress-dot progress-dot-ease-in-out"></div>
+                            <p style="position: absolute; bottom: -30px;">ease-in-out</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timing-container">
+                    <div class="timing-item">
+                        <h3>Aplicaciones Prácticas</h3>
+                        <ul>
+                            <li><strong>linear:</strong> Útil para animaciones continuas como rotaciones o movimientos constantes.</li>
+                            <li><strong>ease-in:</strong> Ideal para elementos que salen de la pantalla o desaparecen.</li>
+                            <li><strong>ease-out:</strong> Perfecto para elementos que entran en la pantalla o aparecen.</li>
+                            <li><strong>ease-in-out:</strong> Excelente para transiciones suaves entre estados.</li>
+                            <li><strong>steps:</strong> Útil para animaciones de sprites o efectos de "fotograma a fotograma".</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timing-item">
+                        <h3>Compatibilidad</h3>
+                        <p>Todas las funciones de temporización básicas tienen buen soporte en navegadores modernos. Para máxima compatibilidad:</p>
+                        <ul>
+                            <li>Usa prefijos de navegador para cubic-bezier en navegadores antiguos.</li>
+                            <li>Proporciona alternativas para navegadores que no soporten steps().</li>
+                            <li>Prueba tus animaciones en diferentes dispositivos y navegadores.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

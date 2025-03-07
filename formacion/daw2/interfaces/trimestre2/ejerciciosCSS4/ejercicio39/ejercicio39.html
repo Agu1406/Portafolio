@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 39 - Transformaciones 3D</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .transformaciones-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .transformacion-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 40px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .demo-area {
+            height: 220px;
+            position: relative;
+            perspective: 800px;
+            perspective-origin: center;
+            margin-bottom: 15px;
+        }
+        
+        .caja-demo {
+            width: 200px;
+            height: 100px;
+            background-color: #ffeb3b;
+            border: 1px solid black;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .caja-normal {
+            background-color: #e0e0e0;
+            transform: none;
+        }
+        
+        .rotate-2d {
+            transform: rotate(20deg);
+        }
+        
+        .rotate-x {
+            transform: rotateX(45deg);
+        }
+        
+        .rotate-y {
+            transform: rotateY(45deg);
+        }
+        
+        .rotate-z {
+            transform: rotateZ(45deg);
+        }
+        
+        .translate-z {
+            transform: translateZ(50px);
+        }
+        
+        .translate-3d {
+            transform: translate3d(30px, 20px, 50px);
+        }
+        
+        .scale-3d {
+            transform: scale3d(1.2, 0.8, 1.5);
+        }
+        
+        .perspective-demo {
+            transform: perspective(500px) rotateY(30deg);
+        }
+        
+        .multiple-3d {
+            transform: translateZ(30px) rotateX(20deg) rotateY(30deg);
+        }
+        
+        .backface-hidden {
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+        }
+        
+        .card-container {
+            width: 200px;
+            height: 100px;
+            margin: 30px auto;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+        
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+        }
+        
+        .card-front {
+            background-color: #ffeb3b;
+        }
+        
+        .card-back {
+            background-color: #4caf50;
+            transform: rotateY(180deg);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 39 - Transformaciones 3D</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Métodos de Transformación 3D en CSS</h2>
+                <p>CSS permite aplicar transformaciones en tres dimensiones a los elementos HTML, creando efectos de profundidad y perspectiva.</p>
+                
+                <div class="transformaciones-container">
+                    <div class="transformacion-item">
+                        <h3>Rotación 2D vs 3D</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo caja-normal">
+                                Normal
+                            </div>
+                            <div class="caja-demo rotate-2d">
+                                rotate(20deg)
+                            </div>
+                        </div>
+                        <p><code>transform: rotate(20deg);</code></p>
+                        <p>Este es el ejemplo original del ejercicio. La rotación 2D gira el elemento en el plano de la página.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>rotateX()</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo rotate-x">
+                                rotateX(45deg)
+                            </div>
+                        </div>
+                        <p><code>transform: rotateX(45deg);</code></p>
+                        <p>Rota el elemento alrededor del eje X (horizontal), creando un efecto de inclinación hacia adelante o atrás.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>rotateY()</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo rotate-y">
+                                rotateY(45deg)
+                            </div>
+                        </div>
+                        <p><code>transform: rotateY(45deg);</code></p>
+                        <p>Rota el elemento alrededor del eje Y (vertical), creando un efecto de giro lateral.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>rotateZ()</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo rotate-z">
+                                rotateZ(45deg)
+                            </div>
+                        </div>
+                        <p><code>transform: rotateZ(45deg);</code></p>
+                        <p>Rota el elemento alrededor del eje Z (perpendicular a la pantalla), similar a rotate() en 2D.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>translateZ()</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo translate-z">
+                                translateZ(50px)
+                            </div>
+                        </div>
+                        <p><code>transform: translateZ(50px);</code></p>
+                        <p>Mueve el elemento a lo largo del eje Z, acercándolo o alejándolo del espectador.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>translate3d()</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo translate-3d">
+                                translate3d(30px, 20px, 50px)
+                            </div>
+                        </div>
+                        <p><code>transform: translate3d(30px, 20px, 50px);</code></p>
+                        <p>Mueve el elemento en los tres ejes (X, Y, Z) simultáneamente.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>perspective()</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo perspective-demo">
+                                perspective(500px)
+                            </div>
+                        </div>
+                        <p><code>transform: perspective(500px) rotateY(30deg);</code></p>
+                        <p>Aplica una perspectiva a la transformación, haciendo que las partes más alejadas parezcan más pequeñas.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>Tarjeta 3D Interactiva</h3>
+                        <div class="demo-area">
+                            <div class="card-container">
+                                <div class="card">
+                                    <div class="card-front">
+                                        Pasa el cursor (Frente)
+                                    </div>
+                                    <div class="card-back">
+                                        ¡Volteada! (Reverso)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p><code>transform-style: preserve-3d; backface-visibility: hidden;</code></p>
+                        <p>Ejemplo de tarjeta que se voltea en 3D al pasar el cursor. Combina varias propiedades 3D.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

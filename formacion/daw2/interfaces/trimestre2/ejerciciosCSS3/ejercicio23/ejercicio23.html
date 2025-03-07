@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 23 - Display Property</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .display-example {
+            margin-bottom: 30px;
+        }
+        
+        .display-inline {
+            display: inline; /* the default for span */
+            width: 100px; 
+            height: 100px; 
+            padding: 5px; 
+            border: 1px solid blue; 
+            background-color: yellow; 
+        }
+
+        .display-inline-block {
+            display: inline-block; 
+            width: 100px; 
+            height: 100px; 
+            padding: 5px; 
+            border: 1px solid blue; 
+            background-color: yellow;
+        }
+
+        .display-block {
+            display: block; 
+            width: 100px; 
+            height: 100px; 
+            padding: 5px; 
+            border: 1px solid blue; 
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 23 - Display Property</h1>
+            
+            <div class="ejercicio-container">
+                <h2>The display Property</h2>
+                <p>The display property specifies the display behavior of an element.</p>
+                
+                <div class="display-example">
+                    <h3>display: inline</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vestibulum consequat scelerisque elit sit amet consequat.
+                    Aliquam erat volutpat. <span class="display-inline">Inline</span> gravida nisl sit amet facilisis. Nullam
+                    cursus fermentum velit sed laoreet.</p>
+                </div>
+                
+                <div class="display-example">
+                    <h3>display: inline-block</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vestibulum consequat scelerisque elit sit amet consequat.
+                    Aliquam erat volutpat. <span class="display-inline-block">Inline-block</span> gravida nisl sit amet facilisis. Nullam
+                    cursus fermentum velit sed laoreet.</p>
+                </div>
+                
+                <div class="display-example">
+                    <h3>display: block</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vestibulum consequat scelerisque elit sit amet consequat.
+                    Aliquam erat volutpat. <span class="display-block">Block</span> gravida nisl sit amet facilisis. Nullam
+                    cursus fermentum velit sed laoreet.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

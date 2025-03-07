@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 28 - Gradiente Radial</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .gradient-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .gradient-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .gradient-box {
+            height: 200px;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        
+        .gradient-radial-default {
+            background-color: red; /* Fallback color */
+            background-image: radial-gradient(red, yellow, green);
+        }
+        
+        .gradient-radial-circle {
+            background-image: radial-gradient(circle, red, yellow, green);
+        }
+        
+        .gradient-radial-position {
+            background-image: radial-gradient(at top left, red, yellow, green);
+        }
+        
+        .gradient-radial-size {
+            background-image: radial-gradient(circle closest-side, red, yellow, green);
+        }
+        
+        .gradient-radial-farthest {
+            background-image: radial-gradient(circle farthest-corner at 50% 50%, red, yellow, green);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 28 - Gradiente Radial</h1>
+            
+            <div class="ejercicio-container">
+                <h2>CSS Radial Gradients</h2>
+                <p>CSS radial gradients create color transitions that radiate from a central point.</p>
+                
+                <div class="gradient-container">
+                    <div class="gradient-item">
+                        <h3>Default Radial Gradient</h3>
+                        <div class="gradient-box gradient-radial-default"></div>
+                        <p><code>radial-gradient(red, yellow, green);</code></p>
+                    </div>
+                    
+                    <div class="gradient-item">
+                        <h3>Circle Radial Gradient</h3>
+                        <div class="gradient-box gradient-radial-circle"></div>
+                        <p><code>radial-gradient(circle, red, yellow, green);</code></p>
+                    </div>
+                    
+                    <div class="gradient-item">
+                        <h3>Positioned Radial Gradient</h3>
+                        <div class="gradient-box gradient-radial-position"></div>
+                        <p><code>radial-gradient(at top left, red, yellow, green);</code></p>
+                    </div>
+                    
+                    <div class="gradient-item">
+                        <h3>Sized Radial Gradient</h3>
+                        <div class="gradient-box gradient-radial-size"></div>
+                        <p><code>radial-gradient(circle closest-side, red, yellow, green);</code></p>
+                    </div>
+                    
+                    <div class="gradient-item">
+                        <h3>Farthest Corner Radial Gradient</h3>
+                        <div class="gradient-box gradient-radial-farthest"></div>
+                        <p><code>radial-gradient(circle farthest-corner at 50% 50%, red, yellow, green);</code></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

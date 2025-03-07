@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 34 - Sombreados de Texto</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .sombreados-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .sombreado-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .texto-sombreado {
+            font-size: 2em;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        
+        .sombra-multiple {
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+            color: white;
+        }
+        
+        .sombra-simple {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .sombra-neon {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6;
+            color: #ffffff;
+            background-color: #333;
+        }
+        
+        .sombra-3d {
+            text-shadow: 1px 1px 0 #ccc, 2px 2px 0 #c9c9c9, 3px 3px 0 #bbb, 4px 4px 0 #b9b9b9, 5px 5px 0 #aaa, 6px 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25);
+        }
+        
+        .sombra-negativa {
+            background-color: #333;
+            color: #333;
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+        }
+        
+        .sombra-desenfocada {
+            color: rgba(0,0,0,0.6);
+            text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 34 - Sombreados de Texto</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Efectos de Sombreado de Texto en CSS</h2>
+                <p>CSS permite aplicar diferentes tipos de sombreados a textos para crear efectos visuales interesantes.</p>
+                
+                <div class="sombreados-container">
+                    <div class="sombreado-item">
+                        <h3>Sombreado Múltiple</h3>
+                        <p class="texto-sombreado sombra-multiple">Otros sombreados</p>
+                        <p><code>text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;</code></p>
+                        <p>Este es el ejemplo original del ejercicio.</p>
+                    </div>
+                    
+                    <div class="sombreado-item">
+                        <h3>Sombreado Simple</h3>
+                        <p class="texto-sombreado sombra-simple">Sombra simple</p>
+                        <p><code>text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);</code></p>
+                    </div>
+                    
+                    <div class="sombreado-item">
+                        <h3>Efecto Neón</h3>
+                        <p class="texto-sombreado sombra-neon">Efecto neón</p>
+                        <p><code>text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, ...</code></p>
+                    </div>
+                    
+                    <div class="sombreado-item">
+                        <h3>Efecto 3D</h3>
+                        <p class="texto-sombreado sombra-3d">Efecto 3D</p>
+                        <p><code>text-shadow: 1px 1px 0 #ccc, 2px 2px 0 #c9c9c9, ...</code></p>
+                    </div>
+                    
+                    <div class="sombreado-item">
+                        <h3>Sombra Negativa</h3>
+                        <p class="texto-sombreado sombra-negativa">Sombra negativa</p>
+                        <p><code>color: #333; text-shadow: -1px -1px 0 #fff, ...</code></p>
+                    </div>
+                    
+                    <div class="sombreado-item">
+                        <h3>Sombra Desenfocada</h3>
+                        <p class="texto-sombreado sombra-desenfocada">Sombra desenfocada</p>
+                        <p><code>text-shadow: 2px 8px 6px rgba(0,0,0,0.2), ...</code></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

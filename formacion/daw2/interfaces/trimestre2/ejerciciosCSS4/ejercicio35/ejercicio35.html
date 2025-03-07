@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 35 - Efectos de Texto</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .efectos-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .efecto-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .texto-efecto {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .efecto-arcoiris {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        .efecto-metalico {
+            background: linear-gradient(to bottom, #f0f0f0, #555555, #f0f0f0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .efecto-fuego {
+            background: linear-gradient(to bottom, #ff8a00, #da1b60);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0px 0px 10px rgba(255, 138, 0, 0.5);
+        }
+        
+        .efecto-hielo {
+            background: linear-gradient(to bottom, #00c6ff, #0072ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0px 0px 10px rgba(0, 198, 255, 0.5);
+        }
+        
+        .efecto-neon {
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff, 
+                0 0 10px #fff, 
+                0 0 15px #0073e6, 
+                0 0 20px #0073e6, 
+                0 0 25px #0073e6;
+        }
+        
+        .efecto-recortado {
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            -webkit-text-stroke: 2px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 35 - Efectos de Texto</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Efectos Avanzados de Texto en CSS</h2>
+                <p>CSS permite aplicar efectos visuales avanzados a textos utilizando gradientes, recortes y sombras.</p>
+                
+                <div class="efectos-container">
+                    <div class="efecto-item">
+                        <h3>Texto Arcoíris</h3>
+                        <p class="texto-efecto efecto-arcoiris">Efectos de texto</p>
+                        <p><code>background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);<br>
+                        background-clip: text;<br>
+                        -webkit-background-clip: text;<br>
+                        color: transparent;</code></p>
+                        <p>Este es el ejemplo original del ejercicio.</p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Texto Metálico</h3>
+                        <p class="texto-efecto efecto-metalico">Efecto metálico</p>
+                        <p><code>background: linear-gradient(to bottom, #f0f0f0, #555555, #f0f0f0);<br>
+                        background-clip: text;<br>
+                        -webkit-background-clip: text;<br>
+                        color: transparent;</code></p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Texto de Fuego</h3>
+                        <p class="texto-efecto efecto-fuego">Efecto fuego</p>
+                        <p><code>background: linear-gradient(to bottom, #ff8a00, #da1b60);<br>
+                        background-clip: text;<br>
+                        -webkit-background-clip: text;<br>
+                        color: transparent;</code></p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Texto de Hielo</h3>
+                        <p class="texto-efecto efecto-hielo">Efecto hielo</p>
+                        <p><code>background: linear-gradient(to bottom, #00c6ff, #0072ff);<br>
+                        background-clip: text;<br>
+                        -webkit-background-clip: text;<br>
+                        color: transparent;</code></p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Texto Neón</h3>
+                        <p class="texto-efecto efecto-neon">Efecto neón</p>
+                        <p><code>color: #fff;<br>
+                        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, ...</code></p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Texto Recortado</h3>
+                        <p class="texto-efecto efecto-recortado">Efecto recortado</p>
+                        <p><code>color: white;<br>
+                        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, ...;<br>
+                        -webkit-text-stroke: 2px black;</code></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

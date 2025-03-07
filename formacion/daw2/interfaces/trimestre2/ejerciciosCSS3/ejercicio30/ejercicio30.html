@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 30 - Gradientes Repetitivos</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .gradient-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .gradient-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .gradient-box {
+            height: 200px;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        
+        .gradient-repeating-radial {
+            height: 250px;
+            width: 400px;
+            background-color: red;
+            background-image: repeating-radial-gradient(red, yellow 10%, green 15%);
+        }
+        
+        .gradient-repeating-linear {
+            background-image: repeating-linear-gradient(45deg, red, yellow 10%, green 15%);
+        }
+        
+        .gradient-repeating-linear-horizontal {
+            background-image: repeating-linear-gradient(to right, red, yellow 10%, green 15%);
+        }
+        
+        .gradient-repeating-conic {
+            background-image: repeating-conic-gradient(red, yellow 10%, green 15%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 30 - Gradientes Repetitivos</h1>
+            
+            <div class="ejercicio-container">
+                <h2>CSS Repeating Gradients</h2>
+                <p>CSS repeating gradients create patterns by repeating color stops indefinitely.</p>
+                
+                <div class="gradient-container">
+                    <div class="gradient-item">
+                        <h3>Repeating Radial Gradient</h3>
+                        <div class="gradient-box gradient-repeating-radial"></div>
+                        <p><code>repeating-radial-gradient(red, yellow 10%, green 15%);</code></p>
+                        <p>This is the original example from the exercise.</p>
+                    </div>
+                    
+                    <div class="gradient-item">
+                        <h3>Repeating Linear Gradient (45deg)</h3>
+                        <div class="gradient-box gradient-repeating-linear"></div>
+                        <p><code>repeating-linear-gradient(45deg, red, yellow 10%, green 15%);</code></p>
+                    </div>
+                    
+                    <div class="gradient-item">
+                        <h3>Repeating Linear Gradient (Horizontal)</h3>
+                        <div class="gradient-box gradient-repeating-linear-horizontal"></div>
+                        <p><code>repeating-linear-gradient(to right, red, yellow 10%, green 15%);</code></p>
+                    </div>
+                    
+                    <div class="gradient-item">
+                        <h3>Repeating Conic Gradient</h3>
+                        <div class="gradient-box gradient-repeating-conic"></div>
+                        <p><code>repeating-conic-gradient(red, yellow 10%, green 15%);</code></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

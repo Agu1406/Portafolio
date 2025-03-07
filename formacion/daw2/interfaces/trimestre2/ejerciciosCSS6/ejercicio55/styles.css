@@ -1,0 +1,111 @@
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button1 { padding: 10px 24px; }
+.button2 { padding: 12px 28px; }
+.button3 { padding: 14px 28px; }
+.button4 { padding: 32px 16px; }
+.button5 { padding: 16px; }
+
+.botones-container {
+    margin: 30px 0;
+}
+
+.botones-grupo {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.botones-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones-explicacion {
+    margin-top: 20px;
+}
+
+.botones-explicacion code {
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.padding-explicacion {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.padding-demo {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.padding-box {
+    width: 200px;
+    height: 200px;
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.padding-box::before {
+    content: "Padding";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.padding-content {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.codigo-container {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.codigo-container pre {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 0;
+}
+
+.codigo-container code {
+    font-family: monospace;
+    line-height: 1.5;
+}

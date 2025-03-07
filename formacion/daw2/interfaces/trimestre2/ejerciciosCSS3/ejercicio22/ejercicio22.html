@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 22 - Overflow</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .overflow-container {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .overflow-box {
+            background-color: coral;
+            width: 200px;
+            height: 65px;
+            border: 1px solid;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .overflow-visible {
+            overflow: visible;
+        }
+        
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        .overflow-scroll {
+            overflow: scroll;
+        }
+        
+        .overflow-auto {
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 22 - Overflow</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Overflow Property</h2>
+                <p>The overflow property specifies what happens if content overflows an element's box.</p>
+                
+                <div class="overflow-container">
+                    <div>
+                        <h3>overflow: visible</h3>
+                        <div class="overflow-box overflow-visible">
+                            You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>overflow: hidden</h3>
+                        <div class="overflow-box overflow-hidden">
+                            You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>overflow: scroll</h3>
+                        <div class="overflow-box overflow-scroll">
+                            You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>overflow: auto</h3>
+                        <div class="overflow-box overflow-auto">
+                            You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

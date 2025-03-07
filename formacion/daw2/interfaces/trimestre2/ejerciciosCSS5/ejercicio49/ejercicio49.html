@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 49 - Propiedades de Animación</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .propiedades-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .propiedad-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 40px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .demo-area {
+            height: 300px;
+            position: relative;
+            margin-bottom: 15px;
+            border: 1px dashed #ccc;
+            overflow: hidden;
+        }
+        
+        /* Animación original del ejercicio */
+        .caja-animada {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        
+        .animacion-original {
+            animation-name: example;
+            animation-duration: 5s;
+            animation-timing-function: linear; 
+            animation-delay: 2s; 
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0px;
+            }
+            50% {
+                background-color: green;
+                left: 200px;
+                top: 200px;
+            }
+            75% {
+                background-color: blue;
+                left: 0px;
+                top: 200px;
+            }
+            100% {
+                background-color: purple;
+                left: 0px;
+                top: 0px;
+            }
+        }
+        
+        /* Ejemplos de notación abreviada */
+        .shorthand-basico {
+            /* animation: name duration timing-function delay iteration-count direction fill-mode play-state */
+            animation: example 5s linear 2s infinite alternate;
+        }
+        
+        .shorthand-completo {
+            animation: example 5s linear 2s infinite alternate forwards running;
+        }
+        
+        /* Ejemplos de fill-mode */
+        .fill-none {
+            animation: move-right 3s ease-in-out 1s 2 alternate;
+            animation-fill-mode: none;
+        }
+        
+        .fill-forwards {
+            animation: move-right 3s ease-in-out 1s 2 alternate;
+            animation-fill-mode: forwards;
+        }
+        
+        .fill-backwards {
+            animation: move-right 3s ease-in-out 1s 2 alternate;
+            animation-fill-mode: backwards;
+        }
+        
+        .fill-both {
+            animation: move-right 3s ease-in-out 1s 2 alternate;
+            animation-fill-mode: both;
+        }
+        
+        @keyframes move-right {
+            from {
+                left: 0;
+                background-color: red;
+            }
+            to {
+                left: 200px;
+                background-color: blue;
+            }
+        }
+        
+        /* Ejemplos de play-state */
+        .play-running {
+            animation: rotate 3s linear infinite;
+            animation-play-state: running;
+        }
+        
+        .play-paused {
+            animation: rotate 3s linear infinite;
+            animation-play-state: paused;
+        }
+        
+        .play-hover {
+            animation: rotate 3s linear infinite;
+            animation-play-state: paused;
+        }
+        
+        .play-hover:hover {
+            animation-play-state: running;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Ejemplos de múltiples animaciones */
+        .multiple-animations {
+            animation: 
+                move-diagonal 5s ease-in-out infinite alternate,
+                color-change 3s linear infinite,
+                pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes move-diagonal {
+            from {
+                left: 0;
+                top: 0;
+            }
+            to {
+                left: 200px;
+                top: 200px;
+            }
+        }
+        
+        @keyframes color-change {
+            0% { background-color: red; }
+            33% { background-color: blue; }
+            66% { background-color: green; }
+            100% { background-color: red; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Tabla de propiedades */
+        .propiedades-tabla {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .propiedades-tabla th, .propiedades-tabla td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .propiedades-tabla th {
+            background-color: #f2f2f2;
+        }
+        
+        .propiedades-tabla tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 49 - Propiedades de Animación</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Propiedades de Animación en CSS</h2>
+                <p>CSS ofrece varias propiedades para controlar el comportamiento de las animaciones, desde su duración hasta cómo se comportan antes y después de ejecutarse.</p>
+                
+                <div class="propiedades-container">
+                    <div class="propiedad-item">
+                        <h3>Animación Original (Propiedades Individuales)</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada animacion-original">Espera 2s...</div>
+                        </div>
+                        <p><code>animation-name: example;<br>
+                        animation-duration: 5s;<br>
+                        animation-timing-function: linear;<br>
+                        animation-delay: 2s;<br>
+                        animation-iteration-count: infinite;<br>
+                        animation-direction: alternate;</code></p>
+                        <p>Este es el ejemplo original del ejercicio. La animación utiliza seis propiedades diferentes para controlar su comportamiento.</p>
+                    </div>
+                    
+                    <div class="propiedad-item">
+                        <h3>Notación Abreviada (Shorthand)</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada shorthand-basico">Básico</div>
+                            <div class="caja-animada shorthand-completo" style="top: 120px;">Completo</div>
+                        </div>
+                        <p><code>animation: example 5s linear 2s infinite alternate;</code></p>
+                        <p>La propiedad animation permite definir todas las propiedades en una sola línea, en el siguiente orden: name, duration, timing-function, delay, iteration-count, direction, fill-mode, play-state.</p>
+                    </div>
+                    
+                    <div class="propiedad-item">
+                        <h3>Propiedad animation-fill-mode</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada fill-none" style="top: 0px;">none</div>
+                            <div class="caja-animada fill-forwards" style="top: 60px;">forwards</div>
+                            <div class="caja-animada fill-backwards" style="top: 120px;">backwards</div>
+                            <div class="caja-animada fill-both" style="top: 180px;">both</div>
+                        </div>
+                        <p><code>animation-fill-mode: none | forwards | backwards | both;</code></p>
+                        <p>Determina cómo se aplican los estilos antes y después de la ejecución de la animación.</p>
+                    </div>
+                    
+                    <div class="propiedad-item">
+                        <h3>Propiedad animation-play-state</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada play-running" style="left: 50px; top: 50px;">running</div>
+                            <div class="caja-animada play-paused" style="left: 50px; top: 160px;">paused</div>
+                            <div class="caja-animada play-hover" style="left: 180px; top: 100px;">hover me</div>
+                        </div>
+                        <p><code>animation-play-state: running | paused;</code></p>
+                        <p>Permite pausar y reanudar la animación. El último ejemplo se inicia al pasar el cursor por encima.</p>
+                    </div>
+                    
+                    <div class="propiedad-item">
+                        <h3>Múltiples Animaciones</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada multiple-animations">3 animaciones</div>
+                        </div>
+                        <p><code>animation: move-diagonal 5s infinite, color-change 3s infinite, pulse 2s infinite;</code></p>
+                        <p>Es posible aplicar varias animaciones a un mismo elemento separándolas con comas. Cada animación puede tener sus propias propiedades.</p>
+                    </div>
+                </div>
+                
+                <div class="propiedades-container">
+                    <div class="propiedad-item">
+                        <h3>Tabla de Propiedades de Animación</h3>
+                        <table class="propiedades-tabla">
+                            <tr>
+                                <th>Propiedad</th>
+                                <th>Descripción</th>
+                                <th>Valores</th>
+                            </tr>
+                            <tr>
+                                <td>animation-name</td>
+                                <td>Especifica el nombre de la animación (@keyframes)</td>
+                                <td>keyframename | none</td>
+                            </tr>
+                            <tr>
+                                <td>animation-duration</td>
+                                <td>Especifica la duración de la animación</td>
+                                <td>time (s o ms)</td>
+                            </tr>
+                            <tr>
+                                <td>animation-timing-function</td>
+                                <td>Especifica la curva de velocidad</td>
+                                <td>linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier | steps</td>
+                            </tr>
+                            <tr>
+                                <td>animation-delay</td>
+                                <td>Especifica el retraso antes de iniciar</td>
+                                <td>time (s o ms)</td>
+                            </tr>
+                            <tr>
+                                <td>animation-iteration-count</td>
+                                <td>Especifica el número de repeticiones</td>
+                                <td>number | infinite</td>
+                            </tr>
+                            <tr>
+                                <td>animation-direction</td>
+                                <td>Especifica la dirección de reproducción</td>
+                                <td>normal | reverse | alternate | alternate-reverse</td>
+                            </tr>
+                            <tr>
+                                <td>animation-fill-mode</td>
+                                <td>Especifica los estilos antes/después</td>
+                                <td>none | forwards | backwards | both</td>
+                            </tr>
+                            <tr>
+                                <td>animation-play-state</td>
+                                <td>Especifica si está en pausa o reproducción</td>
+                                <td>running | paused</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

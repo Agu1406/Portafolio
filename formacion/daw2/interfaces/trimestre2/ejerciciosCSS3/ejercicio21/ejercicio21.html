@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 21 - Z-index</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .z-container {
+            position: relative;
+            margin: 50px 0;
+        }
+        
+        .black-box {
+            position: relative;
+            z-index: 1;
+            border: 2px solid black;
+            height: 100px;
+            margin: 30px;
+        }
+        
+        .gray-box {
+            position: absolute;
+            z-index: 3; /* gray box will be above both green and black box */
+            background: lightgray;
+            height: 60px;
+            width: 70%;
+            left: 50px;
+            top: 50px;
+        }
+        
+        .green-box {
+            position: absolute;
+            z-index: 2; /* green box will be above black box */
+            background: lightgreen;
+            width: 35%;
+            left: 278px;
+            top: 15px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 21 - Z-index</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Z-index Example</h2>
+                <p>An element with greater stack order is always above an element with a lower stack order.</p>
+                
+                <div class="z-container">
+                    <div class="black-box">Black box (z-index: 1)</div>
+                    <div class="gray-box">Gray box (z-index: 3)</div>
+                    <div class="green-box">Green box (z-index: 2)</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

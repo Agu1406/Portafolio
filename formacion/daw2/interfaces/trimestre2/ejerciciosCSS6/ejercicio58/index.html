@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 58 - Botones con Sombra</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 58 - Botones con Sombra</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Personalización de Sombras en Botones</h2>
+                <p>La propiedad <code>box-shadow</code> permite añadir sombras a los botones, creando efectos de profundidad y elevación que mejoran la experiencia del usuario.</p>
+                
+                <div class="botones-container">
+                    <div class="botones-grupo">
+                        <h3>Botones con Diferentes Efectos de Sombra</h3>
+                        <div class="botones-demo">
+                            <button class="button button1">Botón con Sombra</button>
+                            <button class="button button2">Botón con Sombra al Hover</button>
+                        </div>
+                        <div class="botones-explicacion">
+                            <p>Observa los diferentes comportamientos de las sombras:</p>
+                            <ul>
+                                <li><strong>Botón con Sombra:</strong> Muestra una sombra permanente que da sensación de elevación</li>
+                                <li><strong>Botón con Sombra al Hover:</strong> Muestra una sombra solo cuando el cursor pasa por encima, simulando que el botón se eleva al interactuar con él</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shadow-explicacion">
+                    <h3>Cómo Funciona Box-Shadow</h3>
+                    <div class="shadow-demo">
+                        <div class="shadow-box shadow-box-1">Sombra Básica</div>
+                        <div class="shadow-box shadow-box-2">Sombra Difusa</div>
+                        <div class="shadow-box shadow-box-3">Sombra Interior</div>
+                        <div class="shadow-box shadow-box-4">Múltiples Sombras</div>
+                    </div>
+                    <p>La propiedad <code>box-shadow</code> tiene varios componentes:</p>
+                    <ul>
+                        <li><strong>Desplazamiento horizontal:</strong> Distancia de la sombra en el eje X (positivo = derecha, negativo = izquierda)</li>
+                        <li><strong>Desplazamiento vertical:</strong> Distancia de la sombra en el eje Y (positivo = abajo, negativo = arriba)</li>
+                        <li><strong>Desenfoque:</strong> Radio de desenfoque de la sombra (mayor valor = más difusa)</li>
+                        <li><strong>Propagación:</strong> Tamaño de la sombra (opcional)</li>
+                        <li><strong>Color:</strong> Color de la sombra, generalmente con transparencia (rgba)</li>
+                        <li><strong>Inset:</strong> Palabra clave para crear sombras interiores (opcional)</li>
+                    </ul>
+                    <p>La sintaxis completa es: <code>box-shadow: h-offset v-offset blur spread color inset;</code></p>
+                </div>
+                
+                <div class="codigo-container">
+                    <h3>Código CSS</h3>
+                    <pre><code>.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+
+.button1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}</code></pre>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

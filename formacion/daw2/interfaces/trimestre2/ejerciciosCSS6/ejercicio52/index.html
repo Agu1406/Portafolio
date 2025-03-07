@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 52 - Botones CSS</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 52 - Botones CSS</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Estilos de Botones en CSS</h2>
+                <p>Los botones son elementos interactivos fundamentales en cualquier interfaz web. CSS permite estilizarlos de manera consistente independientemente del elemento HTML utilizado.</p>
+                
+                <div class="botones-container">
+                    <div class="botones-grupo">
+                        <h3>Botones con Diferentes Elementos HTML</h3>
+                        <div class="botones-demo">
+                            <button>Botón Predeterminado</button>
+                            <a href="#" class="button">Enlace como Botón</a>
+                            <button class="button">Botón</button>
+                            <input type="button" class="button" value="Input como Botón">
+                        </div>
+                        <div class="botones-explicacion">
+                            <p>Observa cómo la clase <code>.button</code> aplica el mismo estilo a diferentes elementos HTML:</p>
+                            <ul>
+                                <li>Elemento <code>&lt;button&gt;</code> sin clase (estilo predeterminado del navegador)</li>
+                                <li>Elemento <code>&lt;a&gt;</code> con clase <code>.button</code></li>
+                                <li>Elemento <code>&lt;button&gt;</code> con clase <code>.button</code></li>
+                                <li>Elemento <code>&lt;input type="button"&gt;</code> con clase <code>.button</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="codigo-container">
+                    <h3>Código CSS</h3>
+                    <pre><code>.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}</code></pre>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

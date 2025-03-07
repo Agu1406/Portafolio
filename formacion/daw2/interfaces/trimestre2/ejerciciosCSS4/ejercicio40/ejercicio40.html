@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 40 - Transiciones y Animaciones</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .efectos-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .efecto-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 40px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .demo-area {
+            height: 180px;
+            position: relative;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .caja-demo {
+            width: 100px;
+            height: 100px;
+            background-color: #ffeb3b;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        /* Ejemplo original */
+        .scale-original {
+            margin: 20px auto;
+            transform: scale(2, 1.5);
+        }
+        
+        /* Transiciones */
+        .transition-simple {
+            transition: transform 0.5s ease;
+        }
+        
+        .transition-simple:hover {
+            transform: scale(1.2);
+        }
+        
+        .transition-multiple {
+            transition: transform 0.5s ease, background-color 0.5s ease, border-radius 0.5s ease;
+        }
+        
+        .transition-multiple:hover {
+            transform: scale(1.1) rotate(10deg);
+            background-color: #4caf50;
+            border-radius: 50%;
+        }
+        
+        .transition-delay {
+            transition: transform 0.5s ease 0.2s, background-color 0.5s ease;
+        }
+        
+        .transition-delay:hover {
+            transform: translateY(-20px);
+            background-color: #2196f3;
+        }
+        
+        /* Animaciones */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+        
+        .animation-bounce {
+            animation: bounce 2s infinite ease-in-out;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .animation-rotate {
+            animation: rotate 3s infinite linear;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                background-color: #ffeb3b;
+            }
+            50% {
+                transform: scale(1.1);
+                background-color: #ff9800;
+            }
+            100% {
+                transform: scale(1);
+                background-color: #ffeb3b;
+            }
+        }
+        
+        .animation-pulse {
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(-10px);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(10px);
+            }
+        }
+        
+        .animation-shake {
+            animation: shake 1s infinite;
+        }
+        
+        .animation-paused {
+            animation: rotate 3s infinite linear;
+            animation-play-state: paused;
+        }
+        
+        .animation-paused:hover {
+            animation-play-state: running;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 40 - Transiciones y Animaciones</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Efectos de Transición y Animación en CSS</h2>
+                <p>CSS permite crear efectos dinámicos mediante transiciones suaves entre estados y animaciones complejas.</p>
+                
+                <div class="efectos-container">
+                    <div class="efecto-item">
+                        <h3>Transformación Scale</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo scale-original">
+                                scale(2, 1.5)
+                            </div>
+                        </div>
+                        <p><code>transform: scale(2, 1.5);</code></p>
+                        <p>Este es el ejemplo original del ejercicio. La transformación scale aumenta el tamaño del elemento.</p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Transición Simple</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo transition-simple">
+                                Pasa el cursor
+                            </div>
+                        </div>
+                        <p><code>transition: transform 0.5s ease;</code></p>
+                        <p>Al pasar el cursor, el elemento se agranda suavemente gracias a la transición.</p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Transición Múltiple</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo transition-multiple">
+                                Pasa el cursor
+                            </div>
+                        </div>
+                        <p><code>transition: transform 0.5s, background-color 0.5s, border-radius 0.5s;</code></p>
+                        <p>Transición que afecta a varias propiedades simultáneamente.</p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Transición con Retraso</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo transition-delay">
+                                Pasa el cursor
+                            </div>
+                        </div>
+                        <p><code>transition: transform 0.5s ease 0.2s;</code></p>
+                        <p>La transformación comienza después de un pequeño retraso de 0.2 segundos.</p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Animación de Rebote</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo animation-bounce">
+                                Rebote
+                            </div>
+                        </div>
+                        <p><code>animation: bounce 2s infinite ease-in-out;</code></p>
+                        <p>Animación que hace que el elemento rebote continuamente.</p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Animación de Rotación</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo animation-rotate">
+                                Rotación
+                            </div>
+                        </div>
+                        <p><code>animation: rotate 3s infinite linear;</code></p>
+                        <p>Animación que hace que el elemento gire continuamente.</p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Animación de Pulso</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo animation-pulse">
+                                Pulso
+                            </div>
+                        </div>
+                        <p><code>animation: pulse 2s infinite ease-in-out;</code></p>
+                        <p>Animación que hace que el elemento pulse cambiando de tamaño y color.</p>
+                    </div>
+                    
+                    <div class="efecto-item">
+                        <h3>Animación Pausada</h3>
+                        <div class="demo-area">
+                            <div class="caja-demo animation-paused">
+                                Pasa el cursor
+                            </div>
+                        </div>
+                        <p><code>animation-play-state: paused;</code></p>
+                        <p>Animación que está pausada hasta que el usuario pasa el cursor por encima.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

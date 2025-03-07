@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 57 - Botones con Bordes</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 57 - Botones con Bordes</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Personalización de Bordes en Botones</h2>
+                <p>La propiedad <code>border</code> permite añadir bordes de diferentes colores a los botones, creando un estilo distintivo y elegante.</p>
+                
+                <div class="botones-container">
+                    <div class="botones-grupo">
+                        <h3>Botones con Diferentes Colores de Borde</h3>
+                        <div class="botones-demo">
+                            <button class="button button1">Verde</button>
+                            <button class="button button2">Azul</button>
+                            <button class="button button3">Rojo</button>
+                            <button class="button button4">Gris</button>
+                            <button class="button button5">Negro</button>
+                        </div>
+                        <div class="botones-explicacion">
+                            <p>La propiedad <code>border</code> puede tener diferentes colores:</p>
+                            <ul>
+                                <li><strong>Verde (#4CAF50):</strong> Representa acciones positivas o de confirmación</li>
+                                <li><strong>Azul (#008CBA):</strong> Representa acciones informativas o de navegación</li>
+                                <li><strong>Rojo (#f44336):</strong> Representa acciones de alerta o eliminación</li>
+                                <li><strong>Gris (#e7e7e7):</strong> Representa acciones secundarias o deshabilitadas</li>
+                                <li><strong>Negro (#555555):</strong> Representa acciones neutras o alternativas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-explicacion">
+                    <h3>Cómo Funciona la Propiedad Border</h3>
+                    <div class="border-demo">
+                        <div class="border-box border-box-1">2px solid #4CAF50</div>
+                        <div class="border-box border-box-2">2px dashed #008CBA</div>
+                        <div class="border-box border-box-3">2px dotted #f44336</div>
+                        <div class="border-box border-box-4">4px double #555555</div>
+                    </div>
+                    <p>La propiedad <code>border</code> tiene tres componentes principales:</p>
+                    <ul>
+                        <li><strong>Ancho:</strong> Define el grosor del borde (ej. 2px, 3px, etc.)</li>
+                        <li><strong>Estilo:</strong> Define el tipo de línea (solid, dashed, dotted, double, etc.)</li>
+                        <li><strong>Color:</strong> Define el color del borde usando valores hexadecimales, RGB, etc.</li>
+                    </ul>
+                    <p>La sintaxis completa es: <code>border: ancho estilo color;</code></p>
+                </div>
+                
+                <div class="codigo-container">
+                    <h3>Código CSS</h3>
+                    <pre><code>.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.button3 {
+    background-color: white;
+    color: black;
+    border: 2px solid #f44336;
+}
+
+.button4 {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
+.button5 {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}</code></pre>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

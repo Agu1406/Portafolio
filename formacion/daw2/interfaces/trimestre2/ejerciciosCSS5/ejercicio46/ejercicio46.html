@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 46 - Animaciones CSS</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .animaciones-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .animacion-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 40px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .demo-area {
+            height: 300px;
+            position: relative;
+            margin-bottom: 15px;
+            border: 1px dashed #ccc;
+            overflow: hidden;
+        }
+        
+        .caja-animada {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+        }
+        
+        /* Animación original del ejercicio */
+        .animacion-original {
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0px;
+            }
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+            75% {
+                background-color: green;
+                left: 0px;
+                top: 200px;
+            }
+            100% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+        }
+        
+        /* Animación con diferentes timing functions */
+        .animacion-timing {
+            animation-name: mover-horizontal;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        
+        .timing-linear {
+            animation-timing-function: linear;
+        }
+        
+        .timing-ease {
+            animation-timing-function: ease;
+            animation-delay: 0.2s;
+        }
+        
+        .timing-ease-in {
+            animation-timing-function: ease-in;
+            animation-delay: 0.4s;
+        }
+        
+        .timing-ease-out {
+            animation-timing-function: ease-out;
+            animation-delay: 0.6s;
+        }
+        
+        .timing-ease-in-out {
+            animation-timing-function: ease-in-out;
+            animation-delay: 0.8s;
+        }
+        
+        @keyframes mover-horizontal {
+            0% {
+                left: 0px;
+            }
+            50% {
+                left: 200px;
+            }
+            100% {
+                left: 0px;
+            }
+        }
+        
+        /* Animación con diferentes direcciones */
+        .animacion-direccion {
+            animation-name: cambiar-color;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        
+        .direccion-normal {
+            animation-direction: normal;
+        }
+        
+        .direccion-reverse {
+            animation-direction: reverse;
+        }
+        
+        .direccion-alternate {
+            animation-direction: alternate;
+        }
+        
+        .direccion-alternate-reverse {
+            animation-direction: alternate-reverse;
+        }
+        
+        @keyframes cambiar-color {
+            0% {
+                background-color: red;
+            }
+            25% {
+                background-color: yellow;
+            }
+            50% {
+                background-color: blue;
+            }
+            75% {
+                background-color: green;
+            }
+            100% {
+                background-color: red;
+            }
+        }
+        
+        /* Animación con diferentes fill-modes */
+        .animacion-fill-mode {
+            animation-name: mover-y-color;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+        }
+        
+        .fill-none {
+            animation-fill-mode: none;
+        }
+        
+        .fill-forwards {
+            animation-fill-mode: forwards;
+        }
+        
+        .fill-backwards {
+            animation-fill-mode: backwards;
+            animation-delay: 1s;
+        }
+        
+        .fill-both {
+            animation-fill-mode: both;
+            animation-delay: 1s;
+        }
+        
+        @keyframes mover-y-color {
+            0% {
+                background-color: red;
+                top: 0px;
+            }
+            100% {
+                background-color: blue;
+                top: 200px;
+            }
+        }
+        
+        /* Animación con diferentes play-states */
+        .animacion-play-state {
+            animation-name: rotar;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        
+        .play-state-demo:hover .animacion-play-state {
+            animation-play-state: paused;
+        }
+        
+        @keyframes rotar {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Animación con shorthand */
+        .animacion-shorthand {
+            /* animation: name duration timing-function delay iteration-count direction fill-mode play-state */
+            animation: pulsar 2s ease-in-out 0s infinite alternate both running;
+        }
+        
+        @keyframes pulsar {
+            0% {
+                transform: scale(1);
+                background-color: red;
+            }
+            100% {
+                transform: scale(1.5);
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 46 - Animaciones CSS</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Propiedades de Animación en CSS</h2>
+                <p>CSS permite crear animaciones complejas mediante la definición de keyframes y el control de diversas propiedades de animación.</p>
+                
+                <div class="animaciones-container">
+                    <div class="animacion-item">
+                        <h3>Animación Básica</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada animacion-original"></div>
+                        </div>
+                        <p><code>animation-name: example;<br>
+                        animation-duration: 4s;<br>
+                        animation-iteration-count: infinite;</code></p>
+                        <p>Este es el ejemplo original del ejercicio. La animación mueve un cuadrado en un patrón rectangular mientras cambia de color.</p>
+                    </div>
+                    
+                    <div class="animacion-item">
+                        <h3>Funciones de Temporización (timing-function)</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada animacion-timing timing-linear" style="top: 0px; background-color: red;"></div>
+                            <div class="caja-animada animacion-timing timing-ease" style="top: 40px; background-color: orange;"></div>
+                            <div class="caja-animada animacion-timing timing-ease-in" style="top: 80px; background-color: yellow;"></div>
+                            <div class="caja-animada animacion-timing timing-ease-out" style="top: 120px; background-color: green;"></div>
+                            <div class="caja-animada animacion-timing timing-ease-in-out" style="top: 160px; background-color: blue;"></div>
+                        </div>
+                        <p><code>animation-timing-function: linear | ease | ease-in | ease-out | ease-in-out</code></p>
+                        <p>Controla la aceleración de la animación. De arriba a abajo: linear, ease, ease-in, ease-out, ease-in-out.</p>
+                    </div>
+                    
+                    <div class="animacion-item">
+                        <h3>Dirección de Animación</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada animacion-direccion direccion-normal" style="top: 0px;"></div>
+                            <div class="caja-animada animacion-direccion direccion-reverse" style="top: 50px;"></div>
+                            <div class="caja-animada animacion-direccion direccion-alternate" style="top: 100px;"></div>
+                            <div class="caja-animada animacion-direccion direccion-alternate-reverse" style="top: 150px;"></div>
+                        </div>
+                        <p><code>animation-direction: normal | reverse | alternate | alternate-reverse</code></p>
+                        <p>Determina si la animación se reproduce hacia adelante, hacia atrás o alterna entre ambas direcciones.</p>
+                    </div>
+                    
+                    <div class="animacion-item">
+                        <h3>Fill Mode</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada animacion-fill-mode fill-none" style="left: 0px;"></div>
+                            <div class="caja-animada animacion-fill-mode fill-forwards" style="left: 50px;"></div>
+                            <div class="caja-animada animacion-fill-mode fill-backwards" style="left: 100px;"></div>
+                            <div class="caja-animada animacion-fill-mode fill-both" style="left: 150px;"></div>
+                        </div>
+                        <p><code>animation-fill-mode: none | forwards | backwards | both</code></p>
+                        <p>Define cómo se aplican los estilos antes y después de la ejecución de la animación. De izquierda a derecha: none, forwards, backwards, both.</p>
+                    </div>
+                    
+                    <div class="animacion-item">
+                        <h3>Play State</h3>
+                        <div class="demo-area play-state-demo">
+                            <div class="caja-animada animacion-play-state" style="left: 100px; top: 100px;"></div>
+                            <p style="position: absolute; bottom: 20px; text-align: center; width: 100%;">Pasa el cursor por encima para pausar la animación</p>
+                        </div>
+                        <p><code>animation-play-state: running | paused</code></p>
+                        <p>Permite pausar y reanudar la animación. En este ejemplo, la animación se pausa al pasar el cursor por encima.</p>
+                    </div>
+                    
+                    <div class="animacion-item">
+                        <h3>Shorthand (Notación Abreviada)</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada animacion-shorthand" style="left: 100px; top: 100px;"></div>
+                        </div>
+                        <p><code>animation: pulsar 2s ease-in-out 0s infinite alternate both running;</code></p>
+                        <p>La propiedad animation permite definir todas las propiedades de animación en una sola línea, en el siguiente orden: name, duration, timing-function, delay, iteration-count, direction, fill-mode, play-state.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

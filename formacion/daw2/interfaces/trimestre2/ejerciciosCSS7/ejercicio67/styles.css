@@ -1,0 +1,9 @@
+.newspaper {
+    column-count: 3;
+    column-gap: 150px;
+    column-rule: 1px solid lightblue;
+}
+
+h2 {
+    column-span: all;
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 47 - Iteraciones de Animación</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .iteraciones-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .iteracion-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 40px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .demo-area {
+            height: 300px;
+            position: relative;
+            margin-bottom: 15px;
+            border: 1px dashed #ccc;
+            overflow: hidden;
+        }
+        
+        .caja-animada {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+        }
+        
+        /* Animación original del ejercicio */
+        .animacion-original {
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: 3;
+        }
+        
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0px;
+            }
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+            75% {
+                background-color: green;
+                left: 0px;
+                top: 200px;
+            }
+            100% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+        }
+        
+        /* Diferentes valores de iteration-count */
+        .iteracion-1 {
+            animation-name: mover-horizontal;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+        }
+        
+        .iteracion-2 {
+            animation-name: mover-horizontal;
+            animation-duration: 2s;
+            animation-iteration-count: 2;
+        }
+        
+        .iteracion-5 {
+            animation-name: mover-horizontal;
+            animation-duration: 2s;
+            animation-iteration-count: 5;
+        }
+        
+        .iteracion-infinita {
+            animation-name: mover-horizontal;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes mover-horizontal {
+            0% {
+                left: 0px;
+                background-color: red;
+            }
+            50% {
+                left: 200px;
+                background-color: blue;
+            }
+            100% {
+                left: 0px;
+                background-color: red;
+            }
+        }
+        
+        /* Combinación con animation-direction */
+        .iteracion-alternate {
+            animation-name: cambiar-color;
+            animation-duration: 2s;
+            animation-iteration-count: 4;
+            animation-direction: alternate;
+        }
+        
+        .iteracion-alternate-infinite {
+            animation-name: cambiar-color;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        
+        @keyframes cambiar-color {
+            0% {
+                background-color: red;
+                transform: scale(1);
+            }
+            100% {
+                background-color: blue;
+                transform: scale(1.5);
+            }
+        }
+        
+        /* Combinación con animation-fill-mode */
+        .iteracion-forwards {
+            animation-name: mover-diagonal;
+            animation-duration: 2s;
+            animation-iteration-count: 3;
+            animation-fill-mode: forwards;
+        }
+        
+        .iteracion-backwards {
+            animation-name: mover-diagonal;
+            animation-duration: 2s;
+            animation-iteration-count: 3;
+            animation-fill-mode: backwards;
+            animation-delay: 1s;
+        }
+        
+        .iteracion-both {
+            animation-name: mover-diagonal;
+            animation-duration: 2s;
+            animation-iteration-count: 3;
+            animation-fill-mode: both;
+            animation-delay: 1s;
+        }
+        
+        @keyframes mover-diagonal {
+            0% {
+                left: 0px;
+                top: 0px;
+                background-color: red;
+            }
+            100% {
+                left: 200px;
+                top: 200px;
+                background-color: green;
+            }
+        }
+        
+        /* Contador visual */
+        .contador-container {
+            position: relative;
+            height: 150px;
+        }
+        
+        .contador {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .barra-progreso {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            height: 20px;
+            background-color: #4CAF50;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        .animacion-contador {
+            animation-name: contar;
+            animation-duration: 10s;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+        }
+        
+        @keyframes contar {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 47 - Iteraciones de Animación</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Propiedad animation-iteration-count</h2>
+                <p>La propiedad animation-iteration-count especifica el número de veces que se debe reproducir una animación antes de detenerse.</p>
+                
+                <div class="iteraciones-container">
+                    <div class="iteracion-item">
+                        <h3>Animación Original (3 iteraciones)</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada animacion-original"></div>
+                        </div>
+                        <p><code>animation-iteration-count: 3;</code></p>
+                        <p>Este es el ejemplo original del ejercicio. La animación se ejecuta 3 veces y luego se detiene.</p>
+                    </div>
+                    
+                    <div class="iteracion-item">
+                        <h3>Diferentes Valores de Iteración</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada iteracion-1" style="top: 0px;"></div>
+                            <div class="caja-animada iteracion-2" style="top: 50px;"></div>
+                            <div class="caja-animada iteracion-5" style="top: 100px;"></div>
+                            <div class="caja-animada iteracion-infinita" style="top: 150px;"></div>
+                            <p style="position: absolute; top: 0px; left: 110px;">1 vez</p>
+                            <p style="position: absolute; top: 50px; left: 110px;">2 veces</p>
+                            <p style="position: absolute; top: 100px; left: 110px;">5 veces</p>
+                            <p style="position: absolute; top: 150px; left: 110px;">infinito</p>
+                        </div>
+                        <p><code>animation-iteration-count: 1 | 2 | 5 | infinite;</code></p>
+                        <p>La propiedad puede tomar valores numéricos (enteros o decimales) o el valor "infinite" para repetir indefinidamente.</p>
+                    </div>
+                    
+                    <div class="iteracion-item">
+                        <h3>Combinación con animation-direction</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada iteracion-alternate" style="top: 50px; left: 50px;"></div>
+                            <div class="caja-animada iteracion-alternate-infinite" style="top: 150px; left: 50px;"></div>
+                            <p style="position: absolute; top: 20px; left: 160px;">4 veces alternando</p>
+                            <p style="position: absolute; top: 120px; left: 160px;">infinito alternando</p>
+                        </div>
+                        <p><code>animation-iteration-count: 4 | infinite;<br>
+                        animation-direction: alternate;</code></p>
+                        <p>Al combinar con animation-direction: alternate, cada ciclo completo cuenta como 2 iteraciones (ida y vuelta).</p>
+                    </div>
+                    
+                    <div class="iteracion-item">
+                        <h3>Combinación con animation-fill-mode</h3>
+                        <div class="demo-area">
+                            <div class="caja-animada iteracion-forwards" style="top: 0px;"></div>
+                            <div class="caja-animada iteracion-backwards" style="top: 50px;"></div>
+                            <div class="caja-animada iteracion-both" style="top: 100px;"></div>
+                        </div>
+                        <p><code>animation-iteration-count: 3;<br>
+                        animation-fill-mode: forwards | backwards | both;</code></p>
+                        <p>El fill-mode determina qué estilos se aplican antes y después de las iteraciones de la animación.</p>
+                    </div>
+                    
+                    <div class="iteracion-item">
+                        <h3>Visualización de Progreso</h3>
+                        <div class="demo-area">
+                            <div class="contador-container">
+                                <div class="contador">Progreso de la animación</div>
+                                <div class="barra-progreso animacion-contador"></div>
+                            </div>
+                        </div>
+                        <p><code>animation-iteration-count: 1;<br>
+                        animation-timing-function: linear;</code></p>
+                        <p>Este ejemplo muestra visualmente el progreso de una animación con una sola iteración durante 10 segundos.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+

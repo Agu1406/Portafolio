@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19 - List Style Types</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .list-circle {
+            list-style-type: circle;
+        }
+        
+        .list-square {
+            list-style-type: square;
+        }
+        
+        .list-upper-roman {
+            list-style-type: upper-roman;
+        }
+        
+        .list-lower-alpha {
+            list-style-type: lower-alpha;
+        }
+        
+        .list-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .list-item {
+            flex: 1;
+            min-width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 19 - List Style Types</h1>
+            
+            <div class="ejercicio-container">
+                <h2>The list-style-type Property</h2>
+                
+                <h3>Example of unordered lists:</h3>
+                <div class="list-container">
+                    <div class="list-item">
+                        <h4>Circle</h4>
+                        <ul class="list-circle">
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Coca Cola</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="list-item">
+                        <h4>Square</h4>
+                        <ul class="list-square">
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Coca Cola</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Example of ordered lists:</h3>
+                <div class="list-container">
+                    <div class="list-item">
+                        <h4>Upper Roman</h4>
+                        <ol class="list-upper-roman">
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Coca Cola</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="list-item">
+                        <h4>Lower Alpha</h4>
+                        <ol class="list-lower-alpha">
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Coca Cola</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

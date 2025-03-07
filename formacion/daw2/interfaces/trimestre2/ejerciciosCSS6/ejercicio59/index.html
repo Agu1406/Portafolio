@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 59 - Botones Deshabilitados</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 59 - Botones Deshabilitados</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Personalización de Botones Deshabilitados</h2>
+                <p>La propiedad <code>opacity</code> y <code>cursor</code> permiten crear botones con apariencia de deshabilitados, indicando visualmente al usuario que no están disponibles para interacción.</p>
+                
+                <div class="botones-container">
+                    <div class="botones-grupo">
+                        <h3>Comparación de Botones Normales y Deshabilitados</h3>
+                        <div class="botones-demo">
+                            <button class="button">Botón Normal</button>
+                            <button class="button disabled">Botón Deshabilitado</button>
+                        </div>
+                        <div class="botones-explicacion">
+                            <p>Observa las diferencias entre los botones:</p>
+                            <ul>
+                                <li><strong>Botón Normal:</strong> Completamente opaco y con cursor de puntero</li>
+                                <li><strong>Botón Deshabilitado:</strong> Parcialmente transparente y con cursor de "no permitido"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="disabled-explicacion">
+                    <h3>Cómo Funciona la Deshabilitación Visual</h3>
+                    <div class="opacity-demo">
+                        <div class="opacity-box opacity-box-1">opacity: 1.0</div>
+                        <div class="opacity-box opacity-box-2">opacity: 0.8</div>
+                        <div class="opacity-box opacity-box-3">opacity: 0.6</div>
+                        <div class="opacity-box opacity-box-4">opacity: 0.4</div>
+                        <div class="opacity-box opacity-box-5">opacity: 0.2</div>
+                    </div>
+                    <p>Para crear un botón con apariencia de deshabilitado se utilizan dos propiedades principales:</p>
+                    <ul>
+                        <li><strong>opacity:</strong> Controla la transparencia del elemento (1 = completamente opaco, 0 = completamente transparente)</li>
+                        <li><strong>cursor:</strong> Cambia el cursor al pasar por encima del elemento (not-allowed = indica que la acción no está permitida)</li>
+                    </ul>
+                    <p>Nota: Esta técnica solo cambia la apariencia visual. Para realmente deshabilitar un botón, debes usar el atributo HTML <code>disabled</code>.</p>
+                </div>
+                
+                <div class="cursor-explicacion">
+                    <h3>Tipos de Cursores</h3>
+                    <div class="cursor-demo">
+                        <div class="cursor-box cursor-pointer">cursor: pointer</div>
+                        <div class="cursor-box cursor-not-allowed">cursor: not-allowed</div>
+                        <div class="cursor-box cursor-wait">cursor: wait</div>
+                        <div class="cursor-box cursor-help">cursor: help</div>
+                    </div>
+                    <p>El cursor puede cambiar para indicar diferentes estados o acciones posibles.</p>
+                </div>
+                
+                <div class="codigo-container">
+                    <h3>Código CSS</h3>
+                    <pre><code>.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}</code></pre>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

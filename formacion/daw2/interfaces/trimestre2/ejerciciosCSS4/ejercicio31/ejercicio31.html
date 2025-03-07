@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 31 - Gradiente Cónico</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .gradient-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .gradient-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .gradient-box {
+            height: 200px;
+            width: 200px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .conico-simple {
+            background: conic-gradient(red, yellow, green, blue, red);
+        }
+        
+        .conico-from {
+            background: conic-gradient(from 90deg, red, yellow, green, blue, red);
+        }
+        
+        .conico-at {
+            background: conic-gradient(at 70% 30%, red, yellow, green, blue, red);
+        }
+        
+        .conico-pie {
+            background: conic-gradient(
+                red 0deg, 
+                red 90deg, 
+                yellow 90deg, 
+                yellow 180deg, 
+                green 180deg, 
+                green 270deg, 
+                blue 270deg, 
+                blue 360deg
+            );
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 31 - Gradiente Cónico</h1>
+            
+            <div class="ejercicio-container">
+                <h2>CSS Conic Gradients</h2>
+                <p>Los gradientes cónicos crean transiciones de color que rotan alrededor de un punto central.</p>
+                
+                <div class="gradient-container">
+                    <div class="gradient-item">
+                        <h3>Gradiente Cónico Simple</h3>
+                        <div class="gradient-box conico-simple"></div>
+                        <p><code>conic-gradient(red, yellow, green, blue, red);</code></p>
+                        <p>Este es el ejemplo original del ejercicio.</p>
+                    </div>
+                    
+                    <div class="gradient-item">
+                        <h3>Gradiente Cónico con Ángulo</h3>
+                        <div class="gradient-box conico-from"></div>
+                        <p><code>conic-gradient(from 90deg, red, yellow, green, blue, red);</code></p>
+                    </div>
+                    
+                    <div class="gradient-item">
+                        <h3>Gradiente Cónico con Posición</h3>
+                        <div class="gradient-box conico-at"></div>
+                        <p><code>conic-gradient(at 70% 30%, red, yellow, green, blue, red);</code></p>
+                    </div>
+                    
+                    <div class="gradient-item">
+                        <h3>Gráfico Circular con Gradiente Cónico</h3>
+                        <div class="gradient-box conico-pie"></div>
+                        <p><code>conic-gradient(red 0deg, red 90deg, yellow 90deg, ...)</code></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
+

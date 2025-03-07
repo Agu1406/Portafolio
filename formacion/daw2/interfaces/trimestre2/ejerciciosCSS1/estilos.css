@@ -1,0 +1,288 @@
+/* Estilos generales */
+:root {
+    --color-primario: darkgreen;
+    --color-secundario: #007bff;
+    --color-secundario-hover: #0056b3;
+    --color-texto: #333;
+    --color-texto-claro: #666;
+    --color-fondo: #f4f4f4;
+    --color-blanco: #fff;
+    --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --borde-radio: 8px;
+    --espaciado: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    min-height: 100vh;
+}
+
+/* Estilo del contenedor principal */
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--espaciado);
+    min-height: 100vh;
+}
+
+/* Estilo del header */
+header {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* Estilo del main */
+main {
+    padding: var(--espaciado);
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+main h1 {
+    font-size: 2.5rem;
+    color: var(--color-primario);
+    margin-bottom: var(--espaciado);
+}
+
+main p {
+    font-size: 1.2rem;
+    color: var(--color-texto-claro);
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+/* Estilo de las listas */
+ul {
+    list-style-type: disc;
+    padding-left: var(--espaciado);
+    text-align: left;
+    margin-bottom: var(--espaciado);
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Estilo del contenedor del formulario */
+.contenedor-formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--espaciado);
+    width: 100%;
+}
+
+/* Estilo del formulario */
+.formulario {
+    border: var(--color-texto) solid 4px;
+    background-color: var(--color-blanco);
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-suave);
+    padding: var(--espaciado);
+    width: 100%;
+    max-width: 500px;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-texto);
+    text-align: left;
+}
+
+/* Estilo de los inputs y el botón de envío */
+.formulario input[type="text"],
+.formulario input[type="password"],
+.formulario input[type="email"],
+.formulario input[type="number"],
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.formulario input[type="text"]:focus,
+.formulario input[type="password"]:focus,
+.formulario input[type="email"]:focus,
+.formulario input[type="number"]:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    border-color: var(--color-secundario);
+    outline: none;
+}
+
+.formulario input[type="submit"] {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: auto;
+    min-width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.formulario input[type="submit"]:hover {
+    background-color: var(--color-secundario-hover);
+    transform: translateY(-2px);
+}
+
+.formulario input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Estilo del footer */
+footer {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+footer a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--color-blanco);
+    text-decoration: underline;
+}
+
+/* Clases de utilidad */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+/* Estilos para ejercicios específicos */
+.ejercicio-container {
+    background-color: var(--color-blanco);
+    border-radius: var(--borde-radio);
+    padding: var(--espaciado);
+    margin-bottom: var(--espaciado);
+    box-shadow: var(--sombra-suave);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Media Queries para responsividad */
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    main {
+        padding: 15px;
+    }
+    
+    .formulario {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+    
+    main h1 {
+        font-size: 2rem;
+    }
+    
+    .contenedor-formulario {
+        padding: 10px;
+    }
+    
+    .formulario {
+        padding: 10px;
+    }
+}
+
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 1200px) {
+    .contenedor {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    main {
+        padding: 30px;
+    }
+}
+
+/* Soporte para modo oscuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-fondo: #222;
+        --color-texto: #f4f4f4;
+        --color-texto-claro: #ddd;
+        --color-blanco: #333;
+        --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .formulario {
+        background-color: #444;
+    }
+    
+    .ejercicio-container {
+        background-color: #444;
+    }
+    
+    main h1 {
+        color: #4CAF50; /* Un verde más claro para modo oscuro */
+    }
+}

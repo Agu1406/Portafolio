@@ -1,0 +1,119 @@
+.botones-container {
+    margin: 30px 0;
+}
+
+.botones-grupo {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.botones-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones-explicacion {
+    margin-top: 20px;
+}
+
+.botones-explicacion code {
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.radius-explicacion {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.radius-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+.radius-box {
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.radius-box-1 {
+    border-radius: 2px;
+}
+
+.radius-box-2 {
+    border-radius: 4px;
+}
+
+.radius-box-3 {
+    border-radius: 8px;
+}
+
+.radius-box-4 {
+    border-radius: 12px;
+}
+
+.radius-box-5 {
+    border-radius: 50%;
+}
+
+.codigo-container {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.codigo-container pre {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 0;
+}
+
+.codigo-container code {
+    font-family: monospace;
+    line-height: 1.5;
+}
+
+/* Estilos originales de los botones */
+.button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {border-radius: 2px;}
+.button2 {border-radius: 4px;}
+.button3 {border-radius: 8px;}
+.button4 {border-radius: 12px;}
+.button5 {border-radius: 50%;}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 20 - Responsive Table</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .responsive-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .responsive-table th, 
+        .responsive-table td {
+            text-align: left;
+            padding: 8px;
+        }
+        
+        .responsive-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 20 - Responsive Table</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Responsive Table</h2>
+                <p>A responsive table will display a horizontal scroll bar if the screen is too 
+                small to display the full content. Resize the browser window to see the effect:</p>
+                <p>To create a responsive table, add a container element (like div) with <strong>overflow-x:auto</strong> around the table element:</p>
+                
+                <div class="table-container">
+                    <table class="responsive-table">
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Points</th>
+                            <th>Points</th>
+                            <th>Points</th>
+                            <th>Points</th>
+                            <th>Points</th>
+                            <th>Points</th>
+                            <th>Points</th>
+                            <th>Points</th>
+                            <th>Points</th>
+                            <th>Points</th>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                            <td>94</td>
+                            <td>94</td>
+                            <td>94</td>
+                            <td>94</td>
+                            <td>94</td>
+                            <td>94</td>
+                            <td>94</td>
+                            <td>94</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>Adam</td>
+                            <td>Johnson</td>
+                            <td>67</td>
+                            <td>67</td>
+                            <td>67</td>
+                            <td>67</td>
+                            <td>67</td>
+                            <td>67</td>
+                            <td>67</td>
+                            <td>67</td>
+                            <td>67</td>
+                            <td>67</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+

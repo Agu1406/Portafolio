@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 56 - Botones Redondeados</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 56 - Botones Redondeados</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Personalización de Esquinas en Botones</h2>
+                <p>La propiedad <code>border-radius</code> permite añadir esquinas redondeadas a los botones, mejorando su apariencia visual y suavizando su diseño.</p>
+                
+                <div class="botones-container">
+                    <div class="botones-grupo">
+                        <h3>Botones con Diferentes Valores de Border-Radius</h3>
+                        <div class="botones-demo">
+                            <button class="button button1">2px</button>
+                            <button class="button button2">4px</button>
+                            <button class="button button3">8px</button>
+                            <button class="button button4">12px</button>
+                            <button class="button button5">50%</button>
+                        </div>
+                        <div class="botones-explicacion">
+                            <p>La propiedad <code>border-radius</code> puede tener diferentes valores:</p>
+                            <ul>
+                                <li><strong>2px:</strong> Esquinas ligeramente redondeadas, casi imperceptibles</li>
+                                <li><strong>4px:</strong> Esquinas suavemente redondeadas, sutiles</li>
+                                <li><strong>8px:</strong> Esquinas moderadamente redondeadas, visibles</li>
+                                <li><strong>12px:</strong> Esquinas muy redondeadas, pronunciadas</li>
+                                <li><strong>50%:</strong> Esquinas completamente redondeadas, creando un botón circular u ovalado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="radius-explicacion">
+                    <h3>Cómo Funciona Border-Radius</h3>
+                    <div class="radius-demo">
+                        <div class="radius-box radius-box-1">2px</div>
+                        <div class="radius-box radius-box-2">4px</div>
+                        <div class="radius-box radius-box-3">8px</div>
+                        <div class="radius-box radius-box-4">12px</div>
+                        <div class="radius-box radius-box-5">50%</div>
+                    </div>
+                    <p>La propiedad <code>border-radius</code> define el radio de las esquinas del elemento:</p>
+                    <ul>
+                        <li>Valores pequeños crean esquinas ligeramente redondeadas</li>
+                        <li>Valores más grandes crean esquinas más redondeadas</li>
+                        <li>Un valor de 50% en un elemento cuadrado crea un círculo perfecto</li>
+                        <li>En elementos rectangulares, 50% crea una forma ovalada</li>
+                    </ul>
+                </div>
+                
+                <div class="codigo-container">
+                    <h3>Código CSS</h3>
+                    <pre><code>.button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {border-radius: 2px;}
+.button2 {border-radius: 4px;}
+.button3 {border-radius: 8px;}
+.button4 {border-radius: 12px;}
+.button5 {border-radius: 50%;}</code></pre>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

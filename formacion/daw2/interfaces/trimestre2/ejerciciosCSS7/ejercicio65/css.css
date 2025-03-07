@@ -1,0 +1,6 @@
+.newspaper {
+    column-count: 3;
+    column-gap: 40px;
+    column-rule-style: solid;
+    column-rule-width: 1px;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 24 - Border Radius</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .border-radius-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .border-radius-item {
+            margin-bottom: 20px;
+        }
+        
+        .border-radius-four {
+            border-radius: 15px 50px 30px 5px;
+            background: #73AD21;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+        }
+        
+        .border-radius-three {
+            border-radius: 15px 50px 30px;
+            background: #73AD21;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+        }
+        
+        .border-radius-two {
+            border-radius: 15px 50px;
+            background: #73AD21;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+        }
+        
+        .border-radius-one {
+            border-radius: 15px;
+            background: #73AD21;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 24 - Border Radius</h1>
+            
+            <div class="ejercicio-container">
+                <h2>The border-radius Property</h2>
+                <p>The border-radius property defines the radius of an element's corners.</p>
+                
+                <div class="border-radius-container">
+                    <div class="border-radius-item">
+                        <h3>Four values: 15px 50px 30px 5px</h3>
+                        <div class="border-radius-four"></div>
+                        <p><code>border-radius: 15px 50px 30px 5px;</code></p>
+                    </div>
+                    
+                    <div class="border-radius-item">
+                        <h3>Three values: 15px 50px 30px</h3>
+                        <div class="border-radius-three"></div>
+                        <p><code>border-radius: 15px 50px 30px;</code></p>
+                    </div>
+                    
+                    <div class="border-radius-item">
+                        <h3>Two values: 15px 50px</h3>
+                        <div class="border-radius-two"></div>
+                        <p><code>border-radius: 15px 50px;</code></p>
+                    </div>
+                    
+                    <div class="border-radius-item">
+                        <h3>One value: 15px</h3>
+                        <div class="border-radius-one"></div>
+                        <p><code>border-radius: 15px;</code></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

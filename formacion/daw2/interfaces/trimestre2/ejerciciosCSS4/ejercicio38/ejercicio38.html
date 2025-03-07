@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 38 - Transformaciones 2D</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .transformaciones-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .transformacion-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 40px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .caja-demo {
+            width: 200px;
+            height: 100px;
+            background-color: #ffeb3b;
+            border: 1px solid black;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.5s ease;
+        }
+        
+        .caja-original {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: rgba(200, 200, 200, 0.3);
+            border: 1px dashed #999;
+            z-index: -1;
+        }
+        
+        .translate-demo {
+            transform: translate(50px, 30px);
+        }
+        
+        .rotate-demo {
+            transform: rotate(20deg);
+        }
+        
+        .scale-demo {
+            transform: scale(0.8, 1.2);
+        }
+        
+        .skew-demo {
+            transform: skew(10deg, 5deg);
+        }
+        
+        .origin-demo {
+            transform: rotate(45deg);
+            transform-origin: top left;
+        }
+        
+        .matrix-demo {
+            transform: matrix(1, 0.2, 0.2, 1, 20, 20);
+        }
+        
+        .multiple-demo {
+            transform: translate(30px, 20px) rotate(15deg) scale(0.9);
+        }
+        
+        .hover-effect:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 38 - Transformaciones 2D</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Métodos de Transformación 2D en CSS</h2>
+                <p>CSS ofrece varias funciones de transformación que permiten modificar la posición, tamaño y forma de los elementos.</p>
+                <p>Las cajas sombreadas muestran la posición original antes de la transformación.</p>
+                
+                <div class="transformaciones-container">
+                    <div class="transformacion-item">
+                        <h3>translate()</h3>
+                        <div style="position: relative; height: 160px;">
+                            <div class="caja-original" style="top: 30px; left: 50%; transform: translateX(-50%);"></div>
+                            <div class="caja-demo translate-demo">
+                                translate(50px, 30px)
+                            </div>
+                        </div>
+                        <p><code>transform: translate(50px, 30px);</code></p>
+                        <p>Mueve el elemento 50px a la derecha y 30px hacia abajo desde su posición original. Este es el ejemplo original del ejercicio.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>rotate()</h3>
+                        <div style="position: relative; height: 160px;">
+                            <div class="caja-original" style="top: 30px; left: 50%; transform: translateX(-50%);"></div>
+                            <div class="caja-demo rotate-demo">
+                                rotate(20deg)
+                            </div>
+                        </div>
+                        <p><code>transform: rotate(20deg);</code></p>
+                        <p>Rota el elemento 20 grados en sentido horario alrededor de su centro.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>scale()</h3>
+                        <div style="position: relative; height: 160px;">
+                            <div class="caja-original" style="top: 30px; left: 50%; transform: translateX(-50%);"></div>
+                            <div class="caja-demo scale-demo">
+                                scale(0.8, 1.2)
+                            </div>
+                        </div>
+                        <p><code>transform: scale(0.8, 1.2);</code></p>
+                        <p>Escala el elemento al 80% de su ancho original y al 120% de su altura original.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>skew()</h3>
+                        <div style="position: relative; height: 160px;">
+                            <div class="caja-original" style="top: 30px; left: 50%; transform: translateX(-50%);"></div>
+                            <div class="caja-demo skew-demo">
+                                skew(10deg, 5deg)
+                            </div>
+                        </div>
+                        <p><code>transform: skew(10deg, 5deg);</code></p>
+                        <p>Inclina el elemento 10 grados en el eje X y 5 grados en el eje Y.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>transform-origin</h3>
+                        <div style="position: relative; height: 160px;">
+                            <div class="caja-original" style="top: 30px; left: 50%; transform: translateX(-50%);"></div>
+                            <div class="caja-demo origin-demo">
+                                transform-origin
+                            </div>
+                        </div>
+                        <p><code>transform: rotate(45deg); transform-origin: top left;</code></p>
+                        <p>Cambia el punto de origen de la transformación a la esquina superior izquierda.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>matrix()</h3>
+                        <div style="position: relative; height: 160px;">
+                            <div class="caja-original" style="top: 30px; left: 50%; transform: translateX(-50%);"></div>
+                            <div class="caja-demo matrix-demo">
+                                matrix()
+                            </div>
+                        </div>
+                        <p><code>transform: matrix(1, 0.2, 0.2, 1, 20, 20);</code></p>
+                        <p>Combina todas las transformaciones 2D en una sola usando una matriz de transformación.</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>Transformaciones Múltiples</h3>
+                        <div style="position: relative; height: 160px;">
+                            <div class="caja-original" style="top: 30px; left: 50%; transform: translateX(-50%);"></div>
+                            <div class="caja-demo multiple-demo">
+                                Múltiples transformaciones
+                            </div>
+                        </div>
+                        <p><code>transform: translate(30px, 20px) rotate(15deg) scale(0.9);</code></p>
+                        <p>Aplica varias transformaciones en secuencia (primero traslación, luego rotación y finalmente escala).</p>
+                    </div>
+                    
+                    <div class="transformacion-item">
+                        <h3>Efecto Hover</h3>
+                        <div style="position: relative; height: 160px;">
+                            <div class="caja-original" style="top: 30px; left: 50%; transform: translateX(-50%);"></div>
+                            <div class="caja-demo hover-effect">
+                                Pasa el cursor por encima
+                            </div>
+                        </div>
+                        <p><code>transform: scale(1.1) rotate(5deg);</code> (al pasar el cursor)</p>
+                        <p>Las transformaciones son excelentes para crear efectos interactivos. Pasa el cursor sobre la caja para ver el efecto.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

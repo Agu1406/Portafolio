@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 54 - Tamaños de Botones</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 54 - Tamaños de Botones</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Personalización de Tamaños en Botones</h2>
+                <p>El tamaño de los botones puede ajustarse fácilmente mediante la propiedad <code>font-size</code> de CSS, que afecta tanto al texto como a las proporciones generales del botón.</p>
+                
+                <div class="botones-container">
+                    <div class="botones-grupo">
+                        <h3>Botones con Diferentes Tamaños</h3>
+                        <div class="botones-demo">
+                            <button class="button button1">10px</button>
+                            <button class="button button2">12px</button>
+                            <button class="button button3">16px</button>
+                            <button class="button button4">20px</button>
+                            <button class="button button5">24px</button>
+                        </div>
+                        <div class="botones-explicacion">
+                            <p>Observa cómo el tamaño del botón cambia proporcionalmente al tamaño de la fuente:</p>
+                            <ul>
+                                <li><strong>10px:</strong> Tamaño muy pequeño, adecuado para espacios reducidos</li>
+                                <li><strong>12px:</strong> Tamaño pequeño, útil para botones secundarios</li>
+                                <li><strong>16px:</strong> Tamaño estándar, recomendado para la mayoría de los botones</li>
+                                <li><strong>20px:</strong> Tamaño grande, ideal para botones destacados</li>
+                                <li><strong>24px:</strong> Tamaño muy grande, para botones principales o llamadas a la acción</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="codigo-container">
+                    <h3>Código CSS</h3>
+                    <pre><code>.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.button1 { font-size: 10px; }
+.button2 { font-size: 12px; }
+.button3 { font-size: 16px; }
+.button4 { font-size: 20px; }
+.button5 { font-size: 24px; }</code></pre>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

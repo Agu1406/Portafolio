@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 37 - Modos de Escritura</title>
+    <link rel="icon" type="image/x-icon" href="https://iesventura.es/_ies_datos/LOGO_new.jpg">
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .escritura-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .escritura-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .ejemplo-texto {
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            min-height: 150px;
+            font-size: 1.2em;
+        }
+        
+        .horizontal-tb {
+            writing-mode: horizontal-tb;
+        }
+        
+        .vertical-rl {
+            writing-mode: vertical-rl;
+        }
+        
+        .vertical-lr {
+            writing-mode: vertical-lr;
+        }
+        
+        .sideways-rl {
+            writing-mode: sideways-rl;
+        }
+        
+        .sideways-lr {
+            writing-mode: sideways-lr;
+        }
+        
+        .texto-vertical {
+            writing-mode: vertical-rl;
+            display: inline-block;
+            padding: 5px;
+            background-color: #e0f7fa;
+            border-radius: 3px;
+        }
+        
+        .texto-combinado {
+            padding: 15px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .texto-combinado span {
+            display: inline-block;
+            padding: 5px;
+            background-color: #e0f7fa;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <p>Diseño de interfaces web</p>
+        </header>
+
+        <main>
+            <h1>Ejercicio 37 - Modos de Escritura</h1>
+            
+            <div class="ejercicio-container">
+                <h2>Propiedad writing-mode en CSS</h2>
+                <p>La propiedad writing-mode en CSS permite cambiar la dirección y orientación del texto, lo que es útil para idiomas con diferentes sistemas de escritura.</p>
+                
+                <div class="escritura-container">
+                    <div class="escritura-item">
+                        <h3>Horizontal (Predeterminado)</h3>
+                        <div class="ejemplo-texto horizontal-tb">
+                            Este es un texto con el modo de escritura predeterminado (horizontal-tb). El texto fluye de izquierda a derecha y de arriba hacia abajo.
+                        </div>
+                        <p><code>writing-mode: horizontal-tb;</code></p>
+                        <p>Este es el modo de escritura predeterminado para idiomas occidentales.</p>
+                    </div>
+                    
+                    <div class="escritura-item">
+                        <h3>Vertical de Derecha a Izquierda</h3>
+                        <div class="ejemplo-texto vertical-rl">
+                            Este texto tiene un modo de escritura vertical que fluye de derecha a izquierda. Común en idiomas asiáticos como el japonés tradicional.
+                        </div>
+                        <p><code>writing-mode: vertical-rl;</code></p>
+                        <p>Este es el ejemplo original del ejercicio.</p>
+                    </div>
+                    
+                    <div class="escritura-item">
+                        <h3>Vertical de Izquierda a Derecha</h3>
+                        <div class="ejemplo-texto vertical-lr">
+                            Este texto tiene un modo de escritura vertical que fluye de izquierda a derecha. Usado en algunos contextos de diseño moderno.
+                        </div>
+                        <p><code>writing-mode: vertical-lr;</code></p>
+                    </div>
+                    
+                    <div class="escritura-item">
+                        <h3>Texto Combinado</h3>
+                        <div class="texto-combinado">
+                            Este es un texto normal con un <span class="texto-vertical">elemento vertical</span> integrado en el flujo del texto horizontal. Esto permite combinar diferentes modos de escritura en un mismo párrafo.
+                        </div>
+                        <p><code>span { writing-mode: vertical-rl; display: inline-block; }</code></p>
+                        <p>Combina texto horizontal con elementos verticales.</p>
+                    </div>
+                </div>
+                
+                <div class="escritura-container">
+                    <div class="escritura-item">
+                        <h3>Aplicaciones Prácticas</h3>
+                        <p>Los diferentes modos de escritura son útiles para:</p>
+                        <ul>
+                            <li>Diseño de sitios web multilingües</li>
+                            <li>Diseños creativos y artísticos</li>
+                            <li>Títulos y encabezados estilizados</li>
+                            <li>Adaptación a diferentes culturas y sistemas de escritura</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="escritura-item">
+                        <h3>Compatibilidad</h3>
+                        <p>Algunas consideraciones importantes:</p>
+                        <ul>
+                            <li>No todos los navegadores soportan todos los valores</li>
+                            <li>sideways-rl y sideways-lr tienen soporte limitado</li>
+                            <li>Considerar la legibilidad al usar modos no estándar</li>
+                            <li>Probar en diferentes dispositivos y navegadores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 <a href="https://github.com/agu1406" target="_blank">Github Agu1406</a>. Todos los derechos
+                reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
