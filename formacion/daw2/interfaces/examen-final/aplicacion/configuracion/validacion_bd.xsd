@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Esquema de validación para la configuración de la base de datos -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Elemento principal de configuración -->
+    <xs:element name="ConfiguracionBD">
+        <!-- Tipo complejo que contiene varios elementos -->
+        <xs:complexType>
+            <!-- Secuencia ordenada de elementos -->
+            <xs:sequence>
+                <!-- Definición de cada elemento con su tipo -->
+                <xs:element name="Tipo" type="xs:string"/>
+                <xs:element name="Servidor" type="xs:string"/>
+                <xs:element name="Puerto" type="xs:integer"/>
+                <xs:element name="Nombre" type="xs:string"/>
+                <xs:element name="Usuario" type="xs:string"/>
+                <xs:element name="Clave" type="xs:string"/>
+                <xs:element name="Charset" type="xs:string"/>
+                <xs:element name="Activada" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema> 

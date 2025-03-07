@@ -1,0 +1,337 @@
+/* 
+ * Estilos personalizados para NaturalShop
+ * Complementa los estilos de Bootstrap
+ */
+
+/* Variables CSS */
+:root {
+    --color-primario: #4CAF50;
+    --color-primario-oscuro: #388E3C;
+    --color-secundario: #8BC34A;
+    --color-acento: #FF9800;
+    --color-texto: #333333;
+    --color-texto-claro: #666666;
+    --color-fondo: #f8f9fa;
+    --color-fondo-oscuro: #e9ecef;
+    --color-borde: #dee2e6;
+    --sombra-suave: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --sombra-media: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transicion: all 0.3s ease;
+    --radio-borde: 8px;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-primario);
+    transition: var(--transicion);
+}
+
+a:hover {
+    color: var(--color-primario-oscuro);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primario-oscuro);
+    border-color: var(--color-primario-oscuro);
+}
+
+.btn-outline-primary {
+    color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+
+.bg-primary {
+    background-color: var(--color-primario) !important;
+}
+
+.text-primary {
+    color: var(--color-primario) !important;
+}
+
+/* Header y navegación */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-brand i {
+    color: var(--color-acento);
+    margin-right: 0.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: var(--color-primario);
+}
+
+.dropdown-item:active {
+    background-color: var(--color-primario);
+}
+
+/* Hero section */
+.hero {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Tarjetas */
+.card {
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    transition: var(--transicion);
+    border: 1px solid var(--color-borde);
+    box-shadow: var(--sombra-suave);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-media);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: var(--color-texto-claro);
+}
+
+/* Categorías */
+.categoria-card {
+    position: relative;
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    height: 200px;
+}
+
+.categoria-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transicion);
+}
+
+.categoria-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1rem;
+    transition: var(--transicion);
+}
+
+.categoria-card:hover .categoria-img {
+    transform: scale(1.05);
+}
+
+.categoria-card:hover .categoria-overlay {
+    background-color: rgba(76, 175, 80, 0.8);
+}
+
+/* Productos */
+.producto-precio {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
+.producto-categoria {
+    display: inline-block;
+    background-color: var(--color-secundario);
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+}
+
+/* Detalle de producto */
+.producto-imagen-principal {
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.producto-imagen-principal img {
+    width: 100%;
+    height: auto;
+}
+
+.producto-miniaturas {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.producto-miniatura {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transicion);
+}
+
+.producto-miniatura.active {
+    border-color: var(--color-primario);
+}
+
+.producto-miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Carrito */
+.carrito-item {
+    border-bottom: 1px solid var(--color-borde);
+    padding: 1rem 0;
+}
+
+.carrito-item:last-child {
+    border-bottom: none;
+}
+
+.carrito-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.carrito-item-titulo {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.carrito-item-precio {
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
+.carrito-cantidad {
+    width: 60px;
+    text-align: center;
+}
+
+/* Formularios */
+.form-control:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 3rem 0 1.5rem;
+    margin-top: 3rem;
+}
+
+footer h5 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+footer ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Utilidades */
+.badge-primary {
+    background-color: var(--color-primario);
+}
+
+.badge-secondary {
+    background-color: var(--color-secundario);
+}
+
+.badge-accent {
+    background-color: var(--color-acento);
+}
+
+/* Responsive */
+@media (max-width: 767.98px) {
+    .hero {
+        padding: 2rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .card-img-top {
+        height: 150px;
+    }
+    
+    .categoria-card {
+        height: 150px;
+    }
+} 

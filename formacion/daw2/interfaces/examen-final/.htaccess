@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /examen-final/
+
+# Redirigir todas las solicitudes que no sean a archivos o directorios existentes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ publico/index.php [L,QSA]
+
+# Permitir acceso directo a los archivos en la carpeta publico
+RewriteRule ^publico/ - [L]
+
+# Proteger directorios de aplicación y datos
+RewriteRule ^aplicacion/ - [F,L]
+RewriteRule ^datos/ - [F,L] 

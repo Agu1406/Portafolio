@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuración de la base de datos para NaturalShop -->
+<ConfiguracionBD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                xsi:noNamespaceSchemaLocation="validacion_bd.xsd">
+    <Tipo>mysql</Tipo>
+    <Servidor>localhost</Servidor>
+    <Puerto>3306</Puerto>
+    <Nombre>naturalshop</Nombre>
+    <Usuario>root</Usuario>
+    <Clave></Clave><!-- Vacía, sin contraseña para desarrollo local -->
+    <Charset>utf8mb4</Charset>
+    <Activada>true</Activada><!-- Activada para usar la base de datos -->
+</ConfiguracionBD> 
