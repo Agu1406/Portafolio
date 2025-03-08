@@ -76,7 +76,7 @@ function cargarControlador($nombreControlador)
  * http://localhost/publico y la ruta relativa es /productos.
  */
 $peticion = $_SERVER['REQUEST_URI'];
-$rutaBase = $configuracion['rutaBase'];
+$rutaBase = $configuracion['rutaBase'] . '/publico';
 
 /**
  * La función de esta variable es eliminar la ruta base de la URI para obtener
@@ -85,6 +85,11 @@ $rutaBase = $configuracion['rutaBase'];
  * ya que habra eliminado http://localhost/publico de la URI.
  */
 $uri = str_replace($rutaBase, '', $peticion);
+
+// Si la URI está vacía o es solo "/index.php", establecerla como "/"
+if ($uri == '' || $uri == '/index.php') {
+    $uri = '/';
+}
 
 /**
  * Este if se ejecuta si la URI contiene parámetros GET, por ejemplo:   

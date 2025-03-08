@@ -70,8 +70,8 @@ return [
     'descripcion' => 'Tu tienda de parafarmacia, cosméticos y productos naturales',
     
     // Rutas de la aplicación
-    'rutaBase' => '/examen-final',
-    'rutaPublica' => '/examen-final/publico',
+    'rutaBase' => '/formacion/daw2/interfaces/examen-final',
+    'rutaPublica' => '/formacion/daw2/interfaces/examen-final/publico',
     
     // Configuración de base de datos (cargada desde XML)
     'baseDatos' => $configBD,
