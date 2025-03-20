@@ -1,0 +1,339 @@
+/**
+ * Estilos principales para Manos a la Olla
+ * Incluye mejoras de accesibilidad
+ */
+
+/* Variables globales */
+:root {
+    --primary-color: #e67e22;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-sm: 0.875rem;
+    --border-radius: 0.25rem;
+    --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --transition: all 0.3s ease;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: #f9f9f9;
+    transition: var(--transition);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: #d35400;
+    text-decoration: underline;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #d35400;
+    border-color: #d35400;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+/* Mejoras de accesibilidad */
+.accessibility-bar {
+    border-bottom: 1px solid #e9ecef;
+    padding: 0.5rem 0;
+    background-color: #fff;
+    transition: var(--transition);
+}
+
+.accessibility-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.font-size-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.font-size-controls button {
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+    font-size: var(--font-size-sm);
+}
+
+.contrast-control button {
+    padding: 0.25rem 0.75rem;
+    line-height: 1;
+    font-size: var(--font-size-sm);
+}
+
+.high-contrast {
+    color: #fff !important;
+    background-color: #000 !important;
+}
+
+.high-contrast .card,
+.high-contrast .navbar,
+.high-contrast .accessibility-bar,
+.high-contrast .jumbotron,
+.high-contrast footer {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.high-contrast a {
+    color: #ffff00 !important;
+}
+
+.high-contrast .btn {
+    background-color: #fff !important;
+    color: #000 !important;
+    border-color: #fff !important;
+}
+
+.high-contrast .text-muted {
+    color: #ccc !important;
+}
+
+.high-contrast img {
+    filter: grayscale(100%) contrast(120%);
+}
+
+/* Tamaños de texto accesibles */
+.font-size-large {
+    font-size: 120% !important;
+}
+
+.font-size-larger {
+    font-size: 140% !important;
+}
+
+.font-size-largest {
+    font-size: 160% !important;
+}
+
+/* Botón de texto a voz */
+.tts-button {
+    margin-top: 0.5rem;
+    font-size: var(--font-size-sm);
+}
+
+/* Estilos para tarjetas */
+.card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Estilos para formularios */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+/* Estilos para navegación */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: 500;
+}
+
+/* Estilos para pie de página */
+footer {
+    margin-top: 2rem;
+}
+
+footer a {
+    transition: var(--transition);
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
+
+/* Estilos para recetas */
+.recipe-card {
+    height: 100%;
+}
+
+.recipe-meta {
+    font-size: var(--font-size-sm);
+    color: #6c757d;
+}
+
+.recipe-ingredients li,
+.recipe-instructions li {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para comentarios */
+.comment {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para perfil de usuario */
+.profile-header {
+    background-color: var(--light-color);
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: var(--box-shadow);
+}
+
+/* Estilos para impresión */
+@media print {
+    header, footer, .accessibility-bar, .btn, form, .card-footer {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background-color: #fff;
+    }
+    
+    .card {
+        border: none;
+        box-shadow: none;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+    
+    .recipe-ingredients, .recipe-instructions {
+        page-break-inside: avoid;
+    }
+}
+
+/* Estilos para el modo de alto contraste */
+body.high-contrast {
+    background-color: #000;
+    color: #fff;
+}
+
+body.high-contrast .navbar,
+body.high-contrast .accessibility-bar,
+body.high-contrast .card,
+body.high-contrast .jumbotron,
+body.high-contrast footer {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+body.high-contrast .navbar-light .navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+body.high-contrast .navbar-light .navbar-nav .nav-link:hover,
+body.high-contrast .navbar-light .navbar-nav .nav-link:focus {
+    color: #ffff00 !important;
+}
+
+body.high-contrast a {
+    color: #ffff00 !important;
+}
+
+body.high-contrast .btn-outline-secondary {
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+body.high-contrast .btn-outline-secondary:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+body.high-contrast .text-muted {
+    color: #ccc !important;
+}
+
+/* Botones de accesibilidad */
+.accessibility-controls .btn {
+    transition: var(--transition);
+}
+
+.accessibility-controls .btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25);
+}
+
+/* Transiciones suaves */
+body, .navbar, .card, .btn, a {
+    transition: var(--transition);
+} 

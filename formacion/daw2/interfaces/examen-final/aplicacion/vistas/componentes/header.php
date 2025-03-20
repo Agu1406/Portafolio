@@ -12,8 +12,8 @@
 <!-- Barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/">
-            <i class="fas fa-leaf"></i> NaturalShop
+        <a class="navbar-brand d-flex align-items-center" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/">
+            <img src="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/imagenes/natushopt_logo.webp" alt="NaturalShop Logo" height="40" class="me-2">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/">Inicio</a>
+                    <a class="nav-link" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/">Inicio</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,7 +31,10 @@
                         <?php if (isset($categorias) && !empty($categorias)): ?>
                             <?php foreach ($categorias as $categoria): ?>
                                 <li>
-                                    <a class="dropdown-item" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/productos?categoria=<?php echo $categoria['id']; ?>">
+                                    <a class="dropdown-item d-flex align-items-center" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/productos?categoria=<?php echo $categoria['id']; ?>">
+                                        <?php if ($categoria['nombre'] === 'Parafarmacia'): ?>
+                                            <img src="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/imagenes/categoria_parafarmacia.webp" alt="Parafarmacia" class="me-2" style="height: 24px; width: auto;">
+                                        <?php endif; ?>
                                         <?php echo htmlspecialchars($categoria['nombre']); ?>
                                     </a>
                                 </li>
@@ -39,21 +42,21 @@
                             <li><hr class="dropdown-divider"></li>
                         <?php endif; ?>
                         <li>
-                            <a class="dropdown-item" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/categorias">
+                            <a class="dropdown-item" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/categorias">
                                 Ver todas las categorías
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/productos">Productos</a>
+                    <a class="nav-link" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/productos">Productos</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link position-relative" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/carrito">
+                    <a class="nav-link position-relative" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/carrito">
                         <i class="fas fa-shopping-cart"></i> Carrito
-                        <?php if (isset($_SESSION['carrito']) && count($_SESSION['carrito']) > 0): ?>
+                        <?php if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])): ?>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 <?php echo count($_SESSION['carrito']); ?>
                             </span>
@@ -68,7 +71,7 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <?php if (isset($_SESSION['usuario']['rol']) && $_SESSION['usuario']['rol'] === 'admin'): ?>
                                 <li>
-                                    <a class="dropdown-item" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/admin">
+                                    <a class="dropdown-item" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/admin">
                                         <i class="fas fa-cog"></i> Panel de administración
                                     </a>
                                 </li>
@@ -80,13 +83,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/pedidos">
+                                <a class="dropdown-item" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/pedidos">
                                     <i class="fas fa-box"></i> Mis pedidos
                                 </a>
                             </li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <a class="dropdown-item" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/logout">
+                                <a class="dropdown-item" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/logout">
                                     <i class="fas fa-sign-out-alt"></i> Cerrar sesión
                                 </a>
                             </li>
@@ -94,12 +97,12 @@
                     </li>
                 <?php else: ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/login">
+                        <a class="nav-link" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/login">
                             <i class="fas fa-sign-in-alt"></i> Iniciar sesión
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/registro">
+                        <a class="nav-link" href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/registro">
                             <i class="fas fa-user-plus"></i> Registrarse
                         </a>
                     </li>

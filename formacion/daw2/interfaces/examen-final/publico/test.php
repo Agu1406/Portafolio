@@ -1,16 +1,33 @@
 <?php
-// Archivo de prueba para verificar que PHP está funcionando correctamente
+// Archivo de prueba para verificar el enrutamiento
 
-echo "<h1>Prueba de PHP</h1>";
-echo "<p>Si puedes ver este mensaje, PHP está funcionando correctamente.</p>";
-echo "<p>Fecha y hora actual: " . date('Y-m-d H:i:s') . "</p>";
-echo "<p>Versión de PHP: " . phpversion() . "</p>";
+// Incluir la configuración
+define('RUTA_BASE', dirname(__DIR__));
+define('RUTA_APLICACION', RUTA_BASE . '/aplicacion');
+$configuracion = require_once RUTA_APLICACION . '/configuracion/configuracion.php';
 
-// Mostrar información sobre la ruta
-echo "<h2>Información de la ruta</h2>";
-echo "<p>REQUEST_URI: " . $_SERVER['REQUEST_URI'] . "</p>";
-echo "<p>SCRIPT_NAME: " . $_SERVER['SCRIPT_NAME'] . "</p>";
-echo "<p>DOCUMENT_ROOT: " . $_SERVER['DOCUMENT_ROOT'] . "</p>";
+echo "<h1>Prueba de enrutamiento</h1>";
+echo "<p>Si puedes ver este mensaje, el enrutamiento funciona correctamente.</p>";
 
-// Enlace a la página principal
-echo "<p><a href='index.php'>Ir a la página principal</a></p>"; 
+echo "<h2>Información de la solicitud</h2>";
+echo "<pre>";
+echo "REQUEST_URI: " . $_SERVER['REQUEST_URI'] . "\n";
+echo "SCRIPT_NAME: " . $_SERVER['SCRIPT_NAME'] . "\n";
+echo "PHP_SELF: " . $_SERVER['PHP_SELF'] . "\n";
+echo "DOCUMENT_ROOT: " . $_SERVER['DOCUMENT_ROOT'] . "\n";
+echo "</pre>";
+
+echo "<h2>Configuración</h2>";
+echo "<pre>";
+echo "rutaBase: " . $configuracion['rutaBase'] . "\n";
+echo "rutaPublica: " . $configuracion['rutaPublica'] . "\n";
+echo "</pre>";
+
+echo "<h2>Enlaces de prueba</h2>";
+echo "<ul>";
+echo "<li><a href='" . $configuracion['rutaBase'] . "/'>Inicio</a></li>";
+echo "<li><a href='" . $configuracion['rutaBase'] . "/productos'>Productos</a></li>";
+echo "<li><a href='" . $configuracion['rutaBase'] . "/producto/detalle?id=1'>Detalle de producto</a></li>";
+echo "<li><a href='" . $configuracion['rutaBase'] . "/carrito'>Carrito</a></li>";
+echo "</ul>";
+?> 

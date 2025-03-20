@@ -58,14 +58,14 @@ if ($configuracion['baseDatos']['activada']) {
  * y requiriendo su contenido.
  * 
  * @param string $nombreControlador Nombre del controlador a cargar
- * @return bool True si el controlador se cargó correctamente, false en caso contrario
+ * @return mixed Instancia del controlador si se cargó correctamente, false en caso contrario
  */
 function cargarControlador($nombreControlador)
 {
     $archivoControlador = RUTA_APLICACION . '/controladores/' . $nombreControlador . '.php';
     if (file_exists($archivoControlador)) {
         require_once $archivoControlador;
-        return true;
+        return new $nombreControlador();
     }
     return false;
 }
@@ -78,13 +78,15 @@ function cargarControlador($nombreControlador)
 $peticion = $_SERVER['REQUEST_URI'];
 $rutaBase = $configuracion['rutaBase'] . '/publico';
 
-/**
- * La función de esta variable es eliminar la ruta base de la URI para obtener
- * ejemplo: http://localhost/publico/productos, la ruta base es http://localhost/publico
- * y la ruta relativa es /productos, entonces la variable $uri contendrá /productos
- * ya que habra eliminado http://localhost/publico de la URI.
- */
-$uri = str_replace($rutaBase, '', $peticion);
+// Si se recibió un parámetro uri en la URL, usarlo en lugar de la petición
+if (isset($_GET['uri'])) {
+    $uri = $_GET['uri'];
+    // Eliminar el parámetro uri de $_GET para que no interfiera con otros parámetros
+    unset($_GET['uri']);
+} else {
+    // Procesar la petición normalmente
+    $uri = str_replace($rutaBase, '', $peticion);
+}
 
 // Si la URI está vacía o es solo "/index.php", establecerla como "/"
 if ($uri == '' || $uri == '/index.php') {
@@ -209,6 +211,26 @@ switch ($uri) {
         $controlador->vaciar();
         break;
 
+    // Página de checkout
+    case '/checkout':
+        // Carga el controlador de checkout
+        cargarControlador('ControladorCheckout');
+        // Crea una instancia del controlador de checkout
+        $controlador = new ControladorCheckout();
+        // Ejecuta el método mostrar del controlador de checkout
+        $controlador->mostrar();
+        break;
+        
+    // Procesar checkout
+    case '/checkout/procesar':
+        // Carga el controlador de checkout
+        cargarControlador('ControladorCheckout');
+        // Crea una instancia del controlador de checkout
+        $controlador = new ControladorCheckout();
+        // Ejecuta el método procesar del controlador de checkout
+        $controlador->procesar();
+        break;
+
     // Formulario de login    
     case '/login':
         // Carga el controlador de usuario
@@ -227,6 +249,13 @@ switch ($uri) {
         $controlador = new ControladorUsuario();
         // Ejecuta el método login del controlador de usuario
         $controlador->login();
+        break;
+
+    // Historial de pedidos del usuario
+    case '/pedidos':
+        // Carga el controlador de pedidos
+        $controlador = cargarControlador('ControladorPedidos');
+        $controlador->mostrar();
         break;
 
     // Cerrar sesión    
@@ -258,6 +287,80 @@ switch ($uri) {
         // Ejecuta el método registrar del controlador de usuario
         $controlador->registrar();
         break;
+        
+    // Panel de administración - Subir imagen    
+    case '/admin/subir-imagen':
+        // Carga el controlador de administración
+        cargarControlador('ControladorAdmin');
+        // Crea una instancia del controlador de administración
+        $controlador = new ControladorAdmin();
+        
+        // Si es una petición POST, procesar la subida
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Ejecuta el método subirImagen del controlador de administración
+            $controlador->subirImagen();
+        } else {
+            // Ejecuta el método mostrarFormularioImagen del controlador de administración
+            $controlador->mostrarFormularioImagen();
+        }
+        break;
+
+    // Perfil de usuario
+    case '/perfil':
+        // Carga el controlador de usuario
+        cargarControlador('ControladorUsuario');
+        // Crea una instancia del controlador de usuario
+        $controlador = new ControladorUsuario();
+        // Ejecuta el método mostrarPerfil del controlador de usuario
+        $controlador->mostrarPerfil();
+        break;
+
+    // Actualizar perfil de usuario
+    case '/perfil/actualizar':
+        // Carga el controlador de usuario
+        cargarControlador('ControladorUsuario');
+        // Crea una instancia del controlador de usuario
+        $controlador = new ControladorUsuario();
+        // Ejecuta el método actualizarPerfil del controlador de usuario
+        $controlador->actualizarPerfil();
+        break;
+
+    // Panel de administración
+    case '/admin':
+        $controlador = cargarControlador('ControladorAdmin');
+        $controlador->mostrar();
+        break;
+
+    // Gestión de productos (admin)
+    case '/admin/productos':
+        $controlador = cargarControlador('ControladorAdmin');
+        $controlador->productos();
+        break;
+
+    // Agregar producto (admin)
+    case '/admin/productos/agregar':
+        $controlador = cargarControlador('ControladorAdmin');
+        $controlador->agregarProducto();
+        break;
+
+    // Borrar producto (admin)
+    case '/admin/productos/borrar':
+        $controlador = cargarControlador('ControladorAdmin');
+        $controlador->borrarProducto();
+        break;
+
+    // Editar producto (admin)
+    case '/admin/productos/editar':
+        $controlador = cargarControlador('ControladorAdmin');
+        $controlador->editarProducto();
+        break;
+
+    // Gestión de pedidos (admin)
+    case '/admin/pedidos':
+        $controlador = cargarControlador('ControladorAdmin');
+        $controlador->pedidos();
+        break;
+
     // Se ejecuta si la ruta no existe y se muestra la página de error 404    
     default:
         // Muestra un mensaje de error 404  

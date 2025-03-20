@@ -279,4 +279,124 @@ class ControladorUsuario {
             exit;
         }
     }
+    
+    /**
+     * Muestra el perfil del usuario
+     */
+    public function mostrarPerfil() {
+        // Verificar si el usuario está logueado
+        if (!isset($_SESSION['usuario'])) {
+            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/login');
+            exit;
+        }
+        
+        // Obtener datos del usuario
+        $usuario = $_SESSION['usuario'];
+        
+        // Establecer que el usuario está logueado para el header
+        $usuarioLogueado = true;
+        
+        // Obtener categorías para el menú
+        $categorias = [];
+        if (isset($GLOBALS['bd'])) {
+            $categorias = $GLOBALS['bd']->obtenerCategorias();
+        } else {
+            // Categorías de ejemplo
+            $categorias = [
+                ['id' => 1, 'nombre' => 'Parafarmacia'],
+                ['id' => 2, 'nombre' => 'Cosméticos Naturales'],
+                ['id' => 3, 'nombre' => 'Suplementos Alimenticios']
+            ];
+        }
+        
+        // Título de la página
+        $tituloPagina = 'Mi Perfil - NaturalShop';
+        
+        // Cargar la vista del perfil
+        include RUTA_APLICACION . '/vistas/perfil.php';
+    }
+    
+    /**
+     * Actualiza los datos del perfil del usuario
+     */
+    public function actualizarPerfil() {
+        // Verificar si el usuario está logueado
+        if (!isset($_SESSION['usuario'])) {
+            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/login');
+            exit;
+        }
+        
+        // Verificar que sea una petición POST
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/perfil');
+            exit;
+        }
+        
+        // Recoger datos del formulario
+        $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
+        $telefono = isset($_POST['telefono']) ? trim($_POST['telefono']) : '';
+        $direccion = isset($_POST['direccion']) ? trim($_POST['direccion']) : '';
+        $codigoPostal = isset($_POST['codigo_postal']) ? trim($_POST['codigo_postal']) : '';
+        $ciudad = isset($_POST['ciudad']) ? trim($_POST['ciudad']) : '';
+        $provincia = isset($_POST['provincia']) ? trim($_POST['provincia']) : '';
+        
+        // Validar datos
+        $errores = [];
+        
+        if (empty($nombre)) {
+            $errores[] = 'El nombre es obligatorio';
+        }
+        
+        // Si hay errores, volver al perfil con mensajes de error
+        if (!empty($errores)) {
+            $_SESSION['errores_perfil'] = $errores;
+            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/perfil');
+            exit;
+        }
+        
+        // Actualizar datos del usuario
+        $actualizacionExitosa = false;
+        
+        if (isset($GLOBALS['bd'])) {
+            // Actualizar en la base de datos
+            $actualizacionExitosa = $GLOBALS['bd']->actualizarUsuario(
+                $_SESSION['usuario']['id'],
+                $nombre,
+                $telefono,
+                $direccion,
+                $codigoPostal,
+                $ciudad,
+                $provincia
+            );
+            
+            if ($actualizacionExitosa) {
+                // Actualizar los datos en la sesión
+                $_SESSION['usuario']['nombre'] = $nombre;
+                $_SESSION['usuario']['telefono'] = $telefono;
+                $_SESSION['usuario']['direccion'] = $direccion;
+                $_SESSION['usuario']['codigo_postal'] = $codigoPostal;
+                $_SESSION['usuario']['ciudad'] = $ciudad;
+                $_SESSION['usuario']['provincia'] = $provincia;
+            }
+        } else {
+            // En modo desarrollo, simplemente actualizar la sesión
+            $_SESSION['usuario']['nombre'] = $nombre;
+            $_SESSION['usuario']['telefono'] = $telefono;
+            $_SESSION['usuario']['direccion'] = $direccion;
+            $_SESSION['usuario']['codigo_postal'] = $codigoPostal;
+            $_SESSION['usuario']['ciudad'] = $ciudad;
+            $_SESSION['usuario']['provincia'] = $provincia;
+            $actualizacionExitosa = true;
+        }
+        
+        // Redirigir según el resultado
+        if ($actualizacionExitosa) {
+            $_SESSION['mensaje_exito'] = 'Perfil actualizado correctamente';
+        } else {
+            $_SESSION['errores_perfil'] = ['Error al actualizar el perfil. Por favor, inténtelo de nuevo.'];
+        }
+        
+        header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/perfil');
+        exit;
+    }
 } 

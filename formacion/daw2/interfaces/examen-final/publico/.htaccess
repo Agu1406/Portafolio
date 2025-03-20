@@ -5,15 +5,15 @@
 </IfModule>
 
 # Permitir el acceso a todos los archivos en esta carpeta
-# <IfModule mod_rewrite.c>
-#     RewriteEngine On
-#     RewriteBase /formacion/daw2/interfaces/examen-final/publico/
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /formacion/daw2/interfaces/examen-final/publico/
     
-#     # Si el archivo o directorio existe, usarlo directamente
-#     RewriteCond %{REQUEST_FILENAME} !-f
-#     RewriteCond %{REQUEST_FILENAME} !-d
-#     RewriteRule ^ - [L]
+    # Si el archivo o directorio existe, usarlo directamente
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
     
-#     # De lo contrario, redirigir a index.php
-#     RewriteRule ^ index.php [L]
-# </IfModule> 
+    # De lo contrario, redirigir a index.php
+    RewriteRule ^ index.php [L]
+</IfModule> 

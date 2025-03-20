@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+    Options -Multiviews
+    RewriteEngine On
+    RewriteBase /formacion/daw2/empresa/prototipo2/public
+    
+    # Asegurarse de que PHP se ejecuta correctamente
+    <IfModule mod_php8.c>
+        php_flag display_errors on
+        php_value error_reporting E_ALL
+    </IfModule>
+    
+    # Si el archivo o directorio existe, usarlo directamente
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    
+    # De lo contrario, redirigir a index.php
+    RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule> 

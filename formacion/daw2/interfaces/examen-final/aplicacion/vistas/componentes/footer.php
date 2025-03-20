@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="mt-5">
+<footer class="mt-5 footer-container">
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4">
@@ -14,10 +14,10 @@
             <div class="col-md-2 mb-4">
                 <h5>Enlaces</h5>
                 <ul class="list-unstyled">
-                    <li><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/">Inicio</a></li>
-                    <li><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/productos">Productos</a></li>
-                    <li><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/categorias">Categorías</a></li>
-                    <li><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/carrito">Carrito</a></li>
+                    <li><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/">Inicio</a></li>
+                    <li><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/productos">Productos</a></li>
+                    <li><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/categorias">Categorías</a></li>
+                    <li><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/carrito">Carrito</a></li>
                 </ul>
             </div>
             <div class="col-md-2 mb-4">
@@ -28,7 +28,7 @@
                         <?php foreach ($categorias as $categoria): ?>
                             <?php if ($contador < 5): ?>
                                 <li>
-                                    <a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/productos?categoria=<?php echo $categoria['id']; ?>">
+                                    <a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/productos?categoria=<?php echo $categoria['id']; ?>">
                                         <?php echo htmlspecialchars($categoria['nombre']); ?>
                                     </a>
                                 </li>

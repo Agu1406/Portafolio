@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /formacion/daw2/empresa/prototipo2/
+    
+    # Redirigir todas las solicitudes que no sean a archivos o directorios existentes
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ public/index.php [L,QSA]
+    
+    # Permitir acceso directo a los archivos en la carpeta public
+    RewriteRule ^public/ - [L]
+    
+    # Proteger directorios de app
+    RewriteRule ^app/ - [F,L]
+</IfModule> 

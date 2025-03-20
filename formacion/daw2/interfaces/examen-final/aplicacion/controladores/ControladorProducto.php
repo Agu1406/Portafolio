@@ -15,9 +15,20 @@ class ControladorProducto {
         // Título de la página
         $tituloPagina = 'Productos - NaturalShop';
         
+        // Cargar el gestor de imágenes
+        require_once RUTA_APLICACION . '/modelos/GestorImagenes.php';
+        $gestorImagenes = new GestorImagenes();
+        
         // Obtener el filtro de categoría si existe
         $categoriaId = isset($_GET['categoria']) ? (int)$_GET['categoria'] : null;
         $categoriaActual = null;
+        
+        // Obtener filtros de precio
+        $precioMin = isset($_GET['precio_min']) ? (int)$_GET['precio_min'] : 0;
+        $precioMax = isset($_GET['precio_max']) ? (int)$_GET['precio_max'] : 100;
+        
+        // Obtener orden
+        $orden = isset($_GET['orden']) ? $_GET['orden'] : 'nombre_asc';
         
         // Obtener productos y categorías si la base de datos está activada
         $productos = [];
@@ -41,6 +52,30 @@ class ControladorProducto {
                 // Si no hay filtro, obtener todos los productos
                 $productos = $GLOBALS['bd']->obtenerProductos();
             }
+            
+            // Filtrar por precio
+            $productos = array_filter($productos, function($producto) use ($precioMin, $precioMax) {
+                return $producto['precio'] >= $precioMin && $producto['precio'] <= $precioMax;
+            });
+            
+            // Ordenar productos
+            usort($productos, function($a, $b) use ($orden) {
+                switch ($orden) {
+                    case 'nombre_asc':
+                        return strcmp($a['nombre'], $b['nombre']);
+                    case 'nombre_desc':
+                        return strcmp($b['nombre'], $a['nombre']);
+                    case 'precio_asc':
+                        return $a['precio'] <=> $b['precio'];
+                    case 'precio_desc':
+                        return $b['precio'] <=> $a['precio'];
+                    case 'nuevos':
+                        // En este caso, asumimos que el ID más alto es el más reciente
+                        return $b['id'] <=> $a['id'];
+                    default:
+                        return strcmp($a['nombre'], $b['nombre']);
+                }
+            });
         } else {
             // Datos de ejemplo si no hay conexión a la base de datos
             $categorias = [
@@ -120,6 +155,30 @@ class ControladorProducto {
             } else {
                 $productos = $todosProductos;
             }
+            
+            // Filtrar por precio
+            $productos = array_filter($productos, function($producto) use ($precioMin, $precioMax) {
+                return $producto['precio'] >= $precioMin && $producto['precio'] <= $precioMax;
+            });
+            
+            // Ordenar productos
+            usort($productos, function($a, $b) use ($orden) {
+                switch ($orden) {
+                    case 'nombre_asc':
+                        return strcmp($a['nombre'], $b['nombre']);
+                    case 'nombre_desc':
+                        return strcmp($b['nombre'], $a['nombre']);
+                    case 'precio_asc':
+                        return $a['precio'] <=> $b['precio'];
+                    case 'precio_desc':
+                        return $b['precio'] <=> $a['precio'];
+                    case 'nuevos':
+                        // En este caso, asumimos que el ID más alto es el más reciente
+                        return $b['id'] <=> $a['id'];
+                    default:
+                        return strcmp($a['nombre'], $b['nombre']);
+                }
+            });
         }
         
         // Verificar si el usuario está logueado
@@ -130,136 +189,95 @@ class ControladorProducto {
     }
     
     /**
-     * Muestra el detalle de un producto específico
-     * 
-     * @param int $id ID del producto a mostrar
+     * Muestra el detalle de un producto
      */
-    public function detalle($id) {
-        // Validar que el ID sea un número
-        if (!$id || !is_numeric($id)) {
-            // Redirigir a la lista de productos si no hay ID válido
-            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/productos');
+    public function detalle() {
+        // Validar que el ID sea numérico
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        
+        if (!is_numeric($id)) {
+            // Redirigir a la lista de productos si el ID no es válido
+            header('Location: ' . $GLOBALS['configuracion']['rutaPublica'] . '/productos');
             exit;
         }
         
-        $producto = null;
-        $productosRelacionados = [];
-        $categorias = [];
+        // Cargar el gestor de imágenes
+        require_once RUTA_APLICACION . '/modelos/GestorImagenes.php';
+        $gestorImagenes = new GestorImagenes();
         
-        if (isset($GLOBALS['bd'])) {
-            // Obtener el producto de la base de datos
-            $producto = $GLOBALS['bd']->obtenerProductoPorId($id);
-            
-            // Si el producto no existe, mostrar página 404
-            if (!$producto) {
-                header('HTTP/1.0 404 Not Found');
-                include RUTA_APLICACION . '/vistas/404.php';
-                exit;
-            }
-            
-            // Obtener productos relacionados (de la misma categoría)
-            $productosRelacionados = $GLOBALS['bd']->obtenerProductosRelacionados($producto['categoria_id'], $id, 3);
-            
-            // Obtener categorías para el menú
-            $categorias = $GLOBALS['bd']->obtenerCategorias();
-        } else {
-            // Datos de ejemplo si no hay conexión a la base de datos
-            $todosProductos = [
-                [
-                    'id' => 1,
-                    'nombre' => 'Crema Hidratante Natural',
-                    'descripcion_corta' => 'Crema hidratante con ingredientes 100% naturales',
-                    'descripcion' => 'Nuestra crema hidratante está formulada con ingredientes naturales como aloe vera, aceite de jojoba y manteca de karité. Hidrata profundamente la piel sin dejar sensación grasa. Ideal para todo tipo de pieles, incluso las más sensibles.',
-                    'precio' => 19.99,
-                    'imagen_principal' => 'imagenes/productos/crema-hidratante.jpg',
-                    'categoria_id' => 2,
-                    'categoria_nombre' => 'Cosméticos Naturales'
-                ],
-                [
-                    'id' => 2,
-                    'nombre' => 'Vitamina C 1000mg',
-                    'descripcion_corta' => 'Suplemento de Vitamina C para reforzar el sistema inmunológico',
-                    'descripcion' => 'Suplemento de Vitamina C de alta absorción que ayuda a fortalecer el sistema inmunológico, combatir el estrés oxidativo y promover la producción de colágeno. Cada tableta contiene 1000mg de Vitamina C pura.',
-                    'precio' => 12.50,
-                    'imagen_principal' => 'imagenes/productos/vitamina-c.jpg',
-                    'categoria_id' => 3,
-                    'categoria_nombre' => 'Suplementos Alimenticios'
-                ],
-                [
-                    'id' => 3,
-                    'nombre' => 'Gel de Aloe Vera',
-                    'descripcion_corta' => 'Gel calmante de Aloe Vera para pieles sensibles',
-                    'descripcion' => 'Gel puro de Aloe Vera con propiedades calmantes e hidratantes. Ideal para después del sol, irritaciones leves o como base hidratante diaria. Contiene 99% de Aloe Vera orgánico sin parabenos ni colorantes artificiales.',
-                    'precio' => 9.95,
-                    'imagen_principal' => 'imagenes/productos/aloe-vera.jpg',
-                    'categoria_id' => 1,
-                    'categoria_nombre' => 'Parafarmacia'
-                ],
-                [
-                    'id' => 4,
-                    'nombre' => 'Aceite Esencial de Lavanda',
-                    'descripcion_corta' => 'Aceite esencial 100% puro para aromaterapia',
-                    'descripcion' => 'Aceite esencial de lavanda 100% puro y natural, ideal para aromaterapia, masajes relajantes o para añadir a difusores. Ayuda a reducir el estrés, mejorar el sueño y calmar la piel irritada.',
-                    'precio' => 15.75,
-                    'imagen_principal' => 'imagenes/productos/aceite-lavanda.jpg',
-                    'categoria_id' => 4,
-                    'categoria_nombre' => 'Aromaterapia'
-                ]
-            ];
-            
-            // Buscar el producto por ID
-            foreach ($todosProductos as $p) {
-                if ($p['id'] == $id) {
-                    $producto = $p;
-                    break;
+        // Obtener el producto de la base de datos
+        $producto = null;
+        $imagenesProducto = [];
+        
+        try {
+            if (isset($GLOBALS['bd'])) {
+                $producto = $GLOBALS['bd']->obtenerProducto($id);
+                
+                // Si el producto no existe, redirigir a la lista de productos
+                if (!$producto) {
+                    header('Location: ' . $GLOBALS['configuracion']['rutaPublica'] . '/productos');
+                    exit;
                 }
+                
+                // Obtener imágenes adicionales del producto
+                $imagenesProducto = $gestorImagenes->obtenerImagenesProducto($id);
             }
-            
-            // Si el producto no existe, mostrar página 404
-            if (!$producto) {
-                header('HTTP/1.0 404 Not Found');
-                include RUTA_APLICACION . '/vistas/404.php';
-                exit;
-            }
-            
-            // Obtener productos relacionados (de la misma categoría)
-            $productosRelacionados = array_filter($todosProductos, function($p) use ($producto, $id) {
-                return $p['categoria_id'] == $producto['categoria_id'] && $p['id'] != $id;
-            });
-            
-            // Limitar a 3 productos relacionados
-            $productosRelacionados = array_slice($productosRelacionados, 0, 3);
-            
-            // Categorías de ejemplo para el menú
-            $categorias = [
-                [
-                    'id' => 1,
-                    'nombre' => 'Parafarmacia',
-                    'descripcion' => 'Productos para el cuidado de la salud',
-                    'imagen' => 'imagenes/categorias/parafarmacia.jpg'
-                ],
-                [
-                    'id' => 2,
-                    'nombre' => 'Cosméticos Naturales',
-                    'descripcion' => 'Belleza con ingredientes naturales',
-                    'imagen' => 'imagenes/categorias/cosmeticos.jpg'
-                ],
-                [
-                    'id' => 3,
-                    'nombre' => 'Suplementos Alimenticios',
-                    'descripcion' => 'Complementos para una vida saludable',
-                    'imagen' => 'imagenes/categorias/suplementos.jpg'
-                ]
+        } catch (Exception $e) {
+            // Si hay un error, usar datos de ejemplo
+            $producto = [
+                'id' => $id,
+                'nombre' => 'Producto de ejemplo ' . $id,
+                'descripcion' => 'Esta es una descripción de ejemplo para el producto ' . $id,
+                'precio' => 99.99,
+                'stock' => 10,
+                'categoria_id' => 1,
+                'imagen_principal' => 'imagenes/productos/producto_' . $id . '.txt'
             ];
+            
+            // Crear imágenes de ejemplo
+            $gestorImagenes->crearImagenesEjemplo($id);
+            
+            // Obtener imágenes adicionales del producto
+            $imagenesProducto = $gestorImagenes->obtenerImagenesProducto($id);
         }
         
-        // Título de la página con el nombre del producto
-        $tituloPagina = $producto['nombre'] . ' - NaturalShop';
+        // Obtener productos relacionados
+        $productosRelacionados = [];
         
-        // Verificar si el usuario está logueado
-        $usuarioLogueado = isset($_SESSION['usuario']);
+        try {
+            if (isset($GLOBALS['bd'])) {
+                $productosRelacionados = $GLOBALS['bd']->obtenerProductosRelacionados($producto['categoria_id'], $id, 4);
+            }
+        } catch (Exception $e) {
+            // Si hay un error, usar datos de ejemplo
+            for ($i = 1; $i <= 4; $i++) {
+                $productosRelacionados[] = [
+                    'id' => $i,
+                    'nombre' => 'Producto relacionado ' . $i,
+                    'precio' => 49.99 + $i,
+                    'imagen_principal' => 'imagenes/productos/default.jpg'
+                ];
+            }
+        }
         
-        // Cargar la vista de detalle de producto
+        // Obtener categorías para el menú
+        $categorias = [];
+        
+        try {
+            if (isset($GLOBALS['bd'])) {
+                $categorias = $GLOBALS['bd']->obtenerCategorias();
+            }
+        } catch (Exception $e) {
+            // Si hay un error, usar datos de ejemplo
+            for ($i = 1; $i <= 5; $i++) {
+                $categorias[] = [
+                    'id' => $i,
+                    'nombre' => 'Categoría ' . $i
+                ];
+            }
+        }
+        
+        // Incluir la vista
         include RUTA_APLICACION . '/vistas/producto_detalle.php';
     }
 } 

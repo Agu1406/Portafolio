@@ -219,7 +219,7 @@ INSERT INTO `categorias` (`nombre`, `descripcion`, `slug`, `activa`, `orden`) VA
 
 -- Insertar usuario administrador
 INSERT INTO `usuarios` (`email`, `password`, `nombre`, `telefono`, `direccion`, `codigo_postal`, `ciudad`, `provincia`, `rol`) VALUES 
-('admin@naturalshop.com', '$2y$10$YourHashedPasswordHere', 'Administrador', '600123456', 'Calle Administración 1', '28001', 'Madrid', 'Madrid', 'admin');
+('admin@naturalshop.com', 'admin123', 'Administrador', '600123456', 'Calle Administración 1', '28001', 'Madrid', 'Madrid', 'admin');
 
 -- Insertar usuario de prueba
 INSERT INTO `usuarios` (`email`, `password`, `nombre`, `telefono`, `direccion`, `codigo_postal`, `ciudad`, `provincia`) VALUES 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Servidor Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .warning {
+            color: orange;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .tool-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .tool-box h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba de Servidor Web</h1>
+    <p class="success">✓ Si puedes ver esta página, el servidor web está funcionando correctamente.</p>
+    
+    <div class="tool-box">
+        <h3>Herramientas de diagnóstico</h3>
+        <ul>
+            <li><a href="test_php.php">Prueba de PHP</a> - Verifica si PHP está funcionando correctamente</li>
+            <li><a href="test_mysql.php">Prueba de MySQL</a> - Verifica la conexión a MySQL y la base de datos</li>
+            <li><a href="fix_config.php">Configuración de la base de datos</a> - Verifica y corrige la configuración</li>
+        </ul>
+    </div>
+    
+    <div class="tool-box">
+        <h3>Acceso directo a la aplicación</h3>
+        <ul>
+            <li><a href="public/index.php">Acceso directo a public/index.php</a> - Intenta acceder directamente al punto de entrada</li>
+            <li><a href="index.php">Acceso a través de index.php</a> - Accede a través del archivo de redirección principal</li>
+        </ul>
+    </div>
+    
+    <h2>Posibles problemas y soluciones</h2>
+    <div>
+        <h3 class="warning">Si PHP no funciona:</h3>
+        <ul>
+            <li>Verifica que PHP esté instalado y configurado correctamente.</li>
+            <li>Asegúrate de que el módulo PHP esté habilitado en el servidor web.</li>
+            <li>Reinicia el servidor web.</li>
+        </ul>
+        
+        <h3 class="warning">Si MySQL no funciona:</h3>
+        <ul>
+            <li>Verifica que el servidor MySQL esté en ejecución.</li>
+            <li>Comprueba que las credenciales (usuario y contraseña) sean correctas.</li>
+            <li>Asegúrate de que la base de datos 'manosalaolla' exista.</li>
+            <li>Verifica que las tablas necesarias estén creadas.</li>
+        </ul>
+        
+        <h3 class="warning">Si la aplicación no carga:</h3>
+        <ul>
+            <li>Verifica que el módulo mod_rewrite de Apache esté habilitado.</li>
+            <li>Comprueba que los archivos .htaccess tengan los permisos correctos.</li>
+            <li>Asegúrate de que la configuración de la URL base sea correcta.</li>
+            <li>Verifica que todos los archivos necesarios existan y sean legibles.</li>
+        </ul>
+    </div>
+</body>
+</html> 

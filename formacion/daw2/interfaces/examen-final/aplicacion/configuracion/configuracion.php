@@ -17,26 +17,26 @@ function cargarConfiguracionBD() {
         throw new Exception('Archivos de configuración de base de datos no encontrados');
     }
     
-    // Cargar el archivo XML
-    $xml = new DOMDocument();
-    $xml->load($rutaXML);
+    // Cargar el archivo XML usando SimpleXML directamente
+    libxml_use_internal_errors(true);
+    $configXML = simplexml_load_file($rutaXML);
     
-    // Validar contra el esquema XSD
-    if (!$xml->schemaValidate($rutaXSD)) {
-        throw new Exception('El archivo de configuración de la base de datos no es válido');
+    if ($configXML === false) {
+        $errors = libxml_get_errors();
+        libxml_clear_errors();
+        throw new Exception('Error al cargar el XML: ' . $errors[0]->message);
     }
     
-    // Convertir XML a array asociativo
-    $configXML = simplexml_load_file($rutaXML);
+    // Convertir XML a array asociativo con conversión explícita de tipos
     $configBD = [
         'tipo' => (string)$configXML->Tipo,
         'servidor' => (string)$configXML->Servidor,
-        'puerto' => (int)$configXML->Puerto,
+        'puerto' => intval($configXML->Puerto),
         'nombre' => (string)$configXML->Nombre,
         'usuario' => (string)$configXML->Usuario,
         'clave' => (string)$configXML->Clave,
         'charset' => (string)$configXML->Charset,
-        'activada' => (bool)$configXML->Activada
+        'activada' => filter_var($configXML->Activada, FILTER_VALIDATE_BOOLEAN)
     ];
     
     return $configBD;

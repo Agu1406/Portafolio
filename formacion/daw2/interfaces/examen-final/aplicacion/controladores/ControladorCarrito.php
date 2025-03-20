@@ -80,6 +80,9 @@ class ControladorCarrito {
             }
         }
         
+        // Pasar los productos del carrito a la vista
+        $productosDetalle = $productosCarrito;
+        
         // Obtener categorías para el menú
         $categorias = [];
         if (isset($GLOBALS['bd'])) {
@@ -109,7 +112,7 @@ class ControladorCarrito {
     public function agregar($productoId, $cantidad = 1) {
         // Validar parámetros
         if (!$productoId || !is_numeric($productoId) || $cantidad < 1) {
-            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/carrito');
+            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/publico/carrito');
             exit;
         }
         
@@ -129,7 +132,7 @@ class ControladorCarrito {
         }
         
         if (!$productoExiste) {
-            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/carrito');
+            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/publico/carrito');
             exit;
         }
         
@@ -148,7 +151,7 @@ class ControladorCarrito {
         }
         
         // Redirigir al carrito
-        header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/carrito');
+        header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/publico/carrito');
         exit;
     }
     
@@ -161,7 +164,7 @@ class ControladorCarrito {
     public function actualizar($productoId, $cantidad) {
         // Validar parámetros
         if (!$productoId || !is_numeric($productoId) || !is_numeric($cantidad)) {
-            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/carrito');
+            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/publico/carrito');
             exit;
         }
         
@@ -171,7 +174,7 @@ class ControladorCarrito {
         
         // Verificar si el carrito existe
         if (!isset($_SESSION['carrito'])) {
-            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/carrito');
+            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/publico/carrito');
             exit;
         }
         
@@ -184,7 +187,7 @@ class ControladorCarrito {
         }
         
         // Redirigir al carrito
-        header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/carrito');
+        header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/publico/carrito');
         exit;
     }
     
@@ -196,7 +199,7 @@ class ControladorCarrito {
     public function eliminar($productoId) {
         // Validar parámetros
         if (!$productoId || !is_numeric($productoId)) {
-            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/carrito');
+            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/publico/carrito');
             exit;
         }
         
@@ -205,7 +208,7 @@ class ControladorCarrito {
         
         // Verificar si el carrito existe
         if (!isset($_SESSION['carrito'])) {
-            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/carrito');
+            header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/publico/carrito');
             exit;
         }
         
@@ -215,7 +218,7 @@ class ControladorCarrito {
         }
         
         // Redirigir al carrito
-        header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/carrito');
+        header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/publico/carrito');
         exit;
     }
     
@@ -227,7 +230,7 @@ class ControladorCarrito {
         $_SESSION['carrito'] = [];
         
         // Redirigir al carrito
-        header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/carrito');
+        header('Location: ' . $GLOBALS['configuracion']['rutaBase'] . '/publico/carrito');
         exit;
     }
 } 

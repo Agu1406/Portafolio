@@ -34,11 +34,29 @@ class CarritoControlador {
                 $subtotal = $producto['precio'] * $item['cantidad'];
                 $total += $subtotal;
                 
+                // Determinar el nombre de la imagen basado en el nombre del producto
+                $nombreImagen = 'default.jpg';
+                switch(strtolower($producto['nombre'])) {
+                    case 'aceite esencial de lavanda':
+                        $nombreImagen = 'aceite-lavanda.jpg';
+                        break;
+                    case 'vitamina c 1000mg':
+                        $nombreImagen = 'vitamina-c.jpg';
+                        break;
+                    case 'crema hidratante natural':
+                        $nombreImagen = 'crema-hidratante.jpg';
+                        break;
+                    case 'gel de aloe vera':
+                        $nombreImagen = 'aloe-vera.jpg';
+                        break;
+                }
+                $rutaImagen = 'imagenes/productos/' . $nombreImagen;
+                
                 $productosDetalle[] = [
                     'id' => $productoId,
                     'nombre' => $producto['nombre'],
                     'precio' => $producto['precio'],
-                    'imagen' => $producto['imagen_principal'] ?? 'imagenes/productos/default.jpg',
+                    'imagen' => $rutaImagen,
                     'cantidad' => $item['cantidad'],
                     'subtotal' => $subtotal
                 ];

@@ -2,6 +2,63 @@
 <html lang="es">
 <head>
     <?php include RUTA_APLICACION . '/vistas/componentes/header.php'; ?>
+    <style>
+        /* Estilos para las imágenes del producto */
+        .producto-imagen-principal {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            text-align: center;
+            background-color: #fff;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .producto-imagen-principal img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .producto-miniaturas {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .producto-miniatura {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+        }
+        
+        .producto-miniatura img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .producto-miniatura.active {
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+        
+        .producto-miniatura:hover {
+            border-color: #007bff;
+        }
+    </style>
 </head>
 <body>
     <!-- Contenido principal -->
@@ -10,9 +67,9 @@
             <!-- Migas de pan -->
             <nav aria-label="breadcrumb" class="mb-4">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/productos">Productos</a></li>
-                    <li class="breadcrumb-item"><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/productos?categoria=<?php echo $producto['categoria_id']; ?>"><?php echo htmlspecialchars($producto['categoria_nombre']); ?></a></li>
+                    <li class="breadcrumb-item"><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/productos">Productos</a></li>
+                    <li class="breadcrumb-item"><a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/productos?categoria=<?php echo $producto['categoria_id']; ?>"><?php echo htmlspecialchars($producto['categoria_nombre']); ?></a></li>
                     <li class="breadcrumb-item active" aria-current="page"><?php echo htmlspecialchars($producto['nombre']); ?></li>
                 </ol>
             </nav>
@@ -21,24 +78,58 @@
                 <!-- Imágenes del producto -->
                 <div class="col-md-6 mb-4">
                     <div class="producto-imagen-principal mb-3">
-                        <img src="<?php echo $GLOBALS['configuracion']['rutaPublica']; ?>/<?php echo isset($producto['imagen_principal']) ? $producto['imagen_principal'] : 'imagenes/productos/default.jpg'; ?>" class="img-fluid" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                        <?php 
+                        $rutaImagen = isset($producto['imagen_principal']) ? $producto['imagen_principal'] : 'imagenes/productos/default.jpg';
+                        $rutaCompleta = $GLOBALS['configuracion']['rutaPublica'] . '/' . $rutaImagen;
+                        
+                        // Verificar si es un archivo de imagen o un archivo de texto
+                        $extension = strtolower(pathinfo($rutaImagen, PATHINFO_EXTENSION));
+                        $esImagen = in_array($extension, ['jpg', 'jpeg', 'png', 'gif']);
+                        
+                        if ($esImagen):
+                        ?>
+                        <img src="<?php echo $rutaCompleta; ?>" class="img-fluid" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                        <?php else: ?>
+                        <div class="text-center p-4 bg-light">
+                            <i class="fas fa-image fa-4x text-muted mb-3"></i>
+                            <p class="mb-0">Imagen no disponible</p>
+                            <p class="small text-muted">Producto: <?php echo htmlspecialchars($producto['nombre']); ?></p>
+                        </div>
+                        <?php endif; ?>
                     </div>
                     
-                    <!-- Miniaturas (simuladas, en un caso real vendrían de la base de datos) -->
+                    <!-- Miniaturas de imágenes adicionales -->
+                    <?php if (!empty($imagenesProducto)): ?>
                     <div class="producto-miniaturas">
+                        <!-- Imagen principal como miniatura -->
                         <div class="producto-miniatura active">
-                            <img src="<?php echo $GLOBALS['configuracion']['rutaPublica']; ?>/<?php echo isset($producto['imagen_principal']) ? $producto['imagen_principal'] : 'imagenes/productos/default.jpg'; ?>" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                            <?php if ($esImagen): ?>
+                            <img src="<?php echo $rutaCompleta; ?>" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                            <?php else: ?>
+                            <div class="text-center p-2 bg-light">
+                                <i class="fas fa-image text-muted"></i>
+                            </div>
+                            <?php endif; ?>
                         </div>
+                        
+                        <!-- Imágenes adicionales -->
+                        <?php foreach ($imagenesProducto as $imagen): 
+                        $rutaImagenAdicional = $GLOBALS['configuracion']['rutaPublica'] . '/' . $imagen['ruta'];
+                        $extensionAdicional = strtolower(pathinfo($imagen['ruta'], PATHINFO_EXTENSION));
+                        $esImagenAdicional = in_array($extensionAdicional, ['jpg', 'jpeg', 'png', 'gif']);
+                        ?>
                         <div class="producto-miniatura">
-                            <img src="<?php echo $GLOBALS['configuracion']['rutaPublica']; ?>/imagenes/productos/miniatura1.jpg" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                            <?php if ($esImagenAdicional): ?>
+                            <img src="<?php echo $rutaImagenAdicional; ?>" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                            <?php else: ?>
+                            <div class="text-center p-2 bg-light">
+                                <i class="fas fa-image text-muted"></i>
+                            </div>
+                            <?php endif; ?>
                         </div>
-                        <div class="producto-miniatura">
-                            <img src="<?php echo $GLOBALS['configuracion']['rutaPublica']; ?>/imagenes/productos/miniatura2.jpg" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
-                        </div>
-                        <div class="producto-miniatura">
-                            <img src="<?php echo $GLOBALS['configuracion']['rutaPublica']; ?>/imagenes/productos/miniatura3.jpg" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
-                        </div>
+                        <?php endforeach; ?>
                     </div>
+                    <?php endif; ?>
                 </div>
                 
                 <!-- Información del producto -->
@@ -86,7 +177,7 @@
                         </div>
                     </div>
                     
-                    <form action="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/carrito/agregar" method="post" class="mb-4">
+                    <form action="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/carrito/agregar" method="post" class="mb-4">
                         <input type="hidden" name="idProducto" value="<?php echo $producto['id']; ?>">
                         
                         <div class="row g-3 align-items-center mb-3">
@@ -282,10 +373,10 @@
                                     </div>
                                     <div class="card-footer bg-white border-top-0">
                                         <div class="d-flex justify-content-between">
-                                            <a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/producto/detalle?id=<?php echo $productoRelacionado['id']; ?>" class="btn btn-sm btn-outline-primary">
+                                            <a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/producto/detalle?id=<?php echo $productoRelacionado['id']; ?>" class="btn btn-sm btn-outline-primary">
                                                 <i class="fas fa-eye"></i> Ver detalles
                                             </a>
-                                            <form action="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/carrito/agregar" method="post">
+                                            <form action="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/carrito/agregar" method="post">
                                                 <input type="hidden" name="idProducto" value="<?php echo $productoRelacionado['id']; ?>">
                                                 <input type="hidden" name="cantidad" value="1">
                                                 <button type="submit" class="btn btn-sm btn-primary">
@@ -304,7 +395,7 @@
             <div class="alert alert-danger">
                 <i class="fas fa-exclamation-circle me-2"></i> El producto no existe o ha sido eliminado.
             </div>
-            <a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/productos" class="btn btn-primary">
+            <a href="<?php echo $GLOBALS['configuracion']['rutaBase']; ?>/publico/productos" class="btn btn-primary">
                 <i class="fas fa-arrow-left me-2"></i> Volver a productos
             </a>
         <?php endif; ?>
@@ -315,24 +406,96 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Manejo de miniaturas
+            // Seleccionar todas las miniaturas y la imagen principal
             const miniaturas = document.querySelectorAll('.producto-miniatura');
-            const imagenPrincipal = document.querySelector('.producto-imagen-principal img');
+            const imagenPrincipal = document.querySelector('.producto-imagen-principal');
             
-            if (miniaturas.length > 0 && imagenPrincipal) {
-                miniaturas.forEach(miniatura => {
-                    miniatura.addEventListener('click', function() {
-                        // Quitar clase active de todas las miniaturas
-                        miniaturas.forEach(m => m.classList.remove('active'));
+            // Añadir evento click a cada miniatura
+            miniaturas.forEach(miniatura => {
+                miniatura.addEventListener('click', function() {
+                    // Quitar la clase active de todas las miniaturas
+                    miniaturas.forEach(m => m.classList.remove('active'));
+                    
+                    // Añadir la clase active a la miniatura clickeada
+                    this.classList.add('active');
+                    
+                    // Verificar si la miniatura contiene una imagen o un div de placeholder
+                    const miniaturaImg = this.querySelector('img');
+                    const miniaturaPlaceholder = this.querySelector('div.text-center');
+                    
+                    // Verificar si la imagen principal contiene una imagen o un div de placeholder
+                    const imagenPrincipalImg = imagenPrincipal.querySelector('img');
+                    const imagenPrincipalPlaceholder = imagenPrincipal.querySelector('div.text-center');
+                    
+                    if (miniaturaImg && imagenPrincipalImg) {
+                        // Si ambos son imágenes, actualizar la src de la imagen principal
+                        imagenPrincipalImg.src = miniaturaImg.src;
                         
-                        // Añadir clase active a la miniatura clickeada
-                        this.classList.add('active');
+                        // Activar el zoom si existe
+                        if (typeof activarZoom === 'function') {
+                            activarZoom();
+                        }
+                    } else if (miniaturaPlaceholder && imagenPrincipalImg) {
+                        // Si la miniatura es un placeholder pero la principal es una imagen,
+                        // reemplazar la imagen principal con un placeholder
+                        const nuevoPlaceholder = document.createElement('div');
+                        nuevoPlaceholder.className = 'text-center p-4 bg-light';
+                        nuevoPlaceholder.innerHTML = `
+                            <i class="fas fa-image fa-4x text-muted mb-3"></i>
+                            <p class="mb-0">Imagen no disponible</p>
+                            <p class="small text-muted">Producto: ${imagenPrincipalImg.alt}</p>
+                        `;
                         
-                        // Cambiar la imagen principal
-                        const nuevaImagen = this.querySelector('img').getAttribute('src');
-                        imagenPrincipal.setAttribute('src', nuevaImagen);
-                    });
+                        imagenPrincipal.innerHTML = '';
+                        imagenPrincipal.appendChild(nuevoPlaceholder);
+                    } else if (miniaturaImg && imagenPrincipalPlaceholder) {
+                        // Si la miniatura es una imagen pero la principal es un placeholder,
+                        // reemplazar el placeholder con una imagen
+                        const nuevaImagen = document.createElement('img');
+                        nuevaImagen.src = miniaturaImg.src;
+                        nuevaImagen.alt = miniaturaImg.alt;
+                        nuevaImagen.className = 'img-fluid';
+                        
+                        imagenPrincipal.innerHTML = '';
+                        imagenPrincipal.appendChild(nuevaImagen);
+                        
+                        // Activar el zoom si existe
+                        if (typeof activarZoom === 'function') {
+                            activarZoom();
+                        }
+                    }
+                    // Si ambos son placeholders, no hacemos nada
                 });
+            });
+            
+            // Función para activar el zoom en la imagen principal
+            function activarZoom() {
+                const imagenPrincipalImg = imagenPrincipal.querySelector('img');
+                if (!imagenPrincipalImg) return;
+                
+                imagenPrincipalImg.style.transition = 'transform 0.3s ease';
+                
+                imagenPrincipalImg.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.5)';
+                    this.style.cursor = 'zoom-in';
+                });
+                
+                imagenPrincipalImg.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width;
+                    const y = (e.clientY - rect.top) / rect.height;
+                    
+                    this.style.transformOrigin = `${x * 100}% ${y * 100}%`;
+                });
+                
+                imagenPrincipalImg.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+            
+            // Activar el zoom inicialmente si hay una imagen
+            if (imagenPrincipal.querySelector('img')) {
+                activarZoom();
             }
             
             // Manejo de cantidad

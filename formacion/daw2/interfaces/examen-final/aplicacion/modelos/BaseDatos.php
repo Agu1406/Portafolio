@@ -17,12 +17,11 @@ class BaseDatos {
      */
     public function __construct() {
         try {
-            // Obtener la instancia de conexión
             $this->conexion = ConexionBD::obtenerInstancia();
         } catch (Exception $e) {
             // Registrar el error y relanzar la excepción
-            error_log('Error al conectar con la base de datos: ' . $e->getMessage());
-            throw new Exception('Error de conexión a la base de datos');
+            error_log('Error al obtener la conexión a la base de datos: ' . $e->getMessage());
+            throw $e;
         }
     }
     
@@ -267,6 +266,12 @@ class BaseDatos {
                 
                 // Eliminar la contraseña del array antes de devolverlo
                 unset($usuario['password']);
+                
+                // Asegurarnos de que el rol esté presente
+                if (!isset($usuario['rol'])) {
+                    $usuario['rol'] = 'cliente'; // Por defecto es cliente si no tiene rol asignado
+                }
+                
                 return $usuario;
             }
             
@@ -332,6 +337,144 @@ class BaseDatos {
             return $stmt->execute();
         } catch (Exception $e) {
             error_log('Error al registrar usuario: ' . $e->getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Actualiza los datos de un usuario
+     * 
+     * @param int $id ID del usuario
+     * @param string $nombre Nombre completo
+     * @param string $telefono Teléfono (opcional)
+     * @param string $direccion Dirección
+     * @param string $codigoPostal Código postal
+     * @param string $ciudad Ciudad
+     * @param string $provincia Provincia
+     * @return bool True si la actualización fue exitosa, false en caso contrario
+     */
+    public function actualizarUsuario($id, $nombre, $telefono, $direccion, $codigoPostal, $ciudad, $provincia) {
+        try {
+            $stmt = $this->conexion->prepare("
+                UPDATE usuarios SET 
+                    nombre = :nombre,
+                    telefono = :telefono,
+                    direccion = :direccion,
+                    codigo_postal = :codigo_postal,
+                    ciudad = :ciudad,
+                    provincia = :provincia,
+                    fecha_actualizacion = NOW()
+                WHERE id = :id
+            ");
+            
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+            $stmt->bindParam(':telefono', $telefono, PDO::PARAM_STR);
+            $stmt->bindParam(':direccion', $direccion, PDO::PARAM_STR);
+            $stmt->bindParam(':codigo_postal', $codigoPostal, PDO::PARAM_STR);
+            $stmt->bindParam(':ciudad', $ciudad, PDO::PARAM_STR);
+            $stmt->bindParam(':provincia', $provincia, PDO::PARAM_STR);
+            
+            return $stmt->execute();
+        } catch (Exception $e) {
+            error_log('Error al actualizar usuario: ' . $e->getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Inserta un nuevo pedido en la base de datos
+     */
+    public function insertarPedido($datos) {
+        try {
+            $sql = "INSERT INTO pedidos (codigo, usuario_id, estado, metodo_pago, subtotal, impuestos, 
+                    gastos_envio, descuento, total, nombre_envio, direccion_envio, codigo_postal_envio, 
+                    ciudad_envio, provincia_envio, telefono_envio, notas, fecha_pedido) 
+                    VALUES (:codigo, :usuario_id, :estado, :metodo_pago, :subtotal, :impuestos, 
+                    :gastos_envio, :descuento, :total, :nombre_envio, :direccion_envio, :codigo_postal_envio, 
+                    :ciudad_envio, :provincia_envio, :telefono_envio, :notas, NOW())";
+            
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->execute($datos);
+            
+            return $this->conexion->lastInsertId();
+        } catch (PDOException $e) {
+            throw new Exception("Error al insertar el pedido: " . $e->getMessage());
+        }
+    }
+    
+    /**
+     * Inserta un detalle de pedido en la base de datos
+     */
+    public function insertarDetallePedido($datos) {
+        try {
+            $sql = "INSERT INTO detalles_pedido (pedido_id, producto_id, cantidad, precio_unitario, subtotal) 
+                    VALUES (:pedido_id, :producto_id, :cantidad, :precio_unitario, :subtotal)";
+            
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->execute($datos);
+            
+            return true;
+        } catch (PDOException $e) {
+            throw new Exception("Error al insertar el detalle del pedido: " . $e->getMessage());
+        }
+    }
+    
+    /**
+     * Obtiene los pedidos de un usuario
+     */
+    public function obtenerPedidosUsuario($usuarioId) {
+        try {
+            $sql = "SELECT p.*, 
+                    (SELECT COUNT(*) FROM detalles_pedido dp WHERE dp.pedido_id = p.id) as total_productos
+                    FROM pedidos p 
+                    WHERE p.usuario_id = :usuario_id 
+                    ORDER BY p.fecha_pedido DESC";
+            
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->bindParam(':usuario_id', $usuarioId, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            throw new Exception("Error al obtener los pedidos del usuario: " . $e->getMessage());
+        }
+    }
+    
+    /**
+     * Obtiene los detalles de un pedido específico
+     */
+    public function obtenerDetallesPedido($pedidoId) {
+        try {
+            $sql = "SELECT dp.*, p.nombre as nombre_producto, p.imagen_principal 
+                    FROM detalles_pedido dp 
+                    JOIN productos p ON dp.producto_id = p.id 
+                    WHERE dp.pedido_id = :pedido_id";
+            
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->bindParam(':pedido_id', $pedidoId, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            throw new Exception("Error al obtener los detalles del pedido: " . $e->getMessage());
+        }
+    }
+    
+    /**
+     * Ejecuta una consulta SQL y devuelve los resultados
+     * 
+     * @param string $sql Consulta SQL a ejecutar
+     * @param array $params Parámetros para la consulta (opcional)
+     * @return array|false Resultados de la consulta o false en caso de error
+     */
+    public function query($sql, $params = []) {
+        try {
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->execute($params);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            error_log('Error al ejecutar la consulta: ' . $e->getMessage());
             return false;
         }
     }
