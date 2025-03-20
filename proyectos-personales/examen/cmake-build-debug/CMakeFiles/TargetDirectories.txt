@@ -1,3 +1,0 @@
-C:/Users/agust/Documents/Grado Superior/Portafolio/proyectos-personales/examen/cmake-build-debug/CMakeFiles/examen.dir
-C:/Users/agust/Documents/Grado Superior/Portafolio/proyectos-personales/examen/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/agust/Documents/Grado Superior/Portafolio/proyectos-personales/examen/cmake-build-debug/CMakeFiles/rebuild_cache.dir
