@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="img/avatar.png" alt="Avatar" class="avatar" onerror="this.src='img/avatar.svg'">
+            <h1>Nombre Apellido</h1>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#transformaciones" class="nav-link">CSS - TF</a></li>
+                <li><a href="#transiciones" class="nav-link">CSS - TS</a></li>
+                <li><a href="#animaciones-css" class="nav-link">CSS</a></li>
+                <li><a href="#animaciones-canvas" class="nav-link">Canvas</a></li>
+                <li><a href="#animaciones-svg" class="nav-link">SVG</a></li>
+            </ul>
+        </nav>
+        
+        <div id="transformaciones" class="section">
+            <h2>Transformaciones (CSS - TF)</h2>
+            <div class="buttons">
+                <button id="btn-escalar">Escalar</button>
+                <button id="btn-desplazar">Desplazar</button>
+                <button id="btn-rotar">Rotar</button>
+            </div>
+            <div class="billar-container">
+                <div class="bola-billar">
+                    <span class="numero">8</span>
+                </div>
+            </div>
+            <div class="descripcion">
+                <p id="transformacion-texto">Haz clic en un botón para aplicar una transformación</p>
+            </div>
+        </div>
+        
+        <div id="transiciones" class="section">
+            <h2>Transiciones (CSS - TS)</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-front">Hover Me</div>
+                    <div class="card-back">¡Sorpresa!</div>
+                </div>
+                <div class="card">
+                    <div class="card-front">Click Me</div>
+                    <div class="card-back">¡Gracias!</div>
+                </div>
+                <div class="card">
+                    <div class="card-front">Touch Me</div>
+                    <div class="card-back">¡Genial!</div>
+                </div>
+            </div>
+            <div class="descripcion">
+                <p>Pasa el cursor o haz clic en las tarjetas para ver diferentes transiciones</p>
+            </div>
+        </div>
+        
+        <div id="animaciones-css" class="section">
+            <h2>Animaciones CSS (CSS)</h2>
+            <div class="animation-container">
+                <div class="sol"></div>
+                <div class="luna"></div>
+                <div class="estrella estrella1"></div>
+                <div class="estrella estrella2"></div>
+                <div class="estrella estrella3"></div>
+                <div class="nube nube1"></div>
+                <div class="nube nube2"></div>
+            </div>
+            <div class="controles">
+                <button id="btn-play-animation">Play</button>
+                <button id="btn-pause-animation">Pause</button>
+                <button id="btn-reset-animation">Reset</button>
+            </div>
+            <div class="descripcion">
+                <p>Animación CSS del ciclo día/noche utilizando keyframes</p>
+            </div>
+        </div>
+        
+        <div id="animaciones-canvas" class="section">
+            <h2>Animaciones Canvas (Canvas)</h2>
+            <canvas id="miCanvas" width="300" height="200"></canvas>
+            <div class="controles">
+                <button id="btn-start-canvas">Iniciar</button>
+                <button id="btn-stop-canvas">Detener</button>
+                <button id="btn-reset-canvas">Reiniciar</button>
+            </div>
+            <div class="descripcion">
+                <p>Animación de lluvia de partículas usando Canvas y JavaScript</p>
+            </div>
+        </div>
+        
+        <div id="animaciones-svg" class="section">
+            <h2>Animaciones SVG (SVG)</h2>
+            <div class="svg-container">
+                <svg id="miSVG" width="300" height="200" viewBox="0 0 300 200">
+                    <circle id="circulo" cx="50" cy="50" r="30" fill="red"/>
+                    <rect id="rectangulo" x="150" y="50" width="60" height="40" fill="blue"/>
+                    <polygon id="triangulo" points="50,150 80,120 20,120" fill="green"/>
+                    <path id="camino" d="M150,120 C180,180 220,180 250,120" fill="none" stroke="purple" stroke-width="3"/>
+                </svg>
+            </div>
+            <div class="controles">
+                <button id="btn-animar-svg">Animar</button>
+                <button id="btn-detener-svg">Detener</button>
+                <button id="btn-reiniciar-svg">Reiniciar</button>
+            </div>
+            <div class="descripcion">
+                <p>Animaciones de formas básicas usando SVG</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Nombre Apellido - Todos los derechos reservados</p>
+            <p>Observaciones: Este proyecto demuestra diferentes técnicas de animación web sin usar frameworks.</p>
+        </footer>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html> 
