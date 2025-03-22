@@ -6,6 +6,8 @@
     <title>Animaciones Web</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/ejercicio-2.css">
+    <link rel="stylesheet" href="css/ejercicio-3.css">
 </head>
 <body>
     <div class="container">
@@ -24,62 +26,85 @@
             </ul>
         </nav>
         
-        <div id="transformaciones" class="section">
+        <div id="transformaciones" class="seccion">
             <h2>Transformaciones (CSS - TF)</h2>
-            <div class="buttons">
-                <button id="btn-escalar">Escalar</button>
-                <button id="btn-desplazar">Desplazar</button>
-                <button id="btn-rotar">Rotar</button>
-            </div>
-            <div class="billar-container">
+            <!-- Contenedor de los botones -->
+            <button class="boton-transformacion" id="btn-escalar">Escalado</button>
+            <button class="boton-transformacion" id="btn-desplazar">Desplazamiento</button>
+            <button class="boton-transformacion" id="btn-rotar">Rotación</button>
+            <!-- Contenedor de la bola de billar -->
+            <div class="contenedor-billar">
+                <!-- Bola de billar -->
                 <div class="bola-billar">
+                    <!-- Número de la bola de billar -->
                     <span class="numero">8</span>
                 </div>
             </div>
+            <!-- Descripción de la animación -->
             <div class="descripcion">
-                <p id="transformacion-texto">Haz clic en un botón para aplicar una transformación</p>
+                <p id="transformacion-texto">¡Haz click en un botón para aplicar una transformación!</p>
             </div>
         </div>
         
-        <div id="transiciones" class="section">
+        <div id="transiciones" class="seccion">
             <h2>Transiciones (CSS - TS)</h2>
-            <div class="cards-container">
-                <div class="card">
-                    <div class="card-front">Hover Me</div>
-                    <div class="card-back">¡Sorpresa!</div>
+            <!-- Bola/Mesa de billar -->
+            <div class="contenedor-transicion">
+                <div class="elemento-billar"></div>
+            </div>
+            <div class="descripcion">
+                <p>Haz click en la bola para transformarla en una mesa de billar</p>
+            </div>
+
+            <!-- Contenedor de tarjetas -->
+            <div class="contenedor-tarjetas">
+                <!-- Primera tarjeta: efecto hover -->
+                <div class="tarjeta">
+                    <div class="cara-frontal">A</div>
+                    <div class="cara-trasera">1</div>
                 </div>
-                <div class="card">
-                    <div class="card-front">Click Me</div>
-                    <div class="card-back">¡Gracias!</div>
+                <!-- Segunda tarjeta: efecto click -->
+                <div class="tarjeta">
+                    <div class="cara-frontal">B</div>
+                    <div class="cara-trasera">2</div>
                 </div>
-                <div class="card">
-                    <div class="card-front">Touch Me</div>
-                    <div class="card-back">¡Genial!</div>
+                <!-- Tercera tarjeta: efecto hover -->
+                <div class="tarjeta">
+                    <div class="cara-frontal">C</div>
+                    <div class="cara-trasera">3</div>
                 </div>
             </div>
             <div class="descripcion">
-                <p>Pasa el cursor o haz clic en las tarjetas para ver diferentes transiciones</p>
+                <p>Pasa el ratón por encima de las tarjetas 1 y 3, y haz click en la tarjeta 2</p>
             </div>
         </div>
         
-        <div id="animaciones-css" class="section">
-            <h2>Animaciones CSS (CSS)</h2>
-            <div class="animation-container">
-                <div class="sol"></div>
-                <div class="luna"></div>
-                <div class="estrella estrella1"></div>
-                <div class="estrella estrella2"></div>
-                <div class="estrella estrella3"></div>
-                <div class="nube nube1"></div>
-                <div class="nube nube2"></div>
+        <div id="animaciones-css" class="seccion">
+            <h2>Animaciones CSS</h2>
+            <!-- Mesa de billar -->
+            <div class="mesa-billar">
+                <!-- Taco de billar -->
+                <div class="taco-billar">
+                    <div class="mango-taco"></div>
+                    <div class="palo-taco"></div>
+                    <div class="punta-taco"></div>
+                </div>
+                <!-- Bolas -->
+                <div class="bola-blanca">
+                    <span class="numero-bola">7</span>
+                </div>
+                <div class="bola-roja">
+                    <span class="numero-bola">2</span>
+                </div>
+                <!-- Mensaje de carambola -->
+                <div class="mensaje-carambola">¡Carambola!</div>
+                <!-- Imagen publicitaria -->
+                <div class="publicidad"></div>
             </div>
+            <!-- Controles -->
             <div class="controles">
-                <button id="btn-play-animation">Play</button>
-                <button id="btn-pause-animation">Pause</button>
-                <button id="btn-reset-animation">Reset</button>
-            </div>
-            <div class="descripcion">
-                <p>Animación CSS del ciclo día/noche utilizando keyframes</p>
+                <button class="boton-control" id="reanudar">Reanudar</button>
+                <button class="boton-control" id="parar">Parar</button>
             </div>
         </div>
         
