@@ -7,85 +7,21 @@
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
     // ==================================================
-    // CONFIGURACIÓN GENERAL
+    // EJERCICIO 3: ANIMACIONES
     // ==================================================
     
-    // Ya no necesitamos gestionar el menú de navegación con JavaScript,
-    // ahora usamos el selector :target de CSS
-    
-    // ==================================================
-    // EJERCICIO 2: TRANSFORMACIONES
-    // ==================================================
-    
-    // Referencias a elementos
-    const bolaElement = document.querySelector('.bola-billar');
-    const numero = document.querySelector('.numero');
-    const textoTransformacion = document.getElementById('transformacion-texto');
-    
-    // Botones de transformación
-    const btnEscalar = document.getElementById('btn-escalar');
-    const btnDesplazar = document.getElementById('btn-desplazar');
-    const btnRotar = document.getElementById('btn-rotar');
-    
-    // Estado original de la bola
-    let estadoOriginal = true;
-    
-    /**
-     * Función para restablecer la bola a su estado original
-     */
-    function resetearBola() {
-        bolaElement.style.transform = 'none';
-        numero.style.transform = 'none';
-        estadoOriginal = true;
-    }
-    
-    // Evento para escalar
-    btnEscalar.addEventListener('click', function() {
-        resetearBola();
-        if (estadoOriginal) {
-            bolaElement.style.transform = 'scale(1.5)';
-            textoTransformacion.textContent = 'Transformación: Escalado (scale)';
-            estadoOriginal = false;
-        } else {
-            resetearBola();
-        }
+    const mesaBillar = document.querySelector('.mesa-billar');
+    const btnReanudar = document.getElementById('reanudar');
+    const btnParar = document.getElementById('parar');
+
+    // Función para reanudar la animación
+    btnReanudar.addEventListener('click', function() {
+        mesaBillar.classList.remove('pausado');
     });
-    
-    // Evento para desplazar
-    btnDesplazar.addEventListener('click', function() {
-        resetearBola();
-        if (estadoOriginal) {
-            bolaElement.style.transform = 'translateX(80px)';
-            textoTransformacion.textContent = 'Transformación: Desplazamiento (translate)';
-            estadoOriginal = false;
-        } else {
-            resetearBola();
-        }
-    });
-    
-    // Evento para rotar
-    btnRotar.addEventListener('click', function() {
-        resetearBola();
-        if (estadoOriginal) {
-            bolaElement.style.transform = 'translateX(50px) rotate(360deg)';
-            numero.style.transform = 'rotate(360deg)';
-            textoTransformacion.textContent = 'Transformación: Rotación y desplazamiento';
-            estadoOriginal = false;
-        } else {
-            resetearBola();
-        }
-    });
-    
-    // ==================================================
-    // EJERCICIO 3: TRANSICIONES
-    // ==================================================
-    
-    // Referencia a la segunda tarjeta (la que se activa con clic)
-    const secondCard = document.querySelectorAll('.card')[1];
-    
-    // Evento de clic para la segunda tarjeta
-    secondCard.addEventListener('click', function() {
-        this.classList.toggle('clicked');
+
+    // Función para pausar la animación
+    btnParar.addEventListener('click', function() {
+        mesaBillar.classList.add('pausado');
     });
     
     // ==================================================
