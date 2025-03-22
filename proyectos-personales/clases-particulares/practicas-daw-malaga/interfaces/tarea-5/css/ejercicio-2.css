@@ -130,6 +130,10 @@
     transition: opacity 0.5s ease;
 }
 
+/* ===============================================
+* Ejercicio N.º2.3: Tra
+============================================== */
+
 /* Estado hover: transformación a mesa de billar */
 .bola-billar-2:hover {
     width: 200px;
