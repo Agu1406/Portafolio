@@ -1,0 +1,308 @@
+/*Damos formato a la mesa de billar*/
+.contenedor-billar-3 {
+  width: 90%;
+  height: 240px;
+  margin: 0 auto;
+  /* Espacio interior */
+  background-color: green;
+  border-radius: 5px;
+  /*Conseguimos que el tapete se centre respecto a su contenedor*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+/* Damos formato al tapete */
+#tapete {
+  position: relative;
+  width: 95%; /*Le damos una altura y una anchura*/
+  height: 180px;
+  margin: 0 auto; /*Lo centramos respecto a la mesa de billar*/
+  /*Le damos color al fondo, al borde y lo redondeamos*/
+  background-color: #0a5c36;
+  border: 3px solid red;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden; /* Para que nada salga del tapete */
+  box-shadow: 0 0 0 3px #5d2906; /* Sombra que simula el marco de madera */
+  /*animación para cambiar el fondo del tapete por una imagen*/
+  animation: mostrar-publicidad 5s linear 7s forwards;
+  animation-play-state: running;
+}
+
+/* Damos formato al taco */
+.taco {
+  /*Posicionamos el taco dentro del tapete*/
+  position: absolute;
+  left: 30px;
+  top: 150px;
+  /*Hacemos que el taco sea flexible*/
+  display: flex;
+  /*Sus 3 contenedores se posicionan en columna*/
+  flex-direction: row;
+  /*Inclinamos los 3 contenedores 15 grados*/
+  transform: rotate(-15deg) translateY(-50%);
+  /*Hacemos que el taco pivote sobre su extremo izquiero*/
+  transform-origin: left center;
+  /* Trancisión animación suave */
+  transition: transform 0.3s ease;
+  animation: mover-taco 3s linear, preparar-taco 2s ease-in-out 3s forwards;
+
+  animation-play-state: running;
+}
+/*Asignamos tamaño y color al taco, mango y punta*/
+.taco .mango {
+  width: 15px;
+  height: 7px;
+  background-color: black;
+}
+.taco .palo {
+  width: 35px;
+  height: 7px;
+  background-color: blanchedalmond;
+}
+.taco .punta {
+  width: 5px;
+  height: 7px;
+  background-color: blue;
+  /*Hacemos que la punta sea redondeada*/
+  border-radius: 5px;
+}
+
+/*Le damos formato a las bolas*/
+.bola {
+  position: absolute;
+  /*Hacemos que las bolas sean redondas*/
+  border-radius: 50px;
+  /*Le asignamos un tamaño*/
+  width: 20px;
+  height: 20px;
+  /*Conseguimos que la estiqueta span del numero se centre*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*damos formato al número*/
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/*Damos color y posicionamos la bola blanca*/
+#bola-blanca {
+  background-color: white;
+  color: black; /* Color del número */
+  top: 80px;
+  left: 155px;
+  transform: translateY(-50%);
+  animation: mover-bola-blanca 2s linear forwards;
+  animation-delay: 5s;
+
+  animation-play-state: running;
+}
+
+/*Damos color y posicionamos la bola roja*/
+#bola-roja {
+  background-color: red;
+  top: 30px;
+  left: 260px;
+  transform: translateY(-50%);
+  /*Animación de la bola roja*/
+  animation: mover-bola-roja1 3s ease-out 7s forwards,
+    mover-bola-roja2 2s ease-out 10s forwards;
+  /*empieza 7 segundos de retraso*/
+  animation-play-state: running;
+}
+
+/*Centramos los controles*/
+.controles {
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+/*Damos extilo a los botones*/
+.controles button {
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/*Damos estilo al mensaje*/
+
+/**************************
+ ANIMACIONES CON KEYFRAMES
+ ****************************/
+
+.mensaje {
+  /*Posicionamos el mensaje en el tapete*/
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*Nos aseguramos que sea visible respecto a los demás elementos*/
+  z-index: 10;
+  /*damos formato al mensaje*/
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+  /*Hacemos que el mensaje no aparezca inicialmente*/
+  opacity: 0;
+  /*La animación del mensaje dura 4 segundos*/
+  animation: animar-mensaje 4s linear;
+  /*empezará con un restraso de 7 segundos*/
+  animation-delay: 7s;
+
+  animation-play-state: running;
+}
+
+.publicidad img {
+  width: 400px;
+  height: 240px;
+  opacity: 0;
+  animation: mostrar-publicidad 3s linear 10s forwards;
+}
+
+/*DAMOS ANIMACIÓN AL TACO*/
+@keyframes mover-taco {
+  0% {
+    /*El taco se desplaz primero verticalmente*/
+    top: 150px;
+    left: 30px;
+  }
+  50% {
+    top: 100px;
+    left: 30px;
+  }
+  100% {
+    /*Luego horizontalmente*/
+    top: 100px;
+    left: 90px;
+  }
+}
+
+@keyframes preparar-taco {
+  0% {
+    top: 100px;
+    left: 90px;
+  }
+  30% {
+    top: 100px;
+    left: 100px; /* Se mueve ligeramente hacia adelante */
+  }
+  60% {
+    top: 100px;
+    left: 90px; /* Vuelve hacia atrás */
+  }
+  100% {
+    top: 100px;
+    left: 110px;
+  }
+}
+
+/*ANIMACIÓN DE LA BOLA BLANCA*/
+@keyframes mover-bola-blanca {
+  0% {
+    top: 80px;
+    left: 155px;
+  }
+  100% {
+    top: 34px;
+    left: 240px;
+  }
+}
+
+/* ANIMACIONES PARA EL MENSAJE*/
+@keyframes animar-mensaje {
+  0% {
+    /*aparece el mensaje y cambia de olor*/
+    opacity: 1;
+    color: red;
+    background-color: white;
+  }
+  60% {
+    /*El mensaje se mueve y cambia de escala*/
+    transform: translate(-40%, -40%) scale(1.5);
+  }
+
+  80% {
+    /*Se mueve otra vez, cambia de escala y cambia de color*/
+    transform: translate(-80%, -80%) scale(0.8);
+    color: white;
+    background-color: red;
+  }
+  100% {
+    /*El mensaje desaparece*/
+    opacity: 0;
+  }
+}
+
+/*ANIMACIÓN BOLA ROJA*/
+
+@keyframes mover-bola-roja1 {
+  0% {
+    /*Empieza la animación con sus valores iniciales*/
+    top: 30px;
+    left: 260px;
+    transform: scale(1);
+  }
+
+  100% {
+    /*Rebota contra la primera banda*/
+    top: 120px;
+    left: 97%;
+    transform: scale(0.6); /*cambia la escala*/
+  }
+}
+
+@keyframes mover-bola-roja2 {
+  0% {
+    top: 120px;
+    left: 95%;
+    transform: scale(0.6);
+  }
+
+  100% {
+    /*Rebota contra la segunda banda*/
+    top: 90%;
+    left: 80%;
+    transform: scale(1); /*escala original*/
+    background-color: blue; /*Cambia de color*/
+    color: white;
+  }
+}
+
+/*ANIMACIÓN PUBLICIDAD*/
+
+/*@keyframes mostrar-publicidad {
+
+    0%{
+        opacity: 0;
+    }
+
+    60%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0.2;
+    }
+    
+}*/
+
+@keyframes mostrar-publicidad {
+  0% {
+    background-color: #0a5c36;
+  }
+
+  100% {
+    background-image: url(../imagenes/imagen02.webp);
+    background-position: center;
+    background-size: cover;
+  }
+}

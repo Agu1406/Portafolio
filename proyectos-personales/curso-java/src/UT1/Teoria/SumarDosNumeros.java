@@ -1,4 +1,4 @@
-package UT1.EjerciciosClase;
+package UT1.Teoria;
 
 import java.util.Scanner;
 

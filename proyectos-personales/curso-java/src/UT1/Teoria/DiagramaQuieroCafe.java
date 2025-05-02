@@ -1,6 +1,6 @@
-package UT1.CodigoDiagramas.Ejemplos;
+package UT1.Teoria;
 
-public class QuieroCafe {
+public class DiagramaQuieroCafe {
     public static void main(String[] args) {
         // Variable que avisa si hay cafe hecho, "true" es sí, "false" es no.
         boolean hayCafeHecho = true;

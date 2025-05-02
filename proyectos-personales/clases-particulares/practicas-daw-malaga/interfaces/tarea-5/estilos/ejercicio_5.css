@@ -1,0 +1,54 @@
+/* =========================================
+   ESTILOS PARA LA ANIMACIÓN SVG DE BILLAR
+   ========================================= */
+
+/* Contenedor SVG - Asegura que el SVG se muestre correctamente */
+svg {
+    display: block;
+    margin: 20px auto; /* Centra el SVG en la página */
+    max-width: 100%; /* Hace que sea responsive */
+}
+
+/* Mesa de billar - Define los colores y bordes */
+.mesa {
+    fill: #0a5c36; /* Color verde oscuro para el tapete */
+    stroke: #ff0000; /* Borde rojo brillante */
+    stroke-width: 10; /* Grosor del borde */
+}
+
+/* Trayectoria de la bola amarilla - Línea punteada que muestra el recorrido */
+.trayectoria {
+    fill: none; /* Sin relleno */
+    stroke: #ff0000; /* Línea roja */
+    stroke-width: 2; /* Grosor de la línea */
+    stroke-dasharray: 5,5; /* Hace que la línea sea punteada */
+    opacity: 0.7; /* Semitransparente */
+}
+
+/* Estilos base para todas las bolas */
+.bola-svg {
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    stroke: #000000; /* Borde negro para todas las bolas */
+    stroke-width: 2; /* Grosor del borde */
+}
+
+/* Colores específicos para cada bola */
+.bola-roja-svg {
+    fill: #ff0000; /* Rojo brillante */
+}
+
+.bola-azul-svg {
+    fill: #0000ff; /* Azul brillante */
+}
+
+.bola-amarilla-svg {
+    fill: #ffff00; /* Amarillo brillante */
+}
+
+/* Texto decorativo de la jugada */
+.texto-jugada {
+    fill: #ffffff; /* Color blanco */
+    font-family: Arial, sans-serif; /* Tipo de letra */
+    font-size: 24px; /* Tamaño de letra */
+    font-weight: bold; /* Letra en negrita */
+} 

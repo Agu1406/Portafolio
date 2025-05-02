@@ -1,4 +1,4 @@
-package UT2.EjerciciosCondicionales;
+package UT3.Teoria.EjerciciosCondicionales;
 
 import java.util.Scanner;
 

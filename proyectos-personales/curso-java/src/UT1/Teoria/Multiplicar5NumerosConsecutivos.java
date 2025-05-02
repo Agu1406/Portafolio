@@ -1,7 +1,6 @@
-package ENTREGAS;
+package UT1.Teoria;
 
 import java.util.Scanner;
-
 /***
  * Ejercicio N.5 del UT1 - Programa que pide 5 veces al usuario un número
  * y multiplica consecuentemente esos números.
