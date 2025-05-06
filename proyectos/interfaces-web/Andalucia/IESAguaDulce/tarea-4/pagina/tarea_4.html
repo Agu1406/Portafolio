@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de la Tarea 4</title>
+
+    <style>
+        *{
+            margin: 0;
+        }
+
+        #contenido-audios, #contenido-videos{
+            display: none;
+        }
+
+        header{
+            background-color: #f3c14e;
+        }
+
+        header h1{
+            text-align: center;
+            color: #172e44;
+            padding: 20px 0;
+        }
+
+        nav ul{
+            background-color: #f3c14e;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            background-color: #172e44;
+            border-left: 1px solid #dde0e4;
+            border-radius: 30px 30px 0 0;
+            display: inline;
+            padding: 20px 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav ul li a{
+            color: #dde0e4;
+            font-size: 1.4em;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover{
+            color: #f3c14e !important;
+        }
+
+        nav ul > li:first-child{
+            background-color: #FFFFFF;
+            border-left: none;
+        }
+
+        nav ul > li:first-child a{
+            color: #172e44;
+        }
+
+        main{
+            margin: 20px;
+        }
+
+        h2{
+            margin: 20px 0;
+        }
+
+        p, ul, table{
+            font-size: 1.2em;
+        }
+
+        span{
+            font-weight: bolder;
+            color: #172e44;
+        }
+
+        table{
+            border-collapse: collapse;
+        }
+
+        th, td{
+            border:1px solid black;
+            padding: 5px;
+        }
+
+        table thead tr :first-child{
+            background-color: #FFFFFF;
+            border: none;
+        }
+
+        table td{
+            text-align: center;
+        }
+
+        table thead tr th{
+            background-color: #01B3A7;
+            padding: 10px;
+        }
+
+        table tbody tr th{
+            background-color: #d1f5b5;
+            padding: 10px;
+            text-align: left;
+        }
+
+        tr:nth-child(2n){
+            background-color: #dde0e4;
+        }
+
+
+    </style>
+
+    <script type="text/javascript">
+
+        function mostrarOcultarContenido(tipoPestana){
+            let tipos = ["imagenes", "audios", "videos"];
+
+            tipos.forEach(function(tipo) {
+                if(tipo == tipoPestana){
+                    document.getElementById("enlace-"+tipo).style.color = "#172e44";
+                    document.getElementById("pestana-"+tipo).style.backgroundColor = "#FFFFFF";
+                    document.getElementById("contenido-"+tipo).style.display = "block";
+                }else{
+                    document.getElementById("enlace-"+tipo).style.color = "#dde0e4";
+                    document.getElementById("pestana-"+tipo).style.backgroundColor = "#172e44";
+                    document.getElementById("contenido-"+tipo).style.display = "none";
+                }
+            });
+        }
+
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1>Informe de la tarea 4</h1>
+    </header>
+    <nav>
+        <ul>
+            <li id="pestana-imagenes"><a id="enlace-imagenes" class="enlace" href="#" onclick="mostrarOcultarContenido('imagenes')">IMÁGENES</a></li>
+            <li id="pestana-audios"><a id="enlace-audios" class="enlace" href="#" onclick="mostrarOcultarContenido('audios')">AUDIOS</a></li>
+            <li id="pestana-videos"><a id="enlace-videos" class="enlace" href="#" onclick="mostrarOcultarContenido('videos')">VIDEOS</a></li>
+        </ul>
+    </nav>
+    <main>
+        <!-- ********** IMÁGENES ********** -->
+        <div id="contenido-imagenes">
+            <h2><u>Aportación en el foro</u></h2>
+            <img src="../capturas/aportacion_foro.png" alt="Aportación en el foro">
+
+            <h2><u>Logo</u></h2>
+            <p><a href="URL_DEL_LOGO">URL del logotipo (creación propia o descargado)</a></p>
+
+            <h2><u>Imagen</u></h2>
+            <p><span>Licencias creative commons: </span>Licencia CC BY-SA 4.0</p>
+            <p><span>Justificación (restricciones): </span>Esta licencia permite compartir y adaptar el material siempre que se dé crédito apropiado y se comparta bajo la misma licencia.</p>
+
+            <h2><u>Internet</u></h2>
+            <p><a href="URL_IMAGEN_INTERNET">URL de la imagen (no la URL de la página web principal de la imagen)</a></p>
+
+            <h2><u>Composición</u></h2>
+            <img src="../capturas/propiedades_composicion.png" alt="Captura de pantalla con las propiedades de la imagen">
+
+            <h2><u>Composición 1000</u></h2>
+            <p><span>Medida 1: </span>Reducción del ancho a 1000px manteniendo la proporción</p>
+            <p><span>Medida 2: </span>Optimización de la compresión JPEG al 85% para equilibrar calidad y tamaño</p>
+
+            <h2><u>Composición 400</u></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Formato del recurso</th>
+                        <th>Dimensiones (Ancho x Alto)</th>
+                        <th>Tamaño (KB o MB)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>logo.svg</th>
+                        <td>SVG</td>
+                        <td>Vector escalable</td>
+                        <td>XX KB</td>
+                    </tr>
+                    <tr>
+                        <th>1_Imagen.jpg</th>
+                        <td>JPEG</td>
+                        <td>XXXXxXXXX</td>
+                        <td>XX KB</td>
+                    </tr>
+                    <tr>
+                        <th>2_Internet.jpg</th>
+                        <td>JPEG</td>
+                        <td>XXXXxXXXX</td>
+                        <td>XX KB</td>
+                    </tr>
+                    <tr>
+                        <th>4_Composicion.jpg</th>
+                        <td>JPEG</td>
+                        <td>XXXXxXXXX</td>
+                        <td>XX KB</td>
+                    </tr>
+                    <tr>
+                        <th>5_Composicion_1000.jpg</th>
+                        <td>JPEG</td>
+                        <td>1000xXXXX</td>
+                        <td>XX KB</td>
+                    </tr>
+                    <tr>
+                        <th>6_Composicion_400.jpg</th>
+                        <td>JPEG</td>
+                        <td>400xXXXX</td>
+                        <td>XX KB</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2><u>Composición en GIMP</u></h2>
+            <p><span>Software utilizado: </span>GIMP 2.10</p>
+            
+            <h2><u>Capas de la composición (3_Composicion_Gimp.xfc)</u></h2>
+            <ul>
+                <li>Capa 1: Imagen propia (1_Imagen.xxx)</li>
+                <li>Capa 2: Imagen de internet (2_Internet.xxx)</li>
+                <li>Capa 3: Nombre del producto deportivo</li>
+                <li>Capa 4: Eslogan</li>
+                <li>Capa 5: "Creado por [Tu Nombre]"</li>
+                <li>Capa 6: Licencia Creative Commons</li>
+            </ul>
+
+            <h2><u>Composición (4_Composicion.xxx)</u></h2>
+            <img src="../capturas/propiedades_composicion.png" alt="Captura de pantalla con las propiedades de la imagen">
+
+            <h2><u>Composición 1000 (5_Composicion_1000.xxx)</u></h2>
+            <p><span>Medida 1: </span>Redimensionamiento a 1000px de ancho manteniendo proporción</p>
+            <p><span>Medida 2: </span>Optimización de compresión para web</p>
+
+            <h2><u>Composición 400 (6_Composicion_400.xxx)</u></h2>
+            <p>Modificaciones realizadas:</p>
+            <ul>
+                <li>Cambio de color en el nombre y apellidos</li>
+                <li>Adición del texto "400px"</li>
+                <li>Redimensionamiento a 400px de ancho</li>
+                <li>Optimización para web</li>
+            </ul>
+
+            <h2><u>Tabla de especificaciones</u></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Formato del recurso</th>
+                        <th>Dimensiones (Ancho x Alto)</th>
+                        <th>Tamaño (KB o MB)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>4_Composicion.xxx</th>
+                        <td>[formato]</td>
+                        <td>[dimensiones]</td>
+                        <td>[tamaño]</td>
+                    </tr>
+                    <tr>
+                        <th>5_Composicion_1000.xxx</th>
+                        <td>[formato]</td>
+                        <td>1000px x [alto]</td>
+                        <td>[tamaño]</td>
+                    </tr>
+                    <tr>
+                        <th>6_Composicion_400.xxx</th>
+                        <td>[formato]</td>
+                        <td>400px x [alto]</td>
+                        <td>[tamaño]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ********** AUDIOS ********** -->
+        <div id="contenido-audios">
+            <h2><u>Información sobre la canción</u></h2>
+            <p><span>Tipo de licencia: </span>(poner licencia)</p>
+            <p><a href="">URL de la canción (no la URL de la página web principal de la canción)</a></p>
+            
+            <h2><u>Información sobre 1_audio.xxx y 2_audio.xxx</u></h2>
+            <p><span>Justifica las decisiones tomadas en los audios (formatos y optimización de ficheros): </span>(poner justificación)</p>
+            
+            <h2><u>Tabla</u></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Formato del recurso</th>
+                        <th>Tamaño (KB o MB). Usar la misma unidad de medida</th>
+                        <th>Duración (expresado en segundos)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Canción descargada</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>1_audio.xxx</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>2_audio.xxx</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
+
+        <!-- ********** VIDEOS ********** -->
+        <div id="contenido-videos">
+            <h2><u>Información sobre la composición del video</u></h2>
+            <ul>
+                <li><span>Nombre de la aplicación utilizada para la edición del video: </span>(poner software)</li>
+                <li><span>Nombre de las transiciones que has utilizado: </span>(poner transiciones)</li>
+                <li>
+                    <span>Captura de pantalla con la línea de tiempo del proyecto:</span>
+                    <br><br>
+                    <img src="" alt="Linea del tiempo del proyecto">
+                </li>
+            </ul>
+            
+            <h2><u>Información sobre 1_video.xxx y 2_video.xxx</u></h2>
+            <p><span>Justifica las decisiones tomadas en los videos (formatos y optimización de ficheros): </span>(poner justificación)</p>
+            
+            <h2><u>Tabla</u></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Formato del recurso</th>
+                        <th>Tamaño (KB o MB). Usar la misma unidad de medida</th>
+                        <th>Duración (expresado en segundos)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Video (Presentación)</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Video (Capas)</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Video (Lienzo)</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>1_video.xxx</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>2_video.xxx</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+</body>
+</html>
