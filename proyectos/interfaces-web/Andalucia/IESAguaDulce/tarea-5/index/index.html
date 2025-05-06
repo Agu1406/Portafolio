@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAFAEL MORONES BURGOS. TAREA 05</title>
+    <link rel="stylesheet" href="../estilos/estilo.css" />
+    <link rel="stylesheet" href="../estilos/ejercicio_2.css" />
+    <link rel="stylesheet" href="../estilos/ejercicio_3.css" />
+    <link rel="stylesheet" href="../estilos/ejercicio_4.css" />
+    <link rel="stylesheet" href="../estilos/ejercicio_5.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <header>
+        <img src="../imagenes/fotoPerfil.jpg" alt="avatar" />
+        <h1>RAFAEL MORONES BURGOS. TAREA 05</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="#transformaciones" class="nav-link">CSS - TF</a></li>
+          <li><a href="#transiciones" class="nav-link">CSS - TS</a></li>
+          <li><a href="#animaciones-css" class="nav-link">CSS</a></li>
+          <li><a href="#animaciones-canvas" class="nav-link">Canvas</a></li>
+          <li><a href="#animaciones-svg" class="nav-link">SVG</a></li>
+        </ul>
+      </nav>
+      <!-- =========================================
+      EJERCICIO N.º2: Transformaciones CSS-TF
+      ========================================== -->
+      <div id="transformaciones" class="seccion">
+        <!-- Contenedor de los botones -->
+        <button class="boton-transformacion" id="btn-escalar">Escalado</button>
+        <button class="boton-transformacion" id="btn-desplazar">
+          Desplazar
+        </button>
+        <button class="boton-transformacion" id="btn-rotar">Rotación</button>
+        <!-- Contenedor de la bola de billar -->
+        <div class="contenedor-billar">
+          <!-- Bola de billar -->
+          <div class="bola-billar">
+            <!-- Número de la bola de billar -->
+            <span class="numero">8</span>
+          </div>
+        </div>
+        <!-- Descripción de la animación -->
+        <div class="descripcion">
+          <p id="transformacion-texto"></p>
+        </div>
+      </div>
+      <!-- =========================================
+      EJERCICIO N.º2: Transiciones CSS-TS
+      ========================================== -->
+      <div id="transiciones" class="seccion">
+        <!-- Contenedor de la bola de billar -->
+        <div class="contenedor-billar-2">
+          <!-- Bola de billar -->
+          <div class="bola-billar-2">
+            <!-- Número de la bola de billar -->
+            <span class="numero-2">8</span>
+          </div>
+        </div>
+        <!-- Descripción de la animación -->
+        <div class="descripcion">
+          <p id="transformacion-texto"></p>
+        </div>
+      </div>
+      <!-- =========================================
+      EJERCICIO N.º3: Animaciones CSS
+      ========================================== -->
+      <div id="animaciones-css" class="seccion">
+        <!-- Contenedor billar -->
+        <div class="contenedor-billar-3">
+          <!-- Tapete billar -->
+          <div id="tapete">
+            <!-- Taco billar con 3 divs internos -->
+            <div class="taco" id="taco-billar">
+              <div class="mango"></div>
+              <div class="palo"></div>
+              <div class="punta"></div>
+            </div>
+            <!-- Bolas billar (blanca y roja) -->
+            <div class="bola" id="bola-blanca">
+              <span>7</span>
+            </div>
+            <div class="bola" id="bola-roja">
+              <span>2</span>
+            </div>
+            <!-- Mensaje de carambola -->
+            <div class="mensaje" id="mensaje">CARAMBOLA!</div>
+          </div>
+          <!-- Controles -->
+          <div class="controles">
+            <button id="pausar" class="btn-control">⏸️</button>
+            <button id="reanudar" class="btn-control">▶️</button>
+          </div>
+        </div>
+      </div>
+      <!-- =========================================
+      EJERCICIO N.º4: Animaciones SVG
+      ========================================== -->
+      <div id="animaciones-canvas" class="seccion">
+        <!--Un div contendrá el espacio para dibujar y el botón-->
+        <div class="canvas-contenedor">
+          <!-- Defininos el espacio o lienzo donde se dibujarán los elementos -->
+          <!--Le damos un ancho y un alto inicial al lienzo en pixeles-->
+          <canvas id="billar-canva" width="500" height="230">
+            Su navegador no soporta el elemento canvas.
+          </canvas>
+          <!-- Creamos el botón para comenzar la animación -->
+          <button id="iniciar-animacion">Golpear Bola</button>
+        </div>
+      </div>
+      <!-- =========================================
+      EJERCICIO N.º5: Animaciones SVG - Mesa de Billar
+      ============================================== -->
+      <div id="animaciones-svg" class="seccion">
+        <!-- 
+            ESTRUCTURA BÁSICA DEL SVG
+            - width="800": El lienzo tiene 800 píxeles de ancho
+            - height="400": El lienzo tiene 400 píxeles de alto
+            - xmlns: Necesario para definir que es un SVG válido
+        -->
+        <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+          <!-- 
+              MESA DE BILLAR
+              - x="50" y="50": La mesa empieza a 50 píxeles del borde
+              - width="700" height="300": Dimensiones de la mesa
+              - rx="20": Hace que las esquinas sean redondeadas
+              - La clase 'mesa' en CSS define el color verde y el borde rojo
+          -->
+          <rect class="mesa" x="50" y="50" width="700" height="300" rx="20" />
+
+          <!-- 
+              TRAYECTORIA DE LA BOLA AMARILLA
+              - Es una línea punteada roja que muestra el camino
+              - M400 200: Punto de inicio
+              - Q500 100: Punto de control para la curva
+              - 600 200: Punto final de la curva
+              - L700 200: Línea recta hasta el final
+          -->
+          <path
+            id="trayectoria"
+            d="M400 200 Q500 100 600 200 L700 200"
+            class="trayectoria"
+          />
+
+          <!-- 
+              BOLA ROJA
+              - Posición inicial: cx="150" cy="250"
+              - r="15": Radio de la bola
+              - Tiene dos animaciones:
+                  1. Movimiento horizontal (cx) de 150 a 285
+                  2. Movimiento vertical (cy) de 250 a 200
+              - Ambas animaciones empiezan con el clic y duran 0.5 segundos
+              - fill="freeze" hace que se quede en la posición final
+          -->
+          <circle
+            id="bola-roja-svg"
+            class="bola-svg bola-roja-svg"
+            cx="150"
+            cy="250"
+            r="15"
+          >
+            <animate
+              id="roja-x"
+              attributeName="cx"
+              from="150"
+              to="285"
+              begin="click"
+              dur="0.5s"
+              fill="freeze"
+            />
+            <animate
+              id="roja-y"
+              attributeName="cy"
+              from="250"
+              to="200"
+              begin="click"
+              dur="0.5s"
+              fill="freeze"
+            />
+          </circle>
+
+          <!-- 
+              BOLA AZUL
+              - Posición inicial: cx="300" cy="200"
+              - Se mueve cuando la bola roja termina (bola-roja-svg.click+0.5s)
+              - Tiene dos animaciones:
+                  1. Movimiento horizontal hasta x=650
+                  2. Movimiento vertical en arco (sube y baja)
+              - El movimiento en arco usa:
+                  - values="200;150;200": Posiciones Y (normal, arriba, normal)
+                  - calcMode="spline": Para que el movimiento sea suave
+                  - keySplines: Define la curva del movimiento
+          -->
+          <circle
+            id="bola-azul-svg"
+            class="bola-svg bola-azul-svg"
+            cx="300"
+            cy="200"
+            r="15"
+          >
+            <animate
+              id="azul-x"
+              attributeName="cx"
+              from="300"
+              to="650"
+              begin="bola-roja-svg.click+0.5s"
+              dur="1s"
+              fill="freeze"
+            />
+            <animate
+              id="azul-y"
+              attributeName="cy"
+              values="200;150;200"
+              begin="bola-roja-svg.click+0.5s"
+              dur="1s"
+              fill="freeze"
+              calcMode="spline"
+              keyTimes="0;0.5;1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+          </circle>
+
+          <!-- 
+              BOLA AMARILLA
+              - Se mueve automáticamente al cargar la página
+              - Sigue el camino definido en el path
+              - La animación dura 2 segundos
+              - El path es relativo a su posición inicial
+          -->
+          <circle class="bola-svg bola-amarilla-svg" r="15">
+            <animateMotion
+              dur="2s"
+              begin="0s"
+              fill="freeze"
+              path="M400 200 Q500 100 600 200 L700 200"
+            />
+          </circle>
+
+          <!-- 
+              TEXTO DECORATIVO
+              - Centrado en x=400
+              - Debajo de la mesa en y=350
+              - text-anchor="middle" lo centra horizontalmente
+          -->
+          <text x="400" y="350" class="texto-jugada" text-anchor="middle">
+            JUGADA 13
+          </text>
+        </svg>
+      </div>
+      <footer>
+        <p>@ 2024 RAFAEL MORONES BURGOS - Todos los derechos reservados</p>
+        <p><!-- Aquí apuntar obersaciones si existiese alguna --></p>
+      </footer>
+    </div>
+    <script src="../js/ejercicio_3.js"></script>
+    <script src="../js/ejercicio_4.js"></script>
+  </body>
+</html>
