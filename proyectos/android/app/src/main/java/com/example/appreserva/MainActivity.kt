@@ -29,46 +29,72 @@ import java.time.format.DateTimeFormatter
 import androidx.compose.foundation.clickable
 import com.google.android.datatransport.Event
 import java.time.LocalDateTime.now
+import androidx.compose.ui.res.painterResource
+import androidx.compose.foundation.Image
 
+/**
+ * Actividad principal de la aplicación de reservas.
+ * Gestiona la interfaz principal y la navegación entre pantallas.
+ * @author Ana, Manuel y Aina
+ */
 class MainActivity : ComponentActivity() {
+    /**
+     * Método de ciclo de vida onCreate. Inicializa la UI con Jetpack Compose.
+     */
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            // Se aplica el tema personalizado de la app
             AppReservaTheme {
+                // Llama a la función principal de la app
                 ReservaFacilApp()
             }
         }
     }
 }
 
+/**
+ * Composable principal que gestiona la navegación y el estado global de la app.
+ * @author Ana, Manuel y Aina
+ */
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun ReservaFacilApp() {
+    // Controlador de navegación para cambiar entre pantallas
     val navController = rememberNavController()
+    // ViewModel que gestiona el estado de la UI
     val viewModel: ReservaViewModel = viewModel()
+    // Estado observable de la UI
     val uiState by viewModel.uiState.collectAsState()
 
+    // Definición de las rutas de navegación
     NavHost(navController = navController, startDestination = "lista") {
         composable("lista") {
+            // Pantalla de lista de negocios
             ListaNegocios(
                 negocios = uiState.negocios,
                 isLoading = uiState.isLoading,
                 error = uiState.error,
                 onNegocioClick = { negocio ->
+                    // Navega a la pantalla de detalle al pulsar un negocio
                     navController.navigate("detalle/${negocio.id}")
                 }
             )
         }
         
         composable("detalle/{negocioId}") { backStackEntry ->
+            // Obtiene el ID del negocio seleccionado
             val negocioId = backStackEntry.arguments?.getString("negocioId")
+            // Busca el negocio correspondiente
             val negocio = uiState.negocios.find { it.id == negocioId }
             
             if (negocio != null) {
+                // Muestra la pantalla de detalle del negocio
                 DetalleNegocio(
                     negocio = negocio,
                     onReservar = { nombreCliente, telefono, email, fecha, personas, notas ->
+                        // Llama a la función para crear una reserva
                         viewModel.crearReserva(
                             negocioId = negocio.id,
                             nombreCliente = nombreCliente,
@@ -78,6 +104,7 @@ fun ReservaFacilApp() {
                             numPersonas = personas,
                             notas = notas
                         )
+                        // Navega a la pantalla de reservas
                         navController.navigate("reservas")
                     },
                     onBack = { navController.popBackStack() }
@@ -86,10 +113,12 @@ fun ReservaFacilApp() {
         }
         
         composable("reservas") {
+            // Pantalla de reservas del usuario
             MisReservas(
                 reservas = uiState.reservas,
                 negocios = uiState.negocios,
                 onCancelarReserva = { reservaId ->
+                    // Cancela la reserva seleccionada
                     viewModel.cancelarReserva(reservaId)
                 },
                 onBack = { navController.popBackStack() }
@@ -98,6 +127,15 @@ fun ReservaFacilApp() {
     }
 }
 
+/**
+ * Muestra la lista de negocios disponibles para reservar.
+ * Incluye manejo de carga, errores y selección de negocio.
+ * @param negocios Lista de negocios a mostrar
+ * @param isLoading Indica si se están cargando los datos
+ * @param error Mensaje de error si ocurre alguno
+ * @param onNegocioClick Acción al pulsar un negocio
+ * @author Ana, Manuel y Aina
+ */
 @Composable
 fun ListaNegocios(
     negocios: List<com.example.appreserva.data.model.Negocio>,
@@ -105,6 +143,7 @@ fun ListaNegocios(
     error: String?,
     onNegocioClick: (Negocio) -> Unit
 ) {
+    // Scaffold proporciona la estructura básica de la pantalla
     Scaffold(
         topBar = {
             TopAppBar(
@@ -114,6 +153,7 @@ fun ListaNegocios(
             )
         }
     ) { padding ->
+        // Contenedor principal de la pantalla
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -121,11 +161,13 @@ fun ListaNegocios(
         ) {
             when {
                 isLoading -> {
+                    // Indicador de carga
                     CircularProgressIndicator(
                         modifier = Modifier.align(Alignment.Center)
                     )
                 }
                 error != null -> {
+                    // Muestra el mensaje de error
                     Text(
                         text = error,
                         color = Color.Red,
@@ -135,10 +177,12 @@ fun ListaNegocios(
                     )
                 }
                 else -> {
+                    // Lista de negocios
                     LazyColumn(
                         modifier = Modifier.fillMaxSize()
                     ) {
                         items(negocios) { negocio ->
+                            // Tarjeta para cada negocio
                             Card(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -149,6 +193,23 @@ fun ListaNegocios(
                                 Column(
                                     modifier = Modifier.padding(16.dp)
                                 ) {
+                                    // Imagen del negocio según la categoría
+                                    val imagenRes = when (negocio.categoria) {
+                                        Categoria.PELUQUERIA -> R.drawable.peluqueria
+                                        Categoria.RESTAURANTE -> R.drawable.restaurante
+                                        Categoria.SALON_DE_UÑAS -> R.drawable.manicura
+                                        else -> R.drawable.restaurante // Imagen por defecto
+                                    }
+                                    // Muestra la imagen del negocio
+                                    Image(
+                                        painter = painterResource(id = imagenRes),
+                                        contentDescription = "Imagen del negocio",
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(160.dp)
+                                            .padding(bottom = 8.dp)
+                                    )
+                                    // Fila con el nombre y valoración
                                     Row(
                                         modifier = Modifier.fillMaxWidth(),
                                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -172,11 +233,13 @@ fun ListaNegocios(
                                         }
                                     }
                                     Spacer(modifier = Modifier.height(8.dp))
+                                    // Descripción del negocio
                                     Text(
                                         text = negocio.descripcion,
                                         style = MaterialTheme.typography.body1
                                     )
                                     Spacer(modifier = Modifier.height(4.dp))
+                                    // Fila con la ubicación
                                     Row(
                                         verticalAlignment = Alignment.CenterVertically
                                     ) {
@@ -192,6 +255,7 @@ fun ListaNegocios(
                                         )
                                     }
                                     Spacer(modifier = Modifier.height(4.dp))
+                                    // Fila con el horario
                                     Row(
                                         verticalAlignment = Alignment.CenterVertically
                                     ) {
@@ -216,6 +280,13 @@ fun ListaNegocios(
     }
 }
 
+/**
+ * Muestra la pantalla de detalle de un negocio y permite realizar una reserva.
+ * @param negocio Negocio a mostrar
+ * @param onReservar Acción al pulsar el botón de reservar
+ * @param onBack Acción al pulsar el botón de volver
+ * @author Ana, Manuel y Aina
+ */
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun DetalleNegocio(
@@ -223,6 +294,7 @@ fun DetalleNegocio(
     onReservar: (String, String, String, LocalDateTime, Int, String) -> Unit,
     onBack: () -> Unit
 ) {
+    // Estados locales para los campos del formulario de reserva
     var nombreCliente by remember { mutableStateOf("") }
     var telefonoCliente by remember { mutableStateOf("") }
     var emailCliente by remember { mutableStateOf("") }
@@ -250,6 +322,7 @@ fun DetalleNegocio(
                 .padding(padding)
                 .padding(16.dp)
         ) {
+            // Tarjeta con la información del negocio
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 elevation = 4.dp
@@ -257,17 +330,20 @@ fun DetalleNegocio(
                 Column(
                     modifier = Modifier.padding(16.dp)
                 ) {
+                    // Título de la sección
                     Text(
                         text = "Información del negocio",
                         style = MaterialTheme.typography.h6,
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.height(8.dp))
+                    // Descripción y datos del negocio
                     Text("Descripción: ${negocio.descripcion}")
                     Text("Ubicación: ${negocio.ubicacion}")
                     Text("Teléfono: ${negocio.telefono}")
                     Text("Web: ${negocio.web}")
                     Text("Horario: ${negocio.horario}")
+                    // Fila con la valoración
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -288,6 +364,7 @@ fun DetalleNegocio(
 
             Spacer(modifier = Modifier.height(16.dp))
 
+            // Tarjeta con el formulario de reserva
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 elevation = 4.dp
@@ -295,40 +372,38 @@ fun DetalleNegocio(
                 Column(
                     modifier = Modifier.padding(16.dp)
                 ) {
+                    // Título de la sección
                     Text(
                         text = "Realizar reserva",
                         style = MaterialTheme.typography.h6,
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.height(8.dp))
-                    
+                    // Campo para el nombre del cliente
                     OutlinedTextField(
                         value = nombreCliente,
                         onValueChange = { nombreCliente = it },
                         label = { Text("Tu nombre") },
                         modifier = Modifier.fillMaxWidth()
                     )
-                    
                     Spacer(modifier = Modifier.height(8.dp))
-                    
+                    // Campo para el teléfono
                     OutlinedTextField(
                         value = telefonoCliente,
                         onValueChange = { telefonoCliente = it },
                         label = { Text("Teléfono") },
                         modifier = Modifier.fillMaxWidth()
                     )
-                    
                     Spacer(modifier = Modifier.height(8.dp))
-                    
+                    // Campo para el email
                     OutlinedTextField(
                         value = emailCliente,
                         onValueChange = { emailCliente = it },
                         label = { Text("Email") },
                         modifier = Modifier.fillMaxWidth()
                     )
-                    
                     Spacer(modifier = Modifier.height(8.dp))
-                    
+                    // Selección del número de personas
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -355,9 +430,8 @@ fun DetalleNegocio(
                             }
                         }
                     }
-                    
                     Spacer(modifier = Modifier.height(8.dp))
-                    
+                    // Campo para notas adicionales
                     OutlinedTextField(
                         value = notas,
                         onValueChange = { notas = it },
@@ -365,9 +439,8 @@ fun DetalleNegocio(
                         modifier = Modifier.fillMaxWidth(),
                         minLines = 3
                     )
-                    
                     Spacer(modifier = Modifier.height(16.dp))
-                    
+                    // Botón para reservar
                     Button(
                         onClick = { 
                             onReservar(
@@ -392,6 +465,14 @@ fun DetalleNegocio(
     }
 }
 
+/**
+ * Muestra la lista de reservas del usuario y permite cancelarlas.
+ * @param reservas Lista de reservas
+ * @param negocios Lista de negocios para mostrar información
+ * @param onCancelarReserva Acción al cancelar una reserva
+ * @param onBack Acción al pulsar el botón de volver
+ * @author Ana, Manuel y Aina
+ */
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun MisReservas(
@@ -415,6 +496,7 @@ fun MisReservas(
         }
     ) { padding ->
         if (reservas.isEmpty()) {
+            // Muestra mensaje si no hay reservas
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -438,13 +520,16 @@ fun MisReservas(
                 }
             }
         } else {
+            // Lista de reservas
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(padding)
             ) {
                 items(reservas) { reserva ->
+                    // Busca el negocio correspondiente a la reserva
                     val negocio = negocios.find { it.id == reserva.negocioId }
+                    // Tarjeta de reserva
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -464,6 +549,7 @@ fun MisReservas(
                                     style = MaterialTheme.typography.h6,
                                     fontWeight = FontWeight.Bold
                                 )
+                                // Estado de la reserva
                                 when (reserva.estado) {
                                     EstadoReserva.PENDIENTE -> {
                                         Text(
@@ -491,9 +577,8 @@ fun MisReservas(
                                     }
                                 }
                             }
-                            
                             Spacer(modifier = Modifier.height(8.dp))
-                            
+                            // Información de la reserva
                             Text("Fecha: ${reserva.fechaHora.format(
                                 DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")
                             )}")
@@ -502,7 +587,7 @@ fun MisReservas(
                             if (reserva.notas.isNotBlank()) {
                                 Text("Notas: ${reserva.notas}")
                             }
-                            
+                            // Botón para cancelar si la reserva está pendiente
                             if (reserva.estado == EstadoReserva.PENDIENTE) {
                                 Spacer(modifier = Modifier.height(8.dp))
                                 Button(

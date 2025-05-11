@@ -1,0 +1,206 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #6200ee;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+main {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+}
+/* Tarjeta de negocio */
+.negocio-card {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+.negocio-card:hover {
+    box-shadow: 0 4px 12px rgba(98,0,238,0.15);
+}
+.negocio-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px 0 0 8px;
+    margin-right: 1rem;
+}
+.negocio-info {
+    flex: 1;
+}
+.negocio-nombre {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 0.3rem 0;
+}
+.negocio-desc {
+    color: #555;
+    margin-bottom: 0.2rem;
+}
+.negocio-ubicacion, .negocio-horario {
+    font-size: 0.95rem;
+    color: #888;
+}
+/* Detalle del negocio */
+#negocio-detalle {
+    padding: 1rem 0;
+}
+.detalle-img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.detalle-titulo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.detalle-info {
+    margin-bottom: 1rem;
+}
+/* Formulario de reserva */
+#form-reserva {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-top: 1rem;
+}
+#form-reserva input, #form-reserva textarea {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+#form-reserva button {
+    background: #6200ee;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.7rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#form-reserva button:hover {
+    background: #3700b3;
+}
+.volver-btn {
+    background: #bbb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.volver-btn:hover {
+    background: #888;
+}
+
+/* Menú superior */
+#menu-superior {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background: #3700b3;
+    padding: 0.7rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.menu-btn {
+    background: #fff;
+    color: #3700b3;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(55,0,179,0.08);
+    transition: background 0.2s, color 0.2s;
+}
+.menu-btn:hover {
+    background: #6200ee;
+    color: #fff;
+}
+
+/* Selector de cantidad de personas */
+.selector-personas {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+.selector-btn {
+    background: #6200ee;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.selector-btn:hover {
+    background: #3700b3;
+}
+.selector-num {
+    font-size: 1.1rem;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Lista de reservas */
+#reservas-lista {
+    padding: 1rem 0;
+}
+.reserva-card {
+    background: #f1f1f1;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.reserva-negocio {
+    font-weight: bold;
+    color: #3700b3;
+    margin-bottom: 0.3rem;
+}
+.reserva-info {
+    color: #444;
+    margin-bottom: 0.2rem;
+}
+.reserva-cancelar-btn {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.4rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+}
+.reserva-cancelar-btn:hover {
+    background: #b71c1c;
+} 

@@ -23,6 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HolaMundoXmlActivity" android:exported="true" android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name=".BotonComposeActivity" android:exported="true" />
+        <activity android:name=".CampoEditableActivity" android:exported="true" />
     </application>
 
 </manifest>
