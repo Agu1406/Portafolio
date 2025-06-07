@@ -1,6 +1,7 @@
 package Valencia.Alicante.UA.visorImagenesL04.menuFicheros;
 
-import ClasesParticulares.L04.visorImagenesL04.pa.interfaz.ImageViewer;
+
+import Valencia.Alicante.UA.visorImagenesL04.interfaz.ImageViewer;
 
 public class Demo {
     public static void main(String[] args) {

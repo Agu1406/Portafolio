@@ -1,7 +1,9 @@
 package Valencia.Alicante.UA.visorImagenesL04.filtros;
-import ClasesParticulares.L04.visorImagenesL04.pa.imagen.OFImage;
 
-import java.awt.Color;
+
+import Valencia.Alicante.UA.visorImagenesL04.imagen.OFImage;
+
+import java.awt.*;
 
 /**
  * An image filter to remove color from an image.

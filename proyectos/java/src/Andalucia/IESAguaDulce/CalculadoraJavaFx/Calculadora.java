@@ -1,6 +1,4 @@
-package tarea09;
-
-//Librerías para poder utilizar JavaFX
+package Andalucia.IESAguaDulce.CalculadoraJavaFx;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -11,9 +9,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import net.objecthunter.exp4j.ExpressionBuilder;
-
-//Librerías específicas para evaluar expresiones exp4j
-
 /**
  * La típica calculadora básica para realizar cálculos artitméticos como la
  * suma, resta, multiplicación y división, en la que se permite el cálculo de
