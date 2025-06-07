@@ -1,0 +1,218 @@
+GUÍA DE DESARROLLO - GESTOR DE TAREAS
+====================================
+Proyecto para Convocatoria Extraordinaria DAM
+============================================
+
+ÍNDICE
+------
+1. Preparación del Entorno
+2. Actividad 1: UI Principal y Base de Datos
+3. Actividad 2: Añadir Tareas
+4. Actividad 3: Eliminar Tareas
+5. Actividad 4: Modificar Tareas
+6. Actividad 5: Realizar Llamadas
+7. Actividad 6: Exportar a Fichero
+8. Actividad 7: Backup Automático
+9. Actividad 8: Generación de APK
+
+1. PREPARACIÓN DEL ENTORNO
+-------------------------
+1.1. Crear nuevo proyecto en Android Studio:
+    - Nombre: "Gestor de Tareas"
+    - Package: com.example.convoctaoria_extraordinaria_dam
+    - Minimum SDK: API 24 (Android 7.0)
+    - Language: Java
+    - Empty Activity
+
+1.2. Configurar build.gradle (app):
+    - Añadir dependencias necesarias:
+      * androidx.appcompat
+      * com.google.android.material
+      * androidx.constraintlayout
+
+1.3. Configurar AndroidManifest.xml:
+    - Añadir permisos necesarios:
+      * CALL_PHONE
+      * READ_PHONE_STATE
+    - Configurar backup automático
+    - Declarar todas las actividades
+
+2. ACTIVIDAD 1: UI PRINCIPAL Y BASE DE DATOS
+-------------------------------------------
+En esta actividad creamos los siguientes archivos:
+
+2.1. Modelo de Datos (Primer archivo):
+    Ruta: app/src/main/java/com/example/convoctaoria_extraordinaria_dam/models/Task.java
+    Contenido:
+    - Clase Task con atributos: id, name, description, assignedPerson, phone
+    - Constructores
+    - Getters y setters
+    - Método toString()
+
+2.2. Base de Datos (Segundo archivo):
+    Ruta: app/src/main/java/com/example/convoctaoria_extraordinaria_dam/database/DatabaseHelper.java
+    Contenido:
+    - Extiende SQLiteOpenHelper
+    - Define constantes para BD
+    - Implementa onCreate() y onUpgrade()
+    - Métodos CRUD para tareas
+
+2.3. Layout Principal (Tercer archivo):
+    Ruta: app/src/main/res/layout/activity_main.xml
+    Contenido:
+    - ListView para mostrar tareas
+    - Botones para todas las acciones
+    - Diseño responsive
+
+2.4. Adaptador (Cuarto archivo):
+    Ruta: app/src/main/java/com/example/convoctaoria_extraordinaria_dam/adapters/TaskAdapter.java
+    Contenido:
+    - Extiende ArrayAdapter<Task>
+    - Personaliza la vista de cada tarea
+
+2.5. Actividad Principal (Quinto archivo):
+    Ruta: app/src/main/java/com/example/convoctaoria_extraordinaria_dam/MainActivity.java
+    Contenido:
+    - Inicialización de vistas
+    - Carga de tareas
+    - Manejo de eventos
+    - Navegación a otras actividades
+
+3. ACTIVIDAD 2: AÑADIR TAREAS
+-----------------------------
+En esta actividad creamos:
+
+3.1. Layout de Añadir (Primer archivo):
+    Ruta: app/src/main/res/layout/activity_add_task.xml
+    Contenido:
+    - Campos de texto para cada atributo
+    - Botones Guardar y Cancelar
+    - Validación de campos
+
+3.2. Actividad de Añadir (Segundo archivo):
+    Ruta: app/src/main/java/com/example/convoctaoria_extraordinaria_dam/AddTaskActivity.java
+    Contenido:
+    - Manejo del formulario
+    - Validación de datos
+    - Inserción en BD
+    - Mensajes Toast y Log
+
+4. ACTIVIDAD 3: ELIMINAR TAREAS
+------------------------------
+En esta actividad creamos:
+
+4.1. Layout de Eliminar (Primer archivo):
+    Ruta: app/src/main/res/layout/activity_delete_task.xml
+    Contenido:
+    - ListView de tareas
+    - Botones Eliminar y Cancelar
+
+4.2. Actividad de Eliminar (Segundo archivo):
+    Ruta: app/src/main/java/com/example/convoctaoria_extraordinaria_dam/DeleteTaskActivity.java
+    Contenido:
+    - Selección de tarea
+    - Confirmación de eliminación
+    - Eliminación de BD
+    - Mensajes Toast y Log
+
+5. ACTIVIDAD 4: MODIFICAR TAREAS
+-------------------------------
+En esta actividad creamos:
+
+5.1. Layout de Modificar (Primer archivo):
+    Ruta: app/src/main/res/layout/activity_edit_task.xml
+    Contenido:
+    - ListView de tareas
+    - Campos de edición
+    - Botones Guardar y Cancelar
+
+5.2. Actividad de Modificar (Segundo archivo):
+    Ruta: app/src/main/java/com/example/convoctaoria_extraordinaria_dam/EditTaskActivity.java
+    Contenido:
+    - Selección de tarea
+    - Carga de datos
+    - Actualización en BD
+    - Mensajes Toast y Log
+
+6. ACTIVIDAD 5: REALIZAR LLAMADAS
+--------------------------------
+En esta actividad creamos:
+
+6.1. Layout de Llamada (Primer archivo):
+    Ruta: app/src/main/res/layout/activity_call_task.xml
+    Contenido:
+    - ListView de tareas
+    - Botones Llamar y Cancelar
+
+6.2. Actividad de Llamada (Segundo archivo):
+    Ruta: app/src/main/java/com/example/convoctaoria_extraordinaria_dam/CallTaskActivity.java
+    Contenido:
+    - Selección de tarea
+    - Verificación de permisos
+    - Realización de llamada
+    - Mensajes Toast y Log
+
+7. ACTIVIDAD 6: EXPORTAR A FICHERO
+---------------------------------
+En esta actividad modificamos:
+
+7.1. MainActivity.java:
+    - Añadir método exportTasksToFile()
+    - Implementar exportación usando MediaStore
+    - Manejar permisos de almacenamiento
+    - Mostrar mensajes de éxito/error
+
+8. ACTIVIDAD 7: BACKUP AUTOMÁTICO
+--------------------------------
+En esta actividad creamos:
+
+8.1. Backup Agent (Primer archivo):
+    Ruta: app/src/main/java/com/example/convoctaoria_extraordinaria_dam/database/DatabaseBackupAgent.java
+    Contenido:
+    - Extiende BackupAgentHelper
+    - Configura backup de BD y preferencias
+
+8.2. Modificar AndroidManifest.xml:
+    - Añadir configuración de backup
+    - Declarar backupAgent
+
+9. ACTIVIDAD 8: GENERACIÓN DE APK
+--------------------------------
+Pasos para generar APK firmado:
+
+9.1. En Android Studio:
+    - Build -> Generate Signed Bundle/APK
+    - Seleccionar APK
+    - Crear nuevo keystore:
+      * Ruta del keystore
+      * Contraseña
+      * Alias
+      * Validez (25 años)
+    - Seleccionar release
+    - Firmar APK
+
+9.2. Instalación en dispositivo:
+    - Habilitar "Instalar apps desconocidas"
+    - Transferir APK al dispositivo
+    - Instalar
+    - Probar todas las funcionalidades
+
+NOTAS IMPORTANTES
+----------------
+1. Cada actividad debe manejar su ciclo de vida correctamente
+2. Implementar manejo de errores en todas las operaciones
+3. Documentar código con JavaDoc
+4. Usar strings.xml para todos los textos
+5. Implementar validaciones de datos
+6. Probar en diferentes versiones de Android
+
+CONSEJOS DE DESARROLLO
+---------------------
+1. Desarrollar por etapas, probando cada funcionalidad
+2. Usar Log.d() para depuración
+3. Mantener código limpio y comentado
+4. Seguir las guías de estilo de Android
+5. Implementar manejo de errores robusto
+6. Probar en dispositivo físico
+
+¿Necesitas más detalles sobre alguna parte específica? 

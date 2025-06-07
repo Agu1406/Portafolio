@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gestor de Tareas</string>
+    
+    <!-- MainActivity -->
+    <string name="title_main">Gestor de Tareas</string>
+    <string name="btn_add_task">Añadir Tarea</string>
+    <string name="btn_delete_task">Eliminar Tarea</string>
+    <string name="btn_modify_task">Modificar Tarea</string>
+    <string name="btn_call">Llamar</string>
+    <string name="btn_export">Exportar</string>
+    <string name="btn_whatsapp">WhatsApp</string>
+    <string name="export_success">Archivo exportado correctamente</string>
+    <string name="export_error">Error al exportar el archivo</string>
+    <string name="whatsapp_development">Funcionalidad en desarrollo</string>
+    
+    <!-- AddTaskActivity -->
+    <string name="title_add_task">Añadir Nueva Tarea</string>
+    <string name="hint_task_name">Nombre de la tarea</string>
+    <string name="hint_description">Descripción</string>
+    <string name="hint_assigned_person">Persona asignada</string>
+    <string name="hint_phone">Teléfono</string>
+    <string name="btn_save">Guardar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="task_added">Tarea añadida correctamente</string>
+    <string name="error_empty_fields">Por favor, complete todos los campos</string>
+    
+    <!-- DeleteTaskActivity -->
+    <string name="title_delete_task">Eliminar Tarea</string>
+    <string name="select_task_delete">Seleccione una tarea para eliminar</string>
+    <string name="confirm_delete">¿Está seguro de que desea eliminar esta tarea?</string>
+    <string name="task_deleted">Tarea eliminada correctamente</string>
+    <string name="no_task_selected">Por favor, seleccione una tarea</string>
+    
+    <!-- EditTaskActivity -->
+    <string name="title_edit_task">Modificar Tarea</string>
+    <string name="select_task_edit">Seleccione una tarea para modificar</string>
+    <string name="task_updated">Tarea actualizada correctamente</string>
+    <string name="error_update">Error al actualizar la tarea</string>
+    
+    <!-- CallTaskActivity -->
+    <string name="title_call_task">Llamar Contacto</string>
+    <string name="select_task_call">Seleccione una tarea para llamar</string>
+    <string name="error_no_phone">No hay número de teléfono disponible</string>
+    <string name="error_call_permission">Se requiere permiso para realizar llamadas</string>
+</resources>
