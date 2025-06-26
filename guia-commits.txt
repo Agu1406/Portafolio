@@ -1,5 +1,5 @@
 ﻿# Guía de Conventional Commits 📝
-
+.
 ## Estructura Básica
 tipo(alcance): descripción corta
 
