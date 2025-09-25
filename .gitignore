@@ -115,3 +115,4 @@ settings.local.json
 *.bz2
 *.rar
 
+.idea/misc.xml
