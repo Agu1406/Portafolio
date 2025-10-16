@@ -1,4 +1,4 @@
-package Andalucia.IESAguaDulce.CalculadoraJavaFx;
+package Andalucia.Almeria.IESAguaDulce.CalculadoraJavaFx;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
