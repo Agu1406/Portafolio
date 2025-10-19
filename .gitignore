@@ -116,3 +116,4 @@ settings.local.json
 *.rar
 
 .idea/misc.xml
+./desktop.ini
